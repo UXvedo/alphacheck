@@ -11,11 +11,11 @@ export function featuresEnabled(env = {}) {
 }
 
 // Engagement features (what-if slider, compare view, watchlist). Each has its own flag.
-// Hidden in production by default; shown on Vercel preview, development, and local builds.
+// On everywhere (approved Oct 14, 2026). Set a default to false to hide it in production only.
 // Force one per deploy with FLAG_SLIDER / FLAG_COMPARE / FLAG_WATCHLIST = 1 or 0.
 // To ship one to production, flip its default here to true (or set FLAG_x=1 in Vercel).
 // FEATURES_ON=0 hides these too.
-export const ENGAGEMENT_DEFAULTS = {slider: false, compare: false, watchlist: false};
+export const ENGAGEMENT_DEFAULTS = {slider: true, compare: true, watchlist: true};
 const FLAG_ENV = {slider: 'FLAG_SLIDER', compare: 'FLAG_COMPARE', watchlist: 'FLAG_WATCHLIST'};
 
 export function engagementFlags(env = {}) {

@@ -10,8 +10,9 @@ import {apyAlpha, outcome, breakEvenDays, takeOf} from '../src/swap-math.js';
 
 const snap = JSON.parse(fs.readFileSync('public/snapshot.json', 'utf8'));
 
-test('engagement flags: off in production, on in preview/dev, overridable', () => {
-  assert.deepEqual(engagementFlags({VERCEL_ENV: 'production'}), {slider: false, compare: false, watchlist: false});
+test('engagement flags: on everywhere by default, overridable', () => {
+  assert.deepEqual(engagementFlags({VERCEL_ENV: 'production'}), {slider: true, compare: true, watchlist: true});
+  assert.equal(engagementFlags({VERCEL_ENV: 'production', FLAG_WATCHLIST: '0'}).watchlist, false);
   assert.deepEqual(engagementFlags({VERCEL_ENV: 'preview'}), {slider: true, compare: true, watchlist: true});
   assert.deepEqual(engagementFlags({}), {slider: true, compare: true, watchlist: true});
   assert.equal(engagementFlags({VERCEL_ENV: 'production', FLAG_COMPARE: '1'}).compare, true);
@@ -61,15 +62,15 @@ function gen(env) {
   assert.equal(r.status, 0, r.stderr);
 }
 
-test('pages: engagement features hidden in production, shown on preview', () => {
-  gen({VERCEL_ENV: 'production'});
+test('pages: engagement features hidden when flags are off, shown by default', () => {
+  gen({VERCEL_ENV: 'production', FLAG_SLIDER: '0', FLAG_COMPARE: '0', FLAG_WATCHLIST: '0'});
   assert.equal(fs.existsSync('compare/index.html'), false);
   let sn = fs.readFileSync('sn/1/index.html', 'utf8');
   for (const re of [/data-star=/, /amt-range/, /watch-ui\.js/, /href="\/compare\//, /<!--F:/]) assert.doesNotMatch(sn, re);
   let priv = fs.readFileSync('privacy/index.html', 'utf8');
   assert.doesNotMatch(priv, /local storage/);
 
-  gen({VERCEL_ENV: 'preview'});
+  gen({VERCEL_ENV: 'production'});
   sn = fs.readFileSync('sn/1/index.html', 'utf8');
   for (const re of [/data-star="1"/, /amt-range/, /watch-ui\.js/, /href="\/compare\/"/]) assert.match(sn, re);
   const cmp = fs.readFileSync('compare/index.html', 'utf8');
