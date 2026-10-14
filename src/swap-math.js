@@ -77,12 +77,15 @@ export function shiftedPool(s, c) {
   return {taoIn: T, alphaIn: A};
 }
 
-// (1 + apy/n)^(n · days/365), once per epoch. n ≈ 7,280 when tempo is 360.
+// Compounded growth from an annual APY: (1 + APY)^(days/365). Approved Oct 14 (revision): the daily
+// rate is (1 + APY)^(1/365) − 1, not APY/365. Used for break-even and every holding-period figure.
+export function dailyRate(apy) {
+  if (!Number.isFinite(apy) || apy <= -1) return 0;
+  return (1 + apy) ** (1 / 365) - 1;
+}
 export function growth(s, apy, days) {
-  if (!(days > 0) || !apy) return 1;
-  const n = epochsPerYear(s);
-  if (!(n > 0) || !Number.isFinite(apy)) return 1;
-  return (1 + apy / n) ** (n * days / 365);
+  if (!(days > 0) || !apy || !Number.isFinite(apy) || apy <= -1) return 1;
+  return (1 + apy) ** (days / 365);
 }
 
 // TAO back after `days` if alpha/TAO moves by c, after entry and exit fees and slippage.
@@ -125,17 +128,86 @@ export function roundTripCost(s, X) {
 export function dailyEmissionsTao(s, X, t) {
   if (!(X > 0) || !(s.alphaIn > 0) || !(s.taoIn > 0)) return 0;
   const aGot = buy(s, X);
-  const daily = aGot * apyAlpha(s, t) / 365 * price(s);
+  const daily = aGot * price(s) * dailyRate(apyAlpha(s, t));
   return Number.isFinite(daily) ? daily : 0;
 }
 
-export function breakEvenDays(s, X, t = DEFAULT_TAKE) {
-  const {total} = roundTripCost(s, X);
-  const daily = dailyEmissionsTao(s, X, t);
-  if (!(daily > 0) || !Number.isFinite(total)) return null;
-  if (total <= 0) return 0;
-  return total / daily;
+// Entry cost in TAO: stake slippage plus the swap fee (buy() already applies the fee).
+export function entryCost(s, X) {
+  if (!(X > 0) || !(s.alphaIn > 0) || !(s.taoIn > 0)) return NaN;
+  return X - buy(s, X) * price(s);
 }
+
+// Exit slippage in TAO: selling the alpha you just bought into today's pool, as its own figure.
+// Not part of break-even (approved Oct 14: counting it on top of entry double-counts most of the slippage).
+export function exitSlippage(s, X) {
+  if (!(X > 0) || !(s.alphaIn > 0) || !(s.taoIn > 0)) return {tao: NaN, pct: NaN};
+  const aGot = buy(s, X), spot = aGot * price(s);
+  const tao = spot - sell(s, aGot);
+  return {tao, pct: spot > 0 ? tao / spot : NaN};
+}
+
+// Break-even days = entry cost (slippage + fee, τ) ÷ (YOUR stake's daily alpha rewards × current alpha price),
+// at 0% alpha price change. null ("Never") when rewards are zero or the stake is larger than the pool.
+export function breakEvenDays(s, X, t = DEFAULT_TAKE) {
+  return breakEvenDaysAt(s, X, apyAlpha(s, t));
+}
+// Compounding-consistent: days = ln(1 + entry cost / stake after entry) ÷ ln(1 + daily rate).
+export function breakEvenDaysAt(s, X, apy) {
+  if (!(X > 0) || !(s?.taoIn > 0) || X > s.taoIn) return null;
+  const cost = entryCost(s, X), after = buy(s, X) * price(s), r = dailyRate(apy);
+  if (!(r > 0) || !(after > 0) || !Number.isFinite(cost)) return null;
+  if (cost <= 0) return 0;
+  return Math.log(1 + cost / after) / Math.log(1 + r);
+}
+
+// APY range across validators holding at least `minShare` of the subnet's stake.
+export const RANGE_MIN_SHARE = 0.01;
+export function apyRange(s, minShare = RANGE_MIN_SHARE) {
+  const rows = Array.isArray(s?.validators) ? s.validators : [];
+  const total = rows.reduce((a, v) => a + (v.alpha > 0 ? v.alpha : 0), 0);
+  const denom = Math.max(stakedOf(s), total);
+  const takes = denom > 0 ? rows.filter(v => v.alpha / denom >= minShare && Number.isFinite(v.take)).map(v => v.take) : [];
+  if (!takes.length) takes.push(takeOf(s));
+  const apys = takes.map(t => apyAlpha(s, t));
+  return {min: Math.min(...apys), max: Math.max(...apys), validators: takes.length};
+}
+
+// TAO coverage = TAO inflow per day (direct pool injection + excess TAO buys) ÷ TAO value (spot) of all alpha emitted per day
+// (miners + validators/stakers + owner = subnetAlphaOutEmission). Warning below 25% (approved Oct 14).
+export const LOW_COVERAGE_PERCENT = 10;
+export function taoCoveragePercent(s) {
+  if (!s || s.netuid === 0) return null;
+  const stored = Number(s.tao_coverage_percent);
+  if (s.tao_coverage_percent != null && Number.isFinite(stored)) return stored;
+  const taoDay = Number(s.emission_tao_per_day);
+  if (s.emission_tao_per_day == null || !Number.isFinite(taoDay)) return null;
+  const alphaValue = (s.alphaEmissionPerBlock || 0) * 7200 * (s.taoIn > 0 && s.alphaIn > 0 ? price(s) : 0);
+  return alphaValue > 0 ? taoDay / alphaValue * 100 : null;
+}
+// Coverage tiers (approved Oct 15): low < 10% (warning), moderate 10% to < 50% (info), ok >= 50%,
+// none = no TAO inflow, no alpha emission, or no data.
+export const COVERAGE_TIERS = {low: 10, moderate: 50};
+export function coverageTier(s) {
+  if (!s || s.netuid === 0) return 'none';
+  const inflow = Number(s.emission_tao_per_day);
+  if (s.emission_tao_per_day != null && Number.isFinite(inflow) && inflow <= 0) return 'none';
+  const c = taoCoveragePercent(s);
+  if (c == null) return 'none';
+  return c < COVERAGE_TIERS.low ? 'low' : c < COVERAGE_TIERS.moderate ? 'moderate' : 'ok';
+}
+export function lowTaoEmission(s) {
+  return coverageTier(s) === 'low';
+}
+// Plain-text coverage line for every tier except low (low uses LOW_EMISSION_WARNING plus the %).
+export function coverageLine(s, fmt = x => x.toFixed(1)) {
+  const tier = coverageTier(s);
+  if (tier === 'none') return 'No TAO emissions';
+  const pct = `${fmt(taoCoveragePercent(s))}%`;
+  if (tier === 'moderate') return `Moderate TAO coverage: ${pct}`;
+  return `TAO coverage: ${pct}`;
+}
+export const LOW_EMISSION_WARNING = 'Low TAO coverage: most rewards are paid in newly issued alpha, not backed by TAO inflow.';
 
 export function maxSafeStake(s, maxSlip) {
   if (!(s.taoIn > 0) || !(s.alphaIn > 0) || !(maxSlip > 0) || maxSlip >= 1) return 0;

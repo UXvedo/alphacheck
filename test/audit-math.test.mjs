@@ -69,14 +69,13 @@ test('subnet APY divides by staked alpha', () => {
   assert.ok(apyAlpha(s, 0) > BPY * 0.41 / 100);
 });
 
-test('holding periods compound once per epoch', () => {
+test('holding periods compound the daily rate (1 + APY)^(1/365) − 1', () => {
   const s = {tempo: 360};
   assert.ok(Math.abs(epochsPerYear(s) - 7200 * 365 / 361) < 1e-9);
   const g = growth(s, 1, 90);
-  const compounded = Math.exp(90 / 365) - 1;
-  const simple = 90 / 365;
-  assert.ok(Math.abs((g - 1) - compounded) < 0.002);
-  assert.ok(g - 1 > simple);
+  assert.ok(Math.abs(g - 2 ** (90 / 365)) < 1e-12);
+  assert.ok(Math.abs(growth(s, 1, 365) - 2) < 1e-12);
+  assert.ok(g - 1 < 90 / 365);
 });
 
 test('root APY sells one epoch through the pool', () => {

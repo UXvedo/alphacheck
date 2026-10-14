@@ -19,10 +19,17 @@ const quoteW = v => {
   return 0.5;
 };
 
-const [tao, ain, aout, aemit, rprop, ids, head, staked, tempo, fees, weights, delegates, hotkeyAlpha, dividends] = await Promise.all([
+const [tao, ain, aout, aemit, rprop, ids, head, staked, tempo, fees, weights, delegates, hotkeyAlpha, dividends, taoEmit, taoExcess] = await Promise.all([
   ent(q, 'subnetTAO'), ent(q, 'subnetAlphaIn'), ent(q, 'subnetAlphaOut'), ent(q, 'subnetAlphaOutEmission'), ent(q, 'rootProp'), ent(q, 'subnetIdentitiesV3'), api.rpc.chain.getHeader(),
   ent(q, 'totalAlphaStaked'), ent(q, 'tempo'), ent(swap, 'feeRate'), ent(swap, 'swapBalancer'), ent(q, 'delegates'), ent(q, 'totalHotkeyAlpha'), ent(q, 'alphaDividendsPerSubnet'),
+  // Optional: older runtimes may lack it; the emission fields are then omitted (backward-compatible).
+  q.subnetTaoInEmission ? ent(q, 'subnetTaoInEmission').catch(() => ({})) : Promise.resolve({}),
+  // Excess TAO: the part of a subnet's TAO emission used to buy alpha (not injected directly). Optional.
+  q.subnetExcessTao ? ent(q, 'subnetExcessTao').catch(() => ({})) : Promise.resolve({}),
 ]);
+const excessOf = k => (taoExcess[k] != null ? num(taoExcess[k]) : 0);
+// Total TAO emitted to a subnet per block = direct pool injection + excess TAO (Taostats' emission_tao_per_day).
+const taoEmitTotal = Object.entries(taoEmit).filter(([k]) => k !== '0').reduce((a, [k, v]) => a + num(v) + excessOf(k), 0);
 
 const u16 = v => {
   const s = v?.toString?.() ?? '';
@@ -49,12 +56,33 @@ for (const [key, v] of Object.entries(dividends)) {
   divByNet.set(net, (divByNet.get(net) || 0) + num(v));
 }
 
+// TAO injected into this subnet's pool per block → per day, and its share of all subnet TAO emission.
+function emissionFields(n) {
+  const raw = taoEmit[String(n)];
+  if (raw == null || !(taoEmitTotal > 0)) return {};
+  const injected = n === 0 ? 0 : num(raw), excess = n === 0 ? 0 : excessOf(String(n));
+  const perBlock = injected + excess;
+  const alphaPerDay = aemit[n] ? num(aemit[n]) * 7200 : 0;
+  const tIn = num(tao[n]), aIn = ain[n] ? num(ain[n]) : 0, wq = weights[n] ? quoteW(weights[n]) : 0.5;
+  const px = tIn > 0 && aIn > 0 ? ((1 - wq) / wq) * (tIn / aIn) : 0;
+  const alphaTaoValue = alphaPerDay * px;
+  return {
+    emission_tao_per_day: perBlock * 7200,
+    tao_injected_per_day: injected * 7200,
+    excess_tao_per_day: excess * 7200,
+    emission_share_percent: n === 0 ? 0 : perBlock / taoEmitTotal * 100,
+    alpha_emission_per_day: alphaPerDay,
+    alpha_emission_tao_value_per_day: alphaTaoValue,
+    tao_coverage_percent: n === 0 || !(alphaTaoValue > 0) ? null : perBlock * 7200 / alphaTaoValue * 100,
+  };
+}
+
 const subnets = Object.keys(tao).map(Number).sort((a, b) => a - b).map(n => {
   const id = ids[String(n)]?.toHuman?.() || {};
   const rows = stakeByNet.get(String(n)) || [];
   const stakeSum = rows.reduce((s, r) => s + r.alpha, 0);
   const take = stakeSum > 0 ? rows.reduce((s, r) => s + r.take * r.alpha, 0) / stakeSum : 0;
-  const validators = [...rows].sort((a, b) => b.alpha - a.alpha).slice(0, 12).map(r => ({hotkey: r.hotkey, take: r.take, alpha: r.alpha}));
+  const validators = [...rows].sort((a, b) => b.alpha - a.alpha).filter((r, i) => i < 12 || (stakeSum > 0 && r.alpha / stakeSum >= 0.01)).map(r => ({hotkey: r.hotkey, take: r.take, alpha: r.alpha}));
   const feeRaw = fees[String(n)];
   return {
     netuid: n,
@@ -72,6 +100,7 @@ const subnets = Object.keys(tao).map(Number).sort((a, b) => a - b).map(n => {
     validatorCount: rows.length,
     validators,
     epochDividends: divByNet.get(String(n)) || 0,
+    ...emissionFields(n),
   };
 });
 

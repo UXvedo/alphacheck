@@ -3,8 +3,8 @@ import assert from 'node:assert/strict';
 import fs from 'node:fs';
 import {renderOgSvg} from '../src/og-template.js';
 import {shareCard} from '../src/og-metrics.js';
-import {apyAlpha, outcome, breakEvenDays, takeOf} from '../src/swap-math.js';
-import {formatBreakEvenDays} from '../src/format.js';
+import {apyAlpha, outcome, breakEvenDays, takeOf, apyRange} from '../src/swap-math.js';
+import {formatBreakEvenDays, formatApyRange} from '../src/format.js';
 
 test('share image prints the calculated metrics', () => {
   const svg = renderOgSvg({title: 'SN1 · Apex', stakeLabel: '100 TAO', apy: '29.4%', breakEven: '3.2 days', netTao: '+1.20 τ'});
@@ -32,7 +32,7 @@ test('share card matches the calculator at a flat alpha price', () => {
   const net = outcome(s, 100, 30, t, 0).out - 100;
   assert.equal(card.title, `SN1 · ${s.name}`);
   assert.equal(card.stakeLabel, '100 TAO');
-  assert.equal(card.apy, `${(apyAlpha(s, t) * 100).toLocaleString('en-US', {minimumFractionDigits: 1, maximumFractionDigits: 1})}%`);
+  assert.equal(card.apy, formatApyRange(apyRange(s)), 'default card shows the validator APY range');
   assert.equal(card.breakEven, formatBreakEvenDays(breakEvenDays(s, 100, t)));
   const signed = `${net >= 0 ? '+' : ''}${net.toLocaleString('en-US', {minimumFractionDigits: 2, maximumFractionDigits: 2})} τ`;
   assert.equal(card.netTao, signed);

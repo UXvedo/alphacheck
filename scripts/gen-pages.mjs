@@ -3,9 +3,9 @@
 // Numbers come from public/snapshot.json via src/swap-math.js (same math as the calculator).
 import fs from 'node:fs';
 import path from 'node:path';
-import {apyAlpha, apyRoot, outcome, breakEvenDays, maxSafeStake, REF_STAKES, SLIP_BANDS, takeOf, growth} from '../src/swap-math.js';
+import {apyAlpha, apyRoot, outcome, breakEvenDays, breakEvenDaysAt, maxSafeStake, exitSlippage, apyRange, lowTaoEmission, taoCoveragePercent, coverageTier, coverageLine, LOW_EMISSION_WARNING, REF_STAKES, SLIP_BANDS, takeOf, growth} from '../src/swap-math.js';
 import {featuresEnabled, engagementFlags, stripFlagged} from '../src/features.js';
-import {formatBreakEvenDays} from '../src/format.js';
+import {formatBreakEvenDays, formatApyRange} from '../src/format.js';
 import {renderOgSvg} from '../src/og-template.js';
 import {shareCard} from '../src/og-metrics.js';
 import {svgToPng} from '../src/og-png.js';
@@ -67,6 +67,11 @@ for (const dir of ['sn', 'how-it-works', 'methodology', 'leaderboard', 'impressu
 }
 fs.rmSync(path.join(R, 'public', 'og'), {recursive: true, force: true});
 
+function warnCard(s) {
+  if (lowTaoEmission(s)) return `<section class="card warnbox" role="note"><p><b>⚠ ${esc(LOW_EMISSION_WARNING)}</b> <span class="small">TAO coverage: <b>${f(taoCoveragePercent(s), 1)}%</b> (TAO inflow per day ÷ TAO value of alpha issued per day). <a href="/methodology/#low-emission">What this means</a>.</span></p></section>`;
+  return `<p class="small muted coverage" data-tier="${coverageTier(s)}">${esc(coverageLine(s, x => f(x, 1)))} · <a href="/methodology/#low-emission">What this means</a></p>`;
+}
+
 function featureCards(s) {
   if (!features) return '';
   const t = takeOf(s);
@@ -74,8 +79,10 @@ function featureCards(s) {
   const safe = SLIP_BANDS.map(b => `<div class="stat"><span class="muted small">≤ ${f(b * 100, 1)}% entry slippage</span><b>${f(maxSafeStake(s, b), 2)} τ</b></div>`).join('');
   const share = `${SITE}/api/og?sn=${s.netuid}&amp;amt=${X}&amp;days=${DAYS}&amp;take=${takePct(s)}`;
   return `<section class="card feature"><h2>Break-even days</h2>
-<p>Days for estimated emissions on this stake to cover the round trip — stake slippage plus unstake slippage — if alpha does not move against TAO. Stake-weighted validator take ${f(takePct(s), 2)}%. <b>Never</b> means those emissions cannot cover the cost.</p>
-<div class="stats">${be}</div></section>
+<p>Days for this stake's own compounding alpha rewards, valued at today's alpha price, to cover the entry cost (stake slippage plus the 0.05% swap fee) if alpha does not move against TAO: ln(1 + entry cost ÷ stake after entry) ÷ ln(1 + daily rate). Stake-weighted validator take ${f(takePct(s), 2)}%. <b>Never</b> means zero rewards or a stake larger than the pool; over 365 days shows as <b>&gt; 1 year</b>. <a href="/methodology/#break-even">How it's defined</a>.</p>
+<div class="stats">${be}</div>
+<p class="small">Across the validator APY range (${esc(formatApyRange(apyRange(s)))}), ${X} τ breaks even in <b>${esc(formatBreakEvenDays(breakEvenDaysAt(s, X, apyRange(s).max)))}</b> to <b>${esc(formatBreakEvenDays(breakEvenDaysAt(s, X, apyRange(s).min)))}</b>.</p>
+<p class="small">Exit slippage, shown separately: selling the alpha from ${X} τ into today's pool costs about <b>${f(exitSlippage(s, X).pct * 100, 2)}%</b> (${f(exitSlippage(s, X).tao, 3)} τ).</p></section>
 <section class="card feature"><h2>Max safe stake</h2>
 <p>Largest stake that keeps entry slippage at or below each limit in the current pool.</p>
 <div class="stats">${safe}</div>
@@ -90,7 +97,7 @@ for (const s of live) {
   const verdict = o.out >= rootEnd ? `beats root staking (≈${f(rootEnd, 1)} τ)` : `trails root staking (≈${f(rootEnd, 1)} τ)`;
   const title = `${nm} staking: real yield in TAO | AlphaCheck`;
   const desc = `${nm}: est. ${f(apy)}% APY paid in alpha, ${f(s.taoIn, 0)} τ pool. ${X} τ staked ${DAYS} days returns ≈${f(o.out, 1)} τ at a flat alpha price after slippage (data ${date}).`;
-  const hero = `<section class="hero"><h1>${esc(nm)}: is the APY real?</h1>${star(s).replace('class="star"', 'class="star star-lg"')}<!--F:compare--><p class="small"><a href="/compare/?a=${s.netuid}&amp;b=${s.netuid === 64 ? 19 : 64}&amp;stake=${X}&amp;days=30">Compare SN${s.netuid} with another subnet</a></p><!--/F:compare--><p class="summary">As of ${date} (block ${d.block}), subnet ${s.netuid} (${esc(s.name)}) shows an estimated <b>${f(apy)}% APY</b>, paid in its alpha token, at a stake-weighted validator take of ${f(takePct(s), 2)}%. The pool holds <b>${f(s.taoIn, 0)} τ</b>, so staking ${X} τ costs about <b>${f(o.entrySlip * 100, 2)}%</b> in entry slippage. Held ${DAYS} days at a flat alpha price, with epoch compounding, you'd get back about <b>${f(o.out, 2)} τ</b> after the swap fee and exit slippage, which ${verdict}. Change the inputs below to check your own case.</p>${reportLink(s)}</section>${featureCards(s)}`;
+  const hero = `<section class="hero"><h1>${esc(nm)}: is the APY real?</h1>${star(s).replace('class="star"', 'class="star star-lg"')}<!--F:compare--><p class="small"><a href="/compare/?a=${s.netuid}&amp;b=${s.netuid === 64 ? 19 : 64}&amp;stake=${X}&amp;days=30">Compare SN${s.netuid} with another subnet</a></p><!--/F:compare--><p class="summary">As of ${date} (block ${d.block}), subnet ${s.netuid} (${esc(s.name)}) shows an estimated <b>${esc(formatApyRange(apyRange(s)))} APY</b> depending on validator, paid in its alpha token (${f(apy)}% at the stake-weighted validator take of ${f(takePct(s), 2)}%). The pool holds <b>${f(s.taoIn, 0)} τ</b>, so staking ${X} τ costs about <b>${f(o.entrySlip * 100, 2)}%</b> in entry slippage. Held ${DAYS} days at a flat alpha price, compounded daily, you'd get back about <b>${f(o.out, 2)} τ</b> after the swap fee and exit slippage, which ${verdict}. Change the inputs below to check your own case.</p>${reportLink(s)}</section>${warnCard(s)}${featureCards(s)}`;
   write(`sn/${s.netuid}/index.html`, page({url: `/sn/${s.netuid}/`, title, desc, ogTitle: `${nm}: High APY ≠ profit`, hero, sn: s.netuid, links: allLinks}));
 }
 
@@ -100,7 +107,7 @@ const how = `<section class="hero"><h1>How AlphaCheck calculates returns</h1><p>
 <section class="card"><h2>3. Estimated subnet APY (paid in alpha)</h2><p>APY = alpha emission per block × 0.41 (validator/staker share) × (1 − root proportion) × (1 − validator take) × 7,200 blocks/day × 365 ÷ staked alpha. The published figure uses that subnet's stake-weighted average take.</p></section>
 <section class="card"><h2>4. Estimated root APY (paid in TAO)</h2><p>Each subnet contributes one epoch of root alpha: emission × 0.41 × root proportion × (1 − that subnet's take) × (tempo + 1). That alpha is sold through the subnet pool, so the swap fee and slippage come off, and the TAO is annualized and divided by root stake.</p></section>
 <section class="card"><h2>5. Slippage and the swap fee</h2><p>The pool is a weighted balancer. At equal weights the buy and sell match constant-product math (TAO × alpha = k). FeeRate ÷ 65535 (about 0.05%) is charged on the way in and on the way out. Exit reserves are rebuilt at the scenario price (−50%, −20%, flat, +20%) while the weighted invariant stays fixed.</p></section>
-<section class="card"><h2>6. Holding period</h2><p>Rewards compound once per epoch. Epochs per year are 7,200 × 365 ÷ (tempo + 1), about 7,280 when tempo is 360. Real yields vary by validator and change every block, so treat results as rough estimates. Not financial advice.</p></section>
+<section class="card"><h2>6. Holding period</h2><p>Rewards compound daily: daily rate = (1 + APY)^(1/365) − 1, using the stake-weighted APY on subnet pages, the leaderboard and share images. Real yields vary by validator and change every block, so treat results as rough estimates. Not financial advice.</p></section>
 <p><a href="/">← Back to the calculator</a> · <a href="/methodology/">Methodology</a></p>`;
 fs.mkdirSync(path.join(R, 'how-it-works'), {recursive: true});
 write('how-it-works/index.html', withoutCalculator(page({
@@ -145,15 +152,27 @@ if (features) {
         net: outcome(s, amount, 30, t, 0).out - amount,
         apy: apyAlpha(s, t),
         be: breakEvenDays(s, amount, t),
+        cov: taoCoveragePercent(s),
       };
     }).sort((a, b) => (b.net - a.net) || (a.s.netuid - b.s.netuid));
-    const body = rows.map(r => `<tr data-sn="${r.s.netuid}"><td>${star(r.s)}<a href="/sn/${r.s.netuid}/">SN${r.s.netuid} · ${esc(r.s.name)}</a></td><td>${f(r.s.taoIn, 0)}</td><td>${f(r.apy * 100, 1)}%</td><td>${(r.net >= 0 ? '+' : '') + f(r.net, 2)} τ</td><td>${esc(formatBreakEvenDays(r.be))}</td></tr>`).join('');
-    return `<div data-panel="${amount}"${amount === 100 ? '' : ' hidden'}><div class="tablewrap"><table><tbody data-watch-sort><tr><th>Subnet</th><th>Pool τ</th><th>Est. APY</th><th>Est. 30-day net TAO</th><th>Break-even</th></tr>${body}</tbody></table></div></div>`;
+    const body = rows.map(r => `<tr data-sn="${r.s.netuid}"><td>${star(r.s)}<a href="/sn/${r.s.netuid}/">SN${r.s.netuid} · ${esc(r.s.name)}</a></td><td>${f(r.s.taoIn, 0)}</td><td>${f(r.apy * 100, 1)}%</td><td>${(r.net >= 0 ? '+' : '') + f(r.net, 2)} τ</td><td>${esc(formatBreakEvenDays(r.be))}</td><td data-cov="${r.cov == null || coverageTier(r.s) === 'none' ? -1 : r.cov.toFixed(3)}">${r.cov == null || coverageTier(r.s) === 'none' ? 'No TAO emissions' : f(r.cov, 1) + '%'}</td></tr>`).join('');
+    return `<div data-panel="${amount}"${amount === 100 ? '' : ' hidden'}><div class="tablewrap"><table><tbody data-watch-sort><tr><th>Subnet</th><th>Pool τ</th><th>Est. APY</th><th>Est. 30-day net TAO</th><th>Break-even</th><th><button type="button" class="sortcov" aria-sort="none" title="Sort by TAO coverage">TAO coverage ⇅</button></th></tr>${body}</tbody></table></div></div>`;
   }).join('');
   const hero = `<section class="hero"><h1>Leaderboard</h1><p>Subnets ordered by estimated net TAO after 30 days at a flat alpha price, including entry and exit slippage and the swap fee. Choose a stake size. Each row uses that subnet's stake-weighted average validator take. The order is a sort of estimates, not a recommendation.</p></section>
 <section class="card"><div class="toggles" role="group" aria-label="Stake size">${buttons}</div>${panels}
 <p class="muted small">0% alpha change. Net TAO is TAO returned minus TAO staked. Each name links to that subnet's page. Estimates, not financial advice.</p></section>
 <script>
+document.querySelectorAll('.sortcov').forEach(function(btn){
+  btn.addEventListener('click', function(){
+    var dir = btn.getAttribute('aria-sort') === 'descending' ? 'ascending' : 'descending';
+    document.querySelectorAll('.sortcov').forEach(function(b){b.setAttribute('aria-sort', dir)});
+    document.querySelectorAll('[data-panel] tbody').forEach(function(tb){
+      var rows = Array.prototype.slice.call(tb.querySelectorAll('tr[data-sn]'));
+      rows.sort(function(a, b){var x = +a.querySelector('[data-cov]').getAttribute('data-cov'), y = +b.querySelector('[data-cov]').getAttribute('data-cov'); return dir === 'descending' ? y - x : x - y;});
+      rows.forEach(function(r){tb.appendChild(r)});
+    });
+  });
+});
 document.querySelectorAll('.toggles button').forEach(function(btn){
   btn.addEventListener('click', function(){
     var stake=btn.getAttribute('data-stake');
