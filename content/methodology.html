@@ -1,0 +1,27 @@
+<section class="hero"><h1>Methodology</h1>
+<p>AlphaCheck publishes <b>estimates, not financial advice</b>. This page is the skeleton for the audited write-up. The formula sections below are unfinished on purpose. The live calculator still follows <a href="/how-it-works/">How it's calculated</a> until the audit replaces that text.</p></section>
+<section class="card"><h2>Assumptions</h2>
+<ul>
+<li>Every figure is an estimate from one chain snapshot. It is not a quote, a fill, or a prediction.</li>
+<li>Rewards over the holding period use simple interest. Emission rates and pool reserves are held constant except for the alpha-versus-TAO scenario you choose.</li>
+<li>A validator take is applied. Pages that show a single case use 18%. The calculator lets you change it.</li>
+<li>Root staking is modeled with no AMM slippage. Subnet staking goes through that subnet's pool on the way in and on the way out.</li>
+<li>Nothing on this site is a recommendation to stake, unstake, or prefer one subnet.</li>
+</ul></section>
+<section class="card"><h2>Data sources</h2>
+<p>Snapshots are read from the public Bittensor Finney RPC, <code>subtensorModule</code> storage: pool TAO, pool alpha, alpha outstanding, alpha emitted per block, and the root proportion. The site ships the latest pull as <code>public/snapshot.json</code>. The line at the top of this page is that pull's UTC timestamp and block. Each pull also stores one record per subnet in <code>data/history/</code> (one file per UTC day). No private API key is used. A Taostats adapter is sketched in <code>src/data.js</code> and is not wired.</p></section>
+<section class="card"><h2>Formulas</h2>
+<p>Replace each TODO with the post-audit statement. Do not treat a TODO as a formula.</p>
+<h3>Alpha price</h3>
+<p>TODO: post-audit formula.</p>
+<h3>Estimated subnet APY</h3>
+<p>TODO: post-audit formula.</p>
+<h3>Estimated root APY</h3>
+<p>TODO: post-audit formula.</p>
+<h3>Entry and exit slippage</h3>
+<p>TODO: post-audit formula.</p>
+<h3>Holding period and price scenarios</h3>
+<p>TODO: post-audit formula.</p></section>
+<section class="card"><h2>Estimates, not financial advice</h2>
+<p>Yields, prices, and liquidity change every block. AlphaCheck does not custody funds and does not submit stakes. Use the figures to understand the shape of a trade, then do your own research.</p></section>
+<p><a href="/">← Back to the calculator</a></p>

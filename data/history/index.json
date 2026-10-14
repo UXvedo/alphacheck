@@ -1,0 +1,14 @@
+{
+  "version": 1,
+  "takeForEstApy": 0.18,
+  "note": "One file per UTC day. Re-running snapshot on the same day replaces that file and its index entry. Older days are left untouched. estApy comes from src/swap-math.js at takeForEstApy (root uses root APY). emissions is alpha emitted per block. alphaPrice is poolTao / poolAlpha.",
+  "days": [
+    {
+      "date": "2026-10-14",
+      "asOf": "2026-10-14T10:04:13.544Z",
+      "block": 9280803,
+      "file": "2026-10-14.json",
+      "subnets": 129
+    }
+  ]
+}

@@ -4,11 +4,12 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "node --test",
     "dev": "vite",
     "build": "node scripts/gen-pages.mjs && vite build",
     "preview": "vite preview --port 4173 --host",
     "snapshot": "node scripts/snapshot.mjs",
+    "check-stale": "node scripts/check-stale.mjs",
     "pages": "node scripts/gen-pages.mjs"
   },
   "keywords": [],
@@ -19,7 +20,8 @@
     "vite": "^8.3.4"
   },
   "dependencies": {
-    "@polkadot/api": "^17.0.2"
+    "@polkadot/api": "^17.0.2",
+    "@vercel/analytics": "^2.0.1"
   },
   "type": "module"
 }

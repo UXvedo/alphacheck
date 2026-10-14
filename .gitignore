@@ -5,5 +5,11 @@ dist/
 .env
 sn/
 how-it-works/
+methodology/
+leaderboard/
+impressum/
+privacy/
+public/og/
+api/subnet-names.json
 .pages.json
 public/sitemap.xml
