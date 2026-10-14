@@ -57,7 +57,17 @@ function emissionFields(n) {
   const raw = taoEmit[String(n)];
   if (raw == null || !(taoEmitTotal > 0)) return {};
   const perBlock = n === 0 ? 0 : num(raw);
-  return {emission_tao_per_day: perBlock * 7200, emission_share_percent: n === 0 ? 0 : perBlock / taoEmitTotal * 100};
+  const alphaPerDay = aemit[n] ? num(aemit[n]) * 7200 : 0;
+  const tIn = num(tao[n]), aIn = ain[n] ? num(ain[n]) : 0, wq = weights[n] ? quoteW(weights[n]) : 0.5;
+  const px = tIn > 0 && aIn > 0 ? ((1 - wq) / wq) * (tIn / aIn) : 0;
+  const alphaTaoValue = alphaPerDay * px;
+  return {
+    emission_tao_per_day: perBlock * 7200,
+    emission_share_percent: n === 0 ? 0 : perBlock / taoEmitTotal * 100,
+    alpha_emission_per_day: alphaPerDay,
+    alpha_emission_tao_value_per_day: alphaTaoValue,
+    tao_coverage_percent: n === 0 || !(alphaTaoValue > 0) ? null : perBlock * 7200 / alphaTaoValue * 100,
+  };
 }
 
 const subnets = Object.keys(tao).map(Number).sort((a, b) => a - b).map(n => {

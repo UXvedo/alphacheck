@@ -77,12 +77,15 @@ export function shiftedPool(s, c) {
   return {taoIn: T, alphaIn: A};
 }
 
-// (1 + apy/n)^(n · days/365), once per epoch. n ≈ 7,280 when tempo is 360.
+// Compounded growth from an annual APY: (1 + APY)^(days/365). Approved Oct 14 (revision): the daily
+// rate is (1 + APY)^(1/365) − 1, not APY/365. Used for break-even and every holding-period figure.
+export function dailyRate(apy) {
+  if (!Number.isFinite(apy) || apy <= -1) return 0;
+  return (1 + apy) ** (1 / 365) - 1;
+}
 export function growth(s, apy, days) {
-  if (!(days > 0) || !apy) return 1;
-  const n = epochsPerYear(s);
-  if (!(n > 0) || !Number.isFinite(apy)) return 1;
-  return (1 + apy / n) ** (n * days / 365);
+  if (!(days > 0) || !apy || !Number.isFinite(apy) || apy <= -1) return 1;
+  return (1 + apy) ** (days / 365);
 }
 
 // TAO back after `days` if alpha/TAO moves by c, after entry and exit fees and slippage.
@@ -125,7 +128,7 @@ export function roundTripCost(s, X) {
 export function dailyEmissionsTao(s, X, t) {
   if (!(X > 0) || !(s.alphaIn > 0) || !(s.taoIn > 0)) return 0;
   const aGot = buy(s, X);
-  const daily = aGot * apyAlpha(s, t) / 365 * price(s);
+  const daily = aGot * price(s) * dailyRate(apyAlpha(s, t));
   return Number.isFinite(daily) ? daily : 0;
 }
 
@@ -167,14 +170,23 @@ export function apyRange(s, minShare = RANGE_MIN_SHARE) {
   return {min: Math.min(...apys), max: Math.max(...apys), validators: takes.length};
 }
 
-// TAO emission share. Warning threshold approved Oct 14: share < 0.1%.
-export const LOW_EMISSION_SHARE_PERCENT = 0.1;
-export function lowTaoEmission(s) {
-  if (!s || s.netuid === 0) return false;
-  const v = Number(s.emission_share_percent);
-  return Number.isFinite(v) && v < LOW_EMISSION_SHARE_PERCENT;
+// TAO coverage = TAO injected into the pool per day ÷ TAO value (spot) of all alpha emitted per day
+// (miners + validators/stakers + owner = subnetAlphaOutEmission). Warning below 25% (approved Oct 14).
+export const LOW_COVERAGE_PERCENT = 25;
+export function taoCoveragePercent(s) {
+  if (!s || s.netuid === 0) return null;
+  const stored = Number(s.tao_coverage_percent);
+  if (s.tao_coverage_percent != null && Number.isFinite(stored)) return stored;
+  const taoDay = Number(s.emission_tao_per_day);
+  if (s.emission_tao_per_day == null || !Number.isFinite(taoDay)) return null;
+  const alphaValue = (s.alphaEmissionPerBlock || 0) * 7200 * (s.taoIn > 0 && s.alphaIn > 0 ? price(s) : 0);
+  return alphaValue > 0 ? taoDay / alphaValue * 100 : null;
 }
-export const LOW_EMISSION_WARNING = 'This subnet receives very little TAO emission. High alpha APY here is paid in newly issued alpha, which tends to push the alpha price down.';
+export function lowTaoEmission(s) {
+  const c = taoCoveragePercent(s);
+  return c != null && c < LOW_COVERAGE_PERCENT;
+}
+export const LOW_EMISSION_WARNING = 'This subnet\'s pool receives little TAO compared with the alpha it issues. High alpha APY here is paid in newly issued alpha, which tends to push the alpha price down.';
 
 export function maxSafeStake(s, maxSlip) {
   if (!(s.taoIn > 0) || !(s.alphaIn > 0) || !(maxSlip > 0) || maxSlip >= 1) return 0;

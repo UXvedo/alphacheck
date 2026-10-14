@@ -3,7 +3,7 @@
 // Numbers come from public/snapshot.json via src/swap-math.js (same math as the calculator).
 import fs from 'node:fs';
 import path from 'node:path';
-import {apyAlpha, apyRoot, outcome, breakEvenDays, maxSafeStake, exitSlippage, apyRange, lowTaoEmission, LOW_EMISSION_WARNING, REF_STAKES, SLIP_BANDS, takeOf, growth} from '../src/swap-math.js';
+import {apyAlpha, apyRoot, outcome, breakEvenDays, maxSafeStake, exitSlippage, apyRange, lowTaoEmission, taoCoveragePercent, LOW_EMISSION_WARNING, REF_STAKES, SLIP_BANDS, takeOf, growth} from '../src/swap-math.js';
 import {featuresEnabled, engagementFlags, stripFlagged} from '../src/features.js';
 import {formatBreakEvenDays, formatApyRange} from '../src/format.js';
 import {renderOgSvg} from '../src/og-template.js';
@@ -69,7 +69,7 @@ fs.rmSync(path.join(R, 'public', 'og'), {recursive: true, force: true});
 
 function warnCard(s) {
   if (!lowTaoEmission(s)) return '';
-  return `<section class="card warnbox" role="note"><p><b>⚠ Low TAO coverage: ${f(s.tao_coverage_percent, 1)}%.</b> ${esc(LOW_EMISSION_WARNING)}</p></section>`;
+  return `<section class="card warnbox" role="note"><p><b>⚠ Low TAO coverage: ${f(taoCoveragePercent(s), 1)}%</b> (TAO into the pool per day vs the TAO value of alpha issued per day). ${esc(LOW_EMISSION_WARNING)}</p></section>`;
 }
 
 function featureCards(s) {
@@ -96,7 +96,7 @@ for (const s of live) {
   const verdict = o.out >= rootEnd ? `beats root staking (≈${f(rootEnd, 1)} τ)` : `trails root staking (≈${f(rootEnd, 1)} τ)`;
   const title = `${nm} staking: real yield in TAO | AlphaCheck`;
   const desc = `${nm}: est. ${f(apy)}% APY paid in alpha, ${f(s.taoIn, 0)} τ pool. ${X} τ staked ${DAYS} days returns ≈${f(o.out, 1)} τ at a flat alpha price after slippage (data ${date}).`;
-  const hero = `<section class="hero"><h1>${esc(nm)}: is the APY real?</h1>${star(s).replace('class="star"', 'class="star star-lg"')}<!--F:compare--><p class="small"><a href="/compare/?a=${s.netuid}&amp;b=${s.netuid === 64 ? 19 : 64}&amp;stake=${X}&amp;days=30">Compare SN${s.netuid} with another subnet</a></p><!--/F:compare--><p class="summary">As of ${date} (block ${d.block}), subnet ${s.netuid} (${esc(s.name)}) shows an estimated <b>${esc(formatApyRange(apyRange(s)))} APY</b> depending on validator, paid in its alpha token (${f(apy)}% at the stake-weighted validator take of ${f(takePct(s), 2)}%). The pool holds <b>${f(s.taoIn, 0)} τ</b>, so staking ${X} τ costs about <b>${f(o.entrySlip * 100, 2)}%</b> in entry slippage. Held ${DAYS} days at a flat alpha price, with epoch compounding, you'd get back about <b>${f(o.out, 2)} τ</b> after the swap fee and exit slippage, which ${verdict}. Change the inputs below to check your own case.</p>${reportLink(s)}</section>${warnCard(s)}${featureCards(s)}`;
+  const hero = `<section class="hero"><h1>${esc(nm)}: is the APY real?</h1>${star(s).replace('class="star"', 'class="star star-lg"')}<!--F:compare--><p class="small"><a href="/compare/?a=${s.netuid}&amp;b=${s.netuid === 64 ? 19 : 64}&amp;stake=${X}&amp;days=30">Compare SN${s.netuid} with another subnet</a></p><!--/F:compare--><p class="summary">As of ${date} (block ${d.block}), subnet ${s.netuid} (${esc(s.name)}) shows an estimated <b>${esc(formatApyRange(apyRange(s)))} APY</b> depending on validator, paid in its alpha token (${f(apy)}% at the stake-weighted validator take of ${f(takePct(s), 2)}%). The pool holds <b>${f(s.taoIn, 0)} τ</b>, so staking ${X} τ costs about <b>${f(o.entrySlip * 100, 2)}%</b> in entry slippage. Held ${DAYS} days at a flat alpha price, compounded daily, you'd get back about <b>${f(o.out, 2)} τ</b> after the swap fee and exit slippage, which ${verdict}. Change the inputs below to check your own case.</p>${reportLink(s)}</section>${warnCard(s)}${featureCards(s)}`;
   write(`sn/${s.netuid}/index.html`, page({url: `/sn/${s.netuid}/`, title, desc, ogTitle: `${nm}: High APY ≠ profit`, hero, sn: s.netuid, links: allLinks}));
 }
 
@@ -106,7 +106,7 @@ const how = `<section class="hero"><h1>How AlphaCheck calculates returns</h1><p>
 <section class="card"><h2>3. Estimated subnet APY (paid in alpha)</h2><p>APY = alpha emission per block × 0.41 (validator/staker share) × (1 − root proportion) × (1 − validator take) × 7,200 blocks/day × 365 ÷ staked alpha. The published figure uses that subnet's stake-weighted average take.</p></section>
 <section class="card"><h2>4. Estimated root APY (paid in TAO)</h2><p>Each subnet contributes one epoch of root alpha: emission × 0.41 × root proportion × (1 − that subnet's take) × (tempo + 1). That alpha is sold through the subnet pool, so the swap fee and slippage come off, and the TAO is annualized and divided by root stake.</p></section>
 <section class="card"><h2>5. Slippage and the swap fee</h2><p>The pool is a weighted balancer. At equal weights the buy and sell match constant-product math (TAO × alpha = k). FeeRate ÷ 65535 (about 0.05%) is charged on the way in and on the way out. Exit reserves are rebuilt at the scenario price (−50%, −20%, flat, +20%) while the weighted invariant stays fixed.</p></section>
-<section class="card"><h2>6. Holding period</h2><p>Rewards compound once per epoch. Epochs per year are 7,200 × 365 ÷ (tempo + 1), about 7,280 when tempo is 360. Real yields vary by validator and change every block, so treat results as rough estimates. Not financial advice.</p></section>
+<section class="card"><h2>6. Holding period</h2><p>Rewards compound daily: daily rate = (1 + APY)^(1/365) − 1, using the stake-weighted APY on subnet pages, the leaderboard and share images. Real yields vary by validator and change every block, so treat results as rough estimates. Not financial advice.</p></section>
 <p><a href="/">← Back to the calculator</a> · <a href="/methodology/">Methodology</a></p>`;
 fs.mkdirSync(path.join(R, 'how-it-works'), {recursive: true});
 write('how-it-works/index.html', withoutCalculator(page({

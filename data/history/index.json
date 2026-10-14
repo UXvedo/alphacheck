@@ -1,11 +1,11 @@
 {
   "version": 3,
-  "note": "One file per UTC day. Re-running snapshot on the same day replaces that file and its index entry. Older days are left untouched. estApy is the nominal subnet APY at that subnet's stake-weighted validator take (the take field). Root estApy is the root APY: each subnet uses its own take, and one epoch of root dividends is sold through that pool. emissions is alpha emitted per block. alphaPrice is the weighted-pool spot price. From version 3: emission_share_percent is the subnet's share of all subnet TAO emission (subnetTaoInEmission) in percent, and emission_tao_per_day is that TAO per day; null when the snapshot did not carry them.",
+  "note": "One file per UTC day. Re-running snapshot on the same day replaces that file and its index entry. Older days are left untouched. estApy is the nominal subnet APY at that subnet's stake-weighted validator take (the take field). Root estApy is the root APY: each subnet uses its own take, and one epoch of root dividends is sold through that pool. emissions is alpha emitted per block. alphaPrice is the weighted-pool spot price. From version 3: emission_share_percent is the subnet's share of all subnet TAO emission (subnetTaoInEmission) in percent, and emission_tao_per_day is that TAO per day; null when the snapshot did not carry them. alpha_emission_per_day is all alpha emitted to participants per day (subnetAlphaOutEmission × 7,200) and tao_coverage_percent is emission_tao_per_day ÷ (alpha_emission_per_day × alphaPrice) × 100.",
   "days": [
     {
       "date": "2026-10-14",
-      "asOf": "2026-10-14T21:35:29.044Z",
-      "block": 9284258,
+      "asOf": "2026-10-14T21:52:40.524Z",
+      "block": 9284344,
       "file": "2026-10-14.json",
       "subnets": 129
     }

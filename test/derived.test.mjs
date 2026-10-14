@@ -1,7 +1,7 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import fs from 'node:fs';
-import {outcome, roundTripCost, dailyEmissionsTao, breakEvenDays, maxSafeStake, SLIP_BANDS, entryCost, exitSlippage, apyRange, apyAlpha, takeOf, lowTaoEmission, buy, price} from '../src/swap-math.js';
+import {outcome, roundTripCost, dailyEmissionsTao, breakEvenDays, maxSafeStake, SLIP_BANDS, entryCost, exitSlippage, apyRange, apyAlpha, takeOf, lowTaoEmission, taoCoveragePercent, buy, price} from '../src/swap-math.js';
 import {formatBreakEvenDays, formatApyRange} from '../src/format.js';
 
 const snap = JSON.parse(fs.readFileSync(new URL('../public/snapshot.json', import.meta.url), 'utf8'));
@@ -26,7 +26,7 @@ test('break-even days are ENTRY cost divided by your stake daily rewards in TAO,
       if (X > s.taoIn) continue;
       const cost = entryCost(s, X);
       assert.ok(Math.abs(cost - roundTripCost(s, X).stakeSlip) < 1e-9);
-      const daily = buy(s, X) * apyAlpha(s, 0.18) / 365 * price(s);
+      const daily = buy(s, X) * price(s) * ((1 + apyAlpha(s, 0.18)) ** (1 / 365) - 1);
       assert.ok(Math.abs(daily - dailyEmissionsTao(s, X, 0.18)) < 1e-12);
       const days = breakEvenDays(s, X, 0.18);
       assert.ok(Math.abs(days - cost / daily) < 1e-9);
@@ -68,11 +68,16 @@ test('APY range spans validators with >= 1% of stake', () => {
   assert.equal(none.min, apyAlpha(subnet));
 });
 
-test('low TAO emission warning triggers below 0.1% share only', () => {
-  assert.equal(lowTaoEmission({netuid: 5, emission_share_percent: 0.05}), true);
-  assert.equal(lowTaoEmission({netuid: 5, emission_share_percent: 0.1}), false);
-  assert.equal(lowTaoEmission({netuid: 5}), false, 'old snapshots without the field never warn');
-  assert.equal(lowTaoEmission({netuid: 0, emission_share_percent: 0}), false);
+test('low TAO coverage warning triggers below 25% coverage only', () => {
+  assert.equal(lowTaoEmission({netuid: 5, tao_coverage_percent: 24.9}), true);
+  assert.equal(lowTaoEmission({netuid: 5, tao_coverage_percent: 25}), false);
+  assert.equal(lowTaoEmission({netuid: 5, emission_share_percent: 0.001}), false, 'share threshold dropped');
+  assert.equal(lowTaoEmission({netuid: 5}), false, 'old snapshots without the fields never warn');
+  assert.equal(lowTaoEmission({netuid: 0, tao_coverage_percent: 0}), false);
+  // computed from older fields when tao_coverage_percent is missing
+  const s = {netuid: 5, taoIn: 100, alphaIn: 100, weightQuote: 0.5, alphaEmissionPerBlock: 1, emission_tao_per_day: 7200 * 0.1};
+  assert.ok(Math.abs(taoCoveragePercent(s) - 10) < 1e-9);
+  assert.equal(lowTaoEmission(s), true);
 });
 
 test('max safe stake is the largest entry at or under each band', () => {

@@ -1,5 +1,5 @@
 import {loadData} from './data.js';
-import {SC, apyAlpha, apyRoot as apyRootS, outcome, breakEvenDays, maxSafeStake, exitSlippage, apyRange, lowTaoEmission, LOW_EMISSION_WARNING, REF_STAKES, SLIP_BANDS, takeOf, growth} from './swap-math.js';
+import {SC, apyAlpha, apyRoot as apyRootS, outcome, breakEvenDays, maxSafeStake, exitSlippage, apyRange, lowTaoEmission, taoCoveragePercent, LOW_EMISSION_WARNING, REF_STAKES, SLIP_BANDS, takeOf, growth} from './swap-math.js';
 import {formatAsOf} from './time.js';
 import {formatBreakEvenDays, formatApyRange} from './format.js';
 import {posToStake, stakeToPos} from './slider.js';
@@ -107,7 +107,7 @@ function run() {
     }
   }
   if (s.netuid === 0) {
-    html += `<div class="card"><h2>Root staking</h2><div class="stats"><div class="stat"><span class="muted small">Est. APY (paid in TAO)</span><b>${f(rA * 100, 1)}%</b></div><div class="stat"><span class="muted small">After ${days} days</span><b>${f(rootEnd, 3)} τ</b></div><div class="stat"><span class="muted small">Price risk / slippage</span><b>None on your stake</b></div></div><p class="muted small">This APY uses each subnet's stake-weighted validator take, then sells one epoch of that subnet's root alpha through its pool (slippage and the swap fee). Your own root stake stays in TAO. The holding-period figure compounds once per epoch.</p></div>`;
+    html += `<div class="card"><h2>Root staking</h2><div class="stats"><div class="stat"><span class="muted small">Est. APY (paid in TAO)</span><b>${f(rA * 100, 1)}%</b></div><div class="stat"><span class="muted small">After ${days} days</span><b>${f(rootEnd, 3)} τ</b></div><div class="stat"><span class="muted small">Price risk / slippage</span><b>None on your stake</b></div></div><p class="muted small">This APY uses each subnet's stake-weighted validator take, then sells one epoch of that subnet's root alpha through its pool (slippage and the swap fee). Your own root stake stays in TAO. The holding-period figure compounds daily at (1 + APY)^(1/365) − 1.</p></div>`;
     $('out').innerHTML = html;
     return;
   }
@@ -123,7 +123,7 @@ function run() {
     const ex = exitSlippage(s, X);
     feature = `<div class="card"><h2>Break-even days</h2><div class="stats">${cells}<div class="stat"><span class="muted small">Exit slippage today (separate)</span><b>${Number.isFinite(ex.pct) ? f(ex.pct * 100, 2) + '% · ' + f(ex.tao, 3) + ' τ' : '—'}</b></div></div><p class="muted small">Entry cost (stake slippage plus the 0.05% swap fee, in TAO) divided by your stake's daily alpha rewards valued at today's alpha price, at 0% alpha change and your validator take. Exit slippage, selling into today's pool, is shown separately. Never means zero rewards or a stake larger than the pool; over 365 days shows as &gt; 1 year.</p></div>`;
   }
-  const warn = lowTaoEmission(s) ? `<div class="card warnbox" role="note"><b>⚠ Low TAO emission (${f(s.emission_share_percent, 3)}% of TAO emission, ≈${f(s.emission_tao_per_day, 2)} τ/day).</b> ${esc(LOW_EMISSION_WARNING)}</div>` : '';
+  const warn = lowTaoEmission(s) ? `<div class="card warnbox" role="note"><b>⚠ Low TAO coverage: ${f(taoCoveragePercent(s), 1)}% (TAO into the pool per day vs the TAO value of alpha issued per day).</b> ${esc(LOW_EMISSION_WARNING)}</div>` : '';
   html += `${warn}${feature}<div class="card"><h2>SN${s.netuid} · ${esc(s.name)}</h2><div class="stats">
  <div class="stat"><span class="muted small">Est. APY (paid in alpha), your take</span><b>${f(aA * 100, 1)}%</b></div>
  <div class="stat"><span class="muted small">APY range across validators (paid in alpha)</span><b>${formatApyRange(apyRange(s))}</b></div>
@@ -132,7 +132,7 @@ function run() {
  <div class="stat"><span class="muted small">Entry slippage</span><b class="${entrySlip > 0.01 ? 'warn' : ''}">${f(entrySlip * 100, 2)}%</b></div>
  <div class="stat"><span class="muted small">Alpha after ${days}d</span><b>${f(aEnd, 2)}</b></div></div>${X > s.taoIn ? `<p class="warn small">Your stake (${f(X, 2)} τ) is larger than the whole pool (${f(s.taoIn, 0)} τ). Most of it would be lost to slippage.</p>` : ''}</div>
  <div class="card"><h2>What you'd get back in TAO</h2><div class="tablewrap"><table><tr><th>Scenario</th><th>Value at spot</th><th>After exit slippage</th><th>Net vs ${f(X, 2)} τ in</th><th>vs root</th></tr>${rows}</table></div>
- <p class="muted small">Root staking the same ${f(X, 2)} τ for ${days} days ≈ <b>${f(rootEnd, 3)} τ</b> (est. ${f(rA * 100, 1)}% APY, paid in TAO). Root APY uses each subnet's stake-weighted take, then sells one epoch of root dividends through that pool. Subnet rewards compound once per epoch (about 7,280 a year when tempo is 360). Emission rates and pool prices will change.</p></div>`;
+ <p class="muted small">Root staking the same ${f(X, 2)} τ for ${days} days ≈ <b>${f(rootEnd, 3)} τ</b> (est. ${f(rA * 100, 1)}% APY, paid in TAO). Root APY uses each subnet's stake-weighted take, then sells one epoch of root dividends through that pool. Subnet rewards compound daily at (1 + APY)^(1/365) − 1. Emission rates and pool prices will change.</p></div>`;
   $('out').innerHTML = html;
 }
 

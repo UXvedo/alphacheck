@@ -1,28 +1,28 @@
 {
- "asOf": "2026-10-14T21:35:29.044Z",
- "block": 9284258,
- "blockHash": "0x3e81a464aebd8d7444cb33ece6d73f3e410a045fb14afa12cf9dd769c4fbbca1",
+ "asOf": "2026-10-14T21:52:40.524Z",
+ "block": 9284344,
+ "blockHash": "0x47dc945a6b6521d353f04e2b30221d5a3b319518bf25c3c09564ded4ef12bf44",
  "source": "Bittensor Finney chain, public RPC wss://entrypoint-finney.opentensor.ai:443 (subtensorModule and swap storage)",
  "subnets": [
   {
    "netuid": 0,
    "name": "Root",
-   "taoIn": 5442639.639475957,
-   "alphaIn": 1429927.579821574,
-   "alphaOut": 5442639.639475957,
-   "stakedAlpha": 5442639.639475957,
+   "taoIn": 5442422.216488541,
+   "alphaIn": 1430145.135969586,
+   "alphaOut": 5442422.216488541,
+   "stakedAlpha": 5442422.216488541,
    "alphaEmissionPerBlock": 0,
    "rootProp": 0,
    "tempo": 100,
    "fee": 0.000503547722590982,
    "weightQuote": 0.5,
-   "take": 0.08805900744528686,
+   "take": 0.08806137768561904,
    "validatorCount": 6218,
    "validators": [
     {
      "hotkey": "5E2LP6EnZ54m3wS8s1yPvD5c3xo71kQroBw7aUVK32TKeZ5u",
      "take": 0,
-     "alpha": 1023195.945132544
+     "alpha": 1023095.890053285
     },
     {
      "hotkey": "5Ckaoft1B1CQ9zBV2FLVju4KPuMQzJVn7QUf3JeTvTq1uUes",
@@ -37,12 +37,12 @@
     {
      "hotkey": "5GKH9FPPnWSUoeeTJp19wVtd84XqFW4pyK2ijV2GsFbhTrP1",
      "take": 0.0899977111467155,
-     "alpha": 487427.614657639
+     "alpha": 487427.64595116
     },
     {
      "hotkey": "5HK5tp6t2S59DywmHRWPBVJeJ86T61KjurYqeooqj8sREpeN",
      "take": 0.0899977111467155,
-     "alpha": 245149.186215727
+     "alpha": 245147.211174789
     },
     {
      "hotkey": "5G3wMP3g3d775hauwmAZioYFVZYnvw6eY46wkFy8hEWD5KP3",
@@ -115,106 +115,109 @@
   {
    "netuid": 1,
    "name": "Apex",
-   "taoIn": 22985.130658825,
-   "alphaIn": 3516177.569677009,
-   "alphaOut": 2608466.862936102,
-   "stakedAlpha": 1657720.032961327,
+   "taoIn": 22969.991735895,
+   "alphaIn": 3518496.565436011,
+   "alphaOut": 2606234.654392542,
+   "stakedAlpha": 1655474.530436091,
    "alphaEmissionPerBlock": 1,
-   "rootProp": 0.13789680018089712,
+   "rootProp": 0.13789208349771798,
    "tempo": 99,
    "fee": 0.000503547722590982,
-   "weightQuote": 0.49999999585070526,
-   "take": 0.08609561018983339,
+   "weightQuote": 0.49999999585025495,
+   "take": 0.08609042754791199,
    "validatorCount": 697,
    "validators": [
     {
      "hotkey": "5HbNZ77cXQXbUjXG3YLVBGk6N4WbtKtGQYAWLXd2aWa8fqGe",
      "take": 0.179995422293431,
-     "alpha": 427665.245875784
+     "alpha": 427674.547221666
     },
     {
      "hotkey": "5GTWwu3NCbYmVFzwfrXa1sx8y4UNLR3padWfVZwjNnDmySXP",
      "take": 0,
-     "alpha": 241180.34338695
+     "alpha": 241185.463039799
     },
     {
      "hotkey": "5HK5tp6t2S59DywmHRWPBVJeJ86T61KjurYqeooqj8sREpeN",
      "take": 0.0899977111467155,
-     "alpha": 235175.589461107
+     "alpha": 235180.970875417
     },
     {
      "hotkey": "5E2LP6EnZ54m3wS8s1yPvD5c3xo71kQroBw7aUVK32TKeZ5u",
      "take": 0,
-     "alpha": 162857.401927437
+     "alpha": 162860.940696469
     },
     {
      "hotkey": "5DXdHixxtCvoa6GHKs2Jgrdzc61882Ftx1zN2sYFQuwgL1S1",
      "take": 0.0899977111467155,
-     "alpha": 109137.17395778
+     "alpha": 109140.42462043
     },
     {
      "hotkey": "5Dd8gaRNdhm1YP7G1hcB1N842ecAUQmbLjCRLqH5ycaTGrWv",
      "take": 0,
-     "alpha": 108064.390132644
+     "alpha": 108066.740438769
     },
     {
      "hotkey": "5GKH9FPPnWSUoeeTJp19wVtd84XqFW4pyK2ijV2GsFbhTrP1",
      "take": 0.0899977111467155,
-     "alpha": 64490.770288738
+     "alpha": 66752.027684097
     },
     {
      "hotkey": "5GP7c3fFazW9GXK8Up3qgu2DJBk8inu4aK9TZy3RuoSWVCMi",
      "take": 0.0009918364232852674,
-     "alpha": 58575.390839183
+     "alpha": 58576.664880652
     },
     {
      "hotkey": "5CAQAgXxoU3NPo1YG5VQKz4Ackh7goNx3TvPD9A6LoqA7FmJ",
      "take": 0.0899977111467155,
-     "alpha": 31546.36066099
+     "alpha": 31546.973701971
     },
     {
      "hotkey": "5HK1Ubcg6MBwDGW7Td4RtAvE1FNyvkHvXKfwymW9q1BCRJAK",
      "take": 0.0899977111467155,
-     "alpha": 29523.469243854
+     "alpha": 29524.114816893
     },
     {
      "hotkey": "5DM7CPqPKtMSADhFKYsstsCS4Tm4Kd6PMXoh6DdqY4MtxmtX",
      "take": 0.07899595635919737,
-     "alpha": 25280.348396332
+     "alpha": 25280.898494729
     },
     {
      "hotkey": "5G3wMP3g3d775hauwmAZioYFVZYnvw6eY46wkFy8hEWD5KP3",
      "take": 0.179995422293431,
-     "alpha": 20964.663946494
+     "alpha": 20965.160870041
     },
     {
      "hotkey": "5Ggasr6fQqKZXuovBTT44GvhuoFpxBsXGPY3AUtFr9mWxGTV",
      "take": 0.179995422293431,
-     "alpha": 20414.621602904
+     "alpha": 20415.217628189
     },
     {
      "hotkey": "5Ev5mQXPh6Ch22MmTQMTrZjj7a1atSSE5i8z8USZAW8Pnh9s",
      "take": 0.179995422293431,
-     "alpha": 18156.5234823
+     "alpha": 18156.934716854
     }
    ],
-   "epochDividends": 31.955729665999996,
-   "emission_tao_per_day": 0.43062480000000003,
-   "emission_share_percent": 0.037986769674755734
+   "epochDividends": 31.955919935000004,
+   "emission_tao_per_day": 0.42642,
+   "emission_share_percent": 0.03768464209990266,
+   "alpha_emission_per_day": 7200,
+   "alpha_emission_tao_value_per_day": 47.00415082632159,
+   "tao_coverage_percent": 0.9071964762763282
   },
   {
    "netuid": 2,
    "name": "DSperse",
-   "taoIn": 7600.035040888,
-   "alphaIn": 2570344.471668423,
-   "alphaOut": 3395001.162166152,
-   "stakedAlpha": 2603454.176269829,
+   "taoIn": 7600.034856082,
+   "alphaIn": 2570344.542906675,
+   "alphaOut": 3395087.095301571,
+   "stakedAlpha": 2603454.109405248,
    "alphaEmissionPerBlock": 1,
-   "rootProp": 0.14105976256541908,
+   "rootProp": 0.14105492550879717,
    "tempo": 360,
    "fee": 0.000503547722590982,
-   "weightQuote": 0.49999998950993035,
-   "take": 0.11553124743692479,
+   "weightQuote": 0.49999998950887314,
+   "take": 0.11553125014742378,
    "validatorCount": 264,
    "validators": [
     {
@@ -270,7 +273,7 @@
     {
      "hotkey": "5G9hfkx9wGB1CLMT9WXkpHSAiYzjZb5o1Boyq4KAdDhjwrc5",
      "take": 0.009994659342336155,
-     "alpha": 17236.35971971
+     "alpha": 17236.292855129
     },
     {
      "hotkey": "5FAC51a9Jc3BoHcpGT28Dg3qNPxPViztTB7fA1MHHdKK3gm1",
@@ -280,21 +283,24 @@
    ],
    "epochDividends": 113.09425065499997,
    "emission_tao_per_day": 0.00108,
-   "emission_share_percent": 0.00009527020099338494
+   "emission_share_percent": 0.00009544442912596704,
+   "alpha_emission_per_day": 7200,
+   "alpha_emission_tao_value_per_day": 21.289073253276158,
+   "tao_coverage_percent": 0.005073024960510199
   },
   {
    "netuid": 3,
    "name": "Teutonic",
-   "taoIn": 75387.376144429,
-   "alphaIn": 3005121.395780678,
-   "alphaOut": 3275820.301916311,
-   "stakedAlpha": 2288140.274858493,
+   "taoIn": 75388.74479032,
+   "alphaIn": 3005090.046231278,
+   "alphaOut": 3275949.255054315,
+   "stakedAlpha": 2288140.216781664,
    "alphaEmissionPerBlock": 1,
-   "rootProp": 0.13492832845076919,
+   "rootProp": 0.13492353772744536,
    "tempo": 360,
    "fee": 0.000503547722590982,
-   "weightQuote": 0.49999999560499725,
-   "take": 0.05223865660341286,
+   "weightQuote": 0.4999999956045415,
+   "take": 0.052238657675636235,
    "validatorCount": 230,
    "validators": [
     {
@@ -359,22 +365,25 @@
     }
    ],
    "epochDividends": 121.53980073,
-   "emission_tao_per_day": 24.3709272,
-   "emission_share_percent": 2.1498362340177333
+   "emission_tao_per_day": 24.370761599999998,
+   "emission_share_percent": 2.1537531743305918,
+   "alpha_emission_per_day": 7200,
+   "alpha_emission_tao_value_per_day": 180.62652489047252,
+   "tao_coverage_percent": 13.492349263087371
   },
   {
    "netuid": 4,
    "name": "Targon",
-   "taoIn": 133558.466320369,
-   "alphaIn": 2596693.835013057,
-   "alphaOut": 3858565.75818813,
-   "stakedAlpha": 2900919.165460321,
+   "taoIn": 133561.298199192,
+   "alphaIn": 2596661.440557097,
+   "alphaOut": 3858695.484178271,
+   "stakedAlpha": 2900918.604833218,
    "alphaEmissionPerBlock": 1,
-   "rootProp": 0.13176482170820236,
+   "rootProp": 0.13176017883233726,
    "tempo": 360,
    "fee": 0.000503547722590982,
-   "weightQuote": 0.49999999531256756,
-   "take": 0.11177775315149553,
+   "weightQuote": 0.49999999531206635,
+   "take": 0.11177775977038458,
    "validatorCount": 168,
    "validators": [
     {
@@ -405,7 +414,7 @@
     {
      "hotkey": "5HK5tp6t2S59DywmHRWPBVJeJ86T61KjurYqeooqj8sREpeN",
      "take": 0.0899977111467155,
-     "alpha": 158763.306943299
+     "alpha": 158762.83369257
     },
     {
      "hotkey": "5Dd8gaRNdhm1YP7G1hcB1N842ecAUQmbLjCRLqH5ycaTGrWv",
@@ -415,7 +424,7 @@
     {
      "hotkey": "5G9hfkx9wGB1CLMT9WXkpHSAiYzjZb5o1Boyq4KAdDhjwrc5",
      "take": 0.009994659342336155,
-     "alpha": 74570.666410704
+     "alpha": 74570.57903433
     },
     {
      "hotkey": "5CAQAgXxoU3NPo1YG5VQKz4Ackh7goNx3TvPD9A6LoqA7FmJ",
@@ -439,22 +448,25 @@
     }
    ],
    "epochDividends": 113.60199461099998,
-   "emission_tao_per_day": 48.7958112,
-   "emission_share_percent": 4.304432167277096
+   "emission_tao_per_day": 48.795732,
+   "emission_share_percent": 4.312297022707113,
+   "alpha_emission_per_day": 7200,
+   "alpha_emission_tao_value_per_day": 370.3375996758021,
+   "tao_coverage_percent": 13.17601346520482
   },
   {
    "netuid": 5,
    "name": "Hone",
-   "taoIn": 33535.325661161,
-   "alphaIn": 2665582.498759342,
-   "alphaOut": 3335325.033406141,
-   "stakedAlpha": 1656873.38956836,
+   "taoIn": 33536.329105327,
+   "alphaIn": 2665526.879598059,
+   "alphaOut": 3335445.42914875,
+   "stakedAlpha": 1656873.331700027,
    "alphaEmissionPerBlock": 1,
-   "rootProp": 0.1403411456849426,
+   "rootProp": 0.14033676637336612,
    "tempo": 360,
    "fee": 0.000503547722590982,
-   "weightQuote": 0.49999999592638766,
-   "take": 0.1039100920695696,
+   "weightQuote": 0.4999999959257381,
+   "take": 0.10391009534968126,
    "validatorCount": 719,
    "validators": [
     {
@@ -519,22 +531,25 @@
     }
    ],
    "epochDividends": 113.84886304400001,
-   "emission_tao_per_day": 12.712406399999999,
-   "emission_share_percent": 1.1214014007755493
+   "emission_tao_per_day": 12.7126512,
+   "emission_share_percent": 1.1234738300569815,
+   "alpha_emission_per_day": 7200,
+   "alpha_emission_tao_value_per_day": 90.58680868747254,
+   "tao_coverage_percent": 14.033667135641197
   },
   {
    "netuid": 6,
    "name": "Numinous",
-   "taoIn": 7399.277203574,
-   "alphaIn": 3267521.517243573,
-   "alphaOut": 2724342.829006575,
-   "stakedAlpha": 2443838.15633522,
+   "taoIn": 7399.280702658,
+   "alphaIn": 3267523.192012732,
+   "alphaOut": 2724428.764229566,
+   "stakedAlpha": 2443838.091558211,
    "alphaEmissionPerBlock": 1,
-   "rootProp": 0.1405231908429414,
+   "rootProp": 0.14051834447309375,
    "tempo": 360,
    "fee": 0.000503547722590982,
-   "weightQuote": 0.4999999883052471,
-   "take": 0.0641201322431346,
+   "weightQuote": 0.49999998830377096,
+   "take": 0.0641201336777985,
    "validatorCount": 613,
    "validators": [
     {
@@ -599,23 +614,26 @@
     }
    ],
    "epochDividends": 118.778893964,
-   "emission_tao_per_day": 0.30529439999999997,
-   "emission_share_percent": 0.026930980416810055
+   "emission_tao_per_day": 0.305172,
+   "emission_share_percent": 0.026969414190027425,
+   "alpha_emission_per_day": 7200,
+   "alpha_emission_tao_value_per_day": 16.304344428778002,
+   "tao_coverage_percent": 1.8717219900074966
   },
   {
    "netuid": 7,
    "name": "Allways",
-   "taoIn": 5388.60308822,
-   "alphaIn": 2356179.473992193,
-   "alphaOut": 3115914.544591189,
-   "stakedAlpha": 3058927.454640931,
+   "taoIn": 5388.538959885,
+   "alphaIn": 2356209.628151061,
+   "alphaOut": 3115971.447213655,
+   "stakedAlpha": 3058898.357263397,
    "alphaEmissionPerBlock": 1,
-   "rootProp": 0.15184410801157355,
+   "rootProp": 0.15183877456001937,
    "tempo": 360,
    "fee": 0.000503547722590982,
-   "weightQuote": 0.49999998761256953,
-   "take": 0.09897385611514721,
-   "validatorCount": 157,
+   "weightQuote": 0.49999998761062786,
+   "take": 0.09897308921151729,
+   "validatorCount": 156,
    "validators": [
     {
      "hotkey": "5DtUJ9ytbeCMjovFieNwaxxqRP3DzT6iQPnZTyKmi3n6iXey",
@@ -679,22 +697,25 @@
     }
    ],
    "epochDividends": 112.94193636199999,
-   "emission_tao_per_day": 0.2023848,
-   "emission_share_percent": 0.017853000531487053
+   "emission_tao_per_day": 0.2022912,
+   "emission_share_percent": 0.017877377871487802,
+   "alpha_emission_per_day": 7200,
+   "alpha_emission_tao_value_per_day": 16.466057166705696,
+   "tao_coverage_percent": 1.2285345420094378
   },
   {
    "netuid": 8,
    "name": "Vanta",
-   "taoIn": 82474.146646566,
-   "alphaIn": 2793451.491477363,
-   "alphaOut": 3490574.719300678,
-   "stakedAlpha": 2405822.954397972,
+   "taoIn": 82454.669453812,
+   "alphaIn": 2794134.551967545,
+   "alphaOut": 3489989.257471679,
+   "stakedAlpha": 2405108.265456292,
    "alphaEmissionPerBlock": 1,
-   "rootProp": 0.13487103139050305,
+   "rootProp": 0.1348662432283163,
    "tempo": 360,
    "fee": 0.000503547722590982,
-   "weightQuote": 0.49999999636359765,
-   "take": 0.027433073470570352,
+   "weightQuote": 0.49999999636310183,
+   "take": 0.02742855544885232,
    "validatorCount": 402,
    "validators": [
     {
@@ -759,22 +780,25 @@
     }
    ],
    "epochDividends": 125.11225190899995,
-   "emission_tao_per_day": 28.670004,
-   "emission_share_percent": 2.5290713366306945
+   "emission_tao_per_day": 28.655208,
+   "emission_share_percent": 2.532388860227633,
+   "alpha_emission_per_day": 7200,
+   "alpha_emission_tao_value_per_day": 212.47138162545588,
+   "tao_coverage_percent": 13.486620071268392
   },
   {
    "netuid": 9,
    "name": "iota",
-   "taoIn": 52968.782504282,
-   "alphaIn": 2214692.475176629,
-   "alphaOut": 4098909.998268467,
-   "stakedAlpha": 2567782.97612452,
+   "taoIn": 52970.083832698,
+   "alphaIn": 2214661.169273628,
+   "alphaOut": 4099038.85579702,
+   "stakedAlpha": 2567782.918033906,
    "alphaEmissionPerBlock": 1,
-   "rootProp": 0.13432409102097154,
+   "rootProp": 0.1343193284701556,
    "tempo": 360,
    "fee": 0.000503547722590982,
-   "weightQuote": 0.4999999954185425,
-   "take": 0.11403656830027582,
+   "weightQuote": 0.49999999541779055,
+   "take": 0.11403657065400215,
    "validatorCount": 208,
    "validators": [
     {
@@ -839,33 +863,36 @@
     }
    ],
    "epochDividends": 113.21601867000003,
-   "emission_tao_per_day": 23.1309144,
-   "emission_share_percent": 2.040450800045169
+   "emission_tao_per_day": 23.1309864,
+   "emission_share_percent": 2.0441886963597296,
+   "alpha_emission_per_day": 7200,
+   "alpha_emission_tao_value_per_day": 172.2090114176924,
+   "tao_coverage_percent": 13.431925663806215
   },
   {
    "netuid": 10,
    "name": "Pareton",
-   "taoIn": 15833.866153072,
-   "alphaIn": 2682545.791334707,
-   "alphaOut": 3472675.949618509,
-   "stakedAlpha": 2579424.797737982,
+   "taoIn": 15744.156067802,
+   "alphaIn": 2697834.180606657,
+   "alphaOut": 3457475.105154215,
+   "stakedAlpha": 2564137.953273688,
    "alphaEmissionPerBlock": 1,
-   "rootProp": 0.1373058285098523,
+   "rootProp": 0.1373011227697134,
    "tempo": 360,
    "fee": 0.000503547722590982,
-   "weightQuote": 0.4999999981784368,
-   "take": 0.07625578962823709,
+   "weightQuote": 0.4999999981777516,
+   "take": 0.07674728766107762,
    "validatorCount": 170,
    "validators": [
     {
      "hotkey": "5HK5tp6t2S59DywmHRWPBVJeJ86T61KjurYqeooqj8sREpeN",
      "take": 0.0899977111467155,
-     "alpha": 789225.335575581
+     "alpha": 790270.350334028
     },
     {
      "hotkey": "5E2LP6EnZ54m3wS8s1yPvD5c3xo71kQroBw7aUVK32TKeZ5u",
      "take": 0,
-     "alpha": 515806.241020586
+     "alpha": 498960.244864414
     },
     {
      "hotkey": "5GKbzKzGvberrQF3Axx67jy5xqs9xFd1bqV36JVxBV184LWm",
@@ -880,12 +907,12 @@
     {
      "hotkey": "5GKH9FPPnWSUoeeTJp19wVtd84XqFW4pyK2ijV2GsFbhTrP1",
      "take": 0.0899977111467155,
-     "alpha": 137419.919687663
+     "alpha": 137419.919687664
     },
     {
      "hotkey": "5GP7c3fFazW9GXK8Up3qgu2DJBk8inu4aK9TZy3RuoSWVCMi",
      "take": 0.0009918364232852674,
-     "alpha": 113924.204581449
+     "alpha": 114438.39835205
     },
     {
      "hotkey": "5GcAZ4SFfghRCYqhSTaeGqmgfosWfRRtSjp5T1YxpVuNHZCV",
@@ -900,7 +927,7 @@
     {
      "hotkey": "5G9hfkx9wGB1CLMT9WXkpHSAiYzjZb5o1Boyq4KAdDhjwrc5",
      "take": 0.009994659342336155,
-     "alpha": 33677.76936633
+     "alpha": 33677.712529159
     },
     {
      "hotkey": "5FFSBkNiymQWHaxc8dTmfTT7iHoz6YDexVG4xR2yLrffVR86",
@@ -919,22 +946,25 @@
     }
    ],
    "epochDividends": 117.71642004800002,
-   "emission_tao_per_day": 0.7981488,
-   "emission_share_percent": 0.07040721907280463
+   "emission_tao_per_day": 0.7973064,
+   "emission_share_percent": 0.07046153165414809,
+   "alpha_emission_per_day": 7200,
+   "alpha_emission_tao_value_per_day": 42.01812154702146,
+   "tao_coverage_percent": 1.8975298529415547
   },
   {
    "netuid": 11,
    "name": "TrajectoryRL",
-   "taoIn": 19431.253157106,
-   "alphaIn": 2763851.597010843,
-   "alphaOut": 3382353.144105742,
-   "stakedAlpha": 2020828.546650996,
+   "taoIn": 19553.218257737,
+   "alphaIn": 2746635.355021825,
+   "alphaOut": 3399664.401097281,
+   "stakedAlpha": 2038037.992820555,
    "alphaEmissionPerBlock": 1,
-   "rootProp": 0.13747957395389676,
+   "rootProp": 0.1374747164081782,
    "tempo": 360,
    "fee": 0.000503547722590982,
-   "weightQuote": 0.4999999931767093,
-   "take": 0.08404390042995698,
+   "weightQuote": 0.4999999931759337,
+   "take": 0.0834585161152779,
    "validatorCount": 329,
    "validators": [
     {
@@ -950,7 +980,7 @@
     {
      "hotkey": "5E2LP6EnZ54m3wS8s1yPvD5c3xo71kQroBw7aUVK32TKeZ5u",
      "take": 0,
-     "alpha": 280859.399100959
+     "alpha": 295254.229071027
     },
     {
      "hotkey": "5GP7c3fFazW9GXK8Up3qgu2DJBk8inu4aK9TZy3RuoSWVCMi",
@@ -970,7 +1000,7 @@
     {
      "hotkey": "5GKH9FPPnWSUoeeTJp19wVtd84XqFW4pyK2ijV2GsFbhTrP1",
      "take": 0.0899977111467155,
-     "alpha": 84938.731827733
+     "alpha": 87753.404161348
     },
     {
      "hotkey": "5GZGoeDmDjTXj5bygq5o1J9uhiUPu21v3pj9U5FDrduSfs11",
@@ -999,22 +1029,25 @@
     }
    ],
    "epochDividends": 116.73200867300001,
-   "emission_tao_per_day": 6.9591528,
-   "emission_share_percent": 0.6138887833330349
+   "emission_tao_per_day": 7.0464816,
+   "emission_share_percent": 0.6227290867209545,
+   "alpha_emission_per_day": 7200,
+   "alpha_emission_tao_value_per_day": 51.256594742785786,
+   "tao_coverage_percent": 13.74746339541366
   },
   {
    "netuid": 12,
    "name": "Compute Horde",
-   "taoIn": 12746.081888107,
-   "alphaIn": 2630615.220578202,
-   "alphaOut": 3791287.359189452,
-   "stakedAlpha": 2085939.942358343,
+   "taoIn": 12746.081584184,
+   "alphaIn": 2630615.283303763,
+   "alphaOut": 3791373.296463891,
+   "stakedAlpha": 2085939.879632782,
    "alphaEmissionPerBlock": 1,
-   "rootProp": 0.13235865300521255,
+   "rootProp": 0.13235418614931405,
    "tempo": 360,
    "fee": 0.000503547722590982,
    "weightQuote": 0.5,
-   "take": 0.15034016616396015,
+   "take": 0.15034017038424027,
    "validatorCount": 431,
    "validators": [
     {
@@ -1080,21 +1113,24 @@
    ],
    "epochDividends": 107.89131684499995,
    "emission_tao_per_day": 0,
-   "emission_share_percent": 0
+   "emission_share_percent": 0,
+   "alpha_emission_per_day": 7200,
+   "alpha_emission_tao_value_per_day": 34.88605422031516,
+   "tao_coverage_percent": 0
   },
   {
    "netuid": 13,
    "name": "Data Universe",
-   "taoIn": 17263.13006395,
-   "alphaIn": 4135793.944833747,
-   "alphaOut": 2121760.489228447,
-   "stakedAlpha": 1382411.522577095,
+   "taoIn": 17263.130146057,
+   "alphaIn": 4135794.074918399,
+   "alphaOut": 2121846.434026563,
+   "stakedAlpha": 1382411.467375211,
    "alphaEmissionPerBlock": 1,
-   "rootProp": 0.1353643531911075,
+   "rootProp": 0.13535975804552436,
    "tempo": 360,
    "fee": 0.000503547722590982,
-   "weightQuote": 0.4999999950157034,
-   "take": 0.09845123608250436,
+   "weightQuote": 0.4999999950150868,
+   "take": 0.09845123961471589,
    "validatorCount": 623,
    "validators": [
     {
@@ -1150,7 +1186,7 @@
     {
      "hotkey": "5G9hfkx9wGB1CLMT9WXkpHSAiYzjZb5o1Boyq4KAdDhjwrc5",
      "take": 0.009994659342336155,
-     "alpha": 28209.417005585
+     "alpha": 28209.361803701
     },
     {
      "hotkey": "5CAQAgXxoU3NPo1YG5VQKz4Ackh7goNx3TvPD9A6LoqA7FmJ",
@@ -1169,22 +1205,25 @@
     }
    ],
    "epochDividends": 115.04653230200003,
-   "emission_tao_per_day": 0.026172,
-   "emission_share_percent": 0.002308714537406362
+   "emission_tao_per_day": 0.026157600000000003,
+   "emission_share_percent": 0.002311664073430922,
+   "alpha_emission_per_day": 7200,
+   "alpha_emission_tao_value_per_day": 30.053367570640635,
+   "tao_coverage_percent": 0.08703716792641089
   },
   {
    "netuid": 14,
    "name": "Cacheon",
-   "taoIn": 24761.924430873,
-   "alphaIn": 2811274.445981889,
-   "alphaOut": 3327600.961628624,
-   "stakedAlpha": 1878863.144874971,
+   "taoIn": 24742.028409162,
+   "alphaIn": 2813558.789861337,
+   "alphaOut": 3325414.45291209,
+   "stakedAlpha": 1876568.308847989,
    "alphaEmissionPerBlock": 1,
-   "rootProp": 0.13762112450785935,
+   "rootProp": 0.1376162061933428,
    "tempo": 360,
    "fee": 0.000503547722590982,
-   "weightQuote": 0.4999999974020501,
-   "take": 0.06430098734482703,
+   "weightQuote": 0.4999999974013666,
+   "take": 0.06437887373527726,
    "validatorCount": 179,
    "validators": [
     {
@@ -1205,7 +1244,7 @@
     {
      "hotkey": "5E2LP6EnZ54m3wS8s1yPvD5c3xo71kQroBw7aUVK32TKeZ5u",
      "take": 0,
-     "alpha": 100556.050025294
+     "alpha": 98283.056717931
     },
     {
      "hotkey": "5GTWwu3NCbYmVFzwfrXa1sx8y4UNLR3padWfVZwjNnDmySXP",
@@ -1249,22 +1288,25 @@
     }
    ],
    "epochDividends": 120.39270698399999,
-   "emission_tao_per_day": 8.7276744,
-   "emission_share_percent": 0.7698956428637226
+   "emission_tao_per_day": 8.7132672,
+   "emission_share_percent": 0.7700303830796421,
+   "alpha_emission_per_day": 7200,
+   "alpha_emission_tao_value_per_day": 63.31575762326803,
+   "tao_coverage_percent": 13.761609316663922
   },
   {
    "netuid": 15,
    "name": "ORO",
-   "taoIn": 13613.916926882,
-   "alphaIn": 643578.535124538,
-   "alphaOut": 1671985.623584472,
-   "stakedAlpha": 940812.729744935,
+   "taoIn": 13605.387454279,
+   "alphaIn": 644033.153607749,
+   "alphaOut": 1671637.388968892,
+   "stakedAlpha": 940348.291812737,
    "alphaEmissionPerBlock": 1,
-   "rootProp": 0.29729713196866214,
+   "rootProp": 0.29728220612742007,
    "tempo": 360,
    "fee": 0.000503547722590982,
-   "weightQuote": 0.499999864923803,
-   "take": 0.09403545253265504,
+   "weightQuote": 0.4999998649175039,
+   "take": 0.09408189527743388,
    "validatorCount": 450,
    "validators": [
     {
@@ -1285,7 +1327,7 @@
     {
      "hotkey": "5E2LP6EnZ54m3wS8s1yPvD5c3xo71kQroBw7aUVK32TKeZ5u",
      "take": 0,
-     "alpha": 61010.858812622
+     "alpha": 60546.548489345
     },
     {
      "hotkey": "5GKH9FPPnWSUoeeTJp19wVtd84XqFW4pyK2ijV2GsFbhTrP1",
@@ -1305,7 +1347,7 @@
     {
      "hotkey": "5G9hfkx9wGB1CLMT9WXkpHSAiYzjZb5o1Boyq4KAdDhjwrc5",
      "take": 0.009994659342336155,
-     "alpha": 21152.953745331
+     "alpha": 21152.82613641
     },
     {
      "hotkey": "5DWsubqYzc8Ue3jD4AQHLJi4BNxLkPz32EXXDs1a4TCGdAZe",
@@ -1329,22 +1371,25 @@
     }
    ],
    "epochDividends": 94.33773085000003,
-   "emission_tao_per_day": 45.2798136,
-   "emission_share_percent": 3.9942749468657452
+   "emission_tao_per_day": 45.2172312,
+   "emission_share_percent": 3.9960489060563575,
+   "alpha_emission_per_day": 7200,
+   "alpha_emission_tao_value_per_day": 152.1021737035553,
+   "tao_coverage_percent": 29.728195264406708
   },
   {
    "netuid": 16,
    "name": "kenju",
-   "taoIn": 320.162485902,
-   "alphaIn": 353831.652374236,
-   "alphaOut": 607307.22516868,
-   "stakedAlpha": 535080.230864351,
+   "taoIn": 320.162362643,
+   "alphaIn": 353831.994325905,
+   "alphaOut": 607392.986108982,
+   "stakedAlpha": 535079.991804653,
    "alphaEmissionPerBlock": 1,
-   "rootProp": 0.5047717713750899,
+   "rootProp": 0.5047430025879294,
    "tempo": 360,
    "fee": 0.000503547722590982,
-   "weightQuote": 0.4999999107021461,
-   "take": 0.08565543439159587,
+   "weightQuote": 0.499999910663789,
+   "take": 0.08565546819484457,
    "validatorCount": 69,
    "validators": [
     {
@@ -1415,21 +1460,24 @@
    ],
    "epochDividends": 67.108319197,
    "emission_tao_per_day": 0.007790399999999999,
-   "emission_share_percent": 0.00068721571649895
+   "emission_share_percent": 0.000688472482095309,
+   "alpha_emission_per_day": 7200,
+   "alpha_emission_tao_value_per_day": 6.514871101924093,
+   "tao_coverage_percent": 0.1195787280841089
   },
   {
    "netuid": 17,
    "name": "0x343034e2809447454e",
-   "taoIn": 24496.04493734,
-   "alphaIn": 3038520.937806575,
-   "alphaOut": 3183401.242893529,
-   "stakedAlpha": 2605781.285234759,
+   "taoIn": 24496.303256895,
+   "alphaIn": 3038512.293090757,
+   "alphaOut": 3183507.58629297,
+   "stakedAlpha": 2605781.234640358,
    "alphaEmissionPerBlock": 1,
-   "rootProp": 0.13603411382064223,
+   "rootProp": 0.1360292707104236,
    "tempo": 360,
    "fee": 0.000503547722590982,
-   "weightQuote": 0.49999999435465253,
-   "take": 0.10821887264642074,
+   "weightQuote": 0.4999999943539064,
+   "take": 0.10821887455356294,
    "validatorCount": 173,
    "validators": [
     {
@@ -1494,22 +1542,25 @@
     }
    ],
    "epochDividends": 113.51075237799999,
-   "emission_tao_per_day": 7.896124799999999,
-   "emission_share_percent": 0.6965420340415291
+   "emission_tao_per_day": 7.8959448000000005,
+   "emission_share_percent": 0.6977999480056927,
+   "alpha_emission_per_day": 7200,
+   "alpha_emission_tao_value_per_day": 58.0459680330997,
+   "tao_coverage_percent": 13.602916908022753
   },
   {
    "netuid": 18,
    "name": "Zeus",
-   "taoIn": 9726.827402187,
-   "alphaIn": 2658542.53054043,
-   "alphaOut": 3302347.923456467,
-   "stakedAlpha": 2773740.204195225,
+   "taoIn": 9722.907023862,
+   "alphaIn": 2659623.332308571,
+   "alphaOut": 3301357.545558636,
+   "stakedAlpha": 2772663.826297394,
    "alphaEmissionPerBlock": 1,
-   "rootProp": 0.1411503094714135,
+   "rootProp": 0.14114537881687284,
    "tempo": 1800,
    "fee": 0.000503547722590982,
-   "weightQuote": 0.4999999904412284,
-   "take": 0.10363339467201048,
+   "weightQuote": 0.4999999904401468,
+   "take": 0.10360375330129976,
    "validatorCount": 403,
    "validators": [
     {
@@ -1574,22 +1625,25 @@
     }
    ],
    "epochDividends": 558.6042930830001,
-   "emission_tao_per_day": 1.3549176,
-   "emission_share_percent": 0.11952154822358772
+   "emission_tao_per_day": 1.3541471999999999,
+   "emission_share_percent": 0.11967204301530253,
+   "alpha_emission_per_day": 7200,
+   "alpha_emission_tao_value_per_day": 26.321371300344673,
+   "tao_coverage_percent": 5.144668127462902
   },
   {
    "netuid": 19,
    "name": "blockmachine",
-   "taoIn": 30567.760108938,
-   "alphaIn": 3432577.142916987,
-   "alphaOut": 2785300.187365114,
-   "stakedAlpha": 1631701.522252461,
+   "taoIn": 30568.075710986,
+   "alphaIn": 3432565.113446368,
+   "alphaOut": 2785409.922093707,
+   "stakedAlpha": 1631701.248330145,
    "alphaEmissionPerBlock": 1,
-   "rootProp": 0.13611056189984083,
+   "rootProp": 0.13610571529716253,
    "tempo": 7200,
    "fee": 0.000503547722590982,
-   "weightQuote": 0.4999999959376951,
-   "take": 0.07116351893962665,
+   "weightQuote": 0.4999999959373092,
+   "take": 0.07116352920836654,
    "validatorCount": 174,
    "validators": [
     {
@@ -1630,7 +1684,7 @@
     {
      "hotkey": "5G9hfkx9wGB1CLMT9WXkpHSAiYzjZb5o1Boyq4KAdDhjwrc5",
      "take": 0.009994659342336155,
-     "alpha": 72186.171523645
+     "alpha": 72185.897601329
     },
     {
      "hotkey": "5DwE8KR29yqSeVBD4T2YUHeqJXSBJF4v8abBErsT8ggdfn9q",
@@ -1654,22 +1708,25 @@
     }
    ],
    "epochDividends": 2375.944008765001,
-   "emission_tao_per_day": 8.727048,
-   "emission_share_percent": 0.7698403861471464
+   "emission_tao_per_day": 8.726860799999999,
+   "emission_share_percent": 0.7712317102942408,
+   "alpha_emission_per_day": 7200,
+   "alpha_emission_tao_value_per_day": 64.11827348404088,
+   "tao_coverage_percent": 13.610567355922528
   },
   {
    "netuid": 20,
    "name": "Witness",
-   "taoIn": 6443.794055212,
-   "alphaIn": 2782320.179467144,
-   "alphaOut": 3335668.02882498,
-   "stakedAlpha": 1902144.158179549,
+   "taoIn": 6443.798073548,
+   "alphaIn": 2782322.053176965,
+   "alphaOut": 3335753.959503797,
+   "stakedAlpha": 1902144.088858366,
    "alphaEmissionPerBlock": 1,
-   "rootProp": 0.13802612060680985,
+   "rootProp": 0.1380213787779212,
    "tempo": 360,
    "fee": 0.000503547722590982,
-   "weightQuote": 0.4999999960448283,
-   "take": 0.13099234319022623,
+   "weightQuote": 0.4999999960431447,
+   "take": 0.13099234759983044,
    "validatorCount": 273,
    "validators": [
     {
@@ -1734,22 +1791,25 @@
     }
    ],
    "epochDividends": 109.69286852900001,
-   "emission_tao_per_day": 0.35014320000000004,
-   "emission_share_percent": 0.03088723429672869
+   "emission_tao_per_day": 0.34958880000000003,
+   "emission_share_percent": 0.03089472541188136,
+   "alpha_emission_per_day": 7200,
+   "alpha_emission_tao_value_per_day": 16.67504551131608,
+   "tao_coverage_percent": 2.0964788357714577
   },
   {
    "netuid": 21,
    "name": "AdTAO",
-   "taoIn": 8917.914326646,
-   "alphaIn": 1866767.513564026,
-   "alphaOut": 4330582.485049305,
-   "stakedAlpha": 3485456.609405566,
+   "taoIn": 8794.524558616,
+   "alphaIn": 1892982.484539702,
+   "alphaOut": 4304465.252810231,
+   "stakedAlpha": 3459250.955743128,
    "alphaEmissionPerBlock": 1,
-   "rootProp": 0.1364998584613204,
+   "rootProp": 0.13649499346502125,
    "tempo": 360,
    "fee": 0.000503547722590982,
-   "weightQuote": 0.499999987130427,
-   "take": 0.08773342650922118,
+   "weightQuote": 0.499999987129271,
+   "take": 0.08839805341684899,
    "validatorCount": 349,
    "validators": [
     {
@@ -1770,7 +1830,7 @@
     {
      "hotkey": "5E2LP6EnZ54m3wS8s1yPvD5c3xo71kQroBw7aUVK32TKeZ5u",
      "take": 0,
-     "alpha": 533588.085175413
+     "alpha": 507382.483970549
     },
     {
      "hotkey": "5GTWwu3NCbYmVFzwfrXa1sx8y4UNLR3padWfVZwjNnDmySXP",
@@ -1790,7 +1850,7 @@
     {
      "hotkey": "5G9hfkx9wGB1CLMT9WXkpHSAiYzjZb5o1Boyq4KAdDhjwrc5",
      "take": 0.009994659342336155,
-     "alpha": 122840.309435273
+     "alpha": 122840.256977699
     },
     {
      "hotkey": "5CSuYV3XAKKuND7gLQEm5xrTR4TdjBm1WqaPsShQ5jfMsn21",
@@ -1816,25 +1876,33 @@
      "hotkey": "5ELREhApbCahM7FyGLM1V9WDsnnjCRmMCJTmtQD51oAEqwVh",
      "take": 0,
      "alpha": 46162.882607175
+    },
+    {
+     "hotkey": "5Ckaoft1B1CQ9zBV2FLVju4KPuMQzJVn7QUf3JeTvTq1uUes",
+     "take": 0.179995422293431,
+     "alpha": 34755.714075274
     }
    ],
    "epochDividends": 116.77668688300001,
-   "emission_tao_per_day": 4.6950192,
-   "emission_share_percent": 0.4141624285664828
+   "emission_tao_per_day": 4.5657792,
+   "emission_share_percent": 0.4034983233881616,
+   "alpha_emission_per_day": 7200,
+   "alpha_emission_tao_value_per_day": 33.450166918665516,
+   "tao_coverage_percent": 13.649496013283722
   },
   {
    "netuid": 22,
    "name": "Desearch",
-   "taoIn": 7533.017717735,
-   "alphaIn": 2500559.337594474,
-   "alphaOut": 3763787.32791675,
-   "stakedAlpha": 2463822.67887328,
+   "taoIn": 7533.017647687,
+   "alphaIn": 2500559.420634444,
+   "alphaOut": 3763873.274775117,
+   "stakedAlpha": 2463822.625731647,
    "alphaEmissionPerBlock": 1,
-   "rootProp": 0.1352374309208244,
+   "rootProp": 0.13523284206166863,
    "tempo": 360,
    "fee": 0.000503547722590982,
-   "weightQuote": 0.49999998788472977,
-   "take": 0.11439968990191131,
+   "weightQuote": 0.49999998788380956,
+   "take": 0.1143996921537998,
    "validatorCount": 672,
    "validators": [
     {
@@ -1900,21 +1968,24 @@
    ],
    "epochDividends": 115.37043024200001,
    "emission_tao_per_day": 0.007538400000000001,
-   "emission_share_percent": 0.000664986002933827
+   "emission_share_percent": 0.0006662021152992501,
+   "alpha_emission_per_day": 7200,
+   "alpha_emission_tao_value_per_day": 21.690238290039815,
+   "tao_coverage_percent": 0.034754804899776705
   },
   {
    "netuid": 23,
    "name": "Trishool",
-   "taoIn": 7866.666386179,
-   "alphaIn": 1661257.86377512,
-   "alphaOut": 4555982.481984097,
-   "stakedAlpha": 3062611.435945245,
+   "taoIn": 7886.656187438,
+   "alphaIn": 1657047.230903699,
+   "alphaOut": 4560279.140219066,
+   "stakedAlpha": 3066822.094180214,
    "alphaEmissionPerBlock": 1,
-   "rootProp": 0.13612260879017413,
+   "rootProp": 0.13611798244528472,
    "tempo": 360,
    "fee": 0.000503547722590982,
-   "weightQuote": 0.49999998823353314,
-   "take": 0.0820292383520773,
+   "weightQuote": 0.49999998823226316,
+   "take": 0.08191661440430607,
    "validatorCount": 296,
    "validators": [
     {
@@ -1940,7 +2011,7 @@
     {
      "hotkey": "5E2LP6EnZ54m3wS8s1yPvD5c3xo71kQroBw7aUVK32TKeZ5u",
      "take": 0,
-     "alpha": 202519.587310027
+     "alpha": 206730.297911278
     },
     {
      "hotkey": "5HK5tp6t2S59DywmHRWPBVJeJ86T61KjurYqeooqj8sREpeN",
@@ -1975,26 +2046,29 @@
     {
      "hotkey": "5G9hfkx9wGB1CLMT9WXkpHSAiYzjZb5o1Boyq4KAdDhjwrc5",
      "take": 0.009994659342336155,
-     "alpha": 19614.751148303
+     "alpha": 19614.698782021
     }
    ],
    "epochDividends": 117.099285762,
-   "emission_tao_per_day": 0.0100728,
-   "emission_share_percent": 0.000888553407931637
+   "emission_tao_per_day": 0.010058399999999999,
+   "emission_share_percent": 0.0008889057832598397,
+   "alpha_emission_per_day": 7200,
+   "alpha_emission_tao_value_per_day": 34.268140438856825,
+   "tao_coverage_percent": 0.02935204499335694
   },
   {
    "netuid": 24,
    "name": "Quasar",
-   "taoIn": 12283.396706005,
-   "alphaIn": 1527149.695389257,
-   "alphaOut": 4608027.17403429,
-   "stakedAlpha": 3727996.684514443,
+   "taoIn": 12285.395225359,
+   "alphaIn": 1526901.267226923,
+   "alphaOut": 4608361.602196624,
+   "stakedAlpha": 3728245.112676777,
    "alphaEmissionPerBlock": 1,
-   "rootProp": 0.13769266474992037,
+   "rootProp": 0.13768797228112817,
    "tempo": 360,
    "fee": 0.000503547722590982,
    "weightQuote": 0.4999999948254484,
-   "take": 0.03219375227196121,
+   "take": 0.032197605248222586,
    "validatorCount": 193,
    "validators": [
     {
@@ -2035,12 +2109,12 @@
     {
      "hotkey": "5E4z3h9yVhmQyCFWNbY9BPpwhx4xFiPwq3eeqmBgVF6KULde",
      "take": 0.0899977111467155,
-     "alpha": 53773.28233178
+     "alpha": 54021.769349829
     },
     {
      "hotkey": "5G9hfkx9wGB1CLMT9WXkpHSAiYzjZb5o1Boyq4KAdDhjwrc5",
      "take": 0.009994659342336155,
-     "alpha": 28365.270755217
+     "alpha": 28365.211899502
     },
     {
      "hotkey": "5H3L6XQZy63SsSy3jTanceiroaVhx6Z8DL3cyNo4rbso1Sqk",
@@ -2060,21 +2134,24 @@
    ],
    "epochDividends": 124.69900488,
    "emission_tao_per_day": 0,
-   "emission_share_percent": 0
+   "emission_share_percent": 0,
+   "alpha_emission_per_day": 7200,
+   "alpha_emission_tao_value_per_day": 57.930954248330984,
+   "tao_coverage_percent": 0
   },
   {
    "netuid": 25,
    "name": "UR",
-   "taoIn": 12277.130937898,
-   "alphaIn": 2143113.68962528,
-   "alphaOut": 4037457.274675978,
-   "stakedAlpha": 2995973.02708907,
+   "taoIn": 12277.23903894,
+   "alphaIn": 2143118.355792956,
+   "alphaOut": 4037550.374752894,
+   "stakedAlpha": 2995972.974538361,
    "alphaEmissionPerBlock": 1,
-   "rootProp": 0.13681972748599946,
+   "rootProp": 0.13681484735570848,
    "tempo": 360,
    "fee": 0.000503547722590982,
-   "weightQuote": 0.49999999943412526,
-   "take": 0.0811112383499373,
+   "weightQuote": 0.49999999943305967,
+   "take": 0.081111239597354,
    "validatorCount": 150,
    "validators": [
     {
@@ -2110,7 +2187,7 @@
     {
      "hotkey": "5GKH9FPPnWSUoeeTJp19wVtd84XqFW4pyK2ijV2GsFbhTrP1",
      "take": 0.0899977111467155,
-     "alpha": 104002.494082816
+     "alpha": 104002.494082817
     },
     {
      "hotkey": "5FnGPRV7fQSWjHo8Q3Bgrn7GzciQKJKUitv9WCwqTzZKMVZZ",
@@ -2125,7 +2202,7 @@
     {
      "hotkey": "5G9hfkx9wGB1CLMT9WXkpHSAiYzjZb5o1Boyq4KAdDhjwrc5",
      "take": 0.009994659342336155,
-     "alpha": 26009.551800619
+     "alpha": 26009.499249909
     },
     {
      "hotkey": "5FFSBkNiymQWHaxc8dTmfTT7iHoz6YDexVG4xR2yLrffVR86",
@@ -2139,22 +2216,25 @@
     }
    ],
    "epochDividends": 116.98148099099998,
-   "emission_tao_per_day": 5.643295200000001,
-   "emission_share_percent": 0.49781284071204124
+   "emission_tao_per_day": 5.6431296,
+   "emission_share_percent": 0.49870859551467295,
+   "alpha_emission_per_day": 7200,
+   "alpha_emission_tao_value_per_day": 41.24649534258814,
+   "tao_coverage_percent": 13.681476579110258
   },
   {
    "netuid": 26,
    "name": "Perturb",
-   "taoIn": 1672.3269808,
-   "alphaIn": 704728.724197999,
-   "alphaOut": 1066883.421657508,
-   "stakedAlpha": 927936.246758555,
+   "taoIn": 1672.331698789,
+   "alphaIn": 704730.992777713,
+   "alphaOut": 1066969.281470781,
+   "stakedAlpha": 927936.106571828,
    "alphaEmissionPerBlock": 1,
-   "rootProp": 0.3560755103826523,
+   "rootProp": 0.35605825716629624,
    "tempo": 360,
    "fee": 0.000503547722590982,
-   "weightQuote": 0.4999999701134884,
-   "take": 0.05889335056169462,
+   "weightQuote": 0.4999999701075559,
+   "take": 0.0588933579490001,
    "validatorCount": 165,
    "validators": [
     {
@@ -2219,28 +2299,31 @@
     }
    ],
    "epochDividends": 89.47556786099996,
-   "emission_tao_per_day": 0.42359040000000003,
-   "emission_share_percent": 0.03736624309895215
+   "emission_tao_per_day": 0.422136,
+   "emission_share_percent": 0.037306045864369655,
+   "alpha_emission_per_day": 7200,
+   "alpha_emission_tao_value_per_day": 17.08565366699171,
+   "tao_coverage_percent": 2.470704418031938
   },
   {
    "netuid": 27,
    "name": "Orion",
-   "taoIn": 6765.244752291,
-   "alphaIn": 2458156.059465754,
-   "alphaOut": 3821304.824836626,
-   "stakedAlpha": 2411484.353222679,
+   "taoIn": 6765.244591794,
+   "alphaIn": 2458156.117782648,
+   "alphaOut": 3821390.766519732,
+   "stakedAlpha": 2411484.294905785,
    "alphaEmissionPerBlock": 1,
-   "rootProp": 0.13495585299097002,
+   "rootProp": 0.134951276704669,
    "tempo": 360,
    "fee": 0.000503547722590982,
    "weightQuote": 0.5,
-   "take": 0.046566520072303746,
+   "take": 0.046566520956720585,
    "validatorCount": 181,
    "validators": [
     {
      "hotkey": "5G9hfkx9wGB1CLMT9WXkpHSAiYzjZb5o1Boyq4KAdDhjwrc5",
      "take": 0.009994659342336155,
-     "alpha": 502475.333565921
+     "alpha": 502475.275249027
     },
     {
      "hotkey": "5E2LP6EnZ54m3wS8s1yPvD5c3xo71kQroBw7aUVK32TKeZ5u",
@@ -2320,22 +2403,25 @@
    ],
    "epochDividends": 122.79131686799995,
    "emission_tao_per_day": 0,
-   "emission_share_percent": 0
+   "emission_share_percent": 0,
+   "alpha_emission_per_day": 7200,
+   "alpha_emission_tao_value_per_day": 19.81556855097344,
+   "tao_coverage_percent": 0
   },
   {
    "netuid": 28,
    "name": "SayGM",
-   "taoIn": 28464.07335008,
-   "alphaIn": 872352.806106378,
-   "alphaOut": 5452033.280040478,
-   "stakedAlpha": 3714367.471867988,
+   "taoIn": 28518.514032628,
+   "alphaIn": 870710.564775377,
+   "alphaOut": 5453773.055942427,
+   "stakedAlpha": 3715980.076106813,
    "alphaEmissionPerBlock": 1,
-   "rootProp": 0.13412577635608613,
+   "rootProp": 0.13412102335132658,
    "tempo": 360,
    "fee": 0.000503547722590982,
-   "weightQuote": 0.4999999835887681,
-   "take": 0.08402872225366154,
-   "validatorCount": 253,
+   "weightQuote": 0.49999998358495695,
+   "take": 0.084027635462865,
+   "validatorCount": 252,
    "validators": [
     {
      "hotkey": "5Evgh9QTXJLxYLusVy3tcY5S6Z3GgRSNDb9AzXUchX5dco3P",
@@ -2345,7 +2431,7 @@
     {
      "hotkey": "5E2LP6EnZ54m3wS8s1yPvD5c3xo71kQroBw7aUVK32TKeZ5u",
      "take": 0,
-     "alpha": 965055.238296314
+     "alpha": 965207.848411661
     },
     {
      "hotkey": "5GP7c3fFazW9GXK8Up3qgu2DJBk8inu4aK9TZy3RuoSWVCMi",
@@ -2355,12 +2441,12 @@
     {
      "hotkey": "5GKH9FPPnWSUoeeTJp19wVtd84XqFW4pyK2ijV2GsFbhTrP1",
      "take": 0.0899977111467155,
-     "alpha": 412852.551724943
+     "alpha": 412878.837910085
     },
     {
      "hotkey": "5HK5tp6t2S59DywmHRWPBVJeJ86T61KjurYqeooqj8sREpeN",
      "take": 0.0899977111467155,
-     "alpha": 195591.175121622
+     "alpha": 195800.839775835
     },
     {
      "hotkey": "5Ggasr6fQqKZXuovBTT44GvhuoFpxBsXGPY3AUtFr9mWxGTV",
@@ -2375,12 +2461,12 @@
     {
      "hotkey": "5G9hfkx9wGB1CLMT9WXkpHSAiYzjZb5o1Boyq4KAdDhjwrc5",
      "take": 0.009994659342336155,
-     "alpha": 54024.824726538
+     "alpha": 54024.667967295
     },
     {
      "hotkey": "5E4z3h9yVhmQyCFWNbY9BPpwhx4xFiPwq3eeqmBgVF6KULde",
      "take": 0.0899977111467155,
-     "alpha": 50908.504454423
+     "alpha": 52127.861394651
     },
     {
      "hotkey": "5HK1Ubcg6MBwDGW7Td4RtAvE1FNyvkHvXKfwymW9q1BCRJAK",
@@ -2399,22 +2485,25 @@
     }
    ],
    "epochDividends": 117.04426103400002,
-   "emission_tao_per_day": 31.507848,
-   "emission_share_percent": 2.77940649243428
+   "emission_tao_per_day": 31.628750399999998,
+   "emission_share_percent": 2.795174098051576,
+   "alpha_emission_per_day": 7200,
+   "alpha_emission_tao_value_per_day": 235.8226979479836,
+   "tao_coverage_percent": 13.41208911407522
   },
   {
    "netuid": 29,
    "name": "0x686fcf84666c6f61cf84",
-   "taoIn": 7934.524398276,
-   "alphaIn": 3135524.732917382,
-   "alphaOut": 3052193.817167013,
-   "stakedAlpha": 2443577.35013113,
+   "taoIn": 7934.524250415,
+   "alphaIn": 3135524.791348493,
+   "alphaOut": 3052279.758735902,
+   "stakedAlpha": 2443577.291700019,
    "alphaEmissionPerBlock": 1,
-   "rootProp": 0.1366832854691893,
+   "rootProp": 0.13667863607406616,
    "tempo": 360,
    "fee": 0.000503547722590982,
    "weightQuote": 0.4999999999660166,
-   "take": 0.013103954492745673,
+   "take": 0.013103954567095507,
    "validatorCount": 119,
    "validators": [
     {
@@ -2480,21 +2569,24 @@
    ],
    "epochDividends": 126.523975726,
    "emission_tao_per_day": 0,
-   "emission_share_percent": 0
+   "emission_share_percent": 0,
+   "alpha_emission_per_day": 7200,
+   "alpha_emission_tao_value_per_day": 18.21978086997822,
+   "tao_coverage_percent": 0
   },
   {
    "netuid": 30,
    "name": "Endure Network",
-   "taoIn": 8416.578587797,
-   "alphaIn": 2527572.342719272,
-   "alphaOut": 3613543.81553449,
-   "stakedAlpha": 2701020.257415754,
+   "taoIn": 8416.578408667,
+   "alphaIn": 2527572.396514016,
+   "alphaOut": 3613629.761740176,
+   "stakedAlpha": 2701020.20362144,
    "alphaEmissionPerBlock": 1,
-   "rootProp": 0.13757781824097037,
+   "rootProp": 0.1375731306616217,
    "tempo": 360,
    "fee": 0.000503547722590982,
-   "weightQuote": 0.49999999978446963,
-   "take": 0.11526993773215408,
+   "weightQuote": 0.499999999784427,
+   "take": 0.11526993982884752,
    "validatorCount": 382,
    "validators": [
     {
@@ -2565,21 +2657,24 @@
    ],
    "epochDividends": 113.43352092199996,
    "emission_tao_per_day": 0,
-   "emission_share_percent": 0
+   "emission_share_percent": 0,
+   "alpha_emission_per_day": 7200,
+   "alpha_emission_tao_value_per_day": 23.975322993016672,
+   "tao_coverage_percent": 0
   },
   {
    "netuid": 31,
    "name": "rec4ll",
-   "taoIn": 1798.806238325,
-   "alphaIn": 451837.433306776,
-   "alphaOut": 2002412.693486028,
-   "stakedAlpha": 1123079.19177811,
+   "taoIn": 1798.805805598,
+   "alphaIn": 451837.542002604,
+   "alphaOut": 2002498.5847902,
+   "stakedAlpha": 1123079.083082282,
    "alphaEmissionPerBlock": 1,
-   "rootProp": 0.285290140658617,
+   "rootProp": 0.28527779574505985,
    "tempo": 360,
    "fee": 0.000503547722590982,
    "weightQuote": 0.5,
-   "take": 0.1144976640878988,
+   "take": 0.1144976742020936,
    "validatorCount": 83,
    "validators": [
     {
@@ -2645,21 +2740,24 @@
    ],
    "epochDividends": 93.39184145899999,
    "emission_tao_per_day": 0,
-   "emission_share_percent": 0
+   "emission_share_percent": 0,
+   "alpha_emission_per_day": 7200,
+   "alpha_emission_tao_value_per_day": 28.663846175559623,
+   "tao_coverage_percent": 0
   },
   {
    "netuid": 32,
    "name": "ItsAI",
-   "taoIn": 6712.26130165,
-   "alphaIn": 2591328.750274206,
-   "alphaOut": 3626314.537271799,
-   "stakedAlpha": 3515940.127048282,
+   "taoIn": 6712.26728366,
+   "alphaIn": 2591331.167875815,
+   "alphaOut": 3626400.483183749,
+   "stakedAlpha": 3515940.072960232,
    "alphaEmissionPerBlock": 1,
-   "rootProp": 0.13611498777754605,
+   "rootProp": 0.13611031766049564,
    "tempo": 360,
    "fee": 0.000503547722590982,
-   "weightQuote": 0.49999998566398524,
-   "take": 0.037642995335655474,
+   "weightQuote": 0.49999998566236403,
+   "take": 0.037642995760988264,
    "validatorCount": 748,
    "validators": [
     {
@@ -2724,22 +2822,25 @@
     }
    ],
    "epochDividends": 123.39706358200006,
-   "emission_tao_per_day": 0.5126256,
-   "emission_share_percent": 0.04522031846884682
+   "emission_tao_per_day": 0.5124816,
+   "emission_share_percent": 0.045290290508853887,
+   "alpha_emission_per_day": 7200,
+   "alpha_emission_tao_value_per_day": 18.65000036009439,
+   "tao_coverage_percent": 2.747890563565685
   },
   {
    "netuid": 33,
    "name": "ReadyAI",
-   "taoIn": 12262.849260835,
-   "alphaIn": 3754609.557977863,
-   "alphaOut": 1804678.178818824,
-   "stakedAlpha": 1124420.488471964,
+   "taoIn": 12262.921231579,
+   "alphaIn": 3754598.901603148,
+   "alphaOut": 1804763.628090581,
+   "stakedAlpha": 1124419.937743721,
    "alphaEmissionPerBlock": 1,
-   "rootProp": 0.14981934032402933,
+   "rootProp": 0.14981437800452113,
    "tempo": 360,
    "fee": 0.000503547722590982,
-   "weightQuote": 0.4999999927363371,
-   "take": 0.09122245439777506,
+   "weightQuote": 0.499999992735371,
+   "take": 0.09122249418223581,
    "validatorCount": 957,
    "validators": [
     {
@@ -2790,7 +2891,7 @@
     {
      "hotkey": "5G9hfkx9wGB1CLMT9WXkpHSAiYzjZb5o1Boyq4KAdDhjwrc5",
      "take": 0.009994659342336155,
-     "alpha": 40757.220404174
+     "alpha": 40756.669675931
     },
     {
      "hotkey": "5G3wMP3g3d775hauwmAZioYFVZYnvw6eY46wkFy8hEWD5KP3",
@@ -2809,22 +2910,25 @@
     }
    ],
    "epochDividends": 114.427463599,
-   "emission_tao_per_day": 1.5602112,
-   "emission_share_percent": 0.13763114316308364
+   "emission_tao_per_day": 1.5515424,
+   "emission_share_percent": 0.1371167394747526,
+   "alpha_emission_per_day": 7200,
+   "alpha_emission_tao_value_per_day": 23.515970080141923,
+   "tao_coverage_percent": 6.597824349632937
   },
   {
    "netuid": 34,
    "name": "BitMind",
-   "taoIn": 35510.439382898,
-   "alphaIn": 2930643.611923048,
-   "alphaOut": 2951499.842651155,
-   "stakedAlpha": 2307339.198656811,
+   "taoIn": 35510.991627206,
+   "alphaIn": 2930622.592164182,
+   "alphaOut": 2951619.140378876,
+   "stakedAlpha": 2307339.147032433,
    "alphaEmissionPerBlock": 1,
-   "rootProp": 0.1427701695356518,
+   "rootProp": 0.1427650034893304,
    "tempo": 360,
    "fee": 0.000503547722590982,
-   "weightQuote": 0.4999999950819342,
-   "take": 0.1490620393018643,
+   "weightQuote": 0.499999995081384,
+   "take": 0.14906204241335613,
    "validatorCount": 455,
    "validators": [
     {
@@ -2889,22 +2993,25 @@
     }
    ],
    "epochDividends": 107.23989628100001,
-   "emission_tao_per_day": 12.4555464,
-   "emission_share_percent": 1.098742971305956
+   "emission_tao_per_day": 12.4553808,
+   "emission_share_percent": 1.1007376944467877,
+   "alpha_emission_per_day": 7200,
+   "alpha_emission_tao_value_per_day": 87.24396837377188,
+   "tao_coverage_percent": 14.276495019848795
   },
   {
    "netuid": 35,
    "name": "Subnet 35",
-   "taoIn": 340.328690621,
-   "alphaIn": 210723.738195858,
-   "alphaOut": 148235.232345567,
-   "stakedAlpha": 148141.244846484,
+   "taoIn": 340.328374096,
+   "alphaIn": 210723.934181229,
+   "alphaOut": 148321.036360196,
+   "stakedAlpha": 148228.59152789,
    "alphaEmissionPerBlock": 1,
-   "rootProp": 0.7318440014496446,
+   "rootProp": 0.7317919810302556,
    "tempo": 360,
    "fee": 0.000503547722590982,
    "weightQuote": 0.5,
-   "take": 0.04158146592528639,
+   "take": 0.04160875671374186,
    "validatorCount": 70,
    "validators": [
     {
@@ -2925,17 +3032,17 @@
     {
      "hotkey": "5E4z3h9yVhmQyCFWNbY9BPpwhx4xFiPwq3eeqmBgVF6KULde",
      "take": 0.0899977111467155,
-     "alpha": 7763.101573592
+     "alpha": 7763.531804176
     },
     {
      "hotkey": "5DXdHixxtCvoa6GHKs2Jgrdzc61882Ftx1zN2sYFQuwgL1S1",
      "take": 0.0899977111467155,
-     "alpha": 7008.028365825
+     "alpha": 7022.452541534
     },
     {
      "hotkey": "5HK5tp6t2S59DywmHRWPBVJeJ86T61KjurYqeooqj8sREpeN",
      "take": 0.0899977111467155,
-     "alpha": 6043.490480855
+     "alpha": 6047.928675123
     },
     {
      "hotkey": "5GKH9FPPnWSUoeeTJp19wVtd84XqFW4pyK2ijV2GsFbhTrP1",
@@ -2945,12 +3052,12 @@
     {
      "hotkey": "5GP7c3fFazW9GXK8Up3qgu2DJBk8inu4aK9TZy3RuoSWVCMi",
      "take": 0.0009918364232852674,
-     "alpha": 5848.165067973
+     "alpha": 5849.60008826
     },
     {
      "hotkey": "5Dd8gaRNdhm1YP7G1hcB1N842ecAUQmbLjCRLqH5ycaTGrWv",
      "take": 0,
-     "alpha": 3033.90301675
+     "alpha": 3037.679899597
     },
     {
      "hotkey": "5G3wMP3g3d775hauwmAZioYFVZYnvw6eY46wkFy8hEWD5KP3",
@@ -2960,136 +3067,142 @@
     {
      "hotkey": "5CAQAgXxoU3NPo1YG5VQKz4Ackh7goNx3TvPD9A6LoqA7FmJ",
      "take": 0.0899977111467155,
-     "alpha": 2784.794358155
-    },
-    {
-     "hotkey": "5CsvRJXuR955WojnGMdok1hbhffZyB4N5ocrv82f3p5A2zVp",
-     "take": 0.0899977111467155,
-     "alpha": 2326.835701845
+     "alpha": 2788.383345093
     },
     {
      "hotkey": "5Ckaoft1B1CQ9zBV2FLVju4KPuMQzJVn7QUf3JeTvTq1uUes",
      "take": 0.179995422293431,
-     "alpha": 2322.982925256
+     "alpha": 2337.363542334
+    },
+    {
+     "hotkey": "5CsvRJXuR955WojnGMdok1hbhffZyB4N5ocrv82f3p5A2zVp",
+     "take": 0.0899977111467155,
+     "alpha": 2329.750859431
     },
     {
      "hotkey": "5Ggasr6fQqKZXuovBTT44GvhuoFpxBsXGPY3AUtFr9mWxGTV",
      "take": 0.179995422293431,
-     "alpha": 1583.725403536
+     "alpha": 1585.999328327
     },
     {
      "hotkey": "5CszMVts9ueMUSKdAwLFSLT7u4oyxN7fUBpo8Z3ETw1ggMUV",
      "take": 0.05999847409781033,
-     "alpha": 1508.635127005
+     "alpha": 1509.196475067
     }
    ],
    "epochDividends": 37.918349009999986,
    "emission_tao_per_day": 0,
-   "emission_share_percent": 0
+   "emission_share_percent": 0,
+   "alpha_emission_per_day": 7200,
+   "alpha_emission_tao_value_per_day": 11.628315041725692,
+   "tao_coverage_percent": 0
   },
   {
    "netuid": 36,
    "name": "Epago",
-   "taoIn": 285.633820856,
-   "alphaIn": 167815.959616166,
-   "alphaOut": 179152.008385151,
-   "stakedAlpha": 144269.07312382,
+   "taoIn": 285.633479713,
+   "alphaIn": 167816.160045582,
+   "alphaOut": 179237.807955735,
+   "stakedAlpha": 144624.83710702,
    "alphaEmissionPerBlock": 1,
-   "rootProp": 0.7384589207358658,
+   "rootProp": 0.738406125921756,
    "tempo": 360,
    "fee": 0.000503547722590982,
    "weightQuote": 0.5,
-   "take": 0.11421287539940847,
+   "take": 0.11410523632903227,
    "validatorCount": 56,
    "validators": [
     {
      "hotkey": "5EFY7fKVPCNcc89CdnSV4v6QxySoGR5Ad2R2AGaEwVbMkAZR",
      "take": 0.179995422293431,
-     "alpha": 50431.36610317
+     "alpha": 50509.878674859
     },
     {
      "hotkey": "5HK5tp6t2S59DywmHRWPBVJeJ86T61KjurYqeooqj8sREpeN",
      "take": 0.0899977111467155,
-     "alpha": 24375.905888457
+     "alpha": 24387.457099503
     },
     {
      "hotkey": "5DXdHixxtCvoa6GHKs2Jgrdzc61882Ftx1zN2sYFQuwgL1S1",
      "take": 0.0899977111467155,
-     "alpha": 13844.349357044
+     "alpha": 13864.112239553
     },
     {
      "hotkey": "5E2LP6EnZ54m3wS8s1yPvD5c3xo71kQroBw7aUVK32TKeZ5u",
      "take": 0,
-     "alpha": 12401.515995416
+     "alpha": 12425.431682419
     },
     {
      "hotkey": "5GKH9FPPnWSUoeeTJp19wVtd84XqFW4pyK2ijV2GsFbhTrP1",
      "take": 0.0899977111467155,
-     "alpha": 7378.203789357
+     "alpha": 7389.997500421
     },
     {
      "hotkey": "5CAQAgXxoU3NPo1YG5VQKz4Ackh7goNx3TvPD9A6LoqA7FmJ",
      "take": 0.0899977111467155,
-     "alpha": 6447.383706696
+     "alpha": 6453.117597432
     },
     {
      "hotkey": "5E4z3h9yVhmQyCFWNbY9BPpwhx4xFiPwq3eeqmBgVF6KULde",
      "take": 0.0899977111467155,
-     "alpha": 3852.158068144
+     "alpha": 3853.682792675
     },
     {
      "hotkey": "5Dd8gaRNdhm1YP7G1hcB1N842ecAUQmbLjCRLqH5ycaTGrWv",
      "take": 0,
-     "alpha": 3286.258700121
+     "alpha": 3290.96435791
     },
     {
      "hotkey": "5G3wMP3g3d775hauwmAZioYFVZYnvw6eY46wkFy8hEWD5KP3",
      "take": 0.179995422293431,
-     "alpha": 3004.675314342
+     "alpha": 3009.694852829
     },
     {
      "hotkey": "5CsvRJXuR955WojnGMdok1hbhffZyB4N5ocrv82f3p5A2zVp",
      "take": 0.0899977111467155,
-     "alpha": 2546.591607249
+     "alpha": 2550.517368858
     },
     {
      "hotkey": "5Ckaoft1B1CQ9zBV2FLVju4KPuMQzJVn7QUf3JeTvTq1uUes",
      "take": 0.179995422293431,
-     "alpha": 2204.58776371
+     "alpha": 2222.887567324
     },
     {
      "hotkey": "5Gjn2LNEghH2JRUFnPkqkURZJ9heCTz97khrJW656xrxhpTp",
      "take": 0,
-     "alpha": 1918.979705945
+     "alpha": 2066.580529599
     },
     {
      "hotkey": "5Ggasr6fQqKZXuovBTT44GvhuoFpxBsXGPY3AUtFr9mWxGTV",
      "take": 0.179995422293431,
-     "alpha": 1607.065108689
+     "alpha": 1608.005910663
     },
     {
      "hotkey": "5GTWwu3NCbYmVFzwfrXa1sx8y4UNLR3padWfVZwjNnDmySXP",
      "take": 0,
-     "alpha": 1511.467865734
+     "alpha": 1514.084390511
     }
    ],
-   "epochDividends": 34.10697578799999,
+   "epochDividends": 34.132210017999995,
    "emission_tao_per_day": 0,
-   "emission_share_percent": 0
+   "emission_share_percent": 0,
+   "alpha_emission_per_day": 7200,
+   "alpha_emission_tao_value_per_day": 12.25484514348916,
+   "tao_coverage_percent": 0
   },
   {
    "netuid": 37,
    "name": "Aurelius",
-   "taoIn": 7345.091345653,
-   "alphaIn": 2590439.972530681,
-   "alphaOut": 3657423.279443608,
-   "stakedAlpha": 2273801.136473047,
+   "taoIn": 7345.091246941,
+   "alphaIn": 2590440.049475768,
+   "alphaOut": 3657509.223576018,
+   "stakedAlpha": 2273801.080605457,
    "alphaEmissionPerBlock": 1,
-   "rootProp": 0.13554585934616625,
+   "rootProp": 0.13554125768132508,
    "tempo": 360,
    "fee": 0.000503547722590982,
-   "weightQuote": 0.4999999994998521,
-   "take": 0.13585978711024796,
+   "weightQuote": 0.49999999949759144,
+   "take": 0.13585979020277061,
    "validatorCount": 226,
    "validators": [
     {
@@ -3154,22 +3267,25 @@
     }
    ],
    "epochDividends": 110.27517744999997,
-   "emission_tao_per_day": 0.0049968,
-   "emission_share_percent": 0.00044078346326272775
+   "emission_tao_per_day": 0.005004,
+   "emission_share_percent": 0.000442225854950314,
+   "alpha_emission_per_day": 7200,
+   "alpha_emission_tao_value_per_day": 20.41531788969846,
+   "tao_coverage_percent": 0.024511007014615286
   },
   {
    "netuid": 38,
    "name": "ChronoLLM",
-   "taoIn": 8925.882407386,
-   "alphaIn": 454352.390550235,
-   "alphaOut": 2060373.439871094,
-   "stakedAlpha": 1388283.418223108,
+   "taoIn": 8926.875228434,
+   "alphaIn": 454350.075455689,
+   "alphaOut": 2060485.86463269,
+   "stakedAlpha": 1388283.294101673,
    "alphaEmissionPerBlock": 1,
-   "rootProp": 0.28035275894217193,
+   "rootProp": 0.2803387795574963,
    "tempo": 1440,
    "fee": 0.000503547722590982,
-   "weightQuote": 0.49999989369221853,
-   "take": 0.05647919644690669,
+   "weightQuote": 0.49999989367861664,
+   "take": 0.05647920060292259,
    "validatorCount": 94,
    "validators": [
     {
@@ -3200,7 +3316,7 @@
     {
      "hotkey": "5G9hfkx9wGB1CLMT9WXkpHSAiYzjZb5o1Boyq4KAdDhjwrc5",
      "take": 0.009994659342336155,
-     "alpha": 14151.588514017
+     "alpha": 14151.464392582
     },
     {
      "hotkey": "5GTWwu3NCbYmVFzwfrXa1sx8y4UNLR3padWfVZwjNnDmySXP",
@@ -3234,22 +3350,25 @@
     }
    ],
    "epochDividends": 400.37861914300004,
-   "emission_tao_per_day": 39.6547632,
-   "emission_share_percent": 3.4980715374158193
+   "emission_tao_per_day": 39.6573984,
+   "emission_share_percent": 3.504701621212073,
+   "alpha_emission_per_day": 7200,
+   "alpha_emission_tao_value_per_day": 141.46256917610967,
+   "tao_coverage_percent": 28.033845723973588
   },
   {
    "netuid": 39,
    "name": "deprecated",
-   "taoIn": 20079.002566265,
-   "alphaIn": 2219298.704527603,
-   "alphaOut": 4044778.43861498,
-   "stakedAlpha": 2374715.583805162,
+   "taoIn": 20079.002076148,
+   "alphaIn": 2219298.758699461,
+   "alphaOut": 4044864.384443122,
+   "stakedAlpha": 2374715.529633304,
    "alphaEmissionPerBlock": 1,
-   "rootProp": 0.1352424626238644,
+   "rootProp": 0.13523787423036993,
    "tempo": 360,
    "fee": 0.000503547722590982,
    "weightQuote": 0.4999999990434216,
-   "take": 0.019134014571825415,
+   "take": 0.019134014780311796,
    "validatorCount": 224,
    "validators": [
     {
@@ -3290,7 +3409,7 @@
     {
      "hotkey": "5G9hfkx9wGB1CLMT9WXkpHSAiYzjZb5o1Boyq4KAdDhjwrc5",
      "take": 0.009994659342336155,
-     "alpha": 34276.285944867
+     "alpha": 34276.231773009
     },
     {
      "hotkey": "5HibeywH5Ho8yEbjkCXTz3CWZByDsVx6h9baVWKdFwBdxNsJ",
@@ -3315,21 +3434,24 @@
    ],
    "epochDividends": 125.50880476300001,
    "emission_tao_per_day": 0,
-   "emission_share_percent": 0
+   "emission_share_percent": 0,
+   "alpha_emission_per_day": 7200,
+   "alpha_emission_tao_value_per_day": 65.14166465183378,
+   "tao_coverage_percent": 0
   },
   {
    "netuid": 40,
    "name": "Ralph",
-   "taoIn": 1345.252652212,
-   "alphaIn": 628909.533327647,
-   "alphaOut": 513525.185182384,
-   "stakedAlpha": 363327.261150589,
+   "taoIn": 1345.255286919,
+   "alphaIn": 628911.1662955,
+   "alphaOut": 513610.984575109,
+   "stakedAlpha": 363327.060543314,
    "alphaEmissionPerBlock": 1,
-   "rootProp": 0.4616478809621185,
+   "rootProp": 0.46162252267822623,
    "tempo": 360,
    "fee": 0.000503547722590982,
-   "weightQuote": 0.49999996544834696,
-   "take": 0.144421834270897,
+   "weightQuote": 0.49999996544041325,
+   "take": 0.14442190849346992,
    "validatorCount": 77,
    "validators": [
     {
@@ -3394,22 +3516,25 @@
     }
    ],
    "epochDividends": 67.96371451299999,
-   "emission_tao_per_day": 0.2566872,
-   "emission_share_percent": 0.022643186237434446
+   "emission_tao_per_day": 0.2563344,
+   "emission_share_percent": 0.022653417104951196,
+   "alpha_emission_per_day": 7200,
+   "alpha_emission_tao_value_per_day": 15.400965865853541,
+   "tao_coverage_percent": 1.6644047018397417
   },
   {
    "netuid": 41,
    "name": "Almanac",
-   "taoIn": 14842.466069528,
-   "alphaIn": 2169969.217359923,
-   "alphaOut": 3800059.988646067,
-   "stakedAlpha": 2506355.002558964,
+   "taoIn": 14842.644784451,
+   "alphaIn": 2169967.334797147,
+   "alphaOut": 3800159.993911403,
+   "stakedAlpha": 2506354.951259872,
    "alphaEmissionPerBlock": 1,
-   "rootProp": 0.14096469874493778,
+   "rootProp": 0.14095962001010776,
    "tempo": 360,
    "fee": 0.000503547722590982,
-   "weightQuote": 0.49999999220590086,
-   "take": 0.08977975467111256,
+   "weightQuote": 0.49999999220496444,
+   "take": 0.08977975630412265,
    "validatorCount": 412,
    "validators": [
     {
@@ -3474,18 +3599,21 @@
     }
    ],
    "epochDividends": 115.40491190800003,
-   "emission_tao_per_day": 6.942168,
-   "emission_share_percent": 0.6123905006387456
+   "emission_tao_per_day": 6.9420096,
+   "emission_share_percent": 0.6134964289435026,
+   "alpha_emission_per_day": 7200,
+   "alpha_emission_tao_value_per_day": 49.24822787259467,
+   "tao_coverage_percent": 14.095958169213727
   },
   {
    "netuid": 42,
    "name": "Unknown",
    "taoIn": 6818.774224822,
    "alphaIn": 3206197.74655702,
-   "alphaOut": 2673666.516014557,
+   "alphaOut": 2673752.516014557,
    "stakedAlpha": 2058783.171475845,
    "alphaEmissionPerBlock": 1,
-   "rootProp": 0.14281760738231242,
+   "rootProp": 0.14281269465573132,
    "tempo": 360,
    "fee": 0.000503547722590982,
    "weightQuote": 0.5,
@@ -3560,21 +3688,24 @@
    ],
    "epochDividends": 115.489594462,
    "emission_tao_per_day": 0,
-   "emission_share_percent": 0
+   "emission_share_percent": 0,
+   "alpha_emission_per_day": 7200,
+   "alpha_emission_tao_value_per_day": 15.31258465621446,
+   "tao_coverage_percent": 0
   },
   {
    "netuid": 43,
    "name": "Graphite",
-   "taoIn": 12275.03232915,
-   "alphaIn": 3110741.123816488,
-   "alphaOut": 3103421.217462505,
-   "stakedAlpha": 2096969.1656313,
+   "taoIn": 12275.032182203,
+   "alphaIn": 3110741.194369941,
+   "alphaOut": 3103507.163572396,
+   "stakedAlpha": 2096969.111741191,
    "alphaEmissionPerBlock": 1,
-   "rootProp": 0.1361808511428535,
+   "rootProp": 0.1361762227024883,
    "tempo": 360,
    "fee": 0.000503547722590982,
-   "weightQuote": 0.4999999974712478,
-   "take": 0.16459292167777975,
+   "weightQuote": 0.49999999747023327,
+   "take": 0.16459292565080783,
    "validatorCount": 487,
    "validators": [
     {
@@ -3640,27 +3771,30 @@
    ],
    "epochDividends": 105.99385119800002,
    "emission_tao_per_day": 0.0055008,
-   "emission_share_percent": 0.0004852428903929741
+   "emission_share_percent": 0.00048613029234825886,
+   "alpha_emission_per_day": 7200,
+   "alpha_emission_tao_value_per_day": 28.411310065313195,
+   "tao_coverage_percent": 0.01936130360534067
   },
   {
    "netuid": 44,
    "name": "Score",
-   "taoIn": 65596.086714653,
-   "alphaIn": 1887434.981895492,
-   "alphaOut": 4312149.919959988,
-   "stakedAlpha": 3431641.385693406,
+   "taoIn": 65866.448679239,
+   "alphaIn": 1879711.062898761,
+   "alphaOut": 4319971.574039066,
+   "stakedAlpha": 3439348.779504181,
    "alphaEmissionPerBlock": 1,
-   "rootProp": 0.136457365937531,
+   "rootProp": 0.13645250303670764,
    "tempo": 360,
    "fee": 0.000503547722590982,
-   "weightQuote": 0.49999999088107067,
-   "take": 0.07954106967960949,
+   "weightQuote": 0.4999999908804209,
+   "take": 0.07956116417383634,
    "validatorCount": 286,
    "validators": [
     {
      "hotkey": "5HK5tp6t2S59DywmHRWPBVJeJ86T61KjurYqeooqj8sREpeN",
      "take": 0.0899977111467155,
-     "alpha": 567343.683162171
+     "alpha": 567056.406914281
     },
     {
      "hotkey": "5E2LP6EnZ54m3wS8s1yPvD5c3xo71kQroBw7aUVK32TKeZ5u",
@@ -3670,7 +3804,7 @@
     {
      "hotkey": "5GKH9FPPnWSUoeeTJp19wVtd84XqFW4pyK2ijV2GsFbhTrP1",
      "take": 0.0899977111467155,
-     "alpha": 418145.188633768
+     "alpha": 423844.284678818
     },
     {
      "hotkey": "5DXdHixxtCvoa6GHKs2Jgrdzc61882Ftx1zN2sYFQuwgL1S1",
@@ -3690,7 +3824,7 @@
     {
      "hotkey": "5G9hfkx9wGB1CLMT9WXkpHSAiYzjZb5o1Boyq4KAdDhjwrc5",
      "take": 0.009994659342336155,
-     "alpha": 135581.045603763
+     "alpha": 135580.935260159
     },
     {
      "hotkey": "5DFwFpurRFaT5VtjdsATUnRakGhvUdgCghF61457QbWdsnJp",
@@ -3729,21 +3863,24 @@
     }
    ],
    "epochDividends": 119.00093293099998,
-   "emission_tao_per_day": 34.14564,
-   "emission_share_percent": 3.0120944313405227
+   "emission_tao_per_day": 34.4260368,
+   "emission_share_percent": 3.0423828050421604,
+   "alpha_emission_per_day": 7200,
+   "alpha_emission_tao_value_per_day": 252.2932684444612,
+   "tao_coverage_percent": 13.645245872891138
   },
   {
    "netuid": 45,
    "name": "AlphaRidge.ai",
-   "taoIn": 6157.618925728,
-   "alphaIn": 2607957.442531195,
-   "alphaOut": 3310749.853732247,
+   "taoIn": 6157.653706359,
+   "alphaIn": 2607942.728184626,
+   "alphaOut": 3310835.853732247,
    "stakedAlpha": 2187227.542383965,
    "alphaEmissionPerBlock": 1,
-   "rootProp": 0.1420134361833334,
+   "rootProp": 0.1420088610611856,
    "tempo": 360,
    "fee": 0.000503547722590982,
-   "weightQuote": 0.49999999238848497,
+   "weightQuote": 0.4999999923873463,
    "take": 0.12001058108590067,
    "validatorCount": 524,
    "validators": [
@@ -3810,22 +3947,25 @@
    ],
    "epochDividends": 111.37663137499999,
    "emission_tao_per_day": 0.0016128,
-   "emission_share_percent": 0.00014227016681678817
+   "emission_share_percent": 0.00014253034749477745,
+   "alpha_emission_per_day": 7200,
+   "alpha_emission_tao_value_per_day": 17.000031310763287,
+   "tao_coverage_percent": 0.00948704135020553
   },
   {
    "netuid": 46,
    "name": "Instant",
-   "taoIn": 9285.662760775,
-   "alphaIn": 2184144.722804241,
-   "alphaOut": 3796096.314199196,
-   "stakedAlpha": 2621964.073207156,
+   "taoIn": 9282.03173311,
+   "alphaIn": 2185016.174865482,
+   "alphaOut": 3795319.380813933,
+   "stakedAlpha": 2621101.139821893,
    "alphaEmissionPerBlock": 1,
-   "rootProp": 0.14075786992907524,
+   "rootProp": 0.14075287384912372,
    "tempo": 360,
    "fee": 0.000503547722590982,
-   "weightQuote": 0.49999999484335866,
-   "take": 0.060287207685567376,
-   "validatorCount": 292,
+   "weightQuote": 0.4999999948421678,
+   "take": 0.06029692740219388,
+   "validatorCount": 291,
    "validators": [
     {
      "hotkey": "5ELREhApbCahM7FyGLM1V9WDsnnjCRmMCJTmtQD51oAEqwVh",
@@ -3840,7 +3980,7 @@
     {
      "hotkey": "5CDnZ6oeCrXKoL2VJQuQFxSfr49yQWz2DvdaYx47hr9QdM6D",
      "take": 0.179995422293431,
-     "alpha": 425529.761428385
+     "alpha": 425385.113028739
     },
     {
      "hotkey": "5GKH9FPPnWSUoeeTJp19wVtd84XqFW4pyK2ijV2GsFbhTrP1",
@@ -3860,12 +4000,12 @@
     {
      "hotkey": "5HK5tp6t2S59DywmHRWPBVJeJ86T61KjurYqeooqj8sREpeN",
      "take": 0.0899977111467155,
-     "alpha": 86865.9150733
+     "alpha": 86868.069053817
     },
     {
      "hotkey": "5GP7c3fFazW9GXK8Up3qgu2DJBk8inu4aK9TZy3RuoSWVCMi",
      "take": 0.0009918364232852674,
-     "alpha": 75148.213337153
+     "alpha": 74437.6348094
     },
     {
      "hotkey": "5GTWwu3NCbYmVFzwfrXa1sx8y4UNLR3padWfVZwjNnDmySXP",
@@ -3875,7 +4015,7 @@
     {
      "hotkey": "5G9hfkx9wGB1CLMT9WXkpHSAiYzjZb5o1Boyq4KAdDhjwrc5",
      "take": 0.009994659342336155,
-     "alpha": 52156.914285438
+     "alpha": 52156.863282173
     },
     {
      "hotkey": "5GTMykedsiYoErLfNEntQbFdYGz65Yz3Krat1YdoyqPq7KBN",
@@ -3889,22 +4029,25 @@
     }
    ],
    "epochDividends": 119.5898952,
-   "emission_tao_per_day": 3.028032,
-   "emission_share_percent": 0.2671122381985198
+   "emission_tao_per_day": 3.0324096,
+   "emission_share_percent": 0.2679875955075019,
+   "alpha_emission_per_day": 7200,
+   "alpha_emission_tao_value_per_day": 30.585874203567865,
+   "tao_coverage_percent": 9.914412057727835
   },
   {
    "netuid": 47,
    "name": "GPUForge",
-   "taoIn": 976.073512501,
-   "alphaIn": 584696.267579578,
-   "alphaOut": 1615060.7239549,
-   "stakedAlpha": 913198.012716522,
+   "taoIn": 976.074404565,
+   "alphaIn": 584697.075151338,
+   "alphaOut": 1615146.587367593,
+   "stakedAlpha": 913197.876129215,
    "alphaEmissionPerBlock": 1,
-   "rootProp": 0.30812588706612587,
+   "rootProp": 0.30811205063946545,
    "tempo": 360,
    "fee": 0.000503547722590982,
-   "weightQuote": 0.4999999728249758,
-   "take": 0.14332794432574764,
+   "weightQuote": 0.49999997281422087,
+   "take": 0.14332796426845096,
    "validatorCount": 335,
    "validators": [
     {
@@ -3969,22 +4112,25 @@
     }
    ],
    "epochDividends": 87.11586251599999,
-   "emission_tao_per_day": 0.09381600000000001,
-   "emission_share_percent": 0.008275804792958707
+   "emission_tao_per_day": 0.0937296,
+   "emission_share_percent": 0.008283303855745593,
+   "alpha_emission_per_day": 7200,
+   "alpha_emission_tao_value_per_day": 12.019448661115545,
+   "tao_coverage_percent": 0.7798161350214611
   },
   {
    "netuid": 48,
    "name": "Quantum Compute",
-   "taoIn": 11768.251122379,
-   "alphaIn": 2353630.386395136,
-   "alphaOut": 3711297.596454394,
-   "stakedAlpha": 2915706.020749159,
+   "taoIn": 11728.200799021,
+   "alphaIn": 2361691.70552262,
+   "alphaOut": 3703334.236723492,
+   "stakedAlpha": 2907655.121316292,
    "alphaEmissionPerBlock": 1,
-   "rootProp": 0.13906574086286128,
+   "rootProp": 0.1390607536304742,
    "tempo": 360,
    "fee": 0.000503547722590982,
-   "weightQuote": 0.4999999908317055,
-   "take": 0.03048969228051883,
+   "weightQuote": 0.4999999908307101,
+   "take": 0.03032492417728037,
    "validatorCount": 133,
    "validators": [
     {
@@ -4015,7 +4161,7 @@
     {
      "hotkey": "5GKH9FPPnWSUoeeTJp19wVtd84XqFW4pyK2ijV2GsFbhTrP1",
      "take": 0.0899977111467155,
-     "alpha": 102262.725501939
+     "alpha": 94211.879268668
     },
     {
      "hotkey": "5ELREhApbCahM7FyGLM1V9WDsnnjCRmMCJTmtQD51oAEqwVh",
@@ -4054,22 +4200,25 @@
     }
    ],
    "epochDividends": 124.18609606,
-   "emission_tao_per_day": 5.0064048,
-   "emission_share_percent": 0.44163073291689553
+   "emission_tao_per_day": 4.9721616,
+   "emission_share_percent": 0.43941215317968046,
+   "alpha_emission_per_day": 7200,
+   "alpha_emission_tao_value_per_day": 35.7553226158263,
+   "tao_coverage_percent": 13.906073938762848
   },
   {
    "netuid": 49,
    "name": "Nepher Robotics",
-   "taoIn": 4385.781360188,
-   "alphaIn": 606402.532374582,
-   "alphaOut": 2476528.273633148,
-   "stakedAlpha": 1492787.993605916,
+   "taoIn": 4385.985253489,
+   "alphaIn": 606415.816623352,
+   "alphaOut": 2476621.727048631,
+   "stakedAlpha": 1492787.903497478,
    "alphaEmissionPerBlock": 1,
-   "rootProp": 0.24114187061786652,
+   "rootProp": 0.24113086820580065,
    "tempo": 360,
    "fee": 0.000503547722590982,
-   "weightQuote": 0.49999994545348697,
-   "take": 0.1308998195218584,
+   "weightQuote": 0.49999994544998744,
+   "take": 0.13089982681999837,
    "validatorCount": 115,
    "validators": [
     {
@@ -4110,7 +4259,7 @@
     {
      "hotkey": "5G9hfkx9wGB1CLMT9WXkpHSAiYzjZb5o1Boyq4KAdDhjwrc5",
      "take": 0.009994659342336155,
-     "alpha": 14502.770174135
+     "alpha": 14502.680065697
     },
     {
      "hotkey": "5EtUYRu7sFqs9obCrN6JSNTnAAcpk98oJ27YV2EF9gC4tvzs",
@@ -4134,38 +4283,41 @@
     }
    ],
    "epochDividends": 97.21579176300001,
-   "emission_tao_per_day": 12.557152799999999,
-   "emission_share_percent": 1.1077059918154135
+   "emission_tao_per_day": 12.5568864,
+   "emission_share_percent": 1.1097081981922405,
+   "alpha_emission_per_day": 7200,
+   "alpha_emission_tao_value_per_day": 52.07499516012022,
+   "tao_coverage_percent": 24.113082221880347
   },
   {
    "netuid": 50,
    "name": "Synth",
-   "taoIn": 11072.451720559,
-   "alphaIn": 2365682.003056675,
-   "alphaOut": 3588475.381375791,
-   "stakedAlpha": 3078678.309059945,
+   "taoIn": 10918.84663414,
+   "alphaIn": 2398984.986366978,
+   "alphaOut": 3555269.718570977,
+   "stakedAlpha": 3045386.646255131,
    "alphaEmissionPerBlock": 1,
-   "rootProp": 0.14128737314604223,
+   "rootProp": 0.14128229580819607,
    "tempo": 360,
    "fee": 0.000503547722590982,
-   "weightQuote": 0.49999999057931754,
-   "take": 0.08290518136215197,
+   "weightQuote": 0.49999999057830735,
+   "take": 0.08199890134986111,
    "validatorCount": 582,
    "validators": [
     {
      "hotkey": "5E2LP6EnZ54m3wS8s1yPvD5c3xo71kQroBw7aUVK32TKeZ5u",
      "take": 0,
-     "alpha": 694330.003307035
+     "alpha": 694330.003307036
     },
     {
      "hotkey": "5Gy7xTzDwXYw4JV1TUUUt28PwUTQ95HBCYFJMwkaDmnbQUJ5",
      "take": 0.179995422293431,
-     "alpha": 623721.791581276
+     "alpha": 595678.243615268
     },
     {
      "hotkey": "5GKH9FPPnWSUoeeTJp19wVtd84XqFW4pyK2ijV2GsFbhTrP1",
      "take": 0.0899977111467155,
-     "alpha": 367808.101737602
+     "alpha": 362560.039299248
     },
     {
      "hotkey": "5GTWwu3NCbYmVFzwfrXa1sx8y4UNLR3padWfVZwjNnDmySXP",
@@ -4210,26 +4362,29 @@
     {
      "hotkey": "5G9hfkx9wGB1CLMT9WXkpHSAiYzjZb5o1Boyq4KAdDhjwrc5",
      "take": 0.009994659342336155,
-     "alpha": 32000.076448359
+     "alpha": 32000.024047906
     }
    ],
    "epochDividends": 116.65639135100005,
-   "emission_tao_per_day": 4.3898328,
-   "emission_share_percent": 0.3872409751697721
+   "emission_tao_per_day": 4.3885152000000005,
+   "emission_share_percent": 0.3878327110876196,
+   "alpha_emission_per_day": 7200,
+   "alpha_emission_tao_value_per_day": 32.77040047159083,
+   "tao_coverage_percent": 13.391704516410998
   },
   {
    "netuid": 51,
    "name": "lium.io",
-   "taoIn": 177833.602744917,
-   "alphaIn": 1636800.552765809,
-   "alphaOut": 4499423.356644611,
-   "stakedAlpha": 2862997.914235968,
+   "taoIn": 177769.333114985,
+   "alphaIn": 1637415.990846962,
+   "alphaOut": 4498905.758136322,
+   "stakedAlpha": 2862350.603896029,
    "alphaEmissionPerBlock": 1,
-   "rootProp": 0.13767240452580154,
+   "rootProp": 0.13766748388297856,
    "tempo": 360,
    "fee": 0.000503547722590982,
-   "weightQuote": 0.49999999185065774,
-   "take": 0.1005046228488242,
+   "weightQuote": 0.4999999918495367,
+   "take": 0.10048790098915081,
    "validatorCount": 328,
    "validators": [
     {
@@ -4255,7 +4410,7 @@
     {
      "hotkey": "5GKH9FPPnWSUoeeTJp19wVtd84XqFW4pyK2ijV2GsFbhTrP1",
      "take": 0.0899977111467155,
-     "alpha": 188439.704855414
+     "alpha": 188430.493938414
     },
     {
      "hotkey": "5DXdHixxtCvoa6GHKs2Jgrdzc61882Ftx1zN2sYFQuwgL1S1",
@@ -4265,7 +4420,7 @@
     {
      "hotkey": "5HK5tp6t2S59DywmHRWPBVJeJ86T61KjurYqeooqj8sREpeN",
      "take": 0.0899977111467155,
-     "alpha": 163480.349396861
+     "alpha": 163449.795360367
     },
     {
      "hotkey": "5G3wMP3g3d775hauwmAZioYFVZYnvw6eY46wkFy8hEWD5KP3",
@@ -4304,22 +4459,25 @@
     }
    ],
    "epochDividends": 114.67329465399999,
-   "emission_tao_per_day": 107.69542560000001,
-   "emission_share_percent": 9.500152632389014
+   "emission_tao_per_day": 107.6121936,
+   "emission_share_percent": 9.510170726986154,
+   "alpha_emission_per_day": 7200,
+   "alpha_emission_tao_value_per_day": 781.6823869505679,
+   "tao_coverage_percent": 13.766741504795501
   },
   {
    "netuid": 52,
    "name": "Dojo",
-   "taoIn": 17464.676554008,
-   "alphaIn": 2906107.773749617,
-   "alphaOut": 3258205.483511798,
-   "stakedAlpha": 1996536.564044529,
+   "taoIn": 17464.676222464,
+   "alphaIn": 2906107.828918424,
+   "alphaOut": 3258291.428342991,
+   "stakedAlpha": 1996536.508875722,
    "alphaEmissionPerBlock": 1,
-   "rootProp": 0.13713109120726585,
+   "rootProp": 0.13712642272002995,
    "tempo": 360,
    "fee": 0.000503547722590982,
    "weightQuote": 0.5,
-   "take": 0.08049679772863298,
+   "take": 0.08049679967676608,
    "validatorCount": 117,
    "validators": [
     {
@@ -4385,21 +4543,24 @@
    ],
    "epochDividends": 117.84796116600005,
    "emission_tao_per_day": 0,
-   "emission_share_percent": 0
+   "emission_share_percent": 0,
+   "alpha_emission_per_day": 7200,
+   "alpha_emission_tao_value_per_day": 43.26944360097609,
+   "tao_coverage_percent": 0
   },
   {
    "netuid": 53,
    "name": "engy",
-   "taoIn": 42190.456433461,
-   "alphaIn": 1023758.901023351,
-   "alphaOut": 5203920.375168822,
-   "stakedAlpha": 4337108.021755258,
+   "taoIn": 42192.716105703,
+   "alphaIn": 1023727.450661701,
+   "alphaOut": 5204049.514869435,
+   "stakedAlpha": 4337107.887121525,
    "alphaEmissionPerBlock": 1,
-   "rootProp": 0.13592545222491026,
+   "rootProp": 0.13592061423696578,
    "tempo": 360,
    "fee": 0.000503547722590982,
-   "weightQuote": 0.49999998052628536,
-   "take": 0.0713393210785087,
+   "weightQuote": 0.49999998052343714,
+   "take": 0.07133932298278708,
    "validatorCount": 257,
    "validators": [
     {
@@ -4440,7 +4601,7 @@
     {
      "hotkey": "5G9hfkx9wGB1CLMT9WXkpHSAiYzjZb5o1Boyq4KAdDhjwrc5",
      "take": 0.009994659342336155,
-     "alpha": 100585.28406688
+     "alpha": 100585.149433147
     },
     {
      "hotkey": "5GP7c3fFazW9GXK8Up3qgu2DJBk8inu4aK9TZy3RuoSWVCMi",
@@ -4464,22 +4625,25 @@
     }
    ],
    "epochDividends": 118.408213913,
-   "emission_tao_per_day": 40.3319736,
-   "emission_share_percent": 3.5578103993813843
+   "emission_tao_per_day": 40.333932,
+   "emission_share_percent": 3.5644899205051614,
+   "alpha_emission_per_day": 7200,
+   "alpha_emission_tao_value_per_day": 296.7465407239542,
+   "tao_coverage_percent": 13.592047914560284
   },
   {
    "netuid": 54,
    "name": "Yanez",
-   "taoIn": 9849.99998504,
-   "alphaIn": 1635951.981141655,
-   "alphaOut": 4456868.722999259,
-   "stakedAlpha": 3793998.688815326,
+   "taoIn": 9844.967109438,
+   "alphaIn": 1636799.850841533,
+   "alphaOut": 4456112.627012747,
+   "stakedAlpha": 3793156.592828814,
    "alphaEmissionPerBlock": 1,
-   "rootProp": 0.1385172880254686,
+   "rootProp": 0.13851244724355638,
    "tempo": 360,
    "fee": 0.000503547722590982,
-   "weightQuote": 0.49999998820587366,
-   "take": 0.040748482585104204,
+   "weightQuote": 0.49999998820478914,
+   "take": 0.04073755011454899,
    "validatorCount": 404,
    "validators": [
     {
@@ -4505,7 +4669,7 @@
     {
      "hotkey": "5GKH9FPPnWSUoeeTJp19wVtd84XqFW4pyK2ijV2GsFbhTrP1",
      "take": 0.0899977111467155,
-     "alpha": 288347.843665622
+     "alpha": 287505.797739052
     },
     {
      "hotkey": "5CAQAgXxoU3NPo1YG5VQKz4Ackh7goNx3TvPD9A6LoqA7FmJ",
@@ -4540,26 +4704,29 @@
     {
      "hotkey": "5G9hfkx9wGB1CLMT9WXkpHSAiYzjZb5o1Boyq4KAdDhjwrc5",
      "take": 0.009994659342336155,
-     "alpha": 36903.755227353
+     "alpha": 36903.705167411
     }
    ],
    "epochDividends": 121.96241040500001,
-   "emission_tao_per_day": 2.9082672,
-   "emission_share_percent": 0.2565474080430267
+   "emission_tao_per_day": 2.9089224000000002,
+   "emission_share_percent": 0.2570744794812389,
+   "alpha_emission_per_day": 7200,
+   "alpha_emission_tao_value_per_day": 43.30631292266169,
+   "tao_coverage_percent": 6.71708627145165
   },
   {
    "netuid": 55,
    "name": "NIOME",
-   "taoIn": 6145.405575407,
-   "alphaIn": 2627770.189150273,
-   "alphaOut": 3077578.925065214,
-   "stakedAlpha": 2657659.573783271,
+   "taoIn": 6145.405432322,
+   "alphaIn": 2627770.250333416,
+   "alphaOut": 3077664.863882071,
+   "stakedAlpha": 2657659.512600128,
    "alphaEmissionPerBlock": 1,
-   "rootProp": 0.1465459242463112,
+   "rootProp": 0.14654084923677146,
    "tempo": 360,
    "fee": 0.000503547722590982,
    "weightQuote": 0.49999998530325285,
-   "take": 0.08271590281194122,
+   "take": 0.08271590448608879,
    "validatorCount": 268,
    "validators": [
     {
@@ -4630,26 +4797,29 @@
     {
      "hotkey": "5G9hfkx9wGB1CLMT9WXkpHSAiYzjZb5o1Boyq4KAdDhjwrc5",
      "take": 0.009994659342336155,
-     "alpha": 38812.412836936
+     "alpha": 38812.351653793
     }
    ],
    "epochDividends": 118.10536671599998,
    "emission_tao_per_day": 0,
-   "emission_share_percent": 0
+   "emission_share_percent": 0,
+   "alpha_emission_per_day": 7200,
+   "alpha_emission_tao_value_per_day": 16.838200260562157,
+   "tao_coverage_percent": 0
   },
   {
    "netuid": 56,
    "name": "Gradients",
-   "taoIn": 49517.430001418,
-   "alphaIn": 3336903.131038591,
-   "alphaOut": 2905713.063555992,
-   "stakedAlpha": 1921584.667153778,
+   "taoIn": 49518.166940193,
+   "alphaIn": 3336876.800761369,
+   "alphaOut": 2905837.058996729,
+   "stakedAlpha": 1921584.61179541,
    "alphaEmissionPerBlock": 1,
-   "rootProp": 0.135644334834069,
+   "rootProp": 0.13563951035030186,
    "tempo": 360,
    "fee": 0.000503547722590982,
-   "weightQuote": 0.49999999717697025,
-   "take": 0.09976242478257749,
+   "weightQuote": 0.499999997176532,
+   "take": 0.09976242736867073,
    "validatorCount": 245,
    "validators": [
     {
@@ -4720,7 +4890,7 @@
     {
      "hotkey": "5G9hfkx9wGB1CLMT9WXkpHSAiYzjZb5o1Boyq4KAdDhjwrc5",
      "take": 0.009994659342336155,
-     "alpha": 23098.599341898
+     "alpha": 23098.54398353
     },
     {
      "hotkey": "5GU4Xkd3dCGTU3s8VLcHGc5wsD5M8XyxDca5yDQhYm1mVXFu",
@@ -4739,22 +4909,25 @@
     }
    ],
    "epochDividends": 115.09388694200001,
-   "emission_tao_per_day": 14.492671199999998,
-   "emission_share_percent": 1.2784441649583715
+   "emission_tao_per_day": 14.4924912,
+   "emission_share_percent": 1.2807662492565752,
+   "alpha_emission_per_day": 7200,
+   "alpha_emission_tao_value_per_day": 106.84566056339085,
+   "tao_coverage_percent": 13.56394927372993
   },
   {
    "netuid": 57,
    "name": "Subnet 57",
-   "taoIn": 1225.629684653,
-   "alphaIn": 531062.061953335,
-   "alphaOut": 1101546.488501252,
-   "stakedAlpha": 531681.337394062,
+   "taoIn": 1225.629322355,
+   "alphaIn": 531062.218936478,
+   "alphaOut": 1101632.331518109,
+   "stakedAlpha": 531681.180410919,
    "alphaEmissionPerBlock": 1,
-   "rootProp": 0.37502293358556926,
+   "rootProp": 0.3750046098139137,
    "tempo": 360,
    "fee": 0.000503547722590982,
    "weightQuote": 0.5,
-   "take": 0.15429981212129323,
+   "take": 0.15429985472854976,
    "validatorCount": 72,
    "validators": [
     {
@@ -4820,21 +4993,24 @@
    ],
    "epochDividends": 78.00847560300001,
    "emission_tao_per_day": 0,
-   "emission_share_percent": 0
+   "emission_share_percent": 0,
+   "alpha_emission_per_day": 7200,
+   "alpha_emission_tao_value_per_day": 16.61675563859219,
+   "tao_coverage_percent": 0
   },
   {
    "netuid": 58,
    "name": "Attune",
-   "taoIn": 1129.014016422,
-   "alphaIn": 139980.198334823,
-   "alphaOut": 745727.331172618,
-   "stakedAlpha": 590070.554946026,
+   "taoIn": 1130.313568366,
+   "alphaIn": 139820.639773289,
+   "alphaOut": 745936.478879343,
+   "stakedAlpha": 590244.294404928,
    "alphaEmissionPerBlock": 1,
-   "rootProp": 0.5251836176030338,
+   "rootProp": 0.5251632963772863,
    "tempo": 360,
    "fee": 0.000503547722590982,
-   "weightQuote": 0.49999999068825846,
-   "take": 0.1328219676803109,
+   "weightQuote": 0.4999999906795703,
+   "take": 0.13281273041845942,
    "validatorCount": 78,
    "validators": [
     {
@@ -4845,17 +5021,17 @@
     {
      "hotkey": "5E2LP6EnZ54m3wS8s1yPvD5c3xo71kQroBw7aUVK32TKeZ5u",
      "take": 0,
-     "alpha": 100227.30121054
+     "alpha": 100227.301210541
     },
     {
      "hotkey": "5GKH9FPPnWSUoeeTJp19wVtd84XqFW4pyK2ijV2GsFbhTrP1",
      "take": 0.0899977111467155,
-     "alpha": 18778.092283513
+     "alpha": 18901.470348159
     },
     {
      "hotkey": "5DXdHixxtCvoa6GHKs2Jgrdzc61882Ftx1zN2sYFQuwgL1S1",
      "take": 0.0899977111467155,
-     "alpha": 15216.076041696
+     "alpha": 15226.950562103
     },
     {
      "hotkey": "5HK5tp6t2S59DywmHRWPBVJeJ86T61KjurYqeooqj8sREpeN",
@@ -4865,12 +5041,12 @@
     {
      "hotkey": "5Ckaoft1B1CQ9zBV2FLVju4KPuMQzJVn7QUf3JeTvTq1uUes",
      "take": 0.179995422293431,
-     "alpha": 9821.684628248
+     "alpha": 9832.197585306
     },
     {
      "hotkey": "5G9hfkx9wGB1CLMT9WXkpHSAiYzjZb5o1Boyq4KAdDhjwrc5",
      "take": 0.009994659342336155,
-     "alpha": 8714.679482442
+     "alpha": 8715.2226893
     },
     {
      "hotkey": "5G3wMP3g3d775hauwmAZioYFVZYnvw6eY46wkFy8hEWD5KP3",
@@ -4880,12 +5056,12 @@
     {
      "hotkey": "5H9ABR2Z4hvFkZycn3DuUfWvRYUAQXXu46uHgLFaNZ1ZL9dd",
      "take": 0.0899977111467155,
-     "alpha": 5919.771476714
+     "alpha": 5920.789820308
     },
     {
      "hotkey": "5Ggasr6fQqKZXuovBTT44GvhuoFpxBsXGPY3AUtFr9mWxGTV",
      "take": 0.179995422293431,
-     "alpha": 5377.292018616
+     "alpha": 5379.006351687
     },
     {
      "hotkey": "5Dd8gaRNdhm1YP7G1hcB1N842ecAUQmbLjCRLqH5ycaTGrWv",
@@ -4899,8 +5075,11 @@
     }
    ],
    "epochDividends": 60.66893229800001,
-   "emission_tao_per_day": 0.46812960000000003,
-   "emission_share_percent": 0.04129518618791936
+   "emission_tao_per_day": 0.465804,
+   "emission_share_percent": 0.04116518228202959,
+   "alpha_emission_per_day": 7200,
+   "alpha_emission_tao_value_per_day": 58.204983247388604,
+   "tao_coverage_percent": 0.8002819930729874
   },
   {
    "netuid": 59,
@@ -4922,16 +5101,16 @@
   {
    "netuid": 60,
    "name": "Bitsec.ai",
-   "taoIn": 6977.922446754,
-   "alphaIn": 1745484.472149404,
-   "alphaOut": 4135318.373438151,
-   "stakedAlpha": 3384145.843419186,
+   "taoIn": 6963.327977496,
+   "alphaIn": 1749146.099002495,
+   "alphaOut": 4131744.372558168,
+   "stakedAlpha": 3380485.842539203,
    "alphaEmissionPerBlock": 1,
-   "rootProp": 0.14279806846752763,
+   "rootProp": 0.14279312267899513,
    "tempo": 360,
    "fee": 0.000503547722590982,
-   "weightQuote": 0.4999999861458391,
-   "take": 0.10024479116335414,
+   "weightQuote": 0.4999999861442052,
+   "take": 0.10025588675065798,
    "validatorCount": 116,
    "validators": [
     {
@@ -4952,7 +5131,7 @@
     {
      "hotkey": "5GKH9FPPnWSUoeeTJp19wVtd84XqFW4pyK2ijV2GsFbhTrP1",
      "take": 0.0899977111467155,
-     "alpha": 328799.672230369
+     "alpha": 325139.723272369
     },
     {
      "hotkey": "5E2LP6EnZ54m3wS8s1yPvD5c3xo71kQroBw7aUVK32TKeZ5u",
@@ -4992,7 +5171,7 @@
     {
      "hotkey": "5G9hfkx9wGB1CLMT9WXkpHSAiYzjZb5o1Boyq4KAdDhjwrc5",
      "take": 0.009994659342336155,
-     "alpha": 43359.231403586
+     "alpha": 43359.179481603
     },
     {
      "hotkey": "5E4z3h9yVhmQyCFWNbY9BPpwhx4xFiPwq3eeqmBgVF6KULde",
@@ -5001,22 +5180,25 @@
     }
    ],
    "epochDividends": 114.33851547100002,
-   "emission_tao_per_day": 0.5445432,
-   "emission_share_percent": 0.04803587047553798
+   "emission_tao_per_day": 0.5437656,
+   "emission_share_percent": 0.04805499747253606,
+   "alpha_emission_per_day": 7200,
+   "alpha_emission_tao_value_per_day": 28.663108384861182,
+   "tao_coverage_percent": 1.897092222863021
   },
   {
    "netuid": 61,
    "name": "RedTeam",
-   "taoIn": 14370.982335552,
-   "alphaIn": 1237272.764281818,
-   "alphaOut": 5069614.872526501,
-   "stakedAlpha": 4025114.56749795,
+   "taoIn": 14371.576989809,
+   "alphaIn": 1237244.693560875,
+   "alphaOut": 5069734.113780555,
+   "stakedAlpha": 4025114.36082714,
    "alphaEmissionPerBlock": 1,
-   "rootProp": 0.13444787566550076,
+   "rootProp": 0.1344432255718857,
    "tempo": 360,
    "fee": 0.000503547722590982,
-   "weightQuote": 0.4999999834077078,
-   "take": 0.07859397401928217,
+   "weightQuote": 0.4999999834056266,
+   "take": 0.07859397754153635,
    "validatorCount": 386,
    "validators": [
     {
@@ -5062,7 +5244,7 @@
     {
      "hotkey": "5G9hfkx9wGB1CLMT9WXkpHSAiYzjZb5o1Boyq4KAdDhjwrc5",
      "take": 0.009994659342336155,
-     "alpha": 62851.833807208
+     "alpha": 62851.627136398
     },
     {
      "hotkey": "5GH3mzBhHtiaG36gxu33UEozGW5yHPbtPTGKqJYz3hEVdWDz",
@@ -5081,22 +5263,25 @@
     }
    ],
    "epochDividends": 121.08693028500002,
-   "emission_tao_per_day": 11.243642399999999,
-   "emission_share_percent": 0.9918371030979121
+   "emission_tao_per_day": 11.2439736,
+   "emission_share_percent": 0.9936802234809672,
+   "alpha_emission_per_day": 7200,
+   "alpha_emission_tao_value_per_day": 83.6337078134888,
+   "tao_coverage_percent": 13.444308394260293
   },
   {
    "netuid": 62,
    "name": "Ridges",
-   "taoIn": 27561.247764446,
-   "alphaIn": 3097419.686561465,
-   "alphaOut": 2638113.581544956,
-   "stakedAlpha": 2245937.91705431,
+   "taoIn": 27561.614760533,
+   "alphaIn": 3097403.534808873,
+   "alphaOut": 2638228.279324932,
+   "stakedAlpha": 2245939.24748412,
    "alphaEmissionPerBlock": 1,
-   "rootProp": 0.1458872144576162,
+   "rootProp": 0.14588189567439258,
    "tempo": 360,
    "fee": 0.000503547722590982,
-   "weightQuote": 0.4999999956210088,
-   "take": 0.05907694791036578,
+   "weightQuote": 0.4999999956205481,
+   "take": 0.059076911771139766,
    "validatorCount": 977,
    "validators": [
     {
@@ -5152,7 +5337,7 @@
     {
      "hotkey": "5G9hfkx9wGB1CLMT9WXkpHSAiYzjZb5o1Boyq4KAdDhjwrc5",
      "take": 0.009994659342336155,
-     "alpha": 31912.498113591
+     "alpha": 31912.24109898
     },
     {
      "hotkey": "5HK2LZRrvj581VjyxuFxb6ehFZoNi5PqAg3Y2HsmYPhGYYXr",
@@ -5161,22 +5346,25 @@
     }
    ],
    "epochDividends": 118.79773951900002,
-   "emission_tao_per_day": 9.3464856,
-   "emission_share_percent": 0.824482927494239
+   "emission_tao_per_day": 9.34632,
+   "emission_share_percent": 0.8259760896561188,
+   "alpha_emission_per_day": 7200,
+   "alpha_emission_tao_value_per_day": 64.06773528925412,
+   "tao_coverage_percent": 14.58818539129419
   },
   {
    "netuid": 63,
    "name": "Enigma",
-   "taoIn": 10664.755884442,
-   "alphaIn": 2764832.127768368,
-   "alphaOut": 3416279.219506101,
-   "stakedAlpha": 2510147.8432715,
+   "taoIn": 10664.783651446,
+   "alphaIn": 2764839.436631561,
+   "alphaOut": 3416365.164370166,
+   "stakedAlpha": 2510147.788135565,
    "alphaEmissionPerBlock": 1,
-   "rootProp": 0.136809402378276,
+   "rootProp": 0.13680460886098444,
    "tempo": 360,
    "fee": 0.000503547722590982,
-   "weightQuote": 0.49999999068636836,
-   "take": 0.022132213123284856,
+   "weightQuote": 0.49999999068540796,
+   "take": 0.02213221338988883,
    "validatorCount": 174,
    "validators": [
     {
@@ -5227,7 +5415,7 @@
     {
      "hotkey": "5G9hfkx9wGB1CLMT9WXkpHSAiYzjZb5o1Boyq4KAdDhjwrc5",
      "take": 0.009994659342336155,
-     "alpha": 33952.803757734
+     "alpha": 33952.748621799
     },
     {
      "hotkey": "5HK5tp6t2S59DywmHRWPBVJeJ86T61KjurYqeooqj8sREpeN",
@@ -5241,22 +5429,25 @@
     }
    ],
    "epochDividends": 125.324992179,
-   "emission_tao_per_day": 2.343384,
-   "emission_share_percent": 0.20671728211544668
+   "emission_tao_per_day": 2.3416704,
+   "emission_share_percent": 0.20694388382331014,
+   "alpha_emission_per_day": 7200,
+   "alpha_emission_tao_value_per_day": 27.77247898521684,
+   "tao_coverage_percent": 8.431621826940477
   },
   {
    "netuid": 64,
    "name": "Chutes",
-   "taoIn": 200165.784171086,
-   "alphaIn": 2947843.201785643,
-   "alphaOut": 3490903.236913672,
-   "stakedAlpha": 2796636.764095388,
+   "taoIn": 200167.363501892,
+   "alphaIn": 2947842.656496485,
+   "alphaOut": 3491001.138960547,
+   "stakedAlpha": 2796604.162574912,
    "alphaEmissionPerBlock": 1,
-   "rootProp": 0.13205812615342438,
+   "rootProp": 0.13205346977338195,
    "tempo": 360,
    "fee": 0.000503547722590982,
-   "weightQuote": 0.4999999961678905,
-   "take": 0.08231109816533343,
+   "weightQuote": 0.49999999616751534,
+   "take": 0.08231101077232875,
    "validatorCount": 307,
    "validators": [
     {
@@ -5272,7 +5463,7 @@
     {
      "hotkey": "5HK5tp6t2S59DywmHRWPBVJeJ86T61KjurYqeooqj8sREpeN",
      "take": 0.0899977111467155,
-     "alpha": 266339.471587212
+     "alpha": 266310.107459157
     },
     {
      "hotkey": "5E2LP6EnZ54m3wS8s1yPvD5c3xo71kQroBw7aUVK32TKeZ5u",
@@ -5282,7 +5473,7 @@
     {
      "hotkey": "5GKH9FPPnWSUoeeTJp19wVtd84XqFW4pyK2ijV2GsFbhTrP1",
      "take": 0.0899977111467155,
-     "alpha": 228535.174510922
+     "alpha": 228532.014510922
     },
     {
      "hotkey": "5GTWwu3NCbYmVFzwfrXa1sx8y4UNLR3padWfVZwjNnDmySXP",
@@ -5331,22 +5522,25 @@
     }
    ],
    "epochDividends": 117.51524969699997,
-   "emission_tao_per_day": 64.56289679999999,
-   "emission_share_percent": 5.695296439677009
+   "emission_tao_per_day": 64.56114,
+   "emission_share_percent": 5.70555662131633,
+   "alpha_emission_per_day": 7200,
+   "alpha_emission_tao_value_per_day": 488.9016162823565,
+   "tao_coverage_percent": 13.205343948528462
   },
   {
    "netuid": 65,
    "name": "True Performance Network",
-   "taoIn": 5872.407272723,
-   "alphaIn": 2500798.546333589,
-   "alphaOut": 3600989.515676707,
-   "stakedAlpha": 2512741.460398855,
+   "taoIn": 5847.859831445,
+   "alphaIn": 2511296.114239316,
+   "alphaOut": 3590577.956479157,
+   "stakedAlpha": 2502243.901201305,
    "alphaEmissionPerBlock": 1,
-   "rootProp": 0.13834188133478165,
+   "rootProp": 0.1383371609263122,
    "tempo": 360,
    "fee": 0.000503547722590982,
-   "weightQuote": 0.49999999204572926,
-   "take": 0.10053184290233484,
+   "weightQuote": 0.4999999920439986,
+   "take": 0.10095359969867526,
    "validatorCount": 390,
    "validators": [
     {
@@ -5357,7 +5551,7 @@
     {
      "hotkey": "5E2LP6EnZ54m3wS8s1yPvD5c3xo71kQroBw7aUVK32TKeZ5u",
      "take": 0,
-     "alpha": 512690.982613863
+     "alpha": 502193.483515712
     },
     {
      "hotkey": "5E4z3h9yVhmQyCFWNbY9BPpwhx4xFiPwq3eeqmBgVF6KULde",
@@ -5421,23 +5615,26 @@
     }
    ],
    "epochDividends": 114.54978038200001,
-   "emission_tao_per_day": 0.0017135999999999998,
-   "emission_share_percent": 0.00015116205224283743
+   "emission_tao_per_day": 0.0017063999999999998,
+   "emission_share_percent": 0.00015080219801902792,
+   "alpha_emission_per_day": 7200,
+   "alpha_emission_tao_value_per_day": 16.766080227498158,
+   "tao_coverage_percent": 0.010177691964048472
   },
   {
    "netuid": 66,
    "name": "conjectures",
-   "taoIn": 6507.747591413,
-   "alphaIn": 2328999.161236896,
-   "alphaOut": 3669974.253332923,
-   "stakedAlpha": 2712043.611164695,
+   "taoIn": 6497.340125672,
+   "alphaIn": 2332736.386949634,
+   "alphaOut": 3666326.337298387,
+   "stakedAlpha": 2708309.695130159,
    "alphaEmissionPerBlock": 1,
-   "rootProp": 0.1403800412081182,
+   "rootProp": 0.1403751668985933,
    "tempo": 360,
    "fee": 0.000503547722590982,
-   "weightQuote": 0.4999999861431248,
-   "take": 0.08936449546578484,
-   "validatorCount": 363,
+   "weightQuote": 0.4999999861415457,
+   "take": 0.08940502145882775,
+   "validatorCount": 362,
    "validators": [
     {
      "hotkey": "5DRPoRiBSPNvgSvRsehaUhtXqPgXYrds8VS42vdzT5MzcpZV",
@@ -5497,7 +5694,7 @@
     {
      "hotkey": "5G9hfkx9wGB1CLMT9WXkpHSAiYzjZb5o1Boyq4KAdDhjwrc5",
      "take": 0.009994659342336155,
-     "alpha": 37393.746391698
+     "alpha": 37393.684296247
     },
     {
      "hotkey": "5EtUYRu7sFqs9obCrN6JSNTnAAcpk98oJ27YV2EF9gC4tvzs",
@@ -5516,22 +5713,25 @@
     }
    ],
    "epochDividends": 116.44469801100003,
-   "emission_tao_per_day": 0.7744968,
-   "emission_share_percent": 0.0683208016710495
+   "emission_tao_per_day": 0.771984,
+   "emission_share_percent": 0.06822367793924124,
+   "alpha_emission_per_day": 7200,
+   "alpha_emission_tao_value_per_day": 20.05406687176159,
+   "tao_coverage_percent": 3.8495134425179427
   },
   {
    "netuid": 67,
    "name": "Harnyx",
-   "taoIn": 2601.051908947,
-   "alphaIn": 791147.967144676,
-   "alphaOut": 1030953.040234289,
-   "stakedAlpha": 622329.53424261,
+   "taoIn": 2601.066243587,
+   "alphaIn": 791152.615231041,
+   "alphaOut": 1031038.896243082,
+   "stakedAlpha": 622329.390251403,
    "alphaEmissionPerBlock": 1,
-   "rootProp": 0.3496588885318488,
+   "rootProp": 0.34964179433882236,
    "tempo": 360,
    "fee": 0.000503547722590982,
-   "weightQuote": 0.49999995686799004,
-   "take": 0.13951770134033456,
+   "weightQuote": 0.49999995686389365,
+   "take": 0.13951773130867517,
    "validatorCount": 288,
    "validators": [
     {
@@ -5557,7 +5757,7 @@
     {
      "hotkey": "5G9hfkx9wGB1CLMT9WXkpHSAiYzjZb5o1Boyq4KAdDhjwrc5",
      "take": 0.009994659342336155,
-     "alpha": 15906.211982416
+     "alpha": 15906.067991209
     },
     {
      "hotkey": "5GKH9FPPnWSUoeeTJp19wVtd84XqFW4pyK2ijV2GsFbhTrP1",
@@ -5596,22 +5796,25 @@
     }
    ],
    "epochDividends": 82.43386300400005,
-   "emission_tao_per_day": 1.2400848,
-   "emission_share_percent": 0.10939178531929776
+   "emission_tao_per_day": 1.2394368,
+   "emission_share_percent": 0.10953457204973649,
+   "alpha_emission_per_day": 7200,
+   "alpha_emission_tao_value_per_day": 23.671387573829705,
+   "tao_coverage_percent": 5.236012448084285
   },
   {
    "netuid": 68,
    "name": "NOVA",
-   "taoIn": 42560.458670099,
-   "alphaIn": 2190441.650104339,
-   "alphaOut": 3820031.097958265,
-   "stakedAlpha": 2733680.931098693,
+   "taoIn": 42561.686751109,
+   "alphaIn": 2190402.551521918,
+   "alphaOut": 3820158.720646034,
+   "stakedAlpha": 2733680.780831099,
    "alphaEmissionPerBlock": 1,
-   "rootProp": 0.14014910464175045,
+   "rootProp": 0.140144256176427,
    "tempo": 360,
    "fee": 0.000503547722590982,
-   "weightQuote": 0.49999999166386444,
-   "take": 0.09324836728224206,
+   "weightQuote": 0.4999999916630471,
+   "take": 0.09324837185861196,
    "validatorCount": 139,
    "validators": [
     {
@@ -5676,22 +5879,25 @@
     }
    ],
    "epochDividends": 115.07545305199997,
-   "emission_tao_per_day": 19.6063704,
-   "emission_share_percent": 1.7295396747766232
+   "emission_tao_per_day": 19.606608,
+   "emission_share_percent": 1.732723618200573,
+   "alpha_emission_per_day": 7200,
+   "alpha_emission_tao_value_per_day": 139.90312174093552,
+   "tao_coverage_percent": 14.01441780284673
   },
   {
    "netuid": 69,
    "name": "Herald",
-   "taoIn": 3654.66368775,
-   "alphaIn": 660689.797674609,
-   "alphaOut": 1419772.839781241,
-   "stakedAlpha": 935640.169659212,
+   "taoIn": 3654.662935436,
+   "alphaIn": 660689.933677995,
+   "alphaOut": 1419858.703777855,
+   "stakedAlpha": 935640.033655826,
    "alphaEmissionPerBlock": 1,
-   "rootProp": 0.32013771519996226,
+   "rootProp": 0.32012316724285483,
    "tempo": 360,
    "fee": 0.000503547722590982,
    "weightQuote": 0.49999999682035634,
-   "take": 0.16151352142212708,
+   "take": 0.16151354344670654,
    "validatorCount": 79,
    "validators": [
     {
@@ -5757,21 +5963,24 @@
    ],
    "epochDividends": 83.75141551600002,
    "emission_tao_per_day": 0,
-   "emission_share_percent": 0
+   "emission_share_percent": 0,
+   "alpha_emission_per_day": 7200,
+   "alpha_emission_tao_value_per_day": 39.827416959912355,
+   "tao_coverage_percent": 0
   },
   {
    "netuid": 70,
    "name": "Subnet 70",
-   "taoIn": 226.185671394,
-   "alphaIn": 233032.167361085,
-   "alphaOut": 328138.639839688,
-   "stakedAlpha": 213624.587488478,
+   "taoIn": 226.185580497,
+   "alphaIn": 233032.619685283,
+   "alphaOut": 328224.366874777,
+   "stakedAlpha": 213624.314523567,
    "alphaEmissionPerBlock": 1,
-   "rootProp": 0.6358000852633268,
+   "rootProp": 0.6357586204539984,
    "tempo": 360,
    "fee": 0.000503547722590982,
-   "weightQuote": 0.49999991860498016,
-   "take": 0.06284563645204627,
+   "weightQuote": 0.4999999185580379,
+   "take": 0.06284570398397632,
    "validatorCount": 57,
    "validators": [
     {
@@ -5832,7 +6041,7 @@
     {
      "hotkey": "5G9hfkx9wGB1CLMT9WXkpHSAiYzjZb5o1Boyq4KAdDhjwrc5",
      "take": 0.009994659342336155,
-     "alpha": 2764.041176471
+     "alpha": 2763.76821156
     },
     {
      "hotkey": "5Ckaoft1B1CQ9zBV2FLVju4KPuMQzJVn7QUf3JeTvTq1uUes",
@@ -5846,22 +6055,25 @@
     }
    ],
    "epochDividends": 50.406432419,
-   "emission_tao_per_day": 0.014616,
-   "emission_share_percent": 0.001289323386777143
+   "emission_tao_per_day": 0.0145296,
+   "emission_share_percent": 0.0012840457198413434,
+   "alpha_emission_per_day": 7200,
+   "alpha_emission_tao_value_per_day": 6.988449566857194,
+   "tao_coverage_percent": 0.20790877663204158
   },
   {
    "netuid": 71,
    "name": "Leadpoet",
-   "taoIn": 5881.346059253,
-   "alphaIn": 1077939.1231776,
-   "alphaOut": 4851541.772966923,
-   "stakedAlpha": 3725313.534741763,
+   "taoIn": 5891.340766613,
+   "alphaIn": 1076110.396088565,
+   "alphaOut": 4853456.502696082,
+   "stakedAlpha": 3727142.264470922,
    "alphaEmissionPerBlock": 1,
-   "rootProp": 0.1417919909581542,
+   "rootProp": 0.1417871224693954,
    "tempo": 360,
    "fee": 0.000503547722590982,
-   "weightQuote": 0.4999999868142711,
-   "take": 0.04276424368303182,
+   "weightQuote": 0.4999999868128733,
+   "take": 0.042743261189199966,
    "validatorCount": 170,
    "validators": [
     {
@@ -5907,7 +6119,7 @@
     {
      "hotkey": "5GTWwu3NCbYmVFzwfrXa1sx8y4UNLR3padWfVZwjNnDmySXP",
      "take": 0,
-     "alpha": 79698.643251127
+     "alpha": 81527.422587433
     },
     {
      "hotkey": "5FtBncJvGhxjBs4aFn2pid6aur9tBUuo9QR7sHe5DkoRizzo",
@@ -5926,22 +6138,25 @@
     }
    ],
    "epochDividends": 121.26660774199998,
-   "emission_tao_per_day": 0.0012024,
-   "emission_share_percent": 0.00010606749043930191
+   "emission_tao_per_day": 0.0012096,
+   "emission_share_percent": 0.00010689776062108309,
+   "alpha_emission_per_day": 7200,
+   "alpha_emission_tao_value_per_day": 39.417568969931715,
+   "tao_coverage_percent": 0.003068682396224638
   },
   {
    "netuid": 72,
    "name": "StreetVision by NATIX",
-   "taoIn": 6138.902350647,
-   "alphaIn": 2929937.145952592,
-   "alphaOut": 2662590.786967596,
-   "stakedAlpha": 2095127.616009538,
+   "taoIn": 6138.902206392,
+   "alphaIn": 2929937.214801999,
+   "alphaOut": 2662676.718118189,
+   "stakedAlpha": 2095127.547160131,
    "alphaEmissionPerBlock": 1,
-   "rootProp": 0.14906159811653197,
+   "rootProp": 0.14905641274526715,
    "tempo": 360,
    "fee": 0.000503547722590982,
    "weightQuote": 0.5,
-   "take": 0.03704416829353367,
+   "take": 0.03704416918242593,
    "validatorCount": 186,
    "validators": [
     {
@@ -5992,7 +6207,7 @@
     {
      "hotkey": "5G9hfkx9wGB1CLMT9WXkpHSAiYzjZb5o1Boyq4KAdDhjwrc5",
      "take": 0.009994659342336155,
-     "alpha": 31451.288970787
+     "alpha": 31451.22012138
     },
     {
      "hotkey": "5DkFEQdEwE5ZcJbv2efF4F5nRTxuEdYhLHqd2EfdR3aLM7Fn",
@@ -6007,21 +6222,24 @@
    ],
    "epochDividends": 120.86312652399998,
    "emission_tao_per_day": 0,
-   "emission_share_percent": 0
+   "emission_share_percent": 0,
+   "alpha_emission_per_day": 7200,
+   "alpha_emission_tao_value_per_day": 15.085680219604768,
+   "tao_coverage_percent": 0
   },
   {
    "netuid": 73,
    "name": "Parked",
-   "taoIn": 6805.866707151,
-   "alphaIn": 2219751.696710828,
-   "alphaOut": 3662945.212794965,
-   "stakedAlpha": 2009886.567966206,
+   "taoIn": 6805.86653073,
+   "alphaIn": 2219751.754251165,
+   "alphaOut": 3663031.155254628,
+   "stakedAlpha": 2009886.510425869,
    "alphaEmissionPerBlock": 1,
-   "rootProp": 0.14275865512900054,
+   "rootProp": 0.14275374473072588,
    "tempo": 360,
    "fee": 0.000503547722590982,
    "weightQuote": 0.5,
-   "take": 0.12226984153610243,
+   "take": 0.12226984475038928,
    "validatorCount": 125,
    "validators": [
     {
@@ -6087,21 +6305,24 @@
    ],
    "epochDividends": 110.991034774,
    "emission_tao_per_day": 0,
-   "emission_share_percent": 0
+   "emission_share_percent": 0,
+   "alpha_emission_per_day": 7200,
+   "alpha_emission_tao_value_per_day": 22.07554918130336,
+   "tao_coverage_percent": 0
   },
   {
    "netuid": 74,
    "name": "Gittensor",
-   "taoIn": 5742.813740407,
-   "alphaIn": 1916528.770528946,
-   "alphaOut": 3453831.262595682,
-   "stakedAlpha": 2830271.428410459,
+   "taoIn": 5742.813564054,
+   "alphaIn": 1916528.829382604,
+   "alphaOut": 3453917.203742024,
+   "stakedAlpha": 2830271.369556801,
    "alphaEmissionPerBlock": 1,
-   "rootProp": 0.1542768096551299,
+   "rootProp": 0.15427139261737466,
    "tempo": 360,
    "fee": 0.000503547722590982,
    "weightQuote": 0.4999999834896529,
-   "take": 0.08377822399784579,
+   "take": 0.08377822553212719,
    "validatorCount": 248,
    "validators": [
     {
@@ -6167,21 +6388,24 @@
    ],
    "epochDividends": 139.827117931,
    "emission_tao_per_day": 0,
-   "emission_share_percent": 0
+   "emission_share_percent": 0,
+   "alpha_emission_per_day": 7200,
+   "alpha_emission_tao_value_per_day": 21.574556958376295,
+   "tao_coverage_percent": 0
   },
   {
    "netuid": 75,
    "name": "Hippius",
-   "taoIn": 33633.501169061,
-   "alphaIn": 1953159.236829539,
-   "alphaOut": 3853604.854683135,
-   "stakedAlpha": 2833792.819074684,
+   "taoIn": 33675.578435844,
+   "alphaIn": 1950743.62144064,
+   "alphaOut": 3856118.884416117,
+   "stakedAlpha": 2836182.098583454,
    "alphaEmissionPerBlock": 1,
-   "rootProp": 0.14435597136616707,
+   "rootProp": 0.14435072778724134,
    "tempo": 360,
    "fee": 0.000503547722590982,
-   "weightQuote": 0.4999999921543865,
-   "take": 0.04014277333282487,
+   "weightQuote": 0.49999999215336444,
+   "take": 0.040177949255663474,
    "validatorCount": 392,
    "validators": [
     {
@@ -6207,7 +6431,7 @@
     {
      "hotkey": "5GKH9FPPnWSUoeeTJp19wVtd84XqFW4pyK2ijV2GsFbhTrP1",
      "take": 0.0899977111467155,
-     "alpha": 325584.75772854
+     "alpha": 328189.398784317
     },
     {
      "hotkey": "5DXdHixxtCvoa6GHKs2Jgrdzc61882Ftx1zN2sYFQuwgL1S1",
@@ -6217,7 +6441,7 @@
     {
      "hotkey": "5Ckaoft1B1CQ9zBV2FLVju4KPuMQzJVn7QUf3JeTvTq1uUes",
      "take": 0.179995422293431,
-     "alpha": 58578.547081551
+     "alpha": 58363.361931552
     },
     {
      "hotkey": "5E4z3h9yVhmQyCFWNbY9BPpwhx4xFiPwq3eeqmBgVF6KULde",
@@ -6246,22 +6470,25 @@
     }
    ],
    "epochDividends": 121.26203124700002,
-   "emission_tao_per_day": 17.9405352,
-   "emission_share_percent": 1.5825911059563866
+   "emission_tao_per_day": 17.9418024,
+   "emission_share_percent": 1.585597303295283,
+   "alpha_emission_per_day": 7200,
+   "alpha_emission_tao_value_per_day": 124.29320269627583,
+   "tao_coverage_percent": 14.435063230161326
   },
   {
    "netuid": 76,
    "name": "Ormas",
-   "taoIn": 498.573837925,
-   "alphaIn": 86789.669354505,
-   "alphaOut": 187021.39013329,
-   "stakedAlpha": 126937.043715506,
+   "taoIn": 498.572533565,
+   "alphaIn": 86789.896412854,
+   "alphaOut": 187107.163075027,
+   "stakedAlpha": 126955.944570442,
    "alphaEmissionPerBlock": 1,
-   "rootProp": 0.7815579047892243,
+   "rootProp": 0.7814999311231077,
    "tempo": 360,
    "fee": 0.000503547722590982,
-   "weightQuote": 0.49999999200976564,
-   "take": 0.09521049030066507,
+   "weightQuote": 0.4999999920095179,
+   "take": 0.09522092603853025,
    "validatorCount": 73,
    "validators": [
     {
@@ -6322,7 +6549,7 @@
     {
      "hotkey": "5Ckaoft1B1CQ9zBV2FLVju4KPuMQzJVn7QUf3JeTvTq1uUes",
      "take": 0.179995422293431,
-     "alpha": 1903.985267496
+     "alpha": 1919.378317274
     },
     {
      "hotkey": "5Ggasr6fQqKZXuovBTT44GvhuoFpxBsXGPY3AUtFr9mWxGTV",
@@ -6332,21 +6559,24 @@
    ],
    "epochDividends": 28.774440189999996,
    "emission_tao_per_day": 0,
-   "emission_share_percent": 0
+   "emission_share_percent": 0,
+   "alpha_emission_per_day": 7200,
+   "alpha_emission_tao_value_per_day": 41.361062805356596,
+   "tao_coverage_percent": 0
   },
   {
    "netuid": 77,
    "name": "Liquidity",
-   "taoIn": 11545.72066108,
-   "alphaIn": 2350088.322941879,
-   "alphaOut": 3428158.480674523,
-   "stakedAlpha": 2715871.972599772,
+   "taoIn": 11545.783910487,
+   "alphaIn": 2350100.382215265,
+   "alphaOut": 3428244.888131466,
+   "stakedAlpha": 2715871.914314492,
    "alphaEmissionPerBlock": 1,
-   "rootProp": 0.14496513037011027,
+   "rootProp": 0.14495985698886216,
    "tempo": 360,
    "fee": 0.000503547722590982,
-   "weightQuote": 0.4999999951517638,
-   "take": 0.15788610000239353,
+   "weightQuote": 0.49999999515080934,
+   "take": 0.15788610317628918,
    "validatorCount": 155,
    "validators": [
     {
@@ -6411,22 +6641,25 @@
     }
    ],
    "epochDividends": 106.22677523700001,
-   "emission_tao_per_day": 5.1278184,
-   "emission_share_percent": 0.4523410089125719
+   "emission_tao_per_day": 5.127631200000001,
+   "emission_share_percent": 0.4531516969004606,
+   "alpha_emission_per_day": 7200,
+   "alpha_emission_tao_value_per_day": 35.372806369059106,
+   "tao_coverage_percent": 14.495969436242365
   },
   {
    "netuid": 78,
    "name": "Umi",
-   "taoIn": 1410.512191813,
-   "alphaIn": 403941.598952169,
-   "alphaOut": 1163346.250819125,
-   "stakedAlpha": 974374.77785606,
+   "taoIn": 1410.516461805,
+   "alphaIn": 403943.127788303,
+   "alphaOut": 1163432.097826255,
+   "stakedAlpha": 974374.62486319,
    "alphaEmissionPerBlock": 1,
-   "rootProp": 0.3846410147380084,
+   "rootProp": 0.38462178292684257,
    "tempo": 360,
    "fee": 0.000503547722590982,
-   "weightQuote": 0.4999998997298965,
-   "take": 0.05195085047680373,
+   "weightQuote": 0.4999998997222881,
+   "take": 0.051950857064617016,
    "validatorCount": 472,
    "validators": [
     {
@@ -6477,7 +6710,7 @@
     {
      "hotkey": "5G9hfkx9wGB1CLMT9WXkpHSAiYzjZb5o1Boyq4KAdDhjwrc5",
      "take": 0.009994659342336155,
-     "alpha": 12187.302688206
+     "alpha": 12187.149695336
     },
     {
      "hotkey": "5DXdHixxtCvoa6GHKs2Jgrdzc61882Ftx1zN2sYFQuwgL1S1",
@@ -6491,22 +6724,25 @@
     }
    ],
    "epochDividends": 89.16694416300003,
-   "emission_tao_per_day": 0.4023504,
-   "emission_share_percent": 0.03549259581274892
+   "emission_tao_per_day": 0.4020912,
+   "emission_share_percent": 0.0355345972597917,
+   "alpha_emission_per_day": 7200,
+   "alpha_emission_tao_value_per_day": 25.141466458832927,
+   "tao_coverage_percent": 1.5993148238126487
   },
   {
    "netuid": 79,
    "name": "MVTRX",
-   "taoIn": 6982.924342307,
-   "alphaIn": 2265984.990874515,
-   "alphaOut": 3053143.628128327,
-   "stakedAlpha": 2437303.652439748,
+   "taoIn": 6953.07117716,
+   "alphaIn": 2275721.76522525,
+   "alphaOut": 3043496.69829199,
+   "stakedAlpha": 2427570.722603411,
    "alphaEmissionPerBlock": 1,
-   "rootProp": 0.15553162526339293,
+   "rootProp": 0.1555260568857193,
    "tempo": 360,
    "fee": 0.000503547722590982,
-   "weightQuote": 0.4999999852150681,
-   "take": 0.14800655656652625,
+   "weightQuote": 0.4999999852135027,
+   "take": 0.14859996331851635,
    "validatorCount": 906,
    "validators": [
     {
@@ -6525,19 +6761,19 @@
      "alpha": 103764.89198393
     },
     {
-     "hotkey": "5E2LP6EnZ54m3wS8s1yPvD5c3xo71kQroBw7aUVK32TKeZ5u",
-     "take": 0,
-     "alpha": 84626.638876923
-    },
-    {
      "hotkey": "5GP7c3fFazW9GXK8Up3qgu2DJBk8inu4aK9TZy3RuoSWVCMi",
      "take": 0.0009918364232852674,
      "alpha": 81576.605144787
     },
     {
+     "hotkey": "5E2LP6EnZ54m3wS8s1yPvD5c3xo71kQroBw7aUVK32TKeZ5u",
+     "take": 0,
+     "alpha": 74893.766336536
+    },
+    {
      "hotkey": "5G9hfkx9wGB1CLMT9WXkpHSAiYzjZb5o1Boyq4KAdDhjwrc5",
      "take": 0.009994659342336155,
-     "alpha": 31272.896738505
+     "alpha": 31272.839442555
     },
     {
      "hotkey": "5GKH9FPPnWSUoeeTJp19wVtd84XqFW4pyK2ijV2GsFbhTrP1",
@@ -6571,22 +6807,25 @@
     }
    ],
    "epochDividends": 106.180945769,
-   "emission_tao_per_day": 0.9909432,
-   "emission_share_percent": 0.08741422021947043
+   "emission_tao_per_day": 0.9907632,
+   "emission_share_percent": 0.08755817409538548,
+   "alpha_emission_per_day": 7200,
+   "alpha_emission_tao_value_per_day": 21.998346283588905,
+   "tao_coverage_percent": 4.503807637300101
   },
   {
    "netuid": 80,
    "name": "OpenRoboto",
-   "taoIn": 5871.403557381,
-   "alphaIn": 233628.551441956,
-   "alphaOut": 2306957.095463218,
-   "stakedAlpha": 1917312.394319186,
+   "taoIn": 5845.729686991,
+   "alphaIn": 234702.535859048,
+   "alphaOut": 2305993.043605481,
+   "stakedAlpha": 1916231.362869048,
    "alphaEmissionPerBlock": 1,
-   "rootProp": 0.2782932808622718,
+   "rootProp": 0.2782794679515064,
    "tempo": 360,
    "fee": 0.000503547722590982,
-   "weightQuote": 0.49999971728410203,
-   "take": 0.059291057159061585,
+   "weightQuote": 0.49999971723265263,
+   "take": 0.059275016813887506,
    "validatorCount": 152,
    "validators": [
     {
@@ -6597,7 +6836,7 @@
     {
      "hotkey": "5E2LP6EnZ54m3wS8s1yPvD5c3xo71kQroBw7aUVK32TKeZ5u",
      "take": 0,
-     "alpha": 436851.769025746
+     "alpha": 436891.333751237
     },
     {
      "hotkey": "5GKH9FPPnWSUoeeTJp19wVtd84XqFW4pyK2ijV2GsFbhTrP1",
@@ -6632,7 +6871,7 @@
     {
      "hotkey": "5G9hfkx9wGB1CLMT9WXkpHSAiYzjZb5o1Boyq4KAdDhjwrc5",
      "take": 0.009994659342336155,
-     "alpha": 35032.557368686
+     "alpha": 35032.448528996
     },
     {
      "hotkey": "5FnDM5Hk5v1J9BW6f7xTNmTCjXmq2V78vfyGkncVB3o9SGBT",
@@ -6681,22 +6920,25 @@
     }
    ],
    "epochDividends": 99.495704889,
-   "emission_tao_per_day": 50.3559216,
-   "emission_share_percent": 4.442054418554754
+   "emission_tao_per_day": 49.9038336,
+   "emission_share_percent": 4.410224915878938,
+   "alpha_emission_per_day": 7200,
+   "alpha_emission_tao_value_per_day": 179.330407309726,
+   "tao_coverage_percent": 27.82787054836152
   },
   {
    "netuid": 81,
    "name": "Reliquary",
-   "taoIn": 16867.4436422,
-   "alphaIn": 3121280.907663697,
-   "alphaOut": 2528502.422116112,
-   "stakedAlpha": 1473682.019878601,
+   "taoIn": 16867.443317244,
+   "alphaIn": 3121280.968215234,
+   "alphaOut": 2528588.361776796,
+   "stakedAlpha": 1473681.959539285,
    "alphaEmissionPerBlock": 1,
-   "rootProp": 0.14777422323822975,
+   "rootProp": 0.1477690942119807,
    "tempo": 360,
    "fee": 0.000503547722590982,
-   "weightQuote": 0.4999999936013335,
-   "take": 0.03895100071443625,
+   "weightQuote": 0.4999999936009059,
+   "take": 0.038951001900042005,
    "validatorCount": 260,
    "validators": [
     {
@@ -6752,7 +6994,7 @@
     {
      "hotkey": "5G9hfkx9wGB1CLMT9WXkpHSAiYzjZb5o1Boyq4KAdDhjwrc5",
      "take": 0.009994659342336155,
-     "alpha": 26246.213138483
+     "alpha": 26246.152799167
     },
     {
      "hotkey": "5DvDypN8BPG4ThSTes2YQ64PUSYMngoQYnzR1Dw1a67TdiFp",
@@ -6767,21 +7009,24 @@
    ],
    "epochDividends": 121.23746383799998,
    "emission_tao_per_day": 0.0000936,
-   "emission_share_percent": 0.000008256750752760029
+   "emission_share_percent": 0.000008271850524250478,
+   "alpha_emission_per_day": 7200,
+   "alpha_emission_tao_value_per_day": 38.90889549176574,
+   "tao_coverage_percent": 0.00024056195586381651
   },
   {
    "netuid": 82,
    "name": "Subnet 82",
-   "taoIn": 2259.435738003,
-   "alphaIn": 39383.405667694,
-   "alphaOut": 110922.645030814,
-   "stakedAlpha": 110638.622921789,
+   "taoIn": 2259.434853631,
+   "alphaIn": 39383.421082878,
+   "alphaOut": 111008.62961563,
+   "stakedAlpha": 110638.607506605,
    "alphaEmissionPerBlock": 1,
-   "rootProp": 0.8669819151982665,
+   "rootProp": 0.8669129931367934,
    "tempo": 360,
    "fee": 0.000503547722590982,
    "weightQuote": 0.5,
-   "take": 0.04871381774024263,
+   "take": 0.04871382313495036,
    "validatorCount": 113,
    "validators": [
     {
@@ -6952,21 +7197,24 @@
    ],
    "epochDividends": 16.159170812,
    "emission_tao_per_day": 0,
-   "emission_share_percent": 0
+   "emission_share_percent": 0,
+   "alpha_emission_per_day": 7200,
+   "alpha_emission_tao_value_per_day": 413.0654600043293,
+   "tao_coverage_percent": 0
   },
   {
    "netuid": 83,
    "name": "CliqueAI",
-   "taoIn": 8029.278812497,
-   "alphaIn": 1044103.191447103,
-   "alphaOut": 2956204.514730673,
-   "stakedAlpha": 2366617.0526426,
+   "taoIn": 8029.507650333,
+   "alphaIn": 1044107.269508949,
+   "alphaOut": 2956303.354211808,
+   "stakedAlpha": 2366616.729646781,
    "alphaEmissionPerBlock": 1,
-   "rootProp": 0.1967203097883612,
+   "rootProp": 0.19671221426688135,
    "tempo": 360,
    "fee": 0.000503547722590982,
-   "weightQuote": 0.4999999918307504,
-   "take": 0.07112360274042594,
+   "weightQuote": 0.4999999918282064,
+   "take": 0.0711236110833033,
    "validatorCount": 1271,
    "validators": [
     {
@@ -6977,7 +7225,7 @@
     {
      "hotkey": "5G9hfkx9wGB1CLMT9WXkpHSAiYzjZb5o1Boyq4KAdDhjwrc5",
      "take": 0.009994659342336155,
-     "alpha": 483070.833850435
+     "alpha": 483070.510854616
     },
     {
      "hotkey": "5E4z3h9yVhmQyCFWNbY9BPpwhx4xFiPwq3eeqmBgVF6KULde",
@@ -7031,22 +7279,25 @@
     }
    ],
    "epochDividends": 107.90663256900002,
-   "emission_tao_per_day": 10.8921744,
-   "emission_share_percent": 0.9608330040212982
+   "emission_tao_per_day": 10.891994400000002,
+   "emission_share_percent": 0.9625742477326205,
+   "alpha_emission_per_day": 7200,
+   "alpha_emission_tao_value_per_day": 55.37022742817702,
+   "tao_coverage_percent": 19.67121123735396
   },
   {
    "netuid": 84,
    "name": "Subnet 84",
-   "taoIn": 1442.392484085,
-   "alphaIn": 615178.073605371,
-   "alphaOut": 971565.016014682,
-   "stakedAlpha": 820553.00337051,
+   "taoIn": 1442.392145359,
+   "alphaIn": 615178.218071915,
+   "alphaOut": 971650.871548138,
+   "stakedAlpha": 820552.858903966,
    "alphaEmissionPerBlock": 1,
-   "rootProp": 0.38172515155747533,
+   "rootProp": 0.38170634116977453,
    "tempo": 360,
    "fee": 0.000503547722590982,
    "weightQuote": 0.4999999941237405,
-   "take": 0.15201551563059224,
+   "take": 0.15201554063478553,
    "validatorCount": 226,
    "validators": [
     {
@@ -7112,32 +7363,35 @@
    ],
    "epochDividends": 76.28802117699999,
    "emission_tao_per_day": 0,
-   "emission_share_percent": 0
+   "emission_share_percent": 0,
+   "alpha_emission_per_day": 7200,
+   "alpha_emission_tao_value_per_day": 16.881650529238716,
+   "tao_coverage_percent": 0
   },
   {
    "netuid": 85,
    "name": "Vidaio",
-   "taoIn": 13761.148482076,
-   "alphaIn": 2326928.037545762,
-   "alphaOut": 3114873.565004943,
-   "stakedAlpha": 2530060.454531956,
+   "taoIn": 13705.861870242,
+   "alphaIn": 2336317.989947611,
+   "alphaOut": 3105571.409283255,
+   "stakedAlpha": 2520672.298810268,
    "alphaEmissionPerBlock": 1,
-   "rootProp": 0.15256041288375854,
+   "rootProp": 0.15255502960644662,
    "tempo": 360,
    "fee": 0.000503547722590982,
-   "weightQuote": 0.4999999915596228,
-   "take": 0.05829789118069063,
+   "weightQuote": 0.49999999155888447,
+   "take": 0.05774154694056842,
    "validatorCount": 205,
    "validators": [
     {
      "hotkey": "5GKH9FPPnWSUoeeTJp19wVtd84XqFW4pyK2ijV2GsFbhTrP1",
      "take": 0.0899977111467155,
-     "alpha": 649324.646496883
+     "alpha": 655419.76778724
     },
     {
      "hotkey": "5E2LP6EnZ54m3wS8s1yPvD5c3xo71kQroBw7aUVK32TKeZ5u",
      "take": 0,
-     "alpha": 492148.678045751
+     "alpha": 490544.797070988
     },
     {
      "hotkey": "5GTWwu3NCbYmVFzwfrXa1sx8y4UNLR3padWfVZwjNnDmySXP",
@@ -7182,7 +7436,7 @@
     {
      "hotkey": "5G9hfkx9wGB1CLMT9WXkpHSAiYzjZb5o1Boyq4KAdDhjwrc5",
      "take": 0.009994659342336155,
-     "alpha": 37652.945368881
+     "alpha": 37652.88895569
     },
     {
      "hotkey": "5FnGPRV7fQSWjHo8Q3Bgrn7GzciQKJKUitv9WCwqTzZKMVZZ",
@@ -7193,16 +7447,14 @@
      "hotkey": "5CszMVts9ueMUSKdAwLFSLT7u4oyxN7fUBpo8Z3ETw1ggMUV",
      "take": 0.05999847409781033,
      "alpha": 31042.865854397
-    },
-    {
-     "hotkey": "5Ggasr6fQqKZXuovBTT44GvhuoFpxBsXGPY3AUtFr9mWxGTV",
-     "take": 0.179995422293431,
-     "alpha": 29497.390179178
     }
    ],
    "epochDividends": 117.78494754900004,
-   "emission_tao_per_day": 0.8893367999999999,
-   "emission_share_percent": 0.07845119971001277
+   "emission_tao_per_day": 0.8881488,
+   "emission_share_percent": 0.07848968073603026,
+   "alpha_emission_per_day": 7200,
+   "alpha_emission_tao_value_per_day": 42.23834650175633,
+   "tao_coverage_percent": 2.1027073111469208
   },
   {
    "netuid": 86,
@@ -7224,22 +7476,22 @@
   {
    "netuid": 87,
    "name": "Provenonce",
-   "taoIn": 1561.476287371,
-   "alphaIn": 438771.966405639,
-   "alphaOut": 1958900.237931494,
-   "stakedAlpha": 1077213.51413224,
+   "taoIn": 1583.024867556,
+   "alphaIn": 432799.278867238,
+   "alphaOut": 1964958.925469895,
+   "stakedAlpha": 1083186.201670641,
    "alphaEmissionPerBlock": 1,
-   "rootProp": 0.2900693919509649,
+   "rootProp": 0.29005675367079675,
    "tempo": 360,
    "fee": 0.000503547722590982,
    "weightQuote": 0.5,
-   "take": 0.0678713263560525,
+   "take": 0.06887081614280931,
    "validatorCount": 79,
    "validators": [
     {
      "hotkey": "5E2LP6EnZ54m3wS8s1yPvD5c3xo71kQroBw7aUVK32TKeZ5u",
      "take": 0,
-     "alpha": 205086.603106152
+     "alpha": 202793.037364373
     },
     {
      "hotkey": "5HT9U1J85fyNVudFAHuhYSGajRth8r3kYo7hTvkUXFEEDhQD",
@@ -7249,12 +7501,12 @@
     {
      "hotkey": "5G9hfkx9wGB1CLMT9WXkpHSAiYzjZb5o1Boyq4KAdDhjwrc5",
      "take": 0.009994659342336155,
-     "alpha": 134633.940705993
+     "alpha": 134633.234703768
     },
     {
      "hotkey": "5GKH9FPPnWSUoeeTJp19wVtd84XqFW4pyK2ijV2GsFbhTrP1",
      "take": 0.0899977111467155,
-     "alpha": 92509.780496678
+     "alpha": 92509.780496679
     },
     {
      "hotkey": "5HK5tp6t2S59DywmHRWPBVJeJ86T61KjurYqeooqj8sREpeN",
@@ -7297,33 +7549,36 @@
      "alpha": 21601.60024716
     },
     {
+     "hotkey": "5GTy4rwwqLnpPTGRPJGhELWXpqnsnwacRuRLFXWMHj4Wks87",
+     "take": 0.179995422293431,
+     "alpha": 21470.840832779
+    },
+    {
      "hotkey": "5GP7c3fFazW9GXK8Up3qgu2DJBk8inu4aK9TZy3RuoSWVCMi",
      "take": 0.0009918364232852674,
      "alpha": 19540.365799935
-    },
-    {
-     "hotkey": "5GTy4rwwqLnpPTGRPJGhELWXpqnsnwacRuRLFXWMHj4Wks87",
-     "take": 0.179995422293431,
-     "alpha": 13203.881550375
     }
    ],
    "epochDividends": 97.63474025700002,
    "emission_tao_per_day": 0,
-   "emission_share_percent": 0
+   "emission_share_percent": 0,
+   "alpha_emission_per_day": 7200,
+   "alpha_emission_tao_value_per_day": 26.335023191892812,
+   "tao_coverage_percent": 0
   },
   {
    "netuid": 88,
    "name": "Investing",
-   "taoIn": 5871.178762349,
-   "alphaIn": 2147597.485331452,
-   "alphaOut": 3313137.467115278,
-   "stakedAlpha": 3044650.202202928,
+   "taoIn": 5871.186290233,
+   "alphaIn": 2147600.349668535,
+   "alphaOut": 3313223.411753426,
+   "stakedAlpha": 3044650.146841076,
    "alphaEmissionPerBlock": 1,
-   "rootProp": 0.15211191889829934,
+   "rootProp": 0.15210653189569712,
    "tempo": 360,
    "fee": 0.000503547722590982,
-   "weightQuote": 0.4999999837215446,
-   "take": 0.12708467085443534,
+   "weightQuote": 0.4999999837197282,
+   "take": 0.12708467298352066,
    "validatorCount": 472,
    "validators": [
     {
@@ -7388,22 +7643,25 @@
     }
    ],
    "epochDividends": 109.25893407199999,
-   "emission_tao_per_day": 0.6431543999999999,
-   "emission_share_percent": 0.05673467496090731
+   "emission_tao_per_day": 0.6426936,
+   "emission_share_percent": 0.05679770718047465,
+   "alpha_emission_per_day": 7200,
+   "alpha_emission_tao_value_per_day": 19.683617600935843,
+   "tao_coverage_percent": 3.265119314091143
   },
   {
    "netuid": 89,
    "name": "InfiniteQuant",
-   "taoIn": 6130.33576849,
-   "alphaIn": 2051746.518567227,
-   "alphaOut": 3023236.179905073,
-   "stakedAlpha": 2236557.078548581,
+   "taoIn": 6130.346144743,
+   "alphaIn": 2051750.115620715,
+   "alphaOut": 3023322.117786122,
+   "stakedAlpha": 2236557.01642963,
    "alphaEmissionPerBlock": 1,
-   "rootProp": 0.16180324321612716,
+   "rootProp": 0.1617973914835602,
    "tempo": 360,
    "fee": 0.000503547722590982,
-   "weightQuote": 0.49999998729026524,
-   "take": 0.12224714551424169,
+   "weightQuote": 0.4999999872885626,
+   "take": 0.12224714863198322,
    "validatorCount": 543,
    "validators": [
     {
@@ -7468,33 +7726,36 @@
     }
    ],
    "epochDividends": 108.520198711,
-   "emission_tao_per_day": 0.8843399999999999,
-   "emission_share_percent": 0.07801041624675004
+   "emission_tao_per_day": 0.8841816,
+   "emission_share_percent": 0.07813908153304087,
+   "alpha_emission_per_day": 7200,
+   "alpha_emission_tao_value_per_day": 21.51260728602478,
+   "tao_coverage_percent": 4.110062477524006
   },
   {
    "netuid": 90,
    "name": "KubeTEE",
-   "taoIn": 4699.073977171,
-   "alphaIn": 211843.970197361,
-   "alphaOut": 493277.377134036,
-   "stakedAlpha": 491957.209759232,
+   "taoIn": 4654.161406651,
+   "alphaIn": 213988.614540812,
+   "alphaOut": 491268.737401336,
+   "stakedAlpha": 489878.038836345,
    "alphaEmissionPerBlock": 1,
-   "rootProp": 0.5814762928057462,
+   "rootProp": 0.5814231494441628,
    "tempo": 360,
    "fee": 0.000503547722590982,
-   "weightQuote": 0.49999998326590017,
-   "take": 0.10612347126002629,
+   "weightQuote": 0.49999998324004297,
+   "take": 0.10658225415217137,
    "validatorCount": 66,
    "validators": [
     {
      "hotkey": "5EKtGWqskt8qBqdAZ78pSWRCYRuYmDc5XbwJPDqH1EpiSTEE",
      "take": 0.179995422293431,
-     "alpha": 217431.826792919
+     "alpha": 217437.234371009
     },
     {
      "hotkey": "5E2LP6EnZ54m3wS8s1yPvD5c3xo71kQroBw7aUVK32TKeZ5u",
      "take": 0,
-     "alpha": 113809.031185739
+     "alpha": 113718.862295474
     },
     {
      "hotkey": "5GKH9FPPnWSUoeeTJp19wVtd84XqFW4pyK2ijV2GsFbhTrP1",
@@ -7514,7 +7775,7 @@
     {
      "hotkey": "5GTWwu3NCbYmVFzwfrXa1sx8y4UNLR3padWfVZwjNnDmySXP",
      "take": 0,
-     "alpha": 17411.037333523
+     "alpha": 15397.133888842
     },
     {
      "hotkey": "5E4z3h9yVhmQyCFWNbY9BPpwhx4xFiPwq3eeqmBgVF6KULde",
@@ -7524,7 +7785,7 @@
     {
      "hotkey": "5G9hfkx9wGB1CLMT9WXkpHSAiYzjZb5o1Boyq4KAdDhjwrc5",
      "take": 0.009994659342336155,
-     "alpha": 6267.641198182
+     "alpha": 6267.388480065
     },
     {
      "hotkey": "5G3wMP3g3d775hauwmAZioYFVZYnvw6eY46wkFy8hEWD5KP3",
@@ -7544,26 +7805,29 @@
     {
      "hotkey": "5Ckaoft1B1CQ9zBV2FLVju4KPuMQzJVn7QUf3JeTvTq1uUes",
      "take": 0.179995422293431,
-     "alpha": 5499.670880189
+     "alpha": 5511.104084531
     }
    ],
    "epochDividends": 55.21077781100001,
-   "emission_tao_per_day": 92.866896,
-   "emission_share_percent": 8.19208134032572
+   "emission_tao_per_day": 91.0491264,
+   "emission_share_percent": 8.046418418209274,
+   "alpha_emission_per_day": 7200,
+   "alpha_emission_tao_value_per_day": 156.59695001202198,
+   "tao_coverage_percent": 58.142336995075674
   },
   {
    "netuid": 91,
    "name": "cascade",
-   "taoIn": 3236.679449811,
-   "alphaIn": 699092.717233524,
-   "alphaOut": 1242205.986916655,
-   "stakedAlpha": 786009.577838792,
+   "taoIn": 3236.835032163,
+   "alphaIn": 699082.744018435,
+   "alphaOut": 1242291.834911439,
+   "stakedAlpha": 786009.425833576,
    "alphaEmissionPerBlock": 1,
-   "rootProp": 0.33539010770618916,
+   "rootProp": 0.3353757106233388,
    "tempo": 360,
    "fee": 0.000503547722590982,
-   "weightQuote": 0.49999996701339455,
-   "take": 0.028058029153343697,
+   "weightQuote": 0.4999999670101361,
+   "take": 0.02805803264659243,
    "validatorCount": 80,
    "validators": [
     {
@@ -7609,7 +7873,7 @@
     {
      "hotkey": "5G9hfkx9wGB1CLMT9WXkpHSAiYzjZb5o1Boyq4KAdDhjwrc5",
      "take": 0.009994659342336155,
-     "alpha": 10375.658004734
+     "alpha": 10375.505999518
     },
     {
      "hotkey": "5G3wMP3g3d775hauwmAZioYFVZYnvw6eY46wkFy8hEWD5KP3",
@@ -7628,33 +7892,36 @@
     }
    ],
    "epochDividends": 95.51045689599998,
-   "emission_tao_per_day": 4.5828864,
-   "emission_share_percent": 0.40427084116467626
+   "emission_tao_per_day": 4.5768743999999995,
+   "emission_share_percent": 0.40447885582338233,
+   "alpha_emission_per_day": 7200,
+   "alpha_emission_tao_value_per_day": 33.3368481861746,
+   "tao_coverage_percent": 13.729175519052559
   },
   {
    "netuid": 92,
    "name": "REAX",
-   "taoIn": 2233.718943357,
-   "alphaIn": 77595.797465037,
-   "alphaOut": 121924.847024619,
-   "stakedAlpha": 120205.038365782,
+   "taoIn": 2249.590583716,
+   "alphaIn": 77048.332250918,
+   "alphaOut": 122558.312238738,
+   "stakedAlpha": 120752.503579901,
    "alphaEmissionPerBlock": 1,
-   "rootProp": 0.8307973600458354,
+   "rootProp": 0.8307331863325089,
    "tempo": 360,
    "fee": 0.000503547722590982,
    "weightQuote": 0.5,
-   "take": 0.02605328777068817,
+   "take": 0.026578825852064843,
    "validatorCount": 20,
    "validators": [
     {
      "hotkey": "5E2LP6EnZ54m3wS8s1yPvD5c3xo71kQroBw7aUVK32TKeZ5u",
      "take": 0,
-     "alpha": 86836.891575996
+     "alpha": 86520.756844959
     },
     {
      "hotkey": "5HK5tp6t2S59DywmHRWPBVJeJ86T61KjurYqeooqj8sREpeN",
      "take": 0.0899977111467155,
-     "alpha": 14412.559302296
+     "alpha": 14942.842548091
     },
     {
      "hotkey": "5E4z3h9yVhmQyCFWNbY9BPpwhx4xFiPwq3eeqmBgVF6KULde",
@@ -7664,7 +7931,7 @@
     {
      "hotkey": "5GKH9FPPnWSUoeeTJp19wVtd84XqFW4pyK2ijV2GsFbhTrP1",
      "take": 0.0899977111467155,
-     "alpha": 5120.771541274
+     "alpha": 5451.688585939
     },
     {
      "hotkey": "5HEYxsTaHFTwGfAvyyMi11XxsmgKNjn4kSMVZtXLzSp77wD8",
@@ -7709,21 +7976,24 @@
    ],
    "epochDividends": 24.754349683,
    "emission_tao_per_day": 0,
-   "emission_share_percent": 0
+   "emission_share_percent": 0,
+   "alpha_emission_per_day": 7200,
+   "alpha_emission_tao_value_per_day": 210.2193743792841,
+   "tao_coverage_percent": 0
   },
   {
    "netuid": 93,
    "name": "Bitcast",
-   "taoIn": 24474.969354165,
-   "alphaIn": 1274615.980748304,
-   "alphaOut": 4057372.594366432,
-   "stakedAlpha": 2754164.942337989,
+   "taoIn": 24600.783225556,
+   "alphaIn": 1268123.97445007,
+   "alphaOut": 4063963.948836043,
+   "stakedAlpha": 2760632.422713736,
    "alphaEmissionPerBlock": 1,
-   "rootProp": 0.15521473018452525,
+   "rootProp": 0.1552089429460466,
    "tempo": 360,
    "fee": 0.000503547722590982,
-   "weightQuote": 0.49999998481407226,
-   "take": 0.10928544739784711,
+   "weightQuote": 0.49999998481195895,
+   "take": 0.1090685399703545,
    "validatorCount": 133,
    "validators": [
     {
@@ -7734,12 +8004,12 @@
     {
      "hotkey": "5E2LP6EnZ54m3wS8s1yPvD5c3xo71kQroBw7aUVK32TKeZ5u",
      "take": 0,
-     "alpha": 372196.608070157
+     "alpha": 377380.496033206
     },
     {
      "hotkey": "5GKH9FPPnWSUoeeTJp19wVtd84XqFW4pyK2ijV2GsFbhTrP1",
      "take": 0.0899977111467155,
-     "alpha": 253497.028578325
+     "alpha": 253224.392897915
     },
     {
      "hotkey": "5HK5tp6t2S59DywmHRWPBVJeJ86T61KjurYqeooqj8sREpeN",
@@ -7794,26 +8064,29 @@
     {
      "hotkey": "5G9hfkx9wGB1CLMT9WXkpHSAiYzjZb5o1Boyq4KAdDhjwrc5",
      "take": 0.009994659342336155,
-     "alpha": 27993.639632693
+     "alpha": 27993.464528485
     }
    ],
    "epochDividends": 110.74810191500003,
-   "emission_tao_per_day": 21.5284032,
-   "emission_share_percent": 1.8990882406765108
+   "emission_tao_per_day": 21.6788472,
+   "emission_share_percent": 1.9158566621417308,
+   "alpha_emission_per_day": 7200,
+   "alpha_emission_tao_value_per_day": 139.67534212227247,
+   "tao_coverage_percent": 15.520883550814741
   },
   {
    "netuid": 94,
    "name": "Cathedral",
-   "taoIn": 2309.266266051,
-   "alphaIn": 507046.368200113,
-   "alphaOut": 2120906.206255893,
-   "stakedAlpha": 1252973.487523105,
+   "taoIn": 2309.265792796,
+   "alphaIn": 507046.472113075,
+   "alphaOut": 2120992.102342931,
+   "stakedAlpha": 1252973.383610143,
    "alphaEmissionPerBlock": 1,
-   "rootProp": 0.27155374828726053,
+   "rootProp": 0.27154222992248833,
    "tempo": 360,
    "fee": 0.000503547722590982,
    "weightQuote": 0.4999999903729682,
-   "take": 0.10181149816712352,
+   "take": 0.10181150578177822,
    "validatorCount": 76,
    "validators": [
     {
@@ -7864,7 +8137,7 @@
     {
      "hotkey": "5G9hfkx9wGB1CLMT9WXkpHSAiYzjZb5o1Boyq4KAdDhjwrc5",
      "take": 0.009994659342336155,
-     "alpha": 21525.607630372
+     "alpha": 21525.50371741
     },
     {
      "hotkey": "5CszMVts9ueMUSKdAwLFSLT7u4oyxN7fUBpo8Z3ETw1ggMUV",
@@ -7884,21 +8157,24 @@
    ],
    "epochDividends": 96.50126211699997,
    "emission_tao_per_day": 0,
-   "emission_share_percent": 0
+   "emission_share_percent": 0,
+   "alpha_emission_per_day": 7200,
+   "alpha_emission_tao_value_per_day": 32.791302696781095,
+   "tao_coverage_percent": 0
   },
   {
    "netuid": 95,
    "name": "Actual",
-   "taoIn": 24855.281645913,
-   "alphaIn": 710110.450886198,
-   "alphaOut": 3115327.15546997,
-   "stakedAlpha": 1864684.837680671,
+   "taoIn": 24855.278832378,
+   "alphaIn": 710110.531268348,
+   "alphaOut": 3115413.07508782,
+   "stakedAlpha": 1864684.757298521,
    "alphaEmissionPerBlock": 1,
-   "rootProp": 0.20387947629205883,
+   "rootProp": 0.20387168764136732,
    "tempo": 360,
    "fee": 0.000503547722590982,
    "weightQuote": 0.5,
-   "take": 0.08491273496038616,
+   "take": 0.0849127381899272,
    "validatorCount": 83,
    "validators": [
     {
@@ -7964,21 +8240,24 @@
    ],
    "epochDividends": 111.967891124,
    "emission_tao_per_day": 0,
-   "emission_share_percent": 0
+   "emission_share_percent": 0,
+   "alpha_emission_per_day": 7200,
+   "alpha_emission_tao_value_per_day": 252.01429877892357,
+   "tao_coverage_percent": 0
   },
   {
    "netuid": 96,
    "name": "Verathos",
-   "taoIn": 2630.143172627,
-   "alphaIn": 594158.196724055,
-   "alphaOut": 956572.021798622,
-   "stakedAlpha": 603094.53417221,
+   "taoIn": 2630.150050248,
+   "alphaIn": 594160.087217911,
+   "alphaOut": 956657.853395379,
+   "stakedAlpha": 603094.365768967,
    "alphaEmissionPerBlock": 1,
-   "rootProp": 0.38715791585855186,
+   "rootProp": 0.38713844306766987,
    "tempo": 360,
    "fee": 0.000503547722590982,
-   "weightQuote": 0.4999999480520078,
-   "take": 0.09764793547068047,
+   "weightQuote": 0.49999994804810827,
+   "take": 0.09764795994627966,
    "validatorCount": 205,
    "validators": [
     {
@@ -8034,7 +8313,7 @@
     {
      "hotkey": "5G9hfkx9wGB1CLMT9WXkpHSAiYzjZb5o1Boyq4KAdDhjwrc5",
      "take": 0.009994659342336155,
-     "alpha": 6078.969874968
+     "alpha": 6078.801471725
     },
     {
      "hotkey": "5CAQAgXxoU3NPo1YG5VQKz4Ackh7goNx3TvPD9A6LoqA7FmJ",
@@ -8043,22 +8322,25 @@
     }
    ],
    "epochDividends": 78.274213354,
-   "emission_tao_per_day": 0.6394175999999999,
-   "emission_share_percent": 0.056405040065470195
+   "emission_tao_per_day": 0.6370560000000001,
+   "emission_share_percent": 0.056299487260437105,
+   "alpha_emission_per_day": 7200,
+   "alpha_emission_tao_value_per_day": 31.872023558037032,
+   "tao_coverage_percent": 1.998793703324044
   },
   {
    "netuid": 97,
    "name": "Albedo",
-   "taoIn": 10688.300945531,
-   "alphaIn": 839958.150366514,
-   "alphaOut": 1157077.67011252,
-   "stakedAlpha": 708969.012419448,
+   "taoIn": 10688.920536366,
+   "alphaIn": 839966.090793001,
+   "alphaOut": 1157184.032294985,
+   "stakedAlpha": 708968.882112847,
    "alphaEmissionPerBlock": 1,
-   "rootProp": 0.3291101003997028,
+   "rootProp": 0.3290918320417404,
    "tempo": 360,
    "fee": 0.000503547722590982,
-   "weightQuote": 0.4999998717629969,
-   "take": 0.12620765090498198,
+   "weightQuote": 0.499999871761577,
+   "take": 0.12620767226462176,
    "validatorCount": 111,
    "validators": [
     {
@@ -8074,7 +8356,7 @@
     {
      "hotkey": "5E2LP6EnZ54m3wS8s1yPvD5c3xo71kQroBw7aUVK32TKeZ5u",
      "take": 0,
-     "alpha": 70989.181581667
+     "alpha": 70989.181581668
     },
     {
      "hotkey": "5DXdHixxtCvoa6GHKs2Jgrdzc61882Ftx1zN2sYFQuwgL1S1",
@@ -8119,26 +8401,29 @@
     {
      "hotkey": "5G9hfkx9wGB1CLMT9WXkpHSAiYzjZb5o1Boyq4KAdDhjwrc5",
      "take": 0.009994659342336155,
-     "alpha": 4778.546728197
+     "alpha": 4778.416421595
     }
    ],
    "epochDividends": 86.45745914499999,
-   "emission_tao_per_day": 30.152606399999996,
-   "emission_share_percent": 2.6598563631503938
+   "emission_tao_per_day": 30.1523976,
+   "emission_share_percent": 2.6647021997325733,
+   "alpha_emission_per_day": 7200,
+   "alpha_emission_tao_value_per_day": 91.62306452897539,
+   "tao_coverage_percent": 32.90917822385698
   },
   {
    "netuid": 98,
    "name": "NeverPlayAlone",
-   "taoIn": 4590.222732762,
-   "alphaIn": 2111409.767477396,
-   "alphaOut": 2932806.148143733,
-   "stakedAlpha": 1680100.501866568,
+   "taoIn": 4590.225697066,
+   "alphaIn": 2111411.267665209,
+   "alphaOut": 2932892.079819623,
+   "stakedAlpha": 1680100.433542458,
    "alphaEmissionPerBlock": 1,
-   "rootProp": 0.1626296485774219,
+   "rootProp": 0.16262381500564516,
    "tempo": 360,
    "fee": 0.000503547722590982,
-   "weightQuote": 0.4999999872781007,
-   "take": 0.13572879944367877,
+   "weightQuote": 0.49999998727577427,
+   "take": 0.13572880455686906,
    "validatorCount": 92,
    "validators": [
     {
@@ -8203,22 +8488,25 @@
     }
    ],
    "epochDividends": 106.65374873499998,
-   "emission_tao_per_day": 0.26066880000000003,
-   "emission_share_percent": 0.022994415711763392
+   "emission_tao_per_day": 0.2605536,
+   "emission_share_percent": 0.023026286674736638,
+   "alpha_emission_per_day": 7200,
+   "alpha_emission_tao_value_per_day": 15.652860817374037,
+   "tao_coverage_percent": 1.6645749492054267
   },
   {
    "netuid": 99,
    "name": "Thirty Spokes",
-   "taoIn": 566.75400762,
-   "alphaIn": 272864.33631664,
-   "alphaOut": 590478.539257364,
-   "stakedAlpha": 495635.466899409,
+   "taoIn": 559.409236209,
+   "alphaIn": 276449.901402166,
+   "alphaOut": 586980.464937626,
+   "stakedAlpha": 492051.63522434,
    "alphaEmissionPerBlock": 1,
-   "rootProp": 0.5315566645003855,
+   "rootProp": 0.5315250807907432,
    "tempo": 360,
    "fee": 0.000503547722590982,
-   "weightQuote": 0.49999989655686894,
-   "take": 0.09676995776335834,
+   "weightQuote": 0.4999998965390347,
+   "take": 0.09747486034180823,
    "validatorCount": 68,
    "validators": [
     {
@@ -8229,7 +8517,7 @@
     {
      "hotkey": "5E2LP6EnZ54m3wS8s1yPvD5c3xo71kQroBw7aUVK32TKeZ5u",
      "take": 0,
-     "alpha": 107256.952646325
+     "alpha": 103673.123293111
     },
     {
      "hotkey": "5GKH9FPPnWSUoeeTJp19wVtd84XqFW4pyK2ijV2GsFbhTrP1",
@@ -8283,22 +8571,25 @@
     }
    ],
    "epochDividends": 62.16671857,
-   "emission_tao_per_day": 0.254664,
-   "emission_share_percent": 0.022464713394240172
+   "emission_tao_per_day": 0.2534256,
+   "emission_share_percent": 0.022396353442505252,
+   "alpha_emission_per_day": 7200,
+   "alpha_emission_tao_value_per_day": 14.569540980605867,
+   "tao_coverage_percent": 1.739420619615577
   },
   {
    "netuid": 100,
    "name": "Cortex",
-   "taoIn": 2358.425036488,
-   "alphaIn": 686920.881395993,
-   "alphaOut": 2072496.282166284,
-   "stakedAlpha": 1288196.165387567,
+   "taoIn": 2358.424794797,
+   "alphaIn": 686921.047316862,
+   "alphaOut": 2072582.164014435,
+   "stakedAlpha": 1288196.047235718,
    "alphaEmissionPerBlock": 1,
-   "rootProp": 0.2620060199405998,
+   "rootProp": 0.2619950589723885,
    "tempo": 360,
    "fee": 0.000503547722590982,
-   "weightQuote": 0.4999999854338589,
-   "take": 0.10681612857812778,
+   "weightQuote": 0.4999999854292259,
+   "take": 0.10681613745848077,
    "validatorCount": 177,
    "validators": [
     {
@@ -8314,7 +8605,7 @@
     {
      "hotkey": "5G9hfkx9wGB1CLMT9WXkpHSAiYzjZb5o1Boyq4KAdDhjwrc5",
      "take": 0.009994659342336155,
-     "alpha": 102113.752863112
+     "alpha": 102113.634711263
     },
     {
      "hotkey": "5GKH9FPPnWSUoeeTJp19wVtd84XqFW4pyK2ijV2GsFbhTrP1",
@@ -8368,22 +8659,25 @@
     }
    ],
    "epochDividends": 100.923240381,
-   "emission_tao_per_day": 0.0137376,
-   "emission_share_percent": 0.0012118369566358567
+   "emission_tao_per_day": 0.013715999999999999,
+   "emission_share_percent": 0.0012121442498997815,
+   "alpha_emission_per_day": 7200,
+   "alpha_emission_tao_value_per_day": 24.71995810661333,
+   "tao_coverage_percent": 0.055485530925436954
   },
   {
    "netuid": 101,
    "name": "Tag101",
-   "taoIn": 3553.113792259,
-   "alphaIn": 978940.623937551,
-   "alphaOut": 2640796.734388919,
-   "stakedAlpha": 1538314.448348629,
+   "taoIn": 3553.174034912,
+   "alphaIn": 978936.2140415,
+   "alphaOut": 2640882.655700035,
+   "stakedAlpha": 1538314.369659745,
    "alphaEmissionPerBlock": 1,
-   "rootProp": 0.2129976381547749,
+   "rootProp": 0.21298958803527057,
    "tempo": 360,
    "fee": 0.000503547722590982,
-   "weightQuote": 0.49999998080745345,
-   "take": 0.12869153650547696,
+   "weightQuote": 0.49999998080433394,
+   "take": 0.1286915425771389,
    "validatorCount": 1277,
    "validators": [
     {
@@ -8394,7 +8688,7 @@
     {
      "hotkey": "5G9hfkx9wGB1CLMT9WXkpHSAiYzjZb5o1Boyq4KAdDhjwrc5",
      "take": 0.009994659342336155,
-     "alpha": 101021.148513831
+     "alpha": 101021.069824947
     },
     {
      "hotkey": "5GP7c3fFazW9GXK8Up3qgu2DJBk8inu4aK9TZy3RuoSWVCMi",
@@ -8448,22 +8742,25 @@
     }
    ],
    "epochDividends": 100.10844486,
-   "emission_tao_per_day": 1.8521568,
-   "emission_share_percent": 0.16338458389561547
+   "emission_tao_per_day": 1.8513936000000002,
+   "emission_share_percent": 0.16361593077728612,
+   "alpha_emission_per_day": 7200,
+   "alpha_emission_tao_value_per_day": 26.13332171058242,
+   "tao_coverage_percent": 7.084417436495635
   },
   {
    "netuid": 102,
    "name": "ConnitoAI",
-   "taoIn": 3483.03113624,
-   "alphaIn": 602273.171359337,
-   "alphaOut": 1137513.021439985,
-   "stakedAlpha": 817011.085443517,
+   "taoIn": 3483.101673485,
+   "alphaIn": 602275.336038265,
+   "alphaOut": 1137598.877655277,
+   "stakedAlpha": 817010.941658809,
    "alphaEmissionPerBlock": 1,
-   "rootProp": 0.3602426964789629,
+   "rootProp": 0.36022515897639096,
    "tempo": 360,
    "fee": 0.000503547722590982,
-   "weightQuote": 0.49999997354653203,
-   "take": 0.07798999390270221,
+   "weightQuote": 0.49999997354372305,
+   "take": 0.07799000586911396,
    "validatorCount": 251,
    "validators": [
     {
@@ -8499,7 +8796,7 @@
     {
      "hotkey": "5G9hfkx9wGB1CLMT9WXkpHSAiYzjZb5o1Boyq4KAdDhjwrc5",
      "take": 0.009994659342336155,
-     "alpha": 22836.701731529
+     "alpha": 22836.557946821
     },
     {
      "hotkey": "5E4z3h9yVhmQyCFWNbY9BPpwhx4xFiPwq3eeqmBgVF6KULde",
@@ -8528,107 +8825,113 @@
     }
    ],
    "epochDividends": 86.954617382,
-   "emission_tao_per_day": 3.4771176,
-   "emission_share_percent": 0.30672749317558917
+   "emission_tao_per_day": 3.4764839999999997,
+   "emission_share_percent": 0.3072324358755171,
+   "alpha_emission_per_day": 7200,
+   "alpha_emission_tao_value_per_day": 41.639318767348634,
+   "tao_coverage_percent": 8.349041489905632
   },
   {
    "netuid": 103,
    "name": "Deprecated",
-   "taoIn": 296.293554295,
-   "alphaIn": 311298.1352043,
-   "alphaOut": 329533.788471287,
-   "stakedAlpha": 269045.282912384,
+   "taoIn": 296.293389201,
+   "alphaIn": 311298.579332585,
+   "alphaOut": 329619.479702723,
+   "stakedAlpha": 269406.914310289,
    "alphaEmissionPerBlock": 1,
-   "rootProp": 0.604545061243698,
+   "rootProp": 0.6045068313833326,
    "tempo": 360,
    "fee": 0.000503547722590982,
-   "weightQuote": 0.4999999040876019,
-   "take": 0.05629763246452096,
+   "weightQuote": 0.49999990405028055,
+   "take": 0.05640528161289968,
    "validatorCount": 68,
    "validators": [
     {
      "hotkey": "5E2LP6EnZ54m3wS8s1yPvD5c3xo71kQroBw7aUVK32TKeZ5u",
      "take": 0,
-     "alpha": 112302.044045137
+     "alpha": 112343.873850239
     },
     {
      "hotkey": "5HK5tp6t2S59DywmHRWPBVJeJ86T61KjurYqeooqj8sREpeN",
      "take": 0.0899977111467155,
-     "alpha": 38058.884520473
+     "alpha": 38071.373505659
     },
     {
      "hotkey": "5E4z3h9yVhmQyCFWNbY9BPpwhx4xFiPwq3eeqmBgVF6KULde",
      "take": 0.0899977111467155,
-     "alpha": 29875.793083638
+     "alpha": 29882.437213779
     },
     {
      "hotkey": "5GKH9FPPnWSUoeeTJp19wVtd84XqFW4pyK2ijV2GsFbhTrP1",
      "take": 0.0899977111467155,
-     "alpha": 23090.373240675
+     "alpha": 23103.573718857
     },
     {
      "hotkey": "5DXdHixxtCvoa6GHKs2Jgrdzc61882Ftx1zN2sYFQuwgL1S1",
      "take": 0.0899977111467155,
-     "alpha": 7019.795023946
+     "alpha": 7034.576141699
     },
     {
      "hotkey": "5Fy3MjrdKRvUWSuJa4Yd5dmBYunzKNmXnLcvP22NfaTvhQCY",
      "take": 0.0899977111467155,
-     "alpha": 6607.322565639
+     "alpha": 6609.432451456
     },
     {
      "hotkey": "5G3wMP3g3d775hauwmAZioYFVZYnvw6eY46wkFy8hEWD5KP3",
      "take": 0.179995422293431,
-     "alpha": 6376.271191088
+     "alpha": 6381.156521443
     },
     {
      "hotkey": "5Dd8gaRNdhm1YP7G1hcB1N842ecAUQmbLjCRLqH5ycaTGrWv",
      "take": 0,
-     "alpha": 6369.014667905
+     "alpha": 6373.575538657
     },
     {
      "hotkey": "5CAQAgXxoU3NPo1YG5VQKz4Ackh7goNx3TvPD9A6LoqA7FmJ",
      "take": 0.0899977111467155,
-     "alpha": 6065.114425184
+     "alpha": 6069.747484109
     },
     {
      "hotkey": "5CsvRJXuR955WojnGMdok1hbhffZyB4N5ocrv82f3p5A2zVp",
      "take": 0.0899977111467155,
-     "alpha": 5436.155700546
+     "alpha": 5440.03166735
     },
     {
      "hotkey": "5CfjKDtvRHMEYe19rTmHWLnHza5rGo4bQjJTmEYoNnU6Hbj1",
      "take": 0.179995422293431,
-     "alpha": 3986.02515565
+     "alpha": 4133.625979306
     },
     {
      "hotkey": "5Ckaoft1B1CQ9zBV2FLVju4KPuMQzJVn7QUf3JeTvTq1uUes",
      "take": 0.179995422293431,
-     "alpha": 3471.487453753
+     "alpha": 3486.891186278
     },
     {
      "hotkey": "5Ggasr6fQqKZXuovBTT44GvhuoFpxBsXGPY3AUtFr9mWxGTV",
      "take": 0.179995422293431,
-     "alpha": 3036.986807598
+     "alpha": 3039.972878629
     }
    ],
-   "epochDividends": 55.19622579700001,
-   "emission_tao_per_day": 0.0107928,
-   "emission_share_percent": 0.0009520668752605602
+   "epochDividends": 55.212253598000004,
+   "emission_tao_per_day": 0.0107712,
+   "emission_share_percent": 0.0009518991064829779,
+   "alpha_emission_per_day": 7200,
+   "alpha_emission_tao_value_per_day": 6.8529487850025665,
+   "tao_coverage_percent": 0.15717613450683282
   },
   {
    "netuid": 104,
    "name": "TAOstatus",
-   "taoIn": 5872.393025749,
-   "alphaIn": 1435661.729674224,
-   "alphaOut": 3287599.909988962,
-   "stakedAlpha": 2949536.621238938,
+   "taoIn": 5872.392642701,
+   "alphaIn": 1435661.823412231,
+   "alphaOut": 3287685.816300577,
+   "stakedAlpha": 2949536.527550553,
    "alphaEmissionPerBlock": 1,
-   "rootProp": 0.17178226821124554,
+   "rootProp": 0.1717760490719229,
    "tempo": 360,
    "fee": 0.000503547722590982,
-   "weightQuote": 0.4999999999664402,
-   "take": 0.16665438797356436,
+   "weightQuote": 0.4999999999651215,
+   "take": 0.16665439294966714,
    "validatorCount": 260,
    "validators": [
     {
@@ -8694,27 +8997,30 @@
    ],
    "epochDividends": 103.24042930699997,
    "emission_tao_per_day": 0.000014400000000000001,
-   "emission_share_percent": 0.000001270269346578466
+   "emission_share_percent": 0.0000012725923883462273,
+   "alpha_emission_per_day": 7200,
+   "alpha_emission_tao_value_per_day": 29.45068702381003,
+   "tao_coverage_percent": 0.00004889529398196387
   },
   {
    "netuid": 105,
    "name": "Beam",
-   "taoIn": 4749.210613073,
-   "alphaIn": 905502.064423328,
-   "alphaOut": 2229130.98695542,
-   "stakedAlpha": 1576248.254175906,
+   "taoIn": 4765.306563315,
+   "alphaIn": 902476.67519152,
+   "alphaOut": 2232258.984324488,
+   "stakedAlpha": 1579290.251544974,
    "alphaEmissionPerBlock": 1,
-   "rootProp": 0.2381115632597357,
+   "rootProp": 0.23810099810361862,
    "tempo": 360,
    "fee": 0.000503547722590982,
-   "weightQuote": 0.49999996168639227,
-   "take": 0.08143709970829555,
+   "weightQuote": 0.49999996168473876,
+   "take": 0.08127011509264309,
    "validatorCount": 1032,
    "validators": [
     {
      "hotkey": "5E2LP6EnZ54m3wS8s1yPvD5c3xo71kQroBw7aUVK32TKeZ5u",
      "take": 0,
-     "alpha": 319188.004523297
+     "alpha": 322407.706085117
     },
     {
      "hotkey": "5DXdHixxtCvoa6GHKs2Jgrdzc61882Ftx1zN2sYFQuwgL1S1",
@@ -8729,12 +9035,12 @@
     {
      "hotkey": "5GKH9FPPnWSUoeeTJp19wVtd84XqFW4pyK2ijV2GsFbhTrP1",
      "take": 0.0899977111467155,
-     "alpha": 209744.923852499
+     "alpha": 210505.269585821
     },
     {
      "hotkey": "5HK5tp6t2S59DywmHRWPBVJeJ86T61KjurYqeooqj8sREpeN",
      "take": 0.0899977111467155,
-     "alpha": 203367.528360202
+     "alpha": 202429.568905778
     },
     {
      "hotkey": "5FnGPRV7fQSWjHo8Q3Bgrn7GzciQKJKUitv9WCwqTzZKMVZZ",
@@ -8754,7 +9060,7 @@
     {
      "hotkey": "5G9hfkx9wGB1CLMT9WXkpHSAiYzjZb5o1Boyq4KAdDhjwrc5",
      "take": 0.009994659342336155,
-     "alpha": 12828.288222497
+     "alpha": 12828.197750846
     },
     {
      "hotkey": "5Fy3MjrdKRvUWSuJa4Yd5dmBYunzKNmXnLcvP22NfaTvhQCY",
@@ -8773,22 +9079,25 @@
     }
    ],
    "epochDividends": 103.17778579400003,
-   "emission_tao_per_day": 7.3257264,
-   "emission_share_percent": 0.6462253949542096
+   "emission_tao_per_day": 7.308079199999999,
+   "emission_share_percent": 0.6458476363438462,
+   "alpha_emission_per_day": 7200,
+   "alpha_emission_tao_value_per_day": 38.017838529738654,
+   "tao_coverage_percent": 19.22276353055529
   },
   {
    "netuid": 106,
    "name": "Nodexo",
-   "taoIn": 5730.333129492,
-   "alphaIn": 2594025.001169567,
-   "alphaOut": 2464076.689123235,
-   "stakedAlpha": 1574988.469494321,
+   "taoIn": 5730.336251498,
+   "alphaIn": 2594026.552873606,
+   "alphaOut": 2464162.619920382,
+   "stakedAlpha": 1574988.400291468,
    "alphaEmissionPerBlock": 1,
-   "rootProp": 0.16225562966428697,
+   "rootProp": 0.162249811924994,
    "tempo": 360,
    "fee": 0.000503547722590982,
-   "weightQuote": 0.4999999858841491,
-   "take": 0.07512287865058563,
+   "weightQuote": 0.49999998588229916,
+   "take": 0.0751228815122312,
    "validatorCount": 227,
    "validators": [
     {
@@ -8839,7 +9148,7 @@
     {
      "hotkey": "5G9hfkx9wGB1CLMT9WXkpHSAiYzjZb5o1Boyq4KAdDhjwrc5",
      "take": 0.009994659342336155,
-     "alpha": 48338.79997149
+     "alpha": 48338.730768637
     },
     {
      "hotkey": "5HK5tp6t2S59DywmHRWPBVJeJ86T61KjurYqeooqj8sREpeN",
@@ -8853,22 +9162,25 @@
     }
    ],
    "epochDividends": 113.54195831899999,
-   "emission_tao_per_day": 0.2741976,
-   "emission_share_percent": 0.02418783376287386
+   "emission_tao_per_day": 0.2741616,
+   "emission_share_percent": 0.02422888648172382,
+   "alpha_emission_per_day": 7200,
+   "alpha_emission_tao_value_per_day": 15.905166157600302,
+   "tao_coverage_percent": 1.7237267267968248
   },
   {
    "netuid": 107,
    "name": "Minos",
-   "taoIn": 20825.199711535,
-   "alphaIn": 566693.397555516,
-   "alphaOut": 1750863.950798022,
-   "stakedAlpha": 945300.201846986,
+   "taoIn": 20827.235027227,
+   "alphaIn": 566689.11841048,
+   "alphaOut": 1750979.781308329,
+   "stakedAlpha": 945300.054990052,
    "alphaEmissionPerBlock": 1,
-   "rootProp": 0.29711741395294666,
+   "rootProp": 0.2971020359545946,
    "tempo": 360,
    "fee": 0.000503547722590982,
-   "weightQuote": 0.49999978286126484,
-   "take": 0.11090117385188239,
+   "weightQuote": 0.49999978285664415,
+   "take": 0.11090118952819727,
    "validatorCount": 228,
    "validators": [
     {
@@ -8919,7 +9231,7 @@
     {
      "hotkey": "5G9hfkx9wGB1CLMT9WXkpHSAiYzjZb5o1Boyq4KAdDhjwrc5",
      "take": 0.009994659342336155,
-     "alpha": 14837.719363485
+     "alpha": 14837.572506551
     },
     {
      "hotkey": "5DZStHLC5VpuPKJ1XeAnsAB8hNL1Gkno2uzEGFeFT3WSL1o7",
@@ -8933,102 +9245,108 @@
     }
    ],
    "epochDividends": 92.17351344299998,
-   "emission_tao_per_day": 78.6143088,
-   "emission_share_percent": 6.934815741048177
+   "emission_tao_per_day": 78.6185208,
+   "emission_share_percent": 6.947870218966636,
+   "alpha_emission_per_day": 7200,
+   "alpha_emission_tao_value_per_day": 264.6181434797675,
+   "tao_coverage_percent": 29.710177755068067
   },
   {
    "netuid": 108,
    "name": "ChipForge",
-   "taoIn": 763.689132402,
-   "alphaIn": 76589.47118487,
-   "alphaOut": 102619.049603693,
-   "stakedAlpha": 77035.839211072,
+   "taoIn": 763.25721783,
+   "alphaIn": 76632.811893579,
+   "alphaOut": 102661.708894984,
+   "stakedAlpha": 77200.822960935,
    "alphaEmissionPerBlock": 1,
-   "rootProp": 0.8453591882716864,
+   "rootProp": 0.8452931232750416,
    "tempo": 360,
    "fee": 0.000503547722590982,
    "weightQuote": 0.5,
-   "take": 0.05494152920415181,
+   "take": 0.05490917244835854,
    "validatorCount": 55,
    "validators": [
     {
      "hotkey": "5HjH8ZqfoWG6SS6UTvLHEmQVBA6gjTCdpcy7wveoDGWSPZwk",
      "take": 0,
-     "alpha": 19572.487640773
+     "alpha": 19643.133224431
     },
     {
      "hotkey": "5HK5tp6t2S59DywmHRWPBVJeJ86T61KjurYqeooqj8sREpeN",
      "take": 0.0899977111467155,
-     "alpha": 18925.817684502
+     "alpha": 18937.122195198
     },
     {
      "hotkey": "5E2LP6EnZ54m3wS8s1yPvD5c3xo71kQroBw7aUVK32TKeZ5u",
      "take": 0,
-     "alpha": 11113.367459032
+     "alpha": 11139.955819292
     },
     {
      "hotkey": "5GKH9FPPnWSUoeeTJp19wVtd84XqFW4pyK2ijV2GsFbhTrP1",
      "take": 0.0899977111467155,
-     "alpha": 7144.368066368
+     "alpha": 7114.473220235
     },
     {
      "hotkey": "5E4z3h9yVhmQyCFWNbY9BPpwhx4xFiPwq3eeqmBgVF6KULde",
      "take": 0.0899977111467155,
-     "alpha": 6362.400196939
+     "alpha": 6364.3502441
     },
     {
      "hotkey": "5DXdHixxtCvoa6GHKs2Jgrdzc61882Ftx1zN2sYFQuwgL1S1",
      "take": 0.0899977111467155,
-     "alpha": 3095.21763521
+     "alpha": 3114.478357501
     },
     {
      "hotkey": "5CAQAgXxoU3NPo1YG5VQKz4Ackh7goNx3TvPD9A6LoqA7FmJ",
      "take": 0.0899977111467155,
-     "alpha": 2331.697272412
+     "alpha": 2336.963203963
     },
     {
      "hotkey": "5Ckaoft1B1CQ9zBV2FLVju4KPuMQzJVn7QUf3JeTvTq1uUes",
      "take": 0.179995422293431,
-     "alpha": 1100.795781953
+     "alpha": 1121.442859476
     },
     {
      "hotkey": "5G3wMP3g3d775hauwmAZioYFVZYnvw6eY46wkFy8hEWD5KP3",
      "take": 0.179995422293431,
-     "alpha": 948.580000519
+     "alpha": 953.687393815
     },
     {
      "hotkey": "5Dd8gaRNdhm1YP7G1hcB1N842ecAUQmbLjCRLqH5ycaTGrWv",
      "take": 0,
-     "alpha": 838.117524288
+     "alpha": 842.743713907
     },
     {
      "hotkey": "5CsvRJXuR955WojnGMdok1hbhffZyB4N5ocrv82f3p5A2zVp",
      "take": 0.0899977111467155,
-     "alpha": 697.459034442
+     "alpha": 697.995102565
     },
     {
      "hotkey": "5Ggasr6fQqKZXuovBTT44GvhuoFpxBsXGPY3AUtFr9mWxGTV",
      "take": 0.179995422293431,
-     "alpha": 601.920034055
+     "alpha": 602.678146073
     }
    ],
-   "epochDividends": 21.510784064999996,
+   "epochDividends": 21.547501922000002,
    "emission_tao_per_day": 0,
-   "emission_share_percent": 0
+   "emission_share_percent": 0,
+   "alpha_emission_per_day": 7200,
+   "alpha_emission_tao_value_per_day": 71.71147492287777,
+   "tao_coverage_percent": 0
   },
   {
    "netuid": 109,
    "name": "Finsight",
-   "taoIn": 1398.378618457,
-   "alphaIn": 489197.18470547,
-   "alphaOut": 1843280.752498785,
-   "stakedAlpha": 963160.30694465,
+   "taoIn": 1398.378287775,
+   "alphaIn": 489197.300388557,
+   "alphaOut": 1843366.636815698,
+   "stakedAlpha": 963160.191261563,
    "alphaEmissionPerBlock": 1,
-   "rootProp": 0.2957789534702897,
+   "rootProp": 0.2957659612875432,
    "tempo": 360,
    "fee": 0.000503547722590982,
    "weightQuote": 0.5,
-   "take": 0.12799915922580837,
+   "take": 0.12799917339907357,
    "validatorCount": 77,
    "validators": [
     {
@@ -9074,7 +9392,7 @@
     {
      "hotkey": "5G9hfkx9wGB1CLMT9WXkpHSAiYzjZb5o1Boyq4KAdDhjwrc5",
      "take": 0.009994659342336155,
-     "alpha": 10276.834697021
+     "alpha": 10276.719013934
     },
     {
      "hotkey": "5G3wMP3g3d775hauwmAZioYFVZYnvw6eY46wkFy8hEWD5KP3",
@@ -9094,21 +9412,24 @@
    ],
    "epochDividends": 90.58442234900002,
    "emission_tao_per_day": 0,
-   "emission_share_percent": 0
+   "emission_share_percent": 0,
+   "alpha_emission_per_day": 7200,
+   "alpha_emission_tao_value_per_day": 20.581314868219806,
+   "tao_coverage_percent": 0
   },
   {
    "netuid": 110,
    "name": "Green Compute",
-   "taoIn": 10356.518562797,
-   "alphaIn": 488538.425291247,
-   "alphaOut": 3291724.597346819,
-   "stakedAlpha": 2395802.431504465,
+   "taoIn": 10376.634234751,
+   "alphaIn": 487626.754589104,
+   "alphaOut": 3292739.967659431,
+   "stakedAlpha": 2396696.510322208,
    "alphaEmissionPerBlock": 1,
-   "rootProp": 0.20581441698595881,
+   "rootProp": 0.2058057643007487,
    "tempo": 360,
    "fee": 0.000503547722590982,
-   "weightQuote": 0.4999999432001723,
-   "take": 0.1267354510046492,
+   "weightQuote": 0.4999999431859722,
+   "take": 0.12675532510054366,
    "validatorCount": 84,
    "validators": [
     {
@@ -9173,22 +9494,25 @@
     }
    ],
    "epochDividends": 103.03579909800001,
-   "emission_tao_per_day": 31.4139672,
-   "emission_share_percent": 2.771124971429261
+   "emission_tao_per_day": 31.5325008,
+   "emission_share_percent": 2.78666809052787,
+   "alpha_emission_per_day": 7200,
+   "alpha_emission_tao_value_per_day": 153.2151030799574,
+   "tao_coverage_percent": 20.580543409969405
   },
   {
    "netuid": 111,
    "name": "Claims",
-   "taoIn": 5486.397164989,
-   "alphaIn": 1325764.390791931,
-   "alphaOut": 3664199.975856222,
-   "stakedAlpha": 2584196.400964129,
+   "taoIn": 5486.434058798,
+   "alphaIn": 1325773.44299565,
+   "alphaOut": 3664285.907375536,
+   "stakedAlpha": 2584196.332483443,
    "alphaEmissionPerBlock": 1,
-   "rootProp": 0.16410761582665145,
+   "rootProp": 0.16410150611773133,
    "tempo": 360,
    "fee": 0.000503547722590982,
-   "weightQuote": 0.49999999290424124,
-   "take": 0.1136097192796952,
+   "weightQuote": 0.49999999290216374,
+   "take": 0.11360972202547359,
    "validatorCount": 257,
    "validators": [
     {
@@ -9253,22 +9577,25 @@
     }
    ],
    "epochDividends": 109.12897229900001,
-   "emission_tao_per_day": 3.1149071999999998,
-   "emission_share_percent": 0.2747757731664277
+   "emission_tao_per_day": 3.110256,
+   "emission_share_percent": 0.27486722995890167,
+   "alpha_emission_per_day": 7200,
+   "alpha_emission_tao_value_per_day": 29.79568383540126,
+   "tao_coverage_percent": 10.438612576176553
   },
   {
    "netuid": 112,
    "name": "THOR",
-   "taoIn": 5540.127638438,
-   "alphaIn": 926518.107978471,
-   "alphaOut": 2829297.900949128,
-   "stakedAlpha": 1656922.766731794,
+   "taoIn": 5540.127152687,
+   "alphaIn": 926518.226483909,
+   "alphaOut": 2829383.801082623,
+   "stakedAlpha": 1656922.666865289,
    "alphaEmissionPerBlock": 1,
-   "rootProp": 0.20687693869695067,
+   "rootProp": 0.2068689961452037,
    "tempo": 360,
    "fee": 0.000503547722590982,
-   "weightQuote": 0.49999998212341634,
-   "take": 0.10027849827268664,
+   "weightQuote": 0.49999998212117175,
+   "take": 0.10027850371429936,
    "validatorCount": 86,
    "validators": [
     {
@@ -9304,7 +9631,7 @@
     {
      "hotkey": "5G9hfkx9wGB1CLMT9WXkpHSAiYzjZb5o1Boyq4KAdDhjwrc5",
      "take": 0.009994659342336155,
-     "alpha": 74723.029671106
+     "alpha": 74722.929804601
     },
     {
      "hotkey": "5GP7c3fFazW9GXK8Up3qgu2DJBk8inu4aK9TZy3RuoSWVCMi",
@@ -9333,22 +9660,25 @@
     }
    ],
    "epochDividends": 105.120958039,
-   "emission_tao_per_day": 0.0093312,
-   "emission_share_percent": 0.000823134536582846
+   "emission_tao_per_day": 0.009324,
+   "emission_share_percent": 0.0008240035714541822,
+   "alpha_emission_per_day": 7200,
+   "alpha_emission_tao_value_per_day": 43.052491804064395,
+   "tao_coverage_percent": 0.021657283026576785
   },
   {
    "netuid": 113,
    "name": "Subnet 113",
-   "taoIn": 1748.149604058,
-   "alphaIn": 756728.407366697,
-   "alphaOut": 1821690.953515386,
-   "stakedAlpha": 932330.030542254,
+   "taoIn": 1748.149335282,
+   "alphaIn": 756728.523713051,
+   "alphaOut": 1821776.837169032,
+   "stakedAlpha": 932329.9141959,
    "alphaEmissionPerBlock": 1,
-   "rootProp": 0.2753341377247125,
+   "rootProp": 0.2753223942127079,
    "tempo": 360,
    "fee": 0.000503547722590982,
    "weightQuote": 0.5,
-   "take": 0.0875926907595134,
+   "take": 0.08759270044304698,
    "validatorCount": 84,
    "validators": [
     {
@@ -9384,7 +9714,7 @@
     {
      "hotkey": "5G9hfkx9wGB1CLMT9WXkpHSAiYzjZb5o1Boyq4KAdDhjwrc5",
      "take": 0.009994659342336155,
-     "alpha": 45931.606003429
+     "alpha": 45931.489657075
     },
     {
      "hotkey": "5HK5tp6t2S59DywmHRWPBVJeJ86T61KjurYqeooqj8sREpeN",
@@ -9414,21 +9744,24 @@
    ],
    "epochDividends": 97.491114214,
    "emission_tao_per_day": 0,
-   "emission_share_percent": 0
+   "emission_share_percent": 0,
+   "alpha_emission_per_day": 7200,
+   "alpha_emission_tao_value_per_day": 16.63301279073131,
+   "tao_coverage_percent": 0
   },
   {
    "netuid": 114,
    "name": "SOMA",
-   "taoIn": 9602.010883441,
-   "alphaIn": 448004.888684293,
-   "alphaOut": 1995343.145720883,
-   "stakedAlpha": 1296904.694079994,
+   "taoIn": 9603.173221555,
+   "alphaIn": 447999.885405581,
+   "alphaOut": 1995458.761402622,
+   "stakedAlpha": 1296904.583497534,
    "alphaEmissionPerBlock": 1,
-   "rootProp": 0.28619877388700843,
+   "rootProp": 0.2861843155696988,
    "tempo": 360,
    "fee": 0.000503547722590982,
-   "weightQuote": 0.499999864676064,
-   "take": 0.1179092831613637,
+   "weightQuote": 0.499999864661177,
+   "take": 0.11790929236286145,
    "validatorCount": 734,
    "validators": [
     {
@@ -9474,7 +9807,7 @@
     {
      "hotkey": "5G9hfkx9wGB1CLMT9WXkpHSAiYzjZb5o1Boyq4KAdDhjwrc5",
      "take": 0.009994659342336155,
-     "alpha": 21653.693112956
+     "alpha": 21653.582530496
     },
     {
      "hotkey": "5DkFEQdEwE5ZcJbv2efF4F5nRTxuEdYhLHqd2EfdR3aLM7Fn",
@@ -9493,22 +9826,25 @@
     }
    ],
    "epochDividends": 92.90237958899998,
-   "emission_tao_per_day": 44.333784,
-   "emission_share_percent": 3.910822696738254
+   "emission_tao_per_day": 44.168724,
+   "emission_share_percent": 3.903387636483704,
+   "alpha_emission_per_day": 7200,
+   "alpha_emission_tao_value_per_day": 154.33683551828653,
+   "tao_coverage_percent": 28.618394210089065
   },
   {
    "netuid": 115,
    "name": "MoirAI",
-   "taoIn": 3449.104954102,
-   "alphaIn": 1401626.530579064,
-   "alphaOut": 1884119.184974692,
-   "stakedAlpha": 844993.919571852,
+   "taoIn": 3442.982202621,
+   "alphaIn": 1404119.082214106,
+   "alphaOut": 1881712.63333965,
+   "stakedAlpha": 842501.36793681,
    "alphaEmissionPerBlock": 1,
-   "rootProp": 0.22967586759477854,
+   "rootProp": 0.22966672433540225,
    "tempo": 360,
    "fee": 0.000503547722590982,
    "weightQuote": 0.5,
-   "take": 0.09293227059970859,
+   "take": 0.09294096108597745,
    "validatorCount": 83,
    "validators": [
     {
@@ -9567,11 +9903,6 @@
      "alpha": 12398.469192057
     },
     {
-     "hotkey": "5HK5tp6t2S59DywmHRWPBVJeJ86T61KjurYqeooqj8sREpeN",
-     "take": 0.0899977111467155,
-     "alpha": 11704.022237778
-    },
-    {
      "hotkey": "5E4z3h9yVhmQyCFWNbY9BPpwhx4xFiPwq3eeqmBgVF6KULde",
      "take": 0.0899977111467155,
      "alpha": 10400.510495196
@@ -9580,105 +9911,116 @@
      "hotkey": "5Ckaoft1B1CQ9zBV2FLVju4KPuMQzJVn7QUf3JeTvTq1uUes",
      "take": 0.179995422293431,
      "alpha": 9401.893214639
+    },
+    {
+     "hotkey": "5HK5tp6t2S59DywmHRWPBVJeJ86T61KjurYqeooqj8sREpeN",
+     "take": 0.0899977111467155,
+     "alpha": 9211.560669386
     }
    ],
    "epochDividends": 104.434155601,
    "emission_tao_per_day": 0,
-   "emission_share_percent": 0
+   "emission_share_percent": 0,
+   "alpha_emission_per_day": 7200,
+   "alpha_emission_tao_value_per_day": 17.654821569536363,
+   "tao_coverage_percent": 0
   },
   {
    "netuid": 116,
    "name": "Carbon",
-   "taoIn": 1733.490797911,
-   "alphaIn": 55054.168584092,
-   "alphaOut": 163797.224282706,
-   "stakedAlpha": 135598.630939701,
+   "taoIn": 1734.535780073,
+   "alphaIn": 55021.000848653,
+   "alphaOut": 163916.392018145,
+   "stakedAlpha": 135791.272091775,
    "alphaEmissionPerBlock": 1,
-   "rootProp": 0.8173974694218487,
+   "rootProp": 0.8173350130673498,
    "tempo": 360,
    "fee": 0.000503547722590982,
    "weightQuote": 0.5,
-   "take": 0.052140682900990484,
+   "take": 0.052432402437963516,
    "validatorCount": 57,
    "validators": [
     {
      "hotkey": "5E2LP6EnZ54m3wS8s1yPvD5c3xo71kQroBw7aUVK32TKeZ5u",
      "take": 0,
-     "alpha": 56346.648412004
+     "alpha": 56070.457996511
     },
     {
      "hotkey": "5GKH9FPPnWSUoeeTJp19wVtd84XqFW4pyK2ijV2GsFbhTrP1",
      "take": 0.0899977111467155,
-     "alpha": 46339.684492433
+     "alpha": 46359.880022207
     },
     {
      "hotkey": "5HK5tp6t2S59DywmHRWPBVJeJ86T61KjurYqeooqj8sREpeN",
      "take": 0.0899977111467155,
-     "alpha": 12173.770754328
+     "alpha": 12181.708691248
     },
     {
      "hotkey": "5E4z3h9yVhmQyCFWNbY9BPpwhx4xFiPwq3eeqmBgVF6KULde",
      "take": 0.0899977111467155,
-     "alpha": 6556.671635991
+     "alpha": 6717.009368322
     },
     {
      "hotkey": "5GP7c3fFazW9GXK8Up3qgu2DJBk8inu4aK9TZy3RuoSWVCMi",
      "take": 0.0009918364232852674,
-     "alpha": 2141.956763984
+     "alpha": 2142.385369939
     },
     {
      "hotkey": "5DXdHixxtCvoa6GHKs2Jgrdzc61882Ftx1zN2sYFQuwgL1S1",
      "take": 0.0899977111467155,
-     "alpha": 2084.371724656
+     "alpha": 2102.698559742
     },
     {
      "hotkey": "5DkFEQdEwE5ZcJbv2efF4F5nRTxuEdYhLHqd2EfdR3aLM7Fn",
      "take": 0.0899977111467155,
-     "alpha": 1034.831105033
-    },
-    {
-     "hotkey": "5G3wMP3g3d775hauwmAZioYFVZYnvw6eY46wkFy8hEWD5KP3",
-     "take": 0.179995422293431,
-     "alpha": 939.480938537
+     "alpha": 1035.160307824
     },
     {
      "hotkey": "5Ckaoft1B1CQ9zBV2FLVju4KPuMQzJVn7QUf3JeTvTq1uUes",
      "take": 0.179995422293431,
-     "alpha": 934.352744681
+     "alpha": 954.356114886
+    },
+    {
+     "hotkey": "5G3wMP3g3d775hauwmAZioYFVZYnvw6eY46wkFy8hEWD5KP3",
+     "take": 0.179995422293431,
+     "alpha": 944.373255428
     },
     {
      "hotkey": "5CAQAgXxoU3NPo1YG5VQKz4Ackh7goNx3TvPD9A6LoqA7FmJ",
      "take": 0.0899977111467155,
-     "alpha": 928.018107489
+     "alpha": 928.604194778
     },
     {
      "hotkey": "5Dd8gaRNdhm1YP7G1hcB1N842ecAUQmbLjCRLqH5ycaTGrWv",
      "take": 0,
-     "alpha": 830.204530652
+     "alpha": 830.370030736
     },
     {
      "hotkey": "5Ggasr6fQqKZXuovBTT44GvhuoFpxBsXGPY3AUtFr9mWxGTV",
      "take": 0.179995422293431,
-     "alpha": 827.197749043
+     "alpha": 827.926677278
     }
    ],
-   "epochDividends": 25.44662712099999,
+   "epochDividends": 25.534434263,
    "emission_tao_per_day": 0,
-   "emission_share_percent": 0
+   "emission_share_percent": 0,
+   "alpha_emission_per_day": 7200,
+   "alpha_emission_tao_value_per_day": 226.97983358896573,
+   "tao_coverage_percent": 0
   },
   {
    "netuid": 117,
    "name": "everyframe.studio",
-   "taoIn": 2939.651941101,
-   "alphaIn": 1111983.604456129,
-   "alphaOut": 1951100.760721334,
-   "stakedAlpha": 1556608.919179413,
+   "taoIn": 2939.651718175,
+   "alphaIn": 1111983.68878256,
+   "alphaOut": 1951186.676394903,
+   "stakedAlpha": 1556608.834852982,
    "alphaEmissionPerBlock": 1,
-   "rootProp": 0.24232567218132317,
+   "rootProp": 0.2423158346209675,
    "tempo": 360,
    "fee": 0.000503547722590982,
    "weightQuote": 0.4999999832464174,
-   "take": 0.027428027817455267,
+   "take": 0.027428028761876052,
    "validatorCount": 115,
    "validators": [
     {
@@ -9739,26 +10081,29 @@
     {
      "hotkey": "5G9hfkx9wGB1CLMT9WXkpHSAiYzjZb5o1Boyq4KAdDhjwrc5",
      "take": 0.009994659342336155,
-     "alpha": 22581.462519774
+     "alpha": 22581.378193343
     }
    ],
    "epochDividends": 99.611240759,
    "emission_tao_per_day": 0,
-   "emission_share_percent": 0
+   "emission_share_percent": 0,
+   "alpha_emission_per_day": 7200,
+   "alpha_emission_tao_value_per_day": 19.033996633911144,
+   "tao_coverage_percent": 0
   },
   {
    "netuid": 118,
    "name": "Ditto",
-   "taoIn": 5818.351388024,
-   "alphaIn": 966841.604659417,
-   "alphaOut": 2293561.358977944,
-   "stakedAlpha": 1792545.479135675,
+   "taoIn": 5791.558452691,
+   "alphaIn": 971314.411239486,
+   "alphaOut": 2289174.552397875,
+   "stakedAlpha": 1788072.672555606,
    "alphaEmissionPerBlock": 1,
-   "rootProp": 0.23104863427579403,
+   "rootProp": 0.23103941674344242,
    "tempo": 360,
    "fee": 0.000503547722590982,
    "weightQuote": 0.4999999630426345,
-   "take": 0.0730101670823851,
+   "take": 0.07297696566134934,
    "validatorCount": 226,
    "validators": [
     {
@@ -9794,7 +10139,7 @@
     {
      "hotkey": "5HT9U1J85fyNVudFAHuhYSGajRth8r3kYo7hTvkUXFEEDhQD",
      "take": 0.08499275196459907,
-     "alpha": 111093.239264743
+     "alpha": 107775.228972986
     },
     {
      "hotkey": "5GP7c3fFazW9GXK8Up3qgu2DJBk8inu4aK9TZy3RuoSWVCMi",
@@ -9819,7 +10164,7 @@
     {
      "hotkey": "5E4z3h9yVhmQyCFWNbY9BPpwhx4xFiPwq3eeqmBgVF6KULde",
      "take": 0.0899977111467155,
-     "alpha": 20691.698970015
+     "alpha": 19537.014416816
     },
     {
      "hotkey": "5CFtzzb4vym9eysfeF9cxxp6D7gksuUVTKYNq1mchnrMs118",
@@ -9829,21 +10174,24 @@
    ],
    "epochDividends": 105.16956973099997,
    "emission_tao_per_day": 0,
-   "emission_share_percent": 0
+   "emission_share_percent": 0,
+   "alpha_emission_per_day": 7200,
+   "alpha_emission_tao_value_per_day": 42.93072000294633,
+   "tao_coverage_percent": 0
   },
   {
    "netuid": 119,
    "name": "CapabilityForge Next",
-   "taoIn": 3117.189168597,
-   "alphaIn": 1337818.810924589,
-   "alphaOut": 1771325.583995445,
-   "stakedAlpha": 811634.424114362,
+   "taoIn": 3117.188952604,
+   "alphaIn": 1337818.903623708,
+   "alphaOut": 1771411.491296326,
+   "stakedAlpha": 811634.331415243,
    "alphaEmissionPerBlock": 1,
-   "rootProp": 0.23959589493460953,
+   "rootProp": 0.2395862089470029,
    "tempo": 360,
    "fee": 0.000503547722590982,
    "weightQuote": 0.5,
-   "take": 0.06349924882774947,
+   "take": 0.06349925493866433,
    "validatorCount": 78,
    "validators": [
     {
@@ -9914,22 +10262,25 @@
    ],
    "epochDividends": 105.17485507800004,
    "emission_tao_per_day": 0,
-   "emission_share_percent": 0
+   "emission_share_percent": 0,
+   "alpha_emission_per_day": 7200,
+   "alpha_emission_tao_value_per_day": 16.77638161484794,
+   "tao_coverage_percent": 0
   },
   {
    "netuid": 120,
    "name": "Affine",
-   "taoIn": 74851.127331023,
-   "alphaIn": 1739852.736772534,
-   "alphaOut": 2731069.20153738,
-   "stakedAlpha": 2161904.342104625,
+   "taoIn": 74851.398968171,
+   "alphaIn": 1739877.336469354,
+   "alphaOut": 2731146.058700255,
+   "stakedAlpha": 2161855.021381247,
    "alphaEmissionPerBlock": 1,
-   "rootProp": 0.17973508476279676,
+   "rootProp": 0.17972797923721373,
    "tempo": 360,
    "fee": 0.000503547722590982,
-   "weightQuote": 0.4999999862807609,
-   "take": 0.06853645352071916,
-   "validatorCount": 395,
+   "weightQuote": 0.49999998627953635,
+   "take": 0.06853598644540736,
+   "validatorCount": 394,
    "validators": [
     {
      "hotkey": "5E2LP6EnZ54m3wS8s1yPvD5c3xo71kQroBw7aUVK32TKeZ5u",
@@ -9949,7 +10300,7 @@
     {
      "hotkey": "5HK5tp6t2S59DywmHRWPBVJeJ86T61KjurYqeooqj8sREpeN",
      "take": 0.0899977111467155,
-     "alpha": 224135.635177569
+     "alpha": 224086.876749979
     },
     {
      "hotkey": "5DXdHixxtCvoa6GHKs2Jgrdzc61882Ftx1zN2sYFQuwgL1S1",
@@ -9993,22 +10344,25 @@
     }
    ],
    "epochDividends": 112.84154523900004,
-   "emission_tao_per_day": 55.673827200000005,
-   "emission_share_percent": 4.911163617976835
+   "emission_tao_per_day": 55.6710408,
+   "emission_share_percent": 4.919898803707796,
+   "alpha_emission_per_day": 7200,
+   "alpha_emission_tao_value_per_day": 309.75178011223346,
+   "tao_coverage_percent": 17.972791239433235
   },
   {
    "netuid": 121,
    "name": "sundae_bar",
-   "taoIn": 5699.26697901,
-   "alphaIn": 1516693.501319043,
-   "alphaOut": 3052666.30274366,
-   "stakedAlpha": 1660866.162669975,
+   "taoIn": 5699.266726307,
+   "alphaIn": 1516693.568568776,
+   "alphaOut": 3052752.235493927,
+   "stakedAlpha": 1660866.095420242,
    "alphaEmissionPerBlock": 1,
-   "rootProp": 0.17654664162546396,
+   "rootProp": 0.17654019757173955,
    "tempo": 360,
    "fee": 0.000503547722590982,
    "weightQuote": 0.4999999942224485,
-   "take": 0.11957644252600555,
+   "take": 0.11957644696305542,
    "validatorCount": 88,
    "validators": [
     {
@@ -10074,21 +10428,24 @@
    ],
    "epochDividends": 107.02147141199998,
    "emission_tao_per_day": 0,
-   "emission_share_percent": 0
+   "emission_share_percent": 0,
+   "alpha_emission_per_day": 7200,
+   "alpha_emission_tao_value_per_day": 27.05538035376096,
+   "tao_coverage_percent": 0
   },
   {
    "netuid": 122,
    "name": "CookingTAO",
-   "taoIn": 1347.218255207,
-   "alphaIn": 344603.404404961,
-   "alphaOut": 922162.735341633,
-   "stakedAlpha": 491287.491026071,
+   "taoIn": 1347.217766102,
+   "alphaIn": 344603.651528349,
+   "alphaOut": 922248.549231735,
+   "stakedAlpha": 491287.304916173,
    "alphaEmissionPerBlock": 1,
-   "rootProp": 0.43609738047234714,
+   "rootProp": 0.4360744021832943,
    "tempo": 360,
    "fee": 0.000503547722590982,
-   "weightQuote": 0.49999998955107855,
-   "take": 0.08214771562210094,
+   "weightQuote": 0.4999999895428128,
+   "take": 0.08214774295518652,
    "validatorCount": 146,
    "validators": [
     {
@@ -10153,22 +10510,25 @@
     }
    ],
    "epochDividends": 76.411344932,
-   "emission_tao_per_day": 0.0199944,
-   "emission_share_percent": 0.0017637689877242
+   "emission_tao_per_day": 0.019944,
+   "emission_share_percent": 0.001762540457859525,
+   "alpha_emission_per_day": 7200,
+   "alpha_emission_tao_value_per_day": 28.148187863511243,
+   "tao_coverage_percent": 0.07085358424033254
   },
   {
    "netuid": 123,
    "name": "MANTIS",
-   "taoIn": 5593.659582374,
-   "alphaIn": 2466972.179486339,
-   "alphaOut": 2103258.784257887,
-   "stakedAlpha": 1723311.141604422,
+   "taoIn": 5593.659730714,
+   "alphaIn": 2466972.382072196,
+   "alphaOut": 2103344.71568175,
+   "stakedAlpha": 1723311.073028285,
    "alphaEmissionPerBlock": 1,
-   "rootProp": 0.1765189291909337,
+   "rootProp": 0.17651248234324157,
    "tempo": 360,
    "fee": 0.000503547722590982,
-   "weightQuote": 0.49999998333593915,
-   "take": 0.11227314493880257,
+   "weightQuote": 0.4999999833347692,
+   "take": 0.11227314900879526,
    "validatorCount": 376,
    "validators": [
     {
@@ -10233,22 +10593,25 @@
     }
    ],
    "epochDividends": 107.725415724,
-   "emission_tao_per_day": 0.025437599999999998,
-   "emission_share_percent": 0.0022439308007308604
+   "emission_tao_per_day": 0.0254304,
+   "emission_share_percent": 0.0022473981578194375,
+   "alpha_emission_per_day": 7200,
+   "alpha_emission_tao_value_per_day": 16.325416951784753,
+   "tao_coverage_percent": 0.1557718254615228
   },
   {
    "netuid": 124,
    "name": "Swarm",
-   "taoIn": 12091.444157912,
-   "alphaIn": 1314535.325323873,
-   "alphaOut": 3667693.243245299,
-   "stakedAlpha": 2431591.707170835,
+   "taoIn": 12091.787289139,
+   "alphaIn": 1314526.284567653,
+   "alphaOut": 3667802.415251083,
+   "stakedAlpha": 2431591.639719861,
    "alphaEmissionPerBlock": 1,
-   "rootProp": 0.16432055225595832,
+   "rootProp": 0.16431429027579725,
    "tempo": 360,
    "fee": 0.000503547722590982,
-   "weightQuote": 0.4999999797735522,
-   "take": 0.09288801439915602,
+   "weightQuote": 0.49999997977168537,
+   "take": 0.09288801669857069,
    "validatorCount": 320,
    "validators": [
     {
@@ -10313,22 +10676,25 @@
     }
    ],
    "epochDividends": 111.723756442,
-   "emission_tao_per_day": 10.8825336,
-   "emission_share_percent": 0.959982558693764
+   "emission_tao_per_day": 10.8825048,
+   "emission_share_percent": 0.9617356093487002,
+   "alpha_emission_per_day": 7200,
+   "alpha_emission_tao_value_per_day": 66.22984762515715,
+   "tao_coverage_percent": 16.43142056069947
   },
   {
    "netuid": 125,
    "name": "Refinery",
-   "taoIn": 5315.157308595,
-   "alphaIn": 2032504.222453259,
-   "alphaOut": 2569027.894053856,
-   "stakedAlpha": 1257885.43805969,
+   "taoIn": 5312.866436957,
+   "alphaIn": 2033383.1839218,
+   "alphaOut": 2568236.212160846,
+   "stakedAlpha": 1257007.75616668,
    "alphaEmissionPerBlock": 1,
-   "rootProp": 0.17552895355038345,
+   "rootProp": 0.17552251764573157,
    "tempo": 360,
    "fee": 0.000503547722590982,
-   "weightQuote": 0.49999999491370894,
-   "take": 0.10678975140038197,
+   "weightQuote": 0.4999999949117132,
+   "take": 0.10686431475709739,
    "validatorCount": 89,
    "validators": [
     {
@@ -10349,7 +10715,7 @@
     {
      "hotkey": "5G9hfkx9wGB1CLMT9WXkpHSAiYzjZb5o1Boyq4KAdDhjwrc5",
      "take": 0.009994659342336155,
-     "alpha": 84799.543044255
+     "alpha": 84799.471661529
     },
     {
      "hotkey": "5GP7c3fFazW9GXK8Up3qgu2DJBk8inu4aK9TZy3RuoSWVCMi",
@@ -10374,7 +10740,7 @@
     {
      "hotkey": "5HNaCr7KPjZ16fGaqLL9jnyNLrDTwv49hqCzF8XZGShjK125",
      "take": 0,
-     "alpha": 39583.066102621
+     "alpha": 38705.455592337
     },
     {
      "hotkey": "5GKH9FPPnWSUoeeTJp19wVtd84XqFW4pyK2ijV2GsFbhTrP1",
@@ -10403,22 +10769,25 @@
     }
    ],
    "epochDividends": 109.084525251,
-   "emission_tao_per_day": 0.2800296,
-   "emission_share_percent": 0.024702292848238144
+   "emission_tao_per_day": 0.2799648,
+   "emission_share_percent": 0.024741741214227352,
+   "alpha_emission_per_day": 7200,
+   "alpha_emission_tao_value_per_day": 18.812312124502704,
+   "tao_coverage_percent": 1.4881998456497583
   },
   {
    "netuid": 126,
    "name": "Attelier",
-   "taoIn": 2413.200855815,
-   "alphaIn": 570794.523439042,
-   "alphaOut": 1523411.606502696,
-   "stakedAlpha": 795178.057311609,
+   "taoIn": 2413.200258776,
+   "alphaIn": 570794.664656946,
+   "alphaOut": 1523497.465284792,
+   "stakedAlpha": 795177.916093705,
    "alphaEmissionPerBlock": 1,
-   "rootProp": 0.31870635505765676,
+   "rootProp": 0.3186919006984681,
    "tempo": 360,
    "fee": 0.000503547722590982,
    "weightQuote": 0.49999995209580045,
-   "take": 0.12330282098578235,
+   "take": 0.1233028411085005,
    "validatorCount": 277,
    "validators": [
     {
@@ -10474,7 +10843,7 @@
     {
      "hotkey": "5G9hfkx9wGB1CLMT9WXkpHSAiYzjZb5o1Boyq4KAdDhjwrc5",
      "take": 0.009994659342336155,
-     "alpha": 10081.809855895
+     "alpha": 10081.668637991
     },
     {
      "hotkey": "5FeKsRjZ6zYiX1VNwoDqHJKTToMbks1bstr9ah9VGaPX9DGg",
@@ -10484,21 +10853,24 @@
    ],
    "epochDividends": 87.62737277700002,
    "emission_tao_per_day": 0,
-   "emission_share_percent": 0
+   "emission_share_percent": 0,
+   "alpha_emission_per_day": 7200,
+   "alpha_emission_tao_value_per_day": 30.44009740872404,
+   "tao_coverage_percent": 0
   },
   {
    "netuid": 127,
    "name": "Astrid",
-   "taoIn": 2941.042000893,
-   "alphaIn": 1344741.054931533,
-   "alphaOut": 3057899.155071073,
-   "stakedAlpha": 1747064.068481489,
+   "taoIn": 2941.041876437,
+   "alphaIn": 1344741.136179344,
+   "alphaOut": 3057985.08600994,
+   "stakedAlpha": 1747063.999420356,
    "alphaEmissionPerBlock": 1,
-   "rootProp": 0.18201526603661478,
+   "rootProp": 0.18200856004841626,
    "tempo": 360,
    "fee": 0.000503547722590982,
-   "weightQuote": 0.4999999849186989,
-   "take": 0.028816749696818637,
+   "weightQuote": 0.4999999849129093,
+   "take": 0.028816750440852565,
    "validatorCount": 104,
    "validators": [
     {
@@ -10554,7 +10926,7 @@
     {
      "hotkey": "5G9hfkx9wGB1CLMT9WXkpHSAiYzjZb5o1Boyq4KAdDhjwrc5",
      "take": 0.009994659342336155,
-     "alpha": 18755.056759467
+     "alpha": 18754.987698334
     },
     {
      "hotkey": "5G8pZG5zKEuhykkCYifxYhhXtyWWg6XuGHHkJxmZjgHhs127",
@@ -10563,22 +10935,25 @@
     }
    ],
    "epochDividends": 117.52002522299999,
-   "emission_tao_per_day": 0.002232,
-   "emission_share_percent": 0.0001968917487196622
+   "emission_tao_per_day": 0.0022248,
+   "emission_share_percent": 0.0001966155239994921,
+   "alpha_emission_per_day": 7200,
+   "alpha_emission_tao_value_per_day": 15.74689895217809,
+   "tao_coverage_percent": 0.014128496072506191
   },
   {
    "netuid": 128,
    "name": "ByteLeap",
-   "taoIn": 4017.957906721,
-   "alphaIn": 1452455.919406167,
-   "alphaOut": 3095582.836067579,
-   "stakedAlpha": 2878168.510244066,
+   "taoIn": 4017.965569241,
+   "alphaIn": 1452458.821315181,
+   "alphaOut": 3095668.77008692,
+   "stakedAlpha": 2878168.444263407,
    "alphaEmissionPerBlock": 1,
-   "rootProp": 0.17722760466858745,
+   "rootProp": 0.17722103744745255,
    "tempo": 360,
    "fee": 0.000503547722590982,
-   "weightQuote": 0.49999998649728056,
-   "take": 0.14546288209249464,
+   "weightQuote": 0.49999998649466637,
+   "take": 0.14546288519803996,
    "validatorCount": 139,
    "validators": [
     {
@@ -10643,8 +11018,11 @@
     }
    ],
    "epochDividends": 100.94959760400002,
-   "emission_tao_per_day": 0.6568488,
-   "emission_share_percent": 0.05794270110950344
+   "emission_tao_per_day": 0.6567624000000001,
+   "emission_share_percent": 0.05804102994388891,
+   "alpha_emission_per_day": 7200,
+   "alpha_emission_tao_value_per_day": 19.917503502882326,
+   "tao_coverage_percent": 3.2974132521425585
   }
  ]
 }

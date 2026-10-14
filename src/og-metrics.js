@@ -25,7 +25,7 @@ export function shareCard(snapshot, {netuid, amt, take} = {}) {
     title,
     stakeLabel,
     apy: take != null && Number.isFinite(+take) ? `${f(apyAlpha(s, t) * 100, 1)}%` : formatApyRange(apyRange(s)),
-    warning: lowTaoEmission(s) ? 'Low TAO emission: high alpha APY is paid in new alpha' : '',
+    warning: lowTaoEmission(s) ? 'Low TAO coverage: high alpha APY is paid in new alpha' : '',
     breakEven: formatBreakEvenDays(breakEvenDays(s, X, t)),
     netTao: signedTao(net),
   };
