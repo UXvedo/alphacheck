@@ -69,3 +69,15 @@ test('production pages include yield tools; FEATURES_ON=0 hides them', () => {
   assert.doesNotMatch(fs.readFileSync('public/sitemap.xml', 'utf8'), /leaderboard/);
   assert.match(fs.readFileSync('public/sitemap.xml', 'utf8'), /\/methodology\//);
 });
+
+test('subnet pages use PNG share images and link to a prefilled wrong-number issue', () => {
+  generate({VERCEL_ENV: 'production'});
+  const html = fs.readFileSync('sn/64/index.html', 'utf8');
+  assert.match(html, /og:image" content="https:\/\/www\.alphacheck\.io\/og\/sn\/64\.png"/);
+  assert.match(html, /twitter:image" content="https:\/\/www\.alphacheck\.io\/og\/sn\/64\.png"/);
+  assert.doesNotMatch(html, /og\/sn\/64\.svg/);
+  assert.match(html, /Report a wrong number/);
+  assert.match(html, /issues\/new\?template=wrong-number\.yml&amp;title=Wrong\+number%3A\+SN64[^"]*subnet=64/);
+  const png = fs.readFileSync('public/og/sn/64.png');
+  assert.equal(png.subarray(0, 4).toString('hex'), '89504e47');
+});

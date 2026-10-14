@@ -8,6 +8,7 @@ import {featuresEnabled, engagementFlags, stripFlagged} from '../src/features.js
 import {formatBreakEvenDays} from '../src/format.js';
 import {renderOgSvg} from '../src/og-template.js';
 import {shareCard} from '../src/og-metrics.js';
+import {svgToPng} from '../src/og-png.js';
 
 const SITE = 'https://www.alphacheck.io', R = path.resolve(import.meta.dirname, '..');
 const features = featuresEnabled(process.env);
@@ -23,6 +24,15 @@ const rootApy = apyRoot(S);
 const rootEnd = X * growth(rootSubnet, rootApy, DAYS);
 const takePct = s => takeOf(s) * 100;
 const live = S.filter(s => s.netuid !== 0 && s.taoIn > 0).sort((a, b) => a.netuid - b.netuid);
+const REPO = 'https://github.com/UXvedo/alphacheck';
+const reportUrl = s => `${REPO}/issues/new?` + new URLSearchParams({
+  template: 'wrong-number.yml',
+  title: `Wrong number: SN${s.netuid} ${s.name}`,
+  subnet: String(s.netuid),
+  page: `${SITE}/sn/${s.netuid}/`,
+  data_as_of: d.asOf,
+}).toString();
+const reportLink = s => `<p class="small report"><a href="${esc(reportUrl(s))}" target="_blank" rel="noopener">Report a wrong number</a> <span class="muted">(opens a prefilled GitHub issue)</span></p>`;
 const between = (s, a, b) => s.slice(s.indexOf(a), s.indexOf(b) + b.length);
 
 function page({url, title, desc, ogTitle, hero, sn = '', links = '', robots = '', lang = 'en'}) {
@@ -31,10 +41,11 @@ function page({url, title, desc, ogTitle, hero, sn = '', links = '', robots = ''
 ${robots ? `<meta name="robots" content="${esc(robots)}">\n` : ''}<link rel="canonical" href="${SITE}${url}">
 <meta property="og:title" content="${esc(ogTitle || title)}">
 <meta property="og:description" content="${esc(desc)}">
-<meta property="og:url" content="${SITE}${url}">`).replace('<body data-sn="">', `<body data-sn="${sn}">`).replace('<html lang="en">', `<html lang="${lang}">`);
+<meta property="og:url" content="${SITE}${url}">
+<meta property="og:image:type" content="image/png">`).replace('<body data-sn="">', `<body data-sn="${sn}">`).replace('<html lang="en">', `<html lang="${lang}">`);
   if (hero != null) h = h.replace(between(h, '<!--HERO-->', '<!--/HERO-->'), hero);
   if (features && sn !== '') {
-    h = h.replaceAll('https://www.alphacheck.io/og.png', `${SITE}/og/sn/${sn}.svg`);
+    h = h.replaceAll('https://www.alphacheck.io/og.png', `${SITE}/og/sn/${sn}.png`);
   }
   return h.replace('<!--LINKS-->', links);
 }
@@ -79,7 +90,7 @@ for (const s of live) {
   const verdict = o.out >= rootEnd ? `beats root staking (≈${f(rootEnd, 1)} τ)` : `trails root staking (≈${f(rootEnd, 1)} τ)`;
   const title = `${nm} staking: real yield in TAO | AlphaCheck`;
   const desc = `${nm}: est. ${f(apy)}% APY paid in alpha, ${f(s.taoIn, 0)} τ pool. ${X} τ staked ${DAYS} days returns ≈${f(o.out, 1)} τ at a flat alpha price after slippage (data ${date}).`;
-  const hero = `<section class="hero"><h1>${esc(nm)}: is the APY real?</h1>${star(s).replace('class="star"', 'class="star star-lg"')}<!--F:compare--><p class="small"><a href="/compare/?a=${s.netuid}&amp;b=${s.netuid === 64 ? 19 : 64}&amp;stake=${X}&amp;days=30">Compare SN${s.netuid} with another subnet</a></p><!--/F:compare--><p class="summary">As of ${date} (block ${d.block}), subnet ${s.netuid} (${esc(s.name)}) shows an estimated <b>${f(apy)}% APY</b>, paid in its alpha token, at a stake-weighted validator take of ${f(takePct(s), 2)}%. The pool holds <b>${f(s.taoIn, 0)} τ</b>, so staking ${X} τ costs about <b>${f(o.entrySlip * 100, 2)}%</b> in entry slippage. Held ${DAYS} days at a flat alpha price, with epoch compounding, you'd get back about <b>${f(o.out, 2)} τ</b> after the swap fee and exit slippage, which ${verdict}. Change the inputs below to check your own case.</p></section>${featureCards(s)}`;
+  const hero = `<section class="hero"><h1>${esc(nm)}: is the APY real?</h1>${star(s).replace('class="star"', 'class="star star-lg"')}<!--F:compare--><p class="small"><a href="/compare/?a=${s.netuid}&amp;b=${s.netuid === 64 ? 19 : 64}&amp;stake=${X}&amp;days=30">Compare SN${s.netuid} with another subnet</a></p><!--/F:compare--><p class="summary">As of ${date} (block ${d.block}), subnet ${s.netuid} (${esc(s.name)}) shows an estimated <b>${f(apy)}% APY</b>, paid in its alpha token, at a stake-weighted validator take of ${f(takePct(s), 2)}%. The pool holds <b>${f(s.taoIn, 0)} τ</b>, so staking ${X} τ costs about <b>${f(o.entrySlip * 100, 2)}%</b> in entry slippage. Held ${DAYS} days at a flat alpha price, with epoch compounding, you'd get back about <b>${f(o.out, 2)} τ</b> after the swap fee and exit slippage, which ${verdict}. Change the inputs below to check your own case.</p>${reportLink(s)}</section>${featureCards(s)}`;
   write(`sn/${s.netuid}/index.html`, page({url: `/sn/${s.netuid}/`, title, desc, ogTitle: `${nm}: High APY ≠ profit`, hero, sn: s.netuid, links: allLinks}));
 }
 
@@ -162,9 +173,13 @@ document.querySelectorAll('.toggles button').forEach(function(btn){
   const ogDir = path.join(R, 'public', 'og', 'sn');
   fs.mkdirSync(ogDir, {recursive: true});
   for (const s of live) {
-    fs.writeFileSync(path.join(ogDir, `${s.netuid}.svg`), renderOgSvg(shareCard(d, {netuid: s.netuid, amt: X, take: takeOf(s)})));
+    const svg = renderOgSvg(shareCard(d, {netuid: s.netuid, amt: X, take: takeOf(s)}));
+    fs.writeFileSync(path.join(ogDir, `${s.netuid}.svg`), svg);
+    fs.writeFileSync(path.join(ogDir, `${s.netuid}.png`), svgToPng(svg));
   }
-  fs.writeFileSync(path.join(R, 'public', 'og', 'calc.svg'), renderOgSvg(shareCard(d, {netuid: 64, amt: X})));
+  const calcSvg = renderOgSvg(shareCard(d, {netuid: 64, amt: X}));
+  fs.writeFileSync(path.join(R, 'public', 'og', 'calc.svg'), calcSvg);
+  fs.writeFileSync(path.join(R, 'public', 'og', 'calc.png'), svgToPng(calcSvg));
 }
 
 if (flags.compare) {

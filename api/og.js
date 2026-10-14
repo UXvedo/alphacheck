@@ -5,6 +5,7 @@ import fs from 'node:fs';
 import {featuresEnabled} from '../src/features.js';
 import {renderOgSvg} from '../src/og-template.js';
 import {shareCard} from '../src/og-metrics.js';
+import {svgToPng} from '../src/og-png.js';
 
 const snapshot = JSON.parse(fs.readFileSync(new URL('../public/snapshot.json', import.meta.url), 'utf8'));
 
@@ -22,7 +23,14 @@ export default function handler(req, res) {
   const take = q.take == null || q.take === '' || !Number.isFinite(+q.take) ? undefined : +q.take / 100;
   const svg = renderOgSvg(shareCard(snapshot, {netuid: q.sn, amt, take}));
   res.statusCode = 200;
-  res.setHeader('Content-Type', 'image/svg+xml; charset=utf-8');
+  if (q.format === 'svg') {
+    res.setHeader('Content-Type', 'image/svg+xml; charset=utf-8');
+    res.setHeader('Cache-Control', 'public, max-age=3600');
+    res.end(svg);
+    return;
+  }
+  // PNG by default: X, Discord and Telegram do not render SVG previews.
+  res.setHeader('Content-Type', 'image/png');
   res.setHeader('Cache-Control', 'public, max-age=3600');
-  res.end(svg);
+  res.end(svgToPng(svg));
 }

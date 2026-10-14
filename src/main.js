@@ -114,7 +114,7 @@ function run() {
   const flat = outcome(s, X, days, t, 0), P = flat.P, aA = apyAlpha(s, t), entrySlip = flat.entrySlip, aEnd = flat.aEnd;
   const rows = SC.map(c => {
     const o = outcome(s, X, days, t, c), net = o.out - X;
-    return `<tr><td>Alpha ${p(c)} vs TAO</td><td>${f(o.ideal, 3)}</td><td>${f(o.out, 3)}</td><td class="${net >= 0 ? 'pos' : 'neg'}">${(net >= 0 ? '+' : '') + f(net, 3)} τ (${p(net / X)})</td><td class="${o.out >= rootEnd ? 'pos' : 'neg'}">${o.out >= rootEnd ? 'beats' : 'loses to'} root</td></tr>`;
+    return `<tr><td>Alpha ${p(c)} vs TAO</td><td>${f(o.ideal, 3)}</td><td>${f(o.out, 3)}</td><td class="${net >= 0 ? 'pos' : 'neg'}">${(net >= 0 ? '+' : '') + f(net, 3)} τ (${X > 0 ? p(net / X) : '—'})</td><td class="${o.out >= rootEnd ? 'pos' : 'neg'}">${o.out >= rootEnd ? 'beats' : 'loses to'} root</td></tr>`;
   }).join('');
   let feature = '';
   if (__FEATURES_ON__) {
@@ -127,7 +127,7 @@ function run() {
  <div class="stat"><span class="muted small">Alpha price</span><b>${f(P, 5)} τ</b></div>
  <div class="stat"><span class="muted small">Pool liquidity</span><b>${f(s.taoIn, 0)} τ</b></div>
  <div class="stat"><span class="muted small">Entry slippage</span><b class="${entrySlip > 0.01 ? 'warn' : ''}">${f(entrySlip * 100, 2)}%</b></div>
- <div class="stat"><span class="muted small">Alpha after ${days}d</span><b>${f(aEnd, 2)}</b></div></div></div>
+ <div class="stat"><span class="muted small">Alpha after ${days}d</span><b>${f(aEnd, 2)}</b></div></div>${X > s.taoIn ? `<p class="warn small">Your stake (${f(X, 2)} τ) is larger than the whole pool (${f(s.taoIn, 0)} τ). Most of it would be lost to slippage.</p>` : ''}</div>
  <div class="card"><h2>What you'd get back in TAO</h2><div class="tablewrap"><table><tr><th>Scenario</th><th>Value at spot</th><th>After exit slippage</th><th>Net vs ${f(X, 2)} τ in</th><th>vs root</th></tr>${rows}</table></div>
  <p class="muted small">Root staking the same ${f(X, 2)} τ for ${days} days ≈ <b>${f(rootEnd, 3)} τ</b> (est. ${f(rA * 100, 1)}% APY, paid in TAO). Root APY uses each subnet's stake-weighted take, then sells one epoch of root dividends through that pool. Subnet rewards compound once per epoch (about 7,280 a year when tempo is 360). Emission rates and pool prices will change.</p></div>`;
   $('out').innerHTML = html;
