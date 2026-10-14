@@ -3,7 +3,7 @@ import assert from 'node:assert/strict';
 import fs from 'node:fs';
 import os from 'node:os';
 import path from 'node:path';
-import {price, apyAlpha, apyRoot} from '../src/swap-math.js';
+import {price, apyAlpha, apyRoot, takeOf} from '../src/swap-math.js';
 import {writeDailyHistory, HISTORY_VERSION} from '../scripts/history.mjs';
 
 const snap = JSON.parse(fs.readFileSync(new URL('../public/snapshot.json', import.meta.url), 'utf8'));
@@ -25,10 +25,11 @@ test('daily history is idempotent within a day and leaves other days untouched',
   assert.equal(s1.poolTao, raw1.taoIn);
   assert.equal(s1.poolAlpha, raw1.alphaIn);
   assert.equal(s1.emissions, raw1.alphaEmissionPerBlock);
-  assert.equal(s1.estApy, apyAlpha(raw1, 0.18));
+  assert.equal(s1.estApy, apyAlpha(raw1, takeOf(raw1)));
+  assert.equal(s1.take, takeOf(raw1));
   assert.equal(s1.block, snap.block);
   assert.equal(s1.asOf, snap.asOf);
-  assert.equal(day.subnets.find(s => s.netuid === 0).estApy, apyRoot(snap.subnets, 0.18));
+  assert.equal(day.subnets.find(s => s.netuid === 0).estApy, apyRoot(snap.subnets));
 
   const older = {...snap, asOf: '2026-10-13T01:00:00.000Z', block: 1};
   writeDailyHistory(older, {root});

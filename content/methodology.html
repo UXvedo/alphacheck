@@ -1,27 +1,61 @@
 <section class="hero"><h1>Methodology</h1>
-<p>AlphaCheck publishes <b>estimates, not financial advice</b>. This page is the skeleton for the audited write-up. The formula sections below are unfinished on purpose. The live calculator still follows <a href="/how-it-works/">How it's calculated</a> until the audit replaces that text.</p></section>
+<p>AlphaCheck publishes <b>estimates, not financial advice</b>. The formulas below are the ones the calculator, subnet pages, and history files use. They follow the 2026-10-14 math audit of Finney runtime spec 478.</p></section>
 <section class="card"><h2>Assumptions</h2>
 <ul>
-<li>Every figure is an estimate from one chain snapshot. It is not a quote, a fill, or a prediction.</li>
-<li>Rewards over the holding period use simple interest. Emission rates and pool reserves are held constant except for the alpha-versus-TAO scenario you choose.</li>
-<li>A validator take is applied. Pages that show a single case use 18%. The calculator lets you change it.</li>
-<li>Root staking is modeled with no AMM slippage. Subnet staking goes through that subnet's pool on the way in and on the way out.</li>
+<li>Every figure comes from one chain snapshot. It is an estimate of that block, not a quote, a fill, or a prediction.</li>
+<li>The headline APY is a nominal annualized rate, so it can be compared with one epoch of realized dividends. The alpha you hold, and the TAO you get back, compound once per epoch.</li>
+<li>The owner cut is 18% (SubnetOwnerCut = 11796/65535). The remainder splits in half between miners and validators, so 41% reaches validators and stakers. Root receives <code>rootProp</code> of that validator half. The validator take is applied on each leg after the split.</li>
+<li>Subnet APY divides by staked alpha (<code>totalAlphaStaked</code>). A missing value falls back to alpha outstanding.</li>
+<li>The default validator take is the stake-weighted average of <code>Delegates</code> takes (take ÷ 65535). Hotkeys with stake and no Delegates entry are counted at a take of 0. The calculator can switch to one of the twelve largest validators, or to a custom take. Static pages use each subnet's average.</li>
+<li>The swap fee is that subnet's <code>FeeRate</code> ÷ 65535. Where the chain stores no override, the fallback is 33/65535 (about 0.05%) on the buy and on the sell.</li>
+<li>Pool weights come from <code>SwapBalancer</code>: quote weight = quote ÷ 1e18, base weight = 1 − quote weight. A missing weight uses 0.5. At 0.5/0.5 the buy, the sell, and the scenario reserves match a constant-product pool.</li>
+<li>A price scenario rebuilds the reserves so the spot price moves by the chosen percent while the weighted invariant stays fixed. Emission injection that deepens the pool, and other people's trades, are left out of that path.</li>
+<li>Root APY sells one epoch of each subnet's root alpha into that subnet's current pool, then annualizes the TAO. It does not sell a full year in one trade. The root benchmark uses each subnet's own average take. Your root stake itself stays in TAO.</li>
+<li>Tempo is per subnet. Epochs per year are 7,200 × 365 ÷ (tempo + 1). A missing tempo uses 360, which is about 7,280 epochs per year. Nominal APY uses blocks per year, so tempo cancels there. Tempo still sets the compounding steps and the size of each root sale.</li>
 <li>Nothing on this site is a recommendation to stake, unstake, or prefer one subnet.</li>
 </ul></section>
 <section class="card"><h2>Data sources</h2>
-<p>Snapshots are read from the public Bittensor Finney RPC, <code>subtensorModule</code> storage: pool TAO, pool alpha, alpha outstanding, alpha emitted per block, and the root proportion. The site ships the latest pull as <code>public/snapshot.json</code>. The line at the top of this page is that pull's UTC timestamp and block. Each pull also stores one record per subnet in <code>data/history/</code> (one file per UTC day). No private API key is used. A Taostats adapter is sketched in <code>src/data.js</code> and is not wired.</p></section>
+<p>Snapshots are read from the public Bittensor Finney RPC. <code>subtensorModule</code> supplies pool TAO, pool alpha, alpha outstanding, <code>totalAlphaStaked</code>, alpha emitted per block, root proportion, tempo, subnet names, <code>Delegates</code>, <code>TotalHotkeyAlpha</code>, and <code>AlphaDividendsPerSubnet</code>. <code>swap</code> supplies <code>FeeRate</code> and <code>SwapBalancer</code>. The site ships the latest pull as <code>public/snapshot.json</code>, including the block hash. The line at the top of each page is that pull's UTC timestamp and block. Each pull also stores one record per subnet in <code>data/history/</code> (one file per UTC day, version 2). No private API key is used.</p>
+<p>A same-block check of the nominal subnet APY against realized nominator dividends for fifteen subnets is kept in the repository at <code>docs/apy-comparison.md</code>. Reference APY = Σ <code>AlphaDividendsPerSubnet</code> (already net of take, last epoch) × epochs per year ÷ staked alpha. One epoch is indicative. It is not a 7-day average.</p></section>
 <section class="card"><h2>Formulas</h2>
-<p>Replace each TODO with the post-audit statement. Do not treat a TODO as a formula.</p>
+<p>Symbols: <code>E</code> alpha emitted per block, <code>rp</code> root proportion, <code>take</code> validator take, <code>BPY</code> = 7,200 × 365, <code>T</code> pool TAO, <code>α</code> pool alpha, <code>w_q</code> quote weight, <code>w_b</code> = 1 − <code>w_q</code>, <code>f</code> = FeeRate/65535, <code>n</code> = BPY ÷ (tempo + 1).</p>
 <h3>Alpha price</h3>
-<p>TODO: post-audit formula.</p>
+<p><code>price = (w_b / w_q) · (T / α)</code></p>
+<p>At equal weights this is <code>T / α</code>.</p>
 <h3>Estimated subnet APY</h3>
-<p>TODO: post-audit formula.</p>
+<p><code>apy = E · 0.41 · (1 − rp) · (1 − take) · BPY / stakedAlpha</code></p>
+<p>This is the nominal rate shown as "Est. APY". <code>stakedAlpha</code> is <code>totalAlphaStaked</code> for that netuid.</p>
 <h3>Estimated root APY</h3>
-<p>TODO: post-audit formula.</p>
+<p>For each subnet with emission and a root proportion, one epoch pays</p>
+<p><code>alphaEpoch = E · 0.41 · rp · (1 − take) · (tempo + 1)</code></p>
+<p><code>taoEpoch = (1 − f) · T · (1 − (α / (α + alphaEpoch)) ^ (w_b / w_q))</code></p>
+<p>Sum <code>taoEpoch · (BPY / (tempo + 1))</code> over subnets and divide by root TAO (<code>SubnetTAO[0]</code>).</p>
 <h3>Entry and exit slippage</h3>
-<p>TODO: post-audit formula.</p>
+<p>Buy, for <code>ΔT</code> TAO in:</p>
+<p><code>Δα = α · (1 − (T / (T + ΔT · (1 − f))) ^ (w_q / w_b))</code></p>
+<p>Sell, for <code>Δα</code> alpha in:</p>
+<p><code>ΔT = (1 − f) · T · (1 − (α / (α + Δα)) ^ (w_b / w_q))</code></p>
+<p>Entry slippage is <code>1 − Δα / (TAO in / price)</code>, so the fee is inside the slippage figure. At <code>w_q = w_b = 0.5</code> and <code>f = 0</code> both swaps equal the constant-product pool <code>T · α = k</code>.</p>
+<p>A scenario move of <code>c</code> (−50%, −20%, 0, +20%) keeps <code>T^w_b · α^w_q</code> constant and sets the new spot price to <code>price · (1 + c)</code>. The exit sells the compounded alpha into those reserves.</p>
 <h3>Holding period and price scenarios</h3>
-<p>TODO: post-audit formula.</p></section>
+<p><code>aEnd = aGot · (1 + apy / n) ^ (n · days / 365)</code></p>
+<p><code>n</code> is about 7,280 when tempo is 360. At a 100% nominal APY over 90 days the compounded gain is about 28%, against about 24.7% of simple interest. Root's holding-period TAO uses the same growth on the root APY and the root subnet's tempo.</p></section>
+<section class="card"><h2>What this leaves out</h2>
+<ul>
+<li>Daily emission injection deepens pools and would lower real exit slippage on a long hold. The scenario pool does not add that TAO or alpha.</li>
+<li>Other people's buys and sells are not modeled.</li>
+<li>In epochs with no miner incentive, the miner half can go to validators. The 41% share does not include that case.</li>
+<li>Root dividends accrue while the root-sell flag is on. When it is off they are recycled, and this root APY would overstate the payout.</li>
+<li>Alpha halving applies at 10.5M issuance. A one-epoch APY does not forecast past that point.</li>
+<li>On-chain TAO weight is 0.18. The root APY also ignores the "sum of EMA prices &gt; 1" condition.</li>
+<li>TAO-flow (subnet TAO share from an EMA price) has been unused since runtime v421. It changes TAO injection, not this staker alpha APY.</li>
+</ul></section>
+<section class="card"><h2>Sources</h2>
+<ul>
+<li><a href="https://subtensor.com/reference/mechanisms/alpha-conversion">Alpha conversion</a>, <a href="https://subtensor.com/reference/mechanisms/concentrated-liquidity">concentrated liquidity</a> (removed; the live pool is the weighted balancer), and <a href="https://subtensor.com/docs/swap">swap</a>. Runtime code: <code>pallets/swap/src/pallet/balancer.rs</code> and <code>migrate_swapv3_to_balancer</code>.</li>
+<li><a href="https://www.bittensor.com/docs/concepts/emissions">Bittensor emissions</a>, <a href="https://subtensor.com/learn/mechanics/emissions">subtensor emissions</a>, and <a href="https://subtensor.com/reference/mechanisms/epoch-processing">epoch processing</a>.</li>
+<li>Chain reads on Finney, public RPC <code>wss://entrypoint-finney.opentensor.ai:443</code>, around the snapshot block recorded in <code>public/snapshot.json</code>.</li>
+</ul></section>
 <section class="card"><h2>Estimates, not financial advice</h2>
 <p>Yields, prices, and liquidity change every block. AlphaCheck does not custody funds and does not submit stakes. Use the figures to understand the shape of a trade, then do your own research.</p></section>
 <p><a href="/">← Back to the calculator</a></p>

@@ -23,8 +23,11 @@ test('production pages hide flagged features; preview pages show them', () => {
   assert.doesNotMatch(prod, /href="\/privacy\/"/);
   assert.equal(fs.existsSync('leaderboard/index.html'), false);
   assert.equal(fs.existsSync('public/og/sn/1.svg'), false);
-  assert.match(fs.readFileSync('methodology/index.html', 'utf8'), /TODO: post-audit formula/);
-  assert.match(fs.readFileSync('methodology/index.html', 'utf8'), /estimates, not financial advice/i);
+  const method = fs.readFileSync('methodology/index.html', 'utf8');
+  assert.match(method, /staked alpha/);
+  assert.match(method, /FeeRate/);
+  assert.doesNotMatch(method, /TODO/);
+  assert.match(method, /estimates, not financial advice/i);
   const impressum = fs.readFileSync('impressum/index.html', 'utf8');
   assert.match(impressum, /noindex/);
   assert.match(impressum, /\[PLACEHOLDER/);
