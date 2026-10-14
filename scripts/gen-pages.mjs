@@ -3,9 +3,9 @@
 // Numbers come from public/snapshot.json via src/swap-math.js (same math as the calculator).
 import fs from 'node:fs';
 import path from 'node:path';
-import {apyAlpha, apyRoot, outcome, breakEvenDays, maxSafeStake, REF_STAKES, SLIP_BANDS, takeOf, growth} from '../src/swap-math.js';
+import {apyAlpha, apyRoot, outcome, breakEvenDays, maxSafeStake, exitSlippage, apyRange, lowTaoEmission, LOW_EMISSION_WARNING, REF_STAKES, SLIP_BANDS, takeOf, growth} from '../src/swap-math.js';
 import {featuresEnabled, engagementFlags, stripFlagged} from '../src/features.js';
-import {formatBreakEvenDays} from '../src/format.js';
+import {formatBreakEvenDays, formatApyRange} from '../src/format.js';
 import {renderOgSvg} from '../src/og-template.js';
 import {shareCard} from '../src/og-metrics.js';
 import {svgToPng} from '../src/og-png.js';
@@ -67,6 +67,11 @@ for (const dir of ['sn', 'how-it-works', 'methodology', 'leaderboard', 'impressu
 }
 fs.rmSync(path.join(R, 'public', 'og'), {recursive: true, force: true});
 
+function warnCard(s) {
+  if (!lowTaoEmission(s)) return '';
+  return `<section class="card warnbox" role="note"><p><b>⚠ Low TAO coverage: ${f(s.tao_coverage_percent, 1)}%.</b> ${esc(LOW_EMISSION_WARNING)}</p></section>`;
+}
+
 function featureCards(s) {
   if (!features) return '';
   const t = takeOf(s);
@@ -74,8 +79,9 @@ function featureCards(s) {
   const safe = SLIP_BANDS.map(b => `<div class="stat"><span class="muted small">≤ ${f(b * 100, 1)}% entry slippage</span><b>${f(maxSafeStake(s, b), 2)} τ</b></div>`).join('');
   const share = `${SITE}/api/og?sn=${s.netuid}&amp;amt=${X}&amp;days=${DAYS}&amp;take=${takePct(s)}`;
   return `<section class="card feature"><h2>Break-even days</h2>
-<p>Days for estimated emissions on this stake to cover the round trip — stake slippage plus unstake slippage — if alpha does not move against TAO. Stake-weighted validator take ${f(takePct(s), 2)}%. <b>Never</b> means those emissions cannot cover the cost.</p>
-<div class="stats">${be}</div></section>
+<p>Days for this stake's own alpha rewards, valued at today's alpha price, to cover the entry cost (stake slippage plus the 0.05% swap fee) if alpha does not move against TAO. Stake-weighted validator take ${f(takePct(s), 2)}%. <b>Never</b> means zero rewards or a stake larger than the pool; over 365 days shows as <b>&gt; 1 year</b>. <a href="/methodology/#break-even">How it's defined</a>.</p>
+<div class="stats">${be}</div>
+<p class="small">Exit slippage, shown separately: selling the alpha from ${X} τ into today's pool costs about <b>${f(exitSlippage(s, X).pct * 100, 2)}%</b> (${f(exitSlippage(s, X).tao, 3)} τ).</p></section>
 <section class="card feature"><h2>Max safe stake</h2>
 <p>Largest stake that keeps entry slippage at or below each limit in the current pool.</p>
 <div class="stats">${safe}</div>
@@ -90,7 +96,7 @@ for (const s of live) {
   const verdict = o.out >= rootEnd ? `beats root staking (≈${f(rootEnd, 1)} τ)` : `trails root staking (≈${f(rootEnd, 1)} τ)`;
   const title = `${nm} staking: real yield in TAO | AlphaCheck`;
   const desc = `${nm}: est. ${f(apy)}% APY paid in alpha, ${f(s.taoIn, 0)} τ pool. ${X} τ staked ${DAYS} days returns ≈${f(o.out, 1)} τ at a flat alpha price after slippage (data ${date}).`;
-  const hero = `<section class="hero"><h1>${esc(nm)}: is the APY real?</h1>${star(s).replace('class="star"', 'class="star star-lg"')}<!--F:compare--><p class="small"><a href="/compare/?a=${s.netuid}&amp;b=${s.netuid === 64 ? 19 : 64}&amp;stake=${X}&amp;days=30">Compare SN${s.netuid} with another subnet</a></p><!--/F:compare--><p class="summary">As of ${date} (block ${d.block}), subnet ${s.netuid} (${esc(s.name)}) shows an estimated <b>${f(apy)}% APY</b>, paid in its alpha token, at a stake-weighted validator take of ${f(takePct(s), 2)}%. The pool holds <b>${f(s.taoIn, 0)} τ</b>, so staking ${X} τ costs about <b>${f(o.entrySlip * 100, 2)}%</b> in entry slippage. Held ${DAYS} days at a flat alpha price, with epoch compounding, you'd get back about <b>${f(o.out, 2)} τ</b> after the swap fee and exit slippage, which ${verdict}. Change the inputs below to check your own case.</p>${reportLink(s)}</section>${featureCards(s)}`;
+  const hero = `<section class="hero"><h1>${esc(nm)}: is the APY real?</h1>${star(s).replace('class="star"', 'class="star star-lg"')}<!--F:compare--><p class="small"><a href="/compare/?a=${s.netuid}&amp;b=${s.netuid === 64 ? 19 : 64}&amp;stake=${X}&amp;days=30">Compare SN${s.netuid} with another subnet</a></p><!--/F:compare--><p class="summary">As of ${date} (block ${d.block}), subnet ${s.netuid} (${esc(s.name)}) shows an estimated <b>${esc(formatApyRange(apyRange(s)))} APY</b> depending on validator, paid in its alpha token (${f(apy)}% at the stake-weighted validator take of ${f(takePct(s), 2)}%). The pool holds <b>${f(s.taoIn, 0)} τ</b>, so staking ${X} τ costs about <b>${f(o.entrySlip * 100, 2)}%</b> in entry slippage. Held ${DAYS} days at a flat alpha price, with epoch compounding, you'd get back about <b>${f(o.out, 2)} τ</b> after the swap fee and exit slippage, which ${verdict}. Change the inputs below to check your own case.</p>${reportLink(s)}</section>${warnCard(s)}${featureCards(s)}`;
   write(`sn/${s.netuid}/index.html`, page({url: `/sn/${s.netuid}/`, title, desc, ogTitle: `${nm}: High APY ≠ profit`, hero, sn: s.netuid, links: allLinks}));
 }
 

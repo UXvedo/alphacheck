@@ -1,6 +1,6 @@
 import {loadData} from './data.js';
 import {parseCompare, compareMetrics, compareUrl, liveSubnets} from './compare-core.js';
-import {formatBreakEvenDays} from './format.js';
+import {formatBreakEvenDays, formatApyRange} from './format.js';
 import {formatAsOf} from './time.js';
 
 const d = await loadData(), S = d.subnets, live = liveSubnets(S);
@@ -22,8 +22,11 @@ function run() {
   $('cout').innerHTML = `<div class="tablewrap"><table class="cmp"><caption class="muted small">${f(cur.stake, 2)} τ each, ${cur.days} days, flat alpha price. Data as of ${formatAsOf(d.asOf)}.</caption>
 <tr><th scope="col">Metric</th><th scope="col"><a href="/sn/${A.netuid}/">SN${A.netuid} · ${esc(A.name)}</a></th><th scope="col"><a href="/sn/${B.netuid}/">SN${B.netuid} · ${esc(B.name)}</a></th></tr>
 ${row('Est. APY (paid in alpha)', f(A.apy * 100, 1) + '%', f(B.apy * 100, 1) + '%', better(A.apy, B.apy, 1), better(B.apy, A.apy, 1))}
+${row('APY range across validators', formatApyRange(A.apyRange), formatApyRange(B.apyRange))}
+${row('Low TAO emission warning', A.lowEmission ? '⚠ Yes' : 'No', B.lowEmission ? '⚠ Yes' : 'No')}
 ${row('Entry slippage', f(A.entrySlip * 100, 2) + '%', f(B.entrySlip * 100, 2) + '%', better(A.entrySlip, B.entrySlip, 0), better(B.entrySlip, A.entrySlip, 0))}
 ${row('Break-even', formatBreakEvenDays(A.breakEven), formatBreakEvenDays(B.breakEven), better(be(A), be(B), 0), better(be(B), be(A), 0))}
+${row('Exit slippage today (separate)', Number.isFinite(A.exitSlip) ? f(A.exitSlip * 100, 2) + '%' : '—', Number.isFinite(B.exitSlip) ? f(B.exitSlip * 100, 2) + '%' : '—')}
 ${row(`TAO back after ${cur.days} days`, f(A.out, 3) + ' τ', f(B.out, 3) + ' τ', better(A.out, B.out, 1), better(B.out, A.out, 1))}
 ${row('Net TAO', (A.net >= 0 ? '+' : '') + f(A.net, 3) + ' τ', (B.net >= 0 ? '+' : '') + f(B.net, 3) + ' τ')}
 ${row('Pool liquidity', f(A.pool, 0) + ' τ', f(B.pool, 0) + ' τ')}

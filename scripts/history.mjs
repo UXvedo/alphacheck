@@ -5,7 +5,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 import {price, apyAlpha, apyRoot, takeOf} from '../src/swap-math.js';
 
-export const HISTORY_VERSION = 2;
+export const HISTORY_VERSION = 3;
 
 export function historyRecord(snapshot) {
   const asOf = snapshot.asOf;
@@ -20,6 +20,8 @@ export function historyRecord(snapshot) {
     emissions: s.alphaEmissionPerBlock,
     take: takeOf(s),
     estApy: s.netuid === 0 ? rootApy : apyAlpha(s),
+    emission_share_percent: Number.isFinite(s.emission_share_percent) ? s.emission_share_percent : null,
+    emission_tao_per_day: Number.isFinite(s.emission_tao_per_day) ? s.emission_tao_per_day : null,
     block,
     asOf,
   }));
@@ -40,7 +42,7 @@ export function writeDailyHistory(snapshot, opts = {}) {
   days.sort((a, b) => a.date < b.date ? -1 : a.date > b.date ? 1 : 0);
   const index = {
     version: HISTORY_VERSION,
-    note: 'One file per UTC day. Re-running snapshot on the same day replaces that file and its index entry. Older days are left untouched. estApy is the nominal subnet APY at that subnet\'s stake-weighted validator take (the take field). Root estApy is the root APY: each subnet uses its own take, and one epoch of root dividends is sold through that pool. emissions is alpha emitted per block. alphaPrice is the weighted-pool spot price.',
+    note: 'One file per UTC day. Re-running snapshot on the same day replaces that file and its index entry. Older days are left untouched. estApy is the nominal subnet APY at that subnet\'s stake-weighted validator take (the take field). Root estApy is the root APY: each subnet uses its own take, and one epoch of root dividends is sold through that pool. emissions is alpha emitted per block. alphaPrice is the weighted-pool spot price. From version 3: emission_share_percent is the subnet\'s share of all subnet TAO emission (subnetTaoInEmission) in percent, and emission_tao_per_day is that TAO per day; null when the snapshot did not carry them.',
     days,
   };
   fs.writeFileSync(indexPath, JSON.stringify(index, null, 2) + '\n');

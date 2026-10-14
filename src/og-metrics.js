@@ -1,6 +1,6 @@
 // Figures for share images. Same formulas as the calculator, at a flat alpha price.
-import {apyAlpha, apyRoot, outcome, breakEvenDays, takeOf, growth} from './swap-math.js';
-import {formatBreakEvenDays} from './format.js';
+import {apyAlpha, apyRoot, outcome, breakEvenDays, takeOf, growth, apyRange, lowTaoEmission} from './swap-math.js';
+import {formatBreakEvenDays, formatApyRange} from './format.js';
 
 const f = (x, n = 1) => Number(x).toLocaleString('en-US', {maximumFractionDigits: n, minimumFractionDigits: n});
 const signedTao = x => `${x >= 0 ? '+' : ''}${f(x, 2)} τ`;
@@ -24,7 +24,8 @@ export function shareCard(snapshot, {netuid, amt, take} = {}) {
   return {
     title,
     stakeLabel,
-    apy: `${f(apyAlpha(s, t) * 100, 1)}%`,
+    apy: take != null && Number.isFinite(+take) ? `${f(apyAlpha(s, t) * 100, 1)}%` : formatApyRange(apyRange(s)),
+    warning: lowTaoEmission(s) ? 'Low TAO emission: high alpha APY is paid in new alpha' : '',
     breakEven: formatBreakEvenDays(breakEvenDays(s, X, t)),
     netTao: signedTao(net),
   };

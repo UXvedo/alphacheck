@@ -1,7 +1,7 @@
 import {loadData} from './data.js';
-import {SC, apyAlpha, apyRoot as apyRootS, outcome, breakEvenDays, maxSafeStake, REF_STAKES, SLIP_BANDS, takeOf, growth} from './swap-math.js';
+import {SC, apyAlpha, apyRoot as apyRootS, outcome, breakEvenDays, maxSafeStake, exitSlippage, apyRange, lowTaoEmission, LOW_EMISSION_WARNING, REF_STAKES, SLIP_BANDS, takeOf, growth} from './swap-math.js';
 import {formatAsOf} from './time.js';
-import {formatBreakEvenDays} from './format.js';
+import {formatBreakEvenDays, formatApyRange} from './format.js';
 import {posToStake, stakeToPos} from './slider.js';
 import {loadWatch, starredFirst} from './watchlist.js';
 
@@ -120,10 +120,13 @@ function run() {
   if (__FEATURES_ON__) {
     const cells = [`<div class="stat"><span class="muted small">This stake (${f(X, 2)} τ)</span><b>${formatBreakEvenDays(breakEvenDays(s, X, t))}</b></div>`]
       .concat(REF_STAKES.map(amt => `<div class="stat"><span class="muted small">${f(amt, 0)} τ</span><b>${formatBreakEvenDays(breakEvenDays(s, amt, t))}</b></div>`)).join('');
-    feature = `<div class="card"><h2>Break-even days</h2><div class="stats">${cells}</div><p class="muted small">Round-trip cost (stake slippage plus unstake slippage) divided by estimated daily emissions in TAO, at 0% alpha change and your validator take. Never means those emissions cannot cover the cost.</p></div>`;
+    const ex = exitSlippage(s, X);
+    feature = `<div class="card"><h2>Break-even days</h2><div class="stats">${cells}<div class="stat"><span class="muted small">Exit slippage today (separate)</span><b>${Number.isFinite(ex.pct) ? f(ex.pct * 100, 2) + '% · ' + f(ex.tao, 3) + ' τ' : '—'}</b></div></div><p class="muted small">Entry cost (stake slippage plus the 0.05% swap fee, in TAO) divided by your stake's daily alpha rewards valued at today's alpha price, at 0% alpha change and your validator take. Exit slippage, selling into today's pool, is shown separately. Never means zero rewards or a stake larger than the pool; over 365 days shows as &gt; 1 year.</p></div>`;
   }
-  html += `${feature}<div class="card"><h2>SN${s.netuid} · ${esc(s.name)}</h2><div class="stats">
- <div class="stat"><span class="muted small">Est. APY (paid in alpha)</span><b>${f(aA * 100, 1)}%</b></div>
+  const warn = lowTaoEmission(s) ? `<div class="card warnbox" role="note"><b>⚠ Low TAO emission (${f(s.emission_share_percent, 3)}% of TAO emission, ≈${f(s.emission_tao_per_day, 2)} τ/day).</b> ${esc(LOW_EMISSION_WARNING)}</div>` : '';
+  html += `${warn}${feature}<div class="card"><h2>SN${s.netuid} · ${esc(s.name)}</h2><div class="stats">
+ <div class="stat"><span class="muted small">Est. APY (paid in alpha), your take</span><b>${f(aA * 100, 1)}%</b></div>
+ <div class="stat"><span class="muted small">APY range across validators (paid in alpha)</span><b>${formatApyRange(apyRange(s))}</b></div>
  <div class="stat"><span class="muted small">Alpha price</span><b>${f(P, 5)} τ</b></div>
  <div class="stat"><span class="muted small">Pool liquidity</span><b>${f(s.taoIn, 0)} τ</b></div>
  <div class="stat"><span class="muted small">Entry slippage</span><b class="${entrySlip > 0.01 ? 'warn' : ''}">${f(entrySlip * 100, 2)}%</b></div>

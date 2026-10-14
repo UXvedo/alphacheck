@@ -129,13 +129,52 @@ export function dailyEmissionsTao(s, X, t) {
   return Number.isFinite(daily) ? daily : 0;
 }
 
-export function breakEvenDays(s, X, t = DEFAULT_TAKE) {
-  const {total} = roundTripCost(s, X);
-  const daily = dailyEmissionsTao(s, X, t);
-  if (!(daily > 0) || !Number.isFinite(total)) return null;
-  if (total <= 0) return 0;
-  return total / daily;
+// Entry cost in TAO: stake slippage plus the swap fee (buy() already applies the fee).
+export function entryCost(s, X) {
+  if (!(X > 0) || !(s.alphaIn > 0) || !(s.taoIn > 0)) return NaN;
+  return X - buy(s, X) * price(s);
 }
+
+// Exit slippage in TAO: selling the alpha you just bought into today's pool, as its own figure.
+// Not part of break-even (approved Oct 14: counting it on top of entry double-counts most of the slippage).
+export function exitSlippage(s, X) {
+  if (!(X > 0) || !(s.alphaIn > 0) || !(s.taoIn > 0)) return {tao: NaN, pct: NaN};
+  const aGot = buy(s, X), spot = aGot * price(s);
+  const tao = spot - sell(s, aGot);
+  return {tao, pct: spot > 0 ? tao / spot : NaN};
+}
+
+// Break-even days = entry cost (slippage + fee, τ) ÷ (YOUR stake's daily alpha rewards × current alpha price),
+// at 0% alpha price change. null ("Never") when rewards are zero or the stake is larger than the pool.
+export function breakEvenDays(s, X, t = DEFAULT_TAKE) {
+  if (!(X > 0) || !(s?.taoIn > 0) || X > s.taoIn) return null;
+  const cost = entryCost(s, X);
+  const daily = dailyEmissionsTao(s, X, t);
+  if (!(daily > 0) || !Number.isFinite(cost)) return null;
+  if (cost <= 0) return 0;
+  return cost / daily;
+}
+
+// APY range across validators holding at least `minShare` of the subnet's stake.
+export const RANGE_MIN_SHARE = 0.01;
+export function apyRange(s, minShare = RANGE_MIN_SHARE) {
+  const rows = Array.isArray(s?.validators) ? s.validators : [];
+  const total = rows.reduce((a, v) => a + (v.alpha > 0 ? v.alpha : 0), 0);
+  const denom = Math.max(stakedOf(s), total);
+  const takes = denom > 0 ? rows.filter(v => v.alpha / denom >= minShare && Number.isFinite(v.take)).map(v => v.take) : [];
+  if (!takes.length) takes.push(takeOf(s));
+  const apys = takes.map(t => apyAlpha(s, t));
+  return {min: Math.min(...apys), max: Math.max(...apys), validators: takes.length};
+}
+
+// TAO emission share. Warning threshold approved Oct 14: share < 0.1%.
+export const LOW_EMISSION_SHARE_PERCENT = 0.1;
+export function lowTaoEmission(s) {
+  if (!s || s.netuid === 0) return false;
+  const v = Number(s.emission_share_percent);
+  return Number.isFinite(v) && v < LOW_EMISSION_SHARE_PERCENT;
+}
+export const LOW_EMISSION_WARNING = 'This subnet receives very little TAO emission. High alpha APY here is paid in newly issued alpha, which tends to push the alpha price down.';
 
 export function maxSafeStake(s, maxSlip) {
   if (!(s.taoIn > 0) || !(s.alphaIn > 0) || !(maxSlip > 0) || maxSlip >= 1) return 0;

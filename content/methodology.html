@@ -37,6 +37,20 @@
 <p><code>ΔT = (1 − f) · T · (1 − (α / (α + Δα)) ^ (w_b / w_q))</code></p>
 <p>Entry slippage is <code>1 − Δα / (TAO in / price)</code>, so the fee is inside the slippage figure. At <code>w_q = w_b = 0.5</code> and <code>f = 0</code> both swaps equal the constant-product pool <code>T · α = k</code>.</p>
 <p>A scenario move of <code>c</code> (−50%, −20%, 0, +20%) keeps <code>T^w_b · α^w_q</code> constant and sets the new spot price to <code>price · (1 + c)</code>. The exit sells the compounded alpha into those reserves.</p>
+<h3 id="break-even">Break-even days</h3>
+<p><code>break-even days = entry cost ÷ (your stake's daily alpha rewards × current alpha price)</code>, at 0% alpha price change.</p>
+<ul>
+<li><b>Entry cost</b> is in TAO: the stake slippage plus the 0.05% swap fee, <code>X − Δα · P</code> for a stake of <code>X</code> τ.</li>
+<li><b>Daily rewards</b> are your own stake's alpha rewards (<code>Δα × APY ÷ 365</code> at the selected validator take), valued at today's spot price. This is not the subnet's total emission.</li>
+<li><b>Exit slippage</b> (selling the same alpha into today's pool) is shown as its own figure and is not added to break-even. Adding it to entry slippage on the current pre-buy pool would count most of the slippage twice.</li>
+<li><b>Display caps:</b> zero rewards, or a stake larger than the pool's TAO, shows <b>Never</b>. Anything over 365 days shows <b>&gt; 1 year</b>. No raw day count above 365 is shown anywhere, including share images.</li>
+<li><b>Reward-sell slippage is not modelled.</b> Break-even values rewards at today's spot price and ignores the slippage of later selling them. On thin pools that is a small extra cost: on SN58, about 45 days of rewards on 100 τ is roughly 6 τ of alpha, and selling it into an ~1,127 τ pool costs about 0.5%, against about 8% entry cost.</li>
+</ul>
+<h3 id="apy-range">APY range across validators</h3>
+<p>Subnet pages and share images show APY as a range: the minimum to maximum modeled APY across validators holding at least 1% of the subnet's stake, each at its own take. It is still paid in alpha. The calculator also shows the figure for the take you select.</p>
+<p>APY is modeled from <b>nominal emissions</b>. Realized APY, measured from what was actually paid out, can be higher for low-take validators: an independent Taostats check on Oct 14, 2026 showed up to +14pp on SN58 for a 0%-take validator.</p>
+<h3 id="low-emission">Low TAO emission warning</h3>
+<p>Each daily snapshot stores <code>emission_share_percent</code> (the subnet's share of all subnet TAO emission, from <code>subnetTaoInEmission</code>) and <code>emission_tao_per_day</code>. When the share is below 0.1%, the subnet page shows: "This subnet receives very little TAO emission. High alpha APY here is paid in newly issued alpha, which tends to push the alpha price down."</p>
 <h3>Holding period and price scenarios</h3>
 <p><code>aEnd = aGot · (1 + apy / n) ^ (n · days / 365)</code></p>
 <p><code>n</code> is about 7,280 when tempo is 360. At a 100% nominal APY over 90 days the compounded gain is about 28%, against about 24.7% of simple interest. Root's holding-period TAO uses the same growth on the root APY and the root subnet's tempo.</p></section>

@@ -1,5 +1,5 @@
 // Compare view logic. Uses only the approved formulas in swap-math.js; no new math.
-import {apyAlpha, outcome, breakEvenDays, takeOf} from './swap-math.js';
+import {apyAlpha, outcome, breakEvenDays, takeOf, apyRange, exitSlippage, lowTaoEmission} from './swap-math.js';
 
 export const liveSubnets = S => S.filter(s => s.netuid !== 0 && s.taoIn > 0);
 
@@ -17,6 +17,7 @@ export function compareMetrics(s, stake, days) {
     netuid: s.netuid, name: s.name, take: t, pool: s.taoIn,
     apy: apyAlpha(s, t), entrySlip: o.entrySlip, out: o.out, net: o.out - stake,
     breakEven: breakEvenDays(s, stake, t),
+    apyRange: apyRange(s), exitSlip: exitSlippage(s, stake).pct, lowEmission: lowTaoEmission(s),
   };
 }
 
