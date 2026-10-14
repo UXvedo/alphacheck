@@ -1,0 +1,52 @@
+name: Report a wrong number
+description: A figure on AlphaCheck looks wrong (APY, slippage, break-even, max safe stake, net TAO).
+title: "Wrong number: SN"
+labels: ["wrong-number"]
+body:
+  - type: input
+    id: subnet
+    attributes:
+      label: Subnet
+      description: Subnet number, e.g. 64
+    validations:
+      required: true
+  - type: input
+    id: page
+    attributes:
+      label: Page URL
+  - type: input
+    id: data_as_of
+    attributes:
+      label: Data as of
+      description: The "Data as of" time shown on the page
+  - type: dropdown
+    id: metric
+    attributes:
+      label: Which number?
+      options:
+        - Est. APY
+        - Entry or exit slippage
+        - Break-even days
+        - Max safe stake
+        - Net TAO / what you'd get back
+        - Leaderboard
+        - Share image
+        - Other
+    validations:
+      required: true
+  - type: input
+    id: shown
+    attributes:
+      label: What AlphaCheck shows
+    validations:
+      required: true
+  - type: input
+    id: expected
+    attributes:
+      label: What you expected, and your source (e.g. Taostats, tao.app, on-chain)
+    validations:
+      required: true
+  - type: textarea
+    id: details
+    attributes:
+      label: Stake size, holding period, validator, and anything else
