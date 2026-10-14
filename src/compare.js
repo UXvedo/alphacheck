@@ -23,7 +23,7 @@ function run() {
 <tr><th scope="col">Metric</th><th scope="col"><a href="/sn/${A.netuid}/">SN${A.netuid} · ${esc(A.name)}</a></th><th scope="col"><a href="/sn/${B.netuid}/">SN${B.netuid} · ${esc(B.name)}</a></th></tr>
 ${row('Est. APY (paid in alpha)', f(A.apy * 100, 1) + '%', f(B.apy * 100, 1) + '%', better(A.apy, B.apy, 1), better(B.apy, A.apy, 1))}
 ${row('APY range across validators', formatApyRange(A.apyRange), formatApyRange(B.apyRange))}
-${row('Low TAO coverage warning', A.lowEmission ? '⚠ Yes' : 'No', B.lowEmission ? '⚠ Yes' : 'No')}
+${row('TAO coverage', A.lowEmission ? '⚠ ' + esc(A.coverage) : esc(A.coverage), B.lowEmission ? '⚠ ' + esc(B.coverage) : esc(B.coverage))}
 ${row('Entry slippage', f(A.entrySlip * 100, 2) + '%', f(B.entrySlip * 100, 2) + '%', better(A.entrySlip, B.entrySlip, 0), better(B.entrySlip, A.entrySlip, 0))}
 ${row('Break-even', formatBreakEvenDays(A.breakEven), formatBreakEvenDays(B.breakEven), better(be(A), be(B), 0), better(be(B), be(A), 0))}
 ${row('Exit slippage today (separate)', Number.isFinite(A.exitSlip) ? f(A.exitSlip * 100, 2) + '%' : '—', Number.isFinite(B.exitSlip) ? f(B.exitSlip * 100, 2) + '%' : '—')}

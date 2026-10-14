@@ -1,5 +1,5 @@
 import {loadData} from './data.js';
-import {SC, apyAlpha, apyRoot as apyRootS, outcome, breakEvenDays, maxSafeStake, exitSlippage, apyRange, lowTaoEmission, taoCoveragePercent, LOW_EMISSION_WARNING, REF_STAKES, SLIP_BANDS, takeOf, growth} from './swap-math.js';
+import {SC, apyAlpha, apyRoot as apyRootS, outcome, breakEvenDays, maxSafeStake, exitSlippage, apyRange, lowTaoEmission, taoCoveragePercent, coverageLine, LOW_EMISSION_WARNING, REF_STAKES, SLIP_BANDS, takeOf, growth} from './swap-math.js';
 import {formatAsOf} from './time.js';
 import {formatBreakEvenDays, formatApyRange} from './format.js';
 import {posToStake, stakeToPos} from './slider.js';
@@ -123,7 +123,7 @@ function run() {
     const ex = exitSlippage(s, X);
     feature = `<div class="card"><h2>Break-even days</h2><div class="stats">${cells}<div class="stat"><span class="muted small">Exit slippage today (separate)</span><b>${Number.isFinite(ex.pct) ? f(ex.pct * 100, 2) + '% · ' + f(ex.tao, 3) + ' τ' : '—'}</b></div></div><p class="muted small">Days until your compounding alpha rewards, at today's alpha price, cover the entry cost (stake slippage plus the 0.05% swap fee): ln(1 + entry cost ÷ stake after entry) ÷ ln(1 + daily rate), at 0% alpha change and your validator take. Exit slippage, selling into today's pool, is shown separately. Never means zero rewards or a stake larger than the pool; over 365 days shows as &gt; 1 year.</p></div>`;
   }
-  const warn = lowTaoEmission(s) ? `<div class="card warnbox" role="note"><b>⚠ ${esc(LOW_EMISSION_WARNING)}</b> <span class="small">TAO coverage: <b>${f(taoCoveragePercent(s), 1)}%</b> (TAO inflow per day ÷ TAO value of alpha issued per day).</span></div>` : '';
+  const warn = lowTaoEmission(s) ? `<div class="card warnbox" role="note"><b>⚠ ${esc(LOW_EMISSION_WARNING)}</b> <span class="small">TAO coverage: <b>${f(taoCoveragePercent(s), 1)}%</b> (TAO inflow per day ÷ TAO value of alpha issued per day).</span></div>` : `<p class="small muted coverage">${esc(coverageLine(s, x => f(x, 1)))}</p>`;
   html += `${warn}${feature}<div class="card"><h2>SN${s.netuid} · ${esc(s.name)}</h2><div class="stats">
  <div class="stat"><span class="muted small">Est. APY (paid in alpha), your take</span><b>${f(aA * 100, 1)}%</b></div>
  <div class="stat"><span class="muted small">APY range across validators (paid in alpha)</span><b>${formatApyRange(apyRange(s))}</b></div>

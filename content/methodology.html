@@ -49,8 +49,21 @@
 <h3 id="apy-range">APY range across validators</h3>
 <p>Subnet pages and share images show APY as a range: the minimum to maximum modeled APY across validators holding at least 1% of the subnet's stake, each at its own take. It is still paid in alpha. The calculator also shows the figure for the take you select.</p>
 <p>APY is modeled from <b>nominal emissions</b>. Realized APY, measured from what was actually paid out, can be higher for low-take validators: an independent Taostats check on Oct 14, 2026 showed up to +14pp on SN58 for a 0%-take validator.</p>
-<h3 id="low-emission">Low TAO coverage warning</h3>
-<p><code>TAO coverage = TAO inflow per day ÷ TAO value (at spot) of all alpha emitted per day</code>. TAO inflow is the subnet's full TAO emission: direct pool injection (<code>SubnetTaoInEmission</code>) plus excess TAO used to buy alpha (<code>SubnetExcessTao</code>), the same as Taostats' <code>emission_tao_per_day</code>. All alpha emitted is miners + validators/stakers + owner (<code>SubnetAlphaOutEmission</code> × 7,200). Below 25%, the subnet page and share image show "Low TAO coverage: most rewards are paid in newly issued alpha, not backed by TAO inflow." with the coverage figure.</p>
+<h3 id="low-emission">TAO coverage</h3>
+<p>TAO coverage measures how much of the value a subnet pays out in new alpha is matched by TAO flowing into its pool.</p>
+<p><code>TAO coverage = TAO inflow per day ÷ (alpha emitted per day × alpha spot price) × 100%</code></p>
+<ul>
+<li><b>TAO inflow</b> is the subnet's full TAO emission: direct pool injection (<code>SubnetTaoInEmission</code>) plus excess TAO used to buy alpha (<code>SubnetExcessTao</code>), × 7,200 blocks a day. This matches Taostats' <code>emission_tao_per_day</code>.</li>
+<li><b>Alpha emitted</b> is all alpha paid to miners, validators/stakers and the subnet owner (<code>SubnetAlphaOutEmission</code> × 7,200).</li>
+</ul>
+<p>Tiers:</p>
+<ul>
+<li><b>Below 10%:</b> a yellow warning, "Low TAO coverage: most rewards are paid in newly issued alpha, not backed by TAO inflow.", with the coverage figure. Share images show this warning only in this tier.</li>
+<li><b>10% to under 50%:</b> a neutral line, "Moderate TAO coverage: X%".</li>
+<li><b>50% and above:</b> "TAO coverage: X%".</li>
+<li><b>No TAO inflow, no alpha emission, or no data:</b> "No TAO emissions".</li>
+</ul>
+<p>Coverage is a property of how the network currently distributes emissions to this subnet. It is not a judgment of the subnet, its team, or its work.</p>
 <p>Each daily snapshot stores <code>tao_injected_per_day</code>, <code>excess_tao_per_day</code>, <code>emission_tao_per_day</code> (their sum), <code>alpha_emission_per_day</code>, <code>alpha_emission_tao_value_per_day</code> and <code>tao_coverage_percent</code>. <code>emission_share_percent</code> is kept for history only and is not displayed.</p>
 <h3>Holding period and price scenarios</h3>
 <p><code>aEnd = aGot · (1 + APY) ^ (days / 365)</code>, the same as compounding the daily rate <code>(1 + APY)^(1/365) − 1</code> for <code>days</code> days.</p>

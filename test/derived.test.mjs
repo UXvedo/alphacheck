@@ -1,7 +1,7 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import fs from 'node:fs';
-import {outcome, roundTripCost, dailyEmissionsTao, breakEvenDays, maxSafeStake, SLIP_BANDS, entryCost, exitSlippage, apyRange, apyAlpha, takeOf, lowTaoEmission, taoCoveragePercent, buy, price} from '../src/swap-math.js';
+import {outcome, roundTripCost, dailyEmissionsTao, breakEvenDays, maxSafeStake, SLIP_BANDS, entryCost, exitSlippage, apyRange, apyAlpha, takeOf, lowTaoEmission, taoCoveragePercent, coverageTier, coverageLine, buy, price} from '../src/swap-math.js';
 import {formatBreakEvenDays, formatApyRange} from '../src/format.js';
 
 const snap = JSON.parse(fs.readFileSync(new URL('../public/snapshot.json', import.meta.url), 'utf8'));
@@ -69,15 +69,21 @@ test('APY range spans validators with >= 1% of stake', () => {
   assert.equal(none.min, apyAlpha(subnet));
 });
 
-test('low TAO coverage warning triggers below 25% coverage only', () => {
-  assert.equal(lowTaoEmission({netuid: 5, tao_coverage_percent: 24.9}), true);
-  assert.equal(lowTaoEmission({netuid: 5, tao_coverage_percent: 25}), false);
+test('low TAO coverage warning triggers by coverage tier', () => {
+  assert.equal(lowTaoEmission({netuid: 5, tao_coverage_percent: 9.9}), true);
+  assert.equal(lowTaoEmission({netuid: 5, tao_coverage_percent: 10}), false);
+  assert.equal(coverageTier({netuid: 5, tao_coverage_percent: 49.9}), 'moderate');
+  assert.equal(coverageTier({netuid: 5, tao_coverage_percent: 50}), 'ok');
+  assert.equal(coverageTier({netuid: 5, emission_tao_per_day: 0, tao_coverage_percent: null}), 'none');
+  assert.equal(coverageLine({netuid: 5, tao_coverage_percent: 30}), 'Moderate TAO coverage: 30.0%');
+  assert.equal(coverageLine({netuid: 5, tao_coverage_percent: 64.9}), 'TAO coverage: 64.9%');
+  assert.equal(coverageLine({netuid: 5}), 'No TAO emissions');
   assert.equal(lowTaoEmission({netuid: 5, emission_share_percent: 0.001}), false, 'share threshold dropped');
   assert.equal(lowTaoEmission({netuid: 5}), false, 'old snapshots without the fields never warn');
   assert.equal(lowTaoEmission({netuid: 0, tao_coverage_percent: 0}), false);
   // computed from older fields when tao_coverage_percent is missing
-  const s = {netuid: 5, taoIn: 100, alphaIn: 100, weightQuote: 0.5, alphaEmissionPerBlock: 1, emission_tao_per_day: 7200 * 0.1};
-  assert.ok(Math.abs(taoCoveragePercent(s) - 10) < 1e-9);
+  const s = {netuid: 5, taoIn: 100, alphaIn: 100, weightQuote: 0.5, alphaEmissionPerBlock: 1, emission_tao_per_day: 7200 * 0.05};
+  assert.ok(Math.abs(taoCoveragePercent(s) - 5) < 1e-9);
   assert.equal(lowTaoEmission(s), true);
 });
 

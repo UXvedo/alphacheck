@@ -3,7 +3,7 @@
 // Numbers come from public/snapshot.json via src/swap-math.js (same math as the calculator).
 import fs from 'node:fs';
 import path from 'node:path';
-import {apyAlpha, apyRoot, outcome, breakEvenDays, breakEvenDaysAt, maxSafeStake, exitSlippage, apyRange, lowTaoEmission, taoCoveragePercent, LOW_EMISSION_WARNING, REF_STAKES, SLIP_BANDS, takeOf, growth} from '../src/swap-math.js';
+import {apyAlpha, apyRoot, outcome, breakEvenDays, breakEvenDaysAt, maxSafeStake, exitSlippage, apyRange, lowTaoEmission, taoCoveragePercent, coverageTier, coverageLine, LOW_EMISSION_WARNING, REF_STAKES, SLIP_BANDS, takeOf, growth} from '../src/swap-math.js';
 import {featuresEnabled, engagementFlags, stripFlagged} from '../src/features.js';
 import {formatBreakEvenDays, formatApyRange} from '../src/format.js';
 import {renderOgSvg} from '../src/og-template.js';
@@ -68,8 +68,8 @@ for (const dir of ['sn', 'how-it-works', 'methodology', 'leaderboard', 'impressu
 fs.rmSync(path.join(R, 'public', 'og'), {recursive: true, force: true});
 
 function warnCard(s) {
-  if (!lowTaoEmission(s)) return '';
-  return `<section class="card warnbox" role="note"><p><b>⚠ ${esc(LOW_EMISSION_WARNING)}</b> <span class="small">TAO coverage: <b>${f(taoCoveragePercent(s), 1)}%</b> (TAO inflow per day ÷ TAO value of alpha issued per day).</span></p></section>`;
+  if (lowTaoEmission(s)) return `<section class="card warnbox" role="note"><p><b>⚠ ${esc(LOW_EMISSION_WARNING)}</b> <span class="small">TAO coverage: <b>${f(taoCoveragePercent(s), 1)}%</b> (TAO inflow per day ÷ TAO value of alpha issued per day). <a href="/methodology/#low-emission">What this means</a>.</span></p></section>`;
+  return `<p class="small muted coverage" data-tier="${coverageTier(s)}">${esc(coverageLine(s, x => f(x, 1)))} · <a href="/methodology/#low-emission">What this means</a></p>`;
 }
 
 function featureCards(s) {
@@ -152,15 +152,27 @@ if (features) {
         net: outcome(s, amount, 30, t, 0).out - amount,
         apy: apyAlpha(s, t),
         be: breakEvenDays(s, amount, t),
+        cov: taoCoveragePercent(s),
       };
     }).sort((a, b) => (b.net - a.net) || (a.s.netuid - b.s.netuid));
-    const body = rows.map(r => `<tr data-sn="${r.s.netuid}"><td>${star(r.s)}<a href="/sn/${r.s.netuid}/">SN${r.s.netuid} · ${esc(r.s.name)}</a></td><td>${f(r.s.taoIn, 0)}</td><td>${f(r.apy * 100, 1)}%</td><td>${(r.net >= 0 ? '+' : '') + f(r.net, 2)} τ</td><td>${esc(formatBreakEvenDays(r.be))}</td></tr>`).join('');
-    return `<div data-panel="${amount}"${amount === 100 ? '' : ' hidden'}><div class="tablewrap"><table><tbody data-watch-sort><tr><th>Subnet</th><th>Pool τ</th><th>Est. APY</th><th>Est. 30-day net TAO</th><th>Break-even</th></tr>${body}</tbody></table></div></div>`;
+    const body = rows.map(r => `<tr data-sn="${r.s.netuid}"><td>${star(r.s)}<a href="/sn/${r.s.netuid}/">SN${r.s.netuid} · ${esc(r.s.name)}</a></td><td>${f(r.s.taoIn, 0)}</td><td>${f(r.apy * 100, 1)}%</td><td>${(r.net >= 0 ? '+' : '') + f(r.net, 2)} τ</td><td>${esc(formatBreakEvenDays(r.be))}</td><td data-cov="${r.cov == null || coverageTier(r.s) === 'none' ? -1 : r.cov.toFixed(3)}">${r.cov == null || coverageTier(r.s) === 'none' ? 'No TAO emissions' : f(r.cov, 1) + '%'}</td></tr>`).join('');
+    return `<div data-panel="${amount}"${amount === 100 ? '' : ' hidden'}><div class="tablewrap"><table><tbody data-watch-sort><tr><th>Subnet</th><th>Pool τ</th><th>Est. APY</th><th>Est. 30-day net TAO</th><th>Break-even</th><th><button type="button" class="sortcov" aria-sort="none" title="Sort by TAO coverage">TAO coverage ⇅</button></th></tr>${body}</tbody></table></div></div>`;
   }).join('');
   const hero = `<section class="hero"><h1>Leaderboard</h1><p>Subnets ordered by estimated net TAO after 30 days at a flat alpha price, including entry and exit slippage and the swap fee. Choose a stake size. Each row uses that subnet's stake-weighted average validator take. The order is a sort of estimates, not a recommendation.</p></section>
 <section class="card"><div class="toggles" role="group" aria-label="Stake size">${buttons}</div>${panels}
 <p class="muted small">0% alpha change. Net TAO is TAO returned minus TAO staked. Each name links to that subnet's page. Estimates, not financial advice.</p></section>
 <script>
+document.querySelectorAll('.sortcov').forEach(function(btn){
+  btn.addEventListener('click', function(){
+    var dir = btn.getAttribute('aria-sort') === 'descending' ? 'ascending' : 'descending';
+    document.querySelectorAll('.sortcov').forEach(function(b){b.setAttribute('aria-sort', dir)});
+    document.querySelectorAll('[data-panel] tbody').forEach(function(tb){
+      var rows = Array.prototype.slice.call(tb.querySelectorAll('tr[data-sn]'));
+      rows.sort(function(a, b){var x = +a.querySelector('[data-cov]').getAttribute('data-cov'), y = +b.querySelector('[data-cov]').getAttribute('data-cov'); return dir === 'descending' ? y - x : x - y;});
+      rows.forEach(function(r){tb.appendChild(r)});
+    });
+  });
+});
 document.querySelectorAll('.toggles button').forEach(function(btn){
   btn.addEventListener('click', function(){
     var stake=btn.getAttribute('data-stake');

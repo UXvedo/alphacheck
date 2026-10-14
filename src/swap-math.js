@@ -175,7 +175,7 @@ export function apyRange(s, minShare = RANGE_MIN_SHARE) {
 
 // TAO coverage = TAO inflow per day (direct pool injection + excess TAO buys) ÷ TAO value (spot) of all alpha emitted per day
 // (miners + validators/stakers + owner = subnetAlphaOutEmission). Warning below 25% (approved Oct 14).
-export const LOW_COVERAGE_PERCENT = 25;
+export const LOW_COVERAGE_PERCENT = 10;
 export function taoCoveragePercent(s) {
   if (!s || s.netuid === 0) return null;
   const stored = Number(s.tao_coverage_percent);
@@ -185,9 +185,27 @@ export function taoCoveragePercent(s) {
   const alphaValue = (s.alphaEmissionPerBlock || 0) * 7200 * (s.taoIn > 0 && s.alphaIn > 0 ? price(s) : 0);
   return alphaValue > 0 ? taoDay / alphaValue * 100 : null;
 }
-export function lowTaoEmission(s) {
+// Coverage tiers (approved Oct 15): low < 10% (warning), moderate 10% to < 50% (info), ok >= 50%,
+// none = no TAO inflow, no alpha emission, or no data.
+export const COVERAGE_TIERS = {low: 10, moderate: 50};
+export function coverageTier(s) {
+  if (!s || s.netuid === 0) return 'none';
+  const inflow = Number(s.emission_tao_per_day);
+  if (s.emission_tao_per_day != null && Number.isFinite(inflow) && inflow <= 0) return 'none';
   const c = taoCoveragePercent(s);
-  return c != null && c < LOW_COVERAGE_PERCENT;
+  if (c == null) return 'none';
+  return c < COVERAGE_TIERS.low ? 'low' : c < COVERAGE_TIERS.moderate ? 'moderate' : 'ok';
+}
+export function lowTaoEmission(s) {
+  return coverageTier(s) === 'low';
+}
+// Plain-text coverage line for every tier except low (low uses LOW_EMISSION_WARNING plus the %).
+export function coverageLine(s, fmt = x => x.toFixed(1)) {
+  const tier = coverageTier(s);
+  if (tier === 'none') return 'No TAO emissions';
+  const pct = `${fmt(taoCoveragePercent(s))}%`;
+  if (tier === 'moderate') return `Moderate TAO coverage: ${pct}`;
+  return `TAO coverage: ${pct}`;
 }
 export const LOW_EMISSION_WARNING = 'Low TAO coverage: most rewards are paid in newly issued alpha, not backed by TAO inflow.';
 
