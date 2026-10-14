@@ -49,7 +49,7 @@ const out = [], write = (rel, html) => {
   out.push(rel);
 };
 
-for (const dir of ['sn', 'how-it-works', 'methodology', 'leaderboard', 'impressum', 'privacy']) {
+for (const dir of ['sn', 'how-it-works', 'methodology', 'leaderboard', 'impressum', 'contact', 'privacy']) {
   fs.rmSync(path.join(R, dir), {recursive: true, force: true});
 }
 fs.rmSync(path.join(R, 'public', 'og'), {recursive: true, force: true});
@@ -107,23 +107,19 @@ write('methodology/index.html', withoutCalculator(page({
   hero: methodology,
 })));
 
-write('impressum/index.html', withoutCalculator(page({
-  url: '/impressum/',
-  title: 'Impressum | AlphaCheck',
-  desc: 'Draft legal notice for AlphaCheck. Not published.',
-  ogTitle: 'Impressum',
-  hero: fs.readFileSync(path.join(R, 'content/impressum.html'), 'utf8'),
-  robots: 'noindex, nofollow',
-  lang: 'de',
+write('contact/index.html', withoutCalculator(page({
+  url: '/contact/',
+  title: 'Contact | AlphaCheck',
+  desc: 'Contact AlphaCheck by email: alphacheck-dev@proton.me.',
+  ogTitle: 'Contact AlphaCheck',
+  hero: fs.readFileSync(path.join(R, 'content/contact.html'), 'utf8'),
 })));
 write('privacy/index.html', withoutCalculator(page({
   url: '/privacy/',
-  title: 'Datenschutzerklärung | AlphaCheck',
-  desc: 'Draft privacy notice for AlphaCheck. Not published.',
-  ogTitle: 'Datenschutzerklärung',
+  title: 'Privacy policy | AlphaCheck',
+  desc: 'What AlphaCheck processes: no accounts, no ads, no cookies. Vercel hosting and cookieless analytics, Buttondown newsletter.',
+  ogTitle: 'AlphaCheck privacy policy',
   hero: fs.readFileSync(path.join(R, 'content/privacy.html'), 'utf8'),
-  robots: 'noindex, nofollow',
-  lang: 'de',
 })));
 
 if (features) {
@@ -172,7 +168,7 @@ document.querySelectorAll('.toggles button').forEach(function(btn){
 fs.mkdirSync(path.join(R, 'api'), {recursive: true});
 fs.writeFileSync(path.join(R, 'api', 'subnet-names.json'), JSON.stringify(Object.fromEntries(S.map(s => [s.netuid, s.name]))));
 
-const urls = ['/', '/how-it-works/', '/methodology/', ...live.map(s => `/sn/${s.netuid}/`), ...(features ? ['/leaderboard/'] : [])];
+const urls = ['/', '/how-it-works/', '/methodology/', '/contact/', '/privacy/', ...live.map(s => `/sn/${s.netuid}/`), ...(features ? ['/leaderboard/'] : [])];
 fs.writeFileSync(path.join(R, 'public/sitemap.xml'), `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${urls.map(u => `<url><loc>${SITE}${u}</loc><lastmod>${date}</lastmod></url>`).join('\n')}\n</urlset>\n`);
 fs.writeFileSync(path.join(R, 'public/robots.txt'), `User-agent: *\nAllow: /\nSitemap: ${SITE}/sitemap.xml\n`);
 fs.writeFileSync(path.join(R, '.pages.json'), JSON.stringify(['index.html', ...out]));

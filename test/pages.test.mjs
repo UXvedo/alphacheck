@@ -22,7 +22,8 @@ test('production pages include yield tools; FEATURES_ON=0 hides them', () => {
   assert.match(prod, /\/api\/og\?sn=1/);
   assert.doesNotMatch(prod, /PLACEHOLDER/);
   assert.doesNotMatch(prod, /href="\/impressum\/"/);
-  assert.doesNotMatch(prod, /href="\/privacy\/"/);
+  assert.match(prod, /href="\/contact\/"/);
+  assert.match(prod, /href="\/privacy\/"/);
   const svg = fs.readFileSync('public/og/sn/1.svg', 'utf8');
   assert.match(svg, /Est\. APY/);
   assert.match(svg, /%/);
@@ -37,15 +38,25 @@ test('production pages include yield tools; FEATURES_ON=0 hides them', () => {
   assert.match(method, /FeeRate/);
   assert.doesNotMatch(method, /TODO/);
   assert.match(method, /estimates, not financial advice/i);
-  const impressum = fs.readFileSync('impressum/index.html', 'utf8');
-  assert.match(impressum, /noindex/);
-  assert.match(impressum, /\[PLACEHOLDER/);
-  assert.match(fs.readFileSync('privacy/index.html', 'utf8'), /Vercel Web Analytics/);
-  assert.match(fs.readFileSync('privacy/index.html', 'utf8'), /Buttondown/);
+  assert.equal(fs.existsSync('impressum/index.html'), false);
+  for (const page of ['contact/index.html', 'privacy/index.html']) {
+    const html = fs.readFileSync(page, 'utf8');
+    assert.doesNotMatch(html, /noindex/);
+    assert.doesNotMatch(html, /PLACEHOLDER/);
+    assert.match(html, /alphacheck-dev@proton\.me/);
+    assert.match(html, /href="\/privacy\/"/);
+    assert.match(html, /href="\/contact\/"/);
+  }
+  const privacy = fs.readFileSync('privacy/index.html', 'utf8');
+  assert.match(privacy, /Vercel Web Analytics/);
+  assert.match(privacy, /Buttondown/);
+  assert.match(privacy, /no cookies/);
   const sitemap = fs.readFileSync('public/sitemap.xml', 'utf8');
   assert.match(sitemap, /\/methodology\//);
   assert.match(sitemap, /\/leaderboard\//);
-  assert.doesNotMatch(sitemap, /impressum|privacy/);
+  assert.match(sitemap, /\/contact\//);
+  assert.match(sitemap, /\/privacy\//);
+  assert.doesNotMatch(sitemap, /impressum/);
   assert.match(fs.readFileSync('how-it-works/index.html', 'utf8'), /price = taoIn ÷ alphaIn/);
 
   generate({VERCEL_ENV: 'production', FEATURES_ON: '0'});
