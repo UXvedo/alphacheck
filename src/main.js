@@ -1,14 +1,14 @@
 import {loadData} from './data.js';
-const BPY=7200*365, STAKER=0.41, SC=[-0.5,-0.2,0,0.2];
+import {SC,price,apyAlpha,apyRoot as apyRootS,buy,sell} from './calc.js';
 const d=await loadData(), S=d.subnets, root=S.find(s=>s.netuid===0);
 const $=id=>document.getElementById(id), f=(x,n=2)=>x.toLocaleString(undefined,{maximumFractionDigits:n,minimumFractionDigits:n}), p=x=>(x>=0?'+':'')+f(x*100,1)+'%';
-const price=s=>s.taoIn/s.alphaIn;
-const apyAlpha=(s,t)=>s.alphaOut?s.alphaEmissionPerBlock*STAKER*(1-s.rootProp)*(1-t)*BPY/s.alphaOut:0;
-const apyRoot=t=>S.filter(s=>s.netuid).reduce((a,s)=>a+s.alphaEmissionPerBlock*STAKER*s.rootProp*price(s),0)*(1-t)*BPY/root.taoIn;
-const buy=(s,x)=>s.alphaIn-s.taoIn*s.alphaIn/(s.taoIn+x);            // TAO -> alpha (x*y=k)
-const sell=(T,A,a)=>T-T*A/(A+a);                                       // alpha -> TAO
+const apyRoot=t=>apyRootS(S,t);
 const opts=S.filter(s=>s.netuid===0||s.taoIn>0).map(s=>`<option value="${s.netuid}">${s.netuid} · ${s.name}</option>`);
-$('sn').innerHTML=opts.join('');$('sn').value=S.some(s=>s.netuid===64)?'64':'1';
+$('sn').innerHTML=opts.join('');
+const Q=new URLSearchParams(location.search), def=document.body.dataset.sn;
+$('sn').value=[Q.get('sn'),def,'64','1'].find(v=>v!=null&&S.some(s=>String(s.netuid)===v&&(s.netuid===0||s.taoIn>0)));
+for(const i of ['amt','days','take']){const v=Q.get(i);if(v!=null&&v!==''&&isFinite(+v)&&+v>=0)$(i).value=v}
+function sync(){const q=new URLSearchParams();['sn','amt','days','take'].forEach(i=>q.set(i,$(i).value));history.replaceState(null,'',location.pathname+'?'+q)}
 function run(){
  const s=S.find(x=>x.netuid==$('sn').value), X=+$('amt').value||0, days=+$('days').value||0, t=(+$('take').value||0)/100, yr=days/365;
  const rA=apyRoot(t), rootEnd=X*(1+rA*yr);
@@ -27,4 +27,5 @@ function run(){
  <div class="card"><h2>What you'd get back in TAO</h2><div class="tablewrap"><table><tr><th>Scenario</th><th>Value at spot</th><th>After exit slippage</th><th>Net vs ${f(X,2)} τ in</th><th>vs root</th></tr>${rows}</table></div>
  <p class="muted small">Root staking the same ${f(X,2)} τ for ${days} days ≈ <b>${f(rootEnd,3)} τ</b> (est. ${f(rA*100,1)}% APY, paid in TAO, no slippage). Rewards use simple (non-compounded) interest; alpha emission rates and pool prices will change.</p></div>`;
  $('out').innerHTML=html}
-['sn','amt','days','take'].forEach(i=>$(i).addEventListener('input',run));run();
+['sn','amt','days','take'].forEach(i=>$(i).addEventListener('input',()=>{run();sync()}));run();
+const cp=$('copylink');if(cp)cp.onclick=()=>{sync();navigator.clipboard?.writeText(location.href).then(()=>cp.textContent='Link copied ✓',()=>prompt('Copy this link',location.href))};

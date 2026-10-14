@@ -6,9 +6,10 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "vite",
-    "build": "vite build",
+    "build": "node scripts/gen-pages.mjs && vite build",
     "preview": "vite preview --port 4173 --host",
-    "snapshot": "node scripts/snapshot.mjs"
+    "snapshot": "node scripts/snapshot.mjs",
+    "pages": "node scripts/gen-pages.mjs"
   },
   "keywords": [],
   "author": "",
@@ -19,5 +20,6 @@
   },
   "dependencies": {
     "@polkadot/api": "^17.0.2"
-  }
+  },
+  "type": "module"
 }
