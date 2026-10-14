@@ -1,20 +1,12 @@
 // Vercel serverless share image. Same URL params as the calculator: sn, amt, days, take.
-// Calculated metrics are PLACEHOLDER. Runtime flag: off when VERCEL_ENV=production unless FEATURES_ON=1.
+// take is a percent, matching the calculator. The 30-day net uses a flat alpha price.
+// Features are on unless FEATURES_ON=0 (see src/features.js).
 import fs from 'node:fs';
-import path from 'node:path';
-import {fileURLToPath} from 'node:url';
 import {featuresEnabled} from '../src/features.js';
 import {renderOgSvg} from '../src/og-template.js';
+import {shareCard} from '../src/og-metrics.js';
 
-const here = path.dirname(fileURLToPath(import.meta.url));
-
-function names() {
-  try {
-    return JSON.parse(fs.readFileSync(path.join(here, 'subnet-names.json'), 'utf8'));
-  } catch {
-    return {};
-  }
-}
+const snapshot = JSON.parse(fs.readFileSync(new URL('../public/snapshot.json', import.meta.url), 'utf8'));
 
 export default function handler(req, res) {
   if (!featuresEnabled(process.env)) {
@@ -26,12 +18,9 @@ export default function handler(req, res) {
   const q = req.query && Object.keys(req.query).length
     ? req.query
     : Object.fromEntries(new URL(req.url || '/', 'http://localhost').searchParams);
-  const sn = q.sn == null ? '' : String(q.sn);
-  const map = names();
-  const title = sn && map[sn] ? `SN${sn} · ${map[sn]}` : sn ? `SN${sn}` : 'AlphaCheck';
-  const amt = q.amt == null || q.amt === '' ? '' : String(q.amt);
-  const stakeLabel = amt !== '' && Number.isFinite(+amt) ? `${amt} TAO` : 'PLACEHOLDER';
-  const svg = renderOgSvg({title, stakeLabel, days: q.days, take: q.take});
+  const amt = q.amt == null || q.amt === '' ? 100 : +q.amt;
+  const take = q.take == null || q.take === '' || !Number.isFinite(+q.take) ? undefined : +q.take / 100;
+  const svg = renderOgSvg(shareCard(snapshot, {netuid: q.sn, amt, take}));
   res.statusCode = 200;
   res.setHeader('Content-Type', 'image/svg+xml; charset=utf-8');
   res.setHeader('Cache-Control', 'public, max-age=3600');

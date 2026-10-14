@@ -22,24 +22,17 @@ npm test           # math, history, and page-generation checks
 
 ## Feature flag
 
-Break-even days, max safe stake, the leaderboard, and dynamic share images are hidden on Vercel Production and shown on Preview.
+Break-even days, max safe stake, the leaderboard, and share images are **on by default**, including a Vercel production build. Nothing has to be set in the Vercel dashboard.
 
-| Environment | Flag |
-| --- | --- |
-| `VERCEL_ENV=production` | off |
-| `VERCEL_ENV=preview` (Preview deployments) | on |
-| `npm run dev` or `npm run build` with `VERCEL_ENV` unset | on |
-| `FEATURES_ON=1` | on, including Production |
+The switch lives in `src/features.js` as `FEATURES_DEFAULT`. Set it to `false` and redeploy to hide the tools again. `FEATURES_ON=0` does the same without editing the file: the static site reads it at **build** time, and `/api/og` reads it on each request. `FEATURES_ON=1` forces the tools on. Only the characters `0` and `1` are special. `VERCEL_ENV` does not change the flag.
 
-The static site reads the flag at **build** time. The share-image endpoint (`/api/og`) reads it per request. To show the tools on the production site, set `FEATURES_ON` to `1` for the Production environment in the Vercel project and redeploy. To build a production bundle locally:
+To build a bundle with the tools hidden:
 
 ```bash
-VERCEL_ENV=production npm run build
+FEATURES_ON=0 npm run build
 ```
 
-`FEATURES_ON` must be the character `1`. Other values do not turn the flag on.
-
-Share images are SVG templates. Subnet and stake size come from the page or from the calculator's `sn`, `amt`, `days`, and `take` query params (`hk` selects a validator in the calculator). Estimated APY, break-even days, and 30-day net TAO stay the literal text PLACEHOLDER. Subnet pages point `og:image` at `/og/sn/<netuid>.svg`. The calculator's Share image link points at `/api/og` with the same params. `vite` and `vite preview` serve that route locally; on Vercel it is `api/og.js`.
+Share images are SVG. Subnet pages point `og:image` at `/og/sn/<netuid>.svg` (100 TAO, that subnet's stake-weighted take). The calculator's Share image link points at `/api/og` with `sn`, `amt`, `days`, and `take` (`hk` selects a validator in the calculator; `take` is a percent). Estimated APY, break-even days, and 30-day net TAO are filled from `src/swap-math.js` at a flat alpha price. `vite` and `vite preview` serve `/api/og` locally; on Vercel it is `api/og.js`.
 
 ## Math
 

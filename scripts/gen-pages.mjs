@@ -7,6 +7,7 @@ import {apyAlpha, apyRoot, outcome, breakEvenDays, maxSafeStake, REF_STAKES, SLI
 import {featuresEnabled} from '../src/features.js';
 import {formatBreakEvenDays} from '../src/format.js';
 import {renderOgSvg} from '../src/og-template.js';
+import {shareCard} from '../src/og-metrics.js';
 
 const SITE = 'https://www.alphacheck.io', R = path.resolve(import.meta.dirname, '..');
 const features = featuresEnabled(process.env);
@@ -65,7 +66,7 @@ function featureCards(s) {
 <section class="card feature"><h2>Max safe stake</h2>
 <p>Largest stake that keeps entry slippage at or below each limit in the current pool.</p>
 <div class="stats">${safe}</div>
-<p class="small"><a href="${share}">Share image</a> <span class="muted">for this subnet at ${X} τ. The image carries the subnet and stake size. Estimated APY, break-even days, and 30-day net TAO read PLACEHOLDER.</span></p>
+<p class="small"><a href="${share}">Share image</a> <span class="muted">for this subnet at ${X} τ, with the estimated APY, break-even days, and 30-day net TAO filled in.</span></p>
 </section>`;
 }
 
@@ -163,9 +164,9 @@ document.querySelectorAll('.toggles button').forEach(function(btn){
   const ogDir = path.join(R, 'public', 'og', 'sn');
   fs.mkdirSync(ogDir, {recursive: true});
   for (const s of live) {
-    fs.writeFileSync(path.join(ogDir, `${s.netuid}.svg`), renderOgSvg({title: `SN${s.netuid} · ${s.name}`, stakeLabel: `${X} TAO`, days: DAYS, take: Number(takePct(s).toFixed(4))}));
+    fs.writeFileSync(path.join(ogDir, `${s.netuid}.svg`), renderOgSvg(shareCard(d, {netuid: s.netuid, amt: X, take: takeOf(s)})));
   }
-  fs.writeFileSync(path.join(R, 'public', 'og', 'calc.svg'), renderOgSvg({title: 'Your calculation', stakeLabel: 'PLACEHOLDER'}));
+  fs.writeFileSync(path.join(R, 'public', 'og', 'calc.svg'), renderOgSvg(shareCard(d, {netuid: 64, amt: X})));
 }
 
 fs.mkdirSync(path.join(R, 'api'), {recursive: true});
