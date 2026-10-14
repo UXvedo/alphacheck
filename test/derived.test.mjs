@@ -29,7 +29,8 @@ test('break-even days are ENTRY cost divided by your stake daily rewards in TAO,
       const daily = buy(s, X) * price(s) * ((1 + apyAlpha(s, 0.18)) ** (1 / 365) - 1);
       assert.ok(Math.abs(daily - dailyEmissionsTao(s, X, 0.18)) < 1e-12);
       const days = breakEvenDays(s, X, 0.18);
-      assert.ok(Math.abs(days - cost / daily) < 1e-9);
+      const after = buy(s, X) * price(s), r = (1 + apyAlpha(s, 0.18)) ** (1 / 365) - 1;
+      assert.ok(Math.abs(days - Math.log(1 + cost / after) / Math.log(1 + r)) < 1e-9);
       assert.ok(days < roundTripCost(s, X).total / daily, 'no double-counted exit slippage');
     }
   }

@@ -3,7 +3,7 @@
 // Numbers come from public/snapshot.json via src/swap-math.js (same math as the calculator).
 import fs from 'node:fs';
 import path from 'node:path';
-import {apyAlpha, apyRoot, outcome, breakEvenDays, maxSafeStake, exitSlippage, apyRange, lowTaoEmission, taoCoveragePercent, LOW_EMISSION_WARNING, REF_STAKES, SLIP_BANDS, takeOf, growth} from '../src/swap-math.js';
+import {apyAlpha, apyRoot, outcome, breakEvenDays, breakEvenDaysAt, maxSafeStake, exitSlippage, apyRange, lowTaoEmission, taoCoveragePercent, LOW_EMISSION_WARNING, REF_STAKES, SLIP_BANDS, takeOf, growth} from '../src/swap-math.js';
 import {featuresEnabled, engagementFlags, stripFlagged} from '../src/features.js';
 import {formatBreakEvenDays, formatApyRange} from '../src/format.js';
 import {renderOgSvg} from '../src/og-template.js';
@@ -69,7 +69,7 @@ fs.rmSync(path.join(R, 'public', 'og'), {recursive: true, force: true});
 
 function warnCard(s) {
   if (!lowTaoEmission(s)) return '';
-  return `<section class="card warnbox" role="note"><p><b>⚠ Low TAO coverage: ${f(taoCoveragePercent(s), 1)}%</b> (TAO into the pool per day vs the TAO value of alpha issued per day). ${esc(LOW_EMISSION_WARNING)}</p></section>`;
+  return `<section class="card warnbox" role="note"><p><b>⚠ ${esc(LOW_EMISSION_WARNING)}</b> <span class="small">TAO coverage: <b>${f(taoCoveragePercent(s), 1)}%</b> (TAO inflow per day ÷ TAO value of alpha issued per day).</span></p></section>`;
 }
 
 function featureCards(s) {
@@ -79,8 +79,9 @@ function featureCards(s) {
   const safe = SLIP_BANDS.map(b => `<div class="stat"><span class="muted small">≤ ${f(b * 100, 1)}% entry slippage</span><b>${f(maxSafeStake(s, b), 2)} τ</b></div>`).join('');
   const share = `${SITE}/api/og?sn=${s.netuid}&amp;amt=${X}&amp;days=${DAYS}&amp;take=${takePct(s)}`;
   return `<section class="card feature"><h2>Break-even days</h2>
-<p>Days for this stake's own alpha rewards, valued at today's alpha price, to cover the entry cost (stake slippage plus the 0.05% swap fee) if alpha does not move against TAO. Stake-weighted validator take ${f(takePct(s), 2)}%. <b>Never</b> means zero rewards or a stake larger than the pool; over 365 days shows as <b>&gt; 1 year</b>. <a href="/methodology/#break-even">How it's defined</a>.</p>
+<p>Days for this stake's own compounding alpha rewards, valued at today's alpha price, to cover the entry cost (stake slippage plus the 0.05% swap fee) if alpha does not move against TAO: ln(1 + entry cost ÷ stake after entry) ÷ ln(1 + daily rate). Stake-weighted validator take ${f(takePct(s), 2)}%. <b>Never</b> means zero rewards or a stake larger than the pool; over 365 days shows as <b>&gt; 1 year</b>. <a href="/methodology/#break-even">How it's defined</a>.</p>
 <div class="stats">${be}</div>
+<p class="small">Across the validator APY range (${esc(formatApyRange(apyRange(s)))}), ${X} τ breaks even in <b>${esc(formatBreakEvenDays(breakEvenDaysAt(s, X, apyRange(s).max)))}</b> to <b>${esc(formatBreakEvenDays(breakEvenDaysAt(s, X, apyRange(s).min)))}</b>.</p>
 <p class="small">Exit slippage, shown separately: selling the alpha from ${X} τ into today's pool costs about <b>${f(exitSlippage(s, X).pct * 100, 2)}%</b> (${f(exitSlippage(s, X).tao, 3)} τ).</p></section>
 <section class="card feature"><h2>Max safe stake</h2>
 <p>Largest stake that keeps entry slippage at or below each limit in the current pool.</p>

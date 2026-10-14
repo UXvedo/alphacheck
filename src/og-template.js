@@ -16,7 +16,7 @@ export function renderOgSvg({title = 'AlphaCheck', stakeLabel = '100 TAO', apy =
   <text x="420" y="408" fill="#e7e9ee" font-family="DejaVu Sans,system-ui,Segoe UI,sans-serif" font-size="36">${xml(breakEven)}</text>
   <text x="820" y="360" fill="#8a91a3" font-family="DejaVu Sans,system-ui,Segoe UI,sans-serif" font-size="22">30-day net TAO</text>
   <text x="820" y="408" fill="#e7e9ee" font-family="DejaVu Sans,system-ui,Segoe UI,sans-serif" font-size="36">${xml(netTao)}</text>
-${warning ? `  <text x="72" y="480" fill="#fbbf24" font-family="DejaVu Sans,system-ui,Segoe UI,sans-serif" font-size="26" font-weight="700">⚠ ${xml(warning)}</text>\n` : ''}  <text x="72" y="560" fill="#8a91a3" font-family="DejaVu Sans,system-ui,Segoe UI,sans-serif" font-size="22">alphacheck.io · estimates, not financial advice</text>
+${warning ? `  <text x="72" y="480" fill="#fbbf24" font-family="DejaVu Sans,system-ui,Segoe UI,sans-serif" font-size="21" font-weight="700">⚠ ${xml(warning)}</text>\n` : ''}  <text x="72" y="560" fill="#8a91a3" font-family="DejaVu Sans,system-ui,Segoe UI,sans-serif" font-size="22">alphacheck.io · estimates, not financial advice</text>
 </svg>
 `;
 }

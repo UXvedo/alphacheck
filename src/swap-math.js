@@ -150,12 +150,15 @@ export function exitSlippage(s, X) {
 // Break-even days = entry cost (slippage + fee, τ) ÷ (YOUR stake's daily alpha rewards × current alpha price),
 // at 0% alpha price change. null ("Never") when rewards are zero or the stake is larger than the pool.
 export function breakEvenDays(s, X, t = DEFAULT_TAKE) {
+  return breakEvenDaysAt(s, X, apyAlpha(s, t));
+}
+// Compounding-consistent: days = ln(1 + entry cost / stake after entry) ÷ ln(1 + daily rate).
+export function breakEvenDaysAt(s, X, apy) {
   if (!(X > 0) || !(s?.taoIn > 0) || X > s.taoIn) return null;
-  const cost = entryCost(s, X);
-  const daily = dailyEmissionsTao(s, X, t);
-  if (!(daily > 0) || !Number.isFinite(cost)) return null;
+  const cost = entryCost(s, X), after = buy(s, X) * price(s), r = dailyRate(apy);
+  if (!(r > 0) || !(after > 0) || !Number.isFinite(cost)) return null;
   if (cost <= 0) return 0;
-  return cost / daily;
+  return Math.log(1 + cost / after) / Math.log(1 + r);
 }
 
 // APY range across validators holding at least `minShare` of the subnet's stake.
@@ -170,7 +173,7 @@ export function apyRange(s, minShare = RANGE_MIN_SHARE) {
   return {min: Math.min(...apys), max: Math.max(...apys), validators: takes.length};
 }
 
-// TAO coverage = TAO injected into the pool per day ÷ TAO value (spot) of all alpha emitted per day
+// TAO coverage = TAO inflow per day (direct pool injection + excess TAO buys) ÷ TAO value (spot) of all alpha emitted per day
 // (miners + validators/stakers + owner = subnetAlphaOutEmission). Warning below 25% (approved Oct 14).
 export const LOW_COVERAGE_PERCENT = 25;
 export function taoCoveragePercent(s) {
@@ -186,7 +189,7 @@ export function lowTaoEmission(s) {
   const c = taoCoveragePercent(s);
   return c != null && c < LOW_COVERAGE_PERCENT;
 }
-export const LOW_EMISSION_WARNING = 'This subnet\'s pool receives little TAO compared with the alpha it issues. High alpha APY here is paid in newly issued alpha, which tends to push the alpha price down.';
+export const LOW_EMISSION_WARNING = 'Low TAO coverage: most rewards are paid in newly issued alpha, not backed by TAO inflow.';
 
 export function maxSafeStake(s, maxSlip) {
   if (!(s.taoIn > 0) || !(s.alphaIn > 0) || !(maxSlip > 0) || maxSlip >= 1) return 0;
