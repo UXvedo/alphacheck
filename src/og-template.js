@@ -2,7 +2,7 @@
 
 const xml = s => String(s ?? '').replace(/[&<>"]/g, c => ({'&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;'}[c]));
 
-export function renderOgSvg({title = 'AlphaCheck', stakeLabel = '100 TAO', apy = '—', breakEven = '—', netTao = '—', warning = ''} = {}) {
+export function renderOgSvg({title = 'AlphaCheck', stakeLabel = '100 TAO', apy = '—', breakEven = '—', netTao = '—', warning = '', warningSub = ''} = {}) {
   return `<?xml version="1.0" encoding="UTF-8"?>
 <svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
   <rect width="1200" height="630" fill="#0b0d12"/>
@@ -16,7 +16,13 @@ export function renderOgSvg({title = 'AlphaCheck', stakeLabel = '100 TAO', apy =
   <text x="420" y="408" fill="#e7e9ee" font-family="DejaVu Sans,system-ui,Segoe UI,sans-serif" font-size="36">${xml(breakEven)}</text>
   <text x="820" y="360" fill="#8a91a3" font-family="DejaVu Sans,system-ui,Segoe UI,sans-serif" font-size="22">30-day net TAO</text>
   <text x="820" y="408" fill="#e7e9ee" font-family="DejaVu Sans,system-ui,Segoe UI,sans-serif" font-size="36">${xml(netTao)}</text>
-${warning ? `  <text x="72" y="480" fill="#fbbf24" font-family="DejaVu Sans,system-ui,Segoe UI,sans-serif" font-size="21" font-weight="700">⚠ ${xml(warning)}</text>\n` : ''}  <text x="72" y="560" fill="#8a91a3" font-family="DejaVu Sans,system-ui,Segoe UI,sans-serif" font-size="22">alphacheck.io · estimates, not financial advice</text>
+${warning ? (() => {
+    const cut = warning.indexOf(', ');
+    const l1 = cut > 0 ? warning.slice(0, cut + 1) : warning, l2 = cut > 0 ? warning.slice(cut + 2) : '';
+    const tail = [l2, warningSub].filter(Boolean).join(' ');
+    return `  <text x="72" y="466" fill="#fbbf24" font-family="DejaVu Sans,system-ui,Segoe UI,sans-serif" font-size="24" font-weight="700">⚠ ${xml(l1)}</text>\n` +
+      (tail ? `  <text x="72" y="502" fill="#fbbf24" font-family="DejaVu Sans,system-ui,Segoe UI,sans-serif" font-size="24" font-weight="700">${xml(tail)}</text>\n` : '');
+  })() : ''}  <text x="72" y="560" fill="#8a91a3" font-family="DejaVu Sans,system-ui,Segoe UI,sans-serif" font-size="22">alphacheck.io · estimates, not financial advice</text>
 </svg>
 `;
 }
