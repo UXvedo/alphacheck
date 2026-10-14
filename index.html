@@ -11,7 +11,7 @@
 <link rel="icon" href="/favicon.svg" type="image/svg+xml"><meta name="theme-color" content="#0b0d12">
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"AlphaCheck","url":"https://www.alphacheck.io/","applicationCategory":"FinanceApplication","operatingSystem":"Any","description":"Bittensor subnet staking calculator showing real returns in TAO after alpha price risk and AMM slippage.","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}}</script>
 <link rel="stylesheet" href="/src/style.css"></head><body data-sn="">
-<header><div class="wrap"><a href="/" class="brand"><b>τ AlphaCheck</b></a><span class="muted hide-sm">Check a subnet's alpha before you stake</span><nav><a href="/how-it-works/">How it's calculated</a><a href="/methodology/">Methodology</a><!--FEATURES--><a href="/leaderboard/">Leaderboard</a><!--/FEATURES--></nav></div></header>
+<header><div class="wrap"><a href="/" class="brand"><b>τ AlphaCheck</b></a><span class="muted hide-sm">Check a subnet's alpha before you stake</span><nav><a href="/how-it-works/">How it's calculated</a><a href="/methodology/">Methodology</a><!--FEATURES--><a href="/leaderboard/">Leaderboard</a><!--/FEATURES--><!--F:compare--><a href="/compare/">Compare</a><!--/F:compare--></nav></div></header>
 <div id="stale-banner" class="stale" hidden data-asof="%%ASOF_ISO%%" role="status"></div>
 <main class="wrap">
 <p class="muted small asof">Data as of <time datetime="%%ASOF_ISO%%">%%ASOF%%</time> (block %%BLOCK%%)</p>
@@ -23,6 +23,12 @@
  <label>Validator<select id="val"></select></label>
  <label>Validator take (%)<input id="take" type="number" value="18" min="0" max="100" step="any"></label>
 </section>
+<!--F:slider--><section class="card whatif" aria-labelledby="whatif-h"><h2 id="whatif-h">What if?</h2>
+<label for="amt-range">Stake: <output id="amt-out" for="amt-range"></output> τ</label>
+<input id="amt-range" type="range" min="0" max="1000" step="1" aria-describedby="whatif-note">
+<label for="days-range">Holding period: <output id="days-out" for="days-range"></output> days</label>
+<input id="days-range" type="range" min="1" max="365" step="1">
+<p id="whatif-note" class="muted small">Drag to see APY, slippage and break-even update below. Same estimates as the inputs above.</p></section><!--/F:slider-->
 <!--FEATURES--><p id="stake-hint" class="muted small"></p><!--/FEATURES-->
 <p class="small actions"><button type="button" id="copylink" class="ghost">Copy link to this calculation</button><!--FEATURES--> <a id="shareimg" class="ghost" href="/api/og">Share image</a><!--/FEATURES--></p>
 <section id="out"></section>
@@ -43,5 +49,6 @@
 </main>
 <script type="module" src="/src/analytics.js"></script>
 <script type="module" src="/src/freshness.js"></script>
+<!--F:watchlist--><script type="module" src="/src/watch-ui.js"></script><!--/F:watchlist-->
 <script type="module" src="/src/main.js"></script>
 </body></html>
