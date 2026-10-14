@@ -2,6 +2,8 @@ import {loadData} from './data.js';
 import {SC, apyAlpha, apyRoot as apyRootS, outcome, breakEvenDays, maxSafeStake, REF_STAKES, SLIP_BANDS, takeOf, growth} from './swap-math.js';
 import {formatAsOf} from './time.js';
 import {formatBreakEvenDays} from './format.js';
+import {posToStake, stakeToPos} from './slider.js';
+import {loadWatch, starredFirst} from './watchlist.js';
 
 const d = await loadData(), S = d.subnets;
 const $ = id => document.getElementById(id);
@@ -12,8 +14,16 @@ const pctText = t => (t * 100).toFixed(4).replace(/(\.\d*?)0+$/, '$1').replace(/
 const shortHk = hk => (hk && hk.length > 12 ? hk.slice(0, 6) + '…' + hk.slice(-4) : (hk || ''));
 const near = (a, b) => Math.abs(a - b) < 1e-6;
 
-const opts = S.filter(s => s.netuid === 0 || s.taoIn > 0).map(s => `<option value="${s.netuid}">${s.netuid} · ${esc(s.name)}</option>`);
-$('sn').innerHTML = opts.join('');
+const store = (() => { try { return window.localStorage; } catch { return null; } })();
+function fillSubnets() {
+  let list = S.filter(s => s.netuid === 0 || s.taoIn > 0);
+  const starred = __WATCH_ON__ ? loadWatch(store) : [];
+  if (__WATCH_ON__) list = starredFirst(list, starred, s => s.netuid);
+  const keep = $('sn').value;
+  $('sn').innerHTML = list.map(s => `<option value="${s.netuid}">${starred.includes(s.netuid) ? '★ ' : ''}${s.netuid} · ${esc(s.name)}</option>`).join('');
+  if (keep) $('sn').value = keep;
+}
+fillSubnets();
 const Q = new URLSearchParams(location.search), def = document.body.dataset.sn;
 $('sn').value = [Q.get('sn'), def, '64', '1'].find(v => v != null && S.some(s => String(s.netuid) === v && (s.netuid === 0 || s.taoIn > 0)));
 for (const i of ['amt', 'days']) {const v = Q.get(i); if (v != null && v !== '' && isFinite(+v) && +v >= 0) $(i).value = v}
@@ -146,7 +156,22 @@ $('take').addEventListener('input', () => {
   }
   run(); sync();
 });
-['amt', 'days'].forEach(i => $(i).addEventListener('input', () => {run(); sync()}));
+['amt', 'days'].forEach(i => $(i).addEventListener('input', () => {run(); sync(); paintSliders()}));
+function paintSliders() {
+  if (!__SLIDER_ON__ || !$('amt-range')) return;
+  $('amt-range').value = stakeToPos($('amt').value);
+  $('amt-out').textContent = f(+$('amt').value || 0, 2);
+  $('days-range').value = Math.min(Math.max(+$('days').value || 1, 1), 365);
+  $('days-out').textContent = String(+$('days').value || 0);
+  $('amt-range').setAttribute('aria-valuetext', `${$('amt-out').textContent} TAO`);
+  $('days-range').setAttribute('aria-valuetext', `${$('days-out').textContent} days`);
+}
+if (__SLIDER_ON__ && $('amt-range')) {
+  $('amt-range').addEventListener('input', () => {$('amt').value = posToStake($('amt-range').value); run(); sync(); paintSliders()});
+  $('days-range').addEventListener('input', () => {$('days').value = $('days-range').value; run(); sync(); paintSliders()});
+  paintSliders();
+}
+if (__WATCH_ON__) document.addEventListener('watchlist-change', fillSubnets);
 run();
 sync();
 const cp = $('copylink'); if (cp) cp.onclick = () => {sync(); navigator.clipboard?.writeText(location.href).then(() => cp.textContent = 'Link copied ✓', () => prompt('Copy this link', location.href))};

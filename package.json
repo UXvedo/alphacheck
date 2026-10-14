@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "node --test",
+    "test": "node --test --test-concurrency=1",
     "dev": "vite",
     "build": "node scripts/gen-pages.mjs && vite build",
     "preview": "vite preview --port 4173 --host",

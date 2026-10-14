@@ -4,13 +4,15 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import {apyAlpha, apyRoot, outcome, breakEvenDays, maxSafeStake, REF_STAKES, SLIP_BANDS, takeOf, growth} from '../src/swap-math.js';
-import {featuresEnabled} from '../src/features.js';
+import {featuresEnabled, engagementFlags, stripFlagged} from '../src/features.js';
 import {formatBreakEvenDays} from '../src/format.js';
 import {renderOgSvg} from '../src/og-template.js';
 import {shareCard} from '../src/og-metrics.js';
 
 const SITE = 'https://www.alphacheck.io', R = path.resolve(import.meta.dirname, '..');
 const features = featuresEnabled(process.env);
+const flags = engagementFlags(process.env);
+const star = s => `<!--F:watchlist--><button type="button" class="star" data-star="${s.netuid}" data-name="SN${s.netuid} ${esc(s.name)}" aria-pressed="false" aria-label="Add SN${s.netuid} to watchlist">☆</button><!--/F:watchlist-->`;
 const d = JSON.parse(fs.readFileSync(path.join(R, 'public/snapshot.json'), 'utf8')), S = d.subnets;
 const tpl = fs.readFileSync(path.join(R, 'index.html'), 'utf8');
 const esc = x => String(x).replace(/[&<>"]/g, c => ({'&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;'}[c]));
@@ -42,14 +44,14 @@ function withoutCalculator(html) {
   return html.slice(0, start) + html.slice(end).replace('<script type="module" src="/src/main.js"></script>', '');
 }
 const out = [], write = (rel, html) => {
-  const body = features ? html : html.replace(/<!--FEATURES-->[\s\S]*?<!--\/FEATURES-->/g, '');
+  const body = stripFlagged(features ? html : html.replace(/<!--FEATURES-->[\s\S]*?<!--\/FEATURES-->/g, ''), flags);
   const p = path.join(R, rel);
   fs.mkdirSync(path.dirname(p), {recursive: true});
   fs.writeFileSync(p, body);
   out.push(rel);
 };
 
-for (const dir of ['sn', 'how-it-works', 'methodology', 'leaderboard', 'impressum', 'contact', 'privacy']) {
+for (const dir of ['sn', 'how-it-works', 'methodology', 'leaderboard', 'impressum', 'contact', 'privacy', 'compare']) {
   fs.rmSync(path.join(R, dir), {recursive: true, force: true});
 }
 fs.rmSync(path.join(R, 'public', 'og'), {recursive: true, force: true});
@@ -70,14 +72,14 @@ function featureCards(s) {
 </section>`;
 }
 
-const allLinks = `<section class="card"><h2>All subnets</h2><ul class="snlist">${live.map(s => `<li><a href="/sn/${s.netuid}/">SN${s.netuid} · ${esc(s.name)}</a></li>`).join('')}</ul></section>`;
+const allLinks = `<section class="card"><h2>All subnets</h2><ul class="snlist" data-watch-sort>${live.map(s => `<li data-sn="${s.netuid}">${star(s)}<a href="/sn/${s.netuid}/">SN${s.netuid} · ${esc(s.name)}</a></li>`).join('')}</ul></section>`;
 for (const s of live) {
   const t = takeOf(s);
   const o = outcome(s, X, DAYS, t, 0), apy = apyAlpha(s, t) * 100, nm = `SN${s.netuid} ${s.name}`;
   const verdict = o.out >= rootEnd ? `beats root staking (≈${f(rootEnd, 1)} τ)` : `trails root staking (≈${f(rootEnd, 1)} τ)`;
   const title = `${nm} staking: real yield in TAO | AlphaCheck`;
   const desc = `${nm}: est. ${f(apy)}% APY paid in alpha, ${f(s.taoIn, 0)} τ pool. ${X} τ staked ${DAYS} days returns ≈${f(o.out, 1)} τ at a flat alpha price after slippage (data ${date}).`;
-  const hero = `<section class="hero"><h1>${esc(nm)}: is the APY real?</h1><p class="summary">As of ${date} (block ${d.block}), subnet ${s.netuid} (${esc(s.name)}) shows an estimated <b>${f(apy)}% APY</b>, paid in its alpha token, at a stake-weighted validator take of ${f(takePct(s), 2)}%. The pool holds <b>${f(s.taoIn, 0)} τ</b>, so staking ${X} τ costs about <b>${f(o.entrySlip * 100, 2)}%</b> in entry slippage. Held ${DAYS} days at a flat alpha price, with epoch compounding, you'd get back about <b>${f(o.out, 2)} τ</b> after the swap fee and exit slippage, which ${verdict}. Change the inputs below to check your own case.</p></section>${featureCards(s)}`;
+  const hero = `<section class="hero"><h1>${esc(nm)}: is the APY real?</h1>${star(s).replace('class="star"', 'class="star star-lg"')}<!--F:compare--><p class="small"><a href="/compare/?a=${s.netuid}&amp;b=${s.netuid === 64 ? 19 : 64}&amp;stake=${X}&amp;days=30">Compare SN${s.netuid} with another subnet</a></p><!--/F:compare--><p class="summary">As of ${date} (block ${d.block}), subnet ${s.netuid} (${esc(s.name)}) shows an estimated <b>${f(apy)}% APY</b>, paid in its alpha token, at a stake-weighted validator take of ${f(takePct(s), 2)}%. The pool holds <b>${f(s.taoIn, 0)} τ</b>, so staking ${X} τ costs about <b>${f(o.entrySlip * 100, 2)}%</b> in entry slippage. Held ${DAYS} days at a flat alpha price, with epoch compounding, you'd get back about <b>${f(o.out, 2)} τ</b> after the swap fee and exit slippage, which ${verdict}. Change the inputs below to check your own case.</p></section>${featureCards(s)}`;
   write(`sn/${s.netuid}/index.html`, page({url: `/sn/${s.netuid}/`, title, desc, ogTitle: `${nm}: High APY ≠ profit`, hero, sn: s.netuid, links: allLinks}));
 }
 
@@ -134,8 +136,8 @@ if (features) {
         be: breakEvenDays(s, amount, t),
       };
     }).sort((a, b) => (b.net - a.net) || (a.s.netuid - b.s.netuid));
-    const body = rows.map(r => `<tr><td><a href="/sn/${r.s.netuid}/">SN${r.s.netuid} · ${esc(r.s.name)}</a></td><td>${f(r.s.taoIn, 0)}</td><td>${f(r.apy * 100, 1)}%</td><td>${(r.net >= 0 ? '+' : '') + f(r.net, 2)} τ</td><td>${esc(formatBreakEvenDays(r.be))}</td></tr>`).join('');
-    return `<div data-panel="${amount}"${amount === 100 ? '' : ' hidden'}><div class="tablewrap"><table><tr><th>Subnet</th><th>Pool τ</th><th>Est. APY</th><th>Est. 30-day net TAO</th><th>Break-even</th></tr>${body}</table></div></div>`;
+    const body = rows.map(r => `<tr data-sn="${r.s.netuid}"><td>${star(r.s)}<a href="/sn/${r.s.netuid}/">SN${r.s.netuid} · ${esc(r.s.name)}</a></td><td>${f(r.s.taoIn, 0)}</td><td>${f(r.apy * 100, 1)}%</td><td>${(r.net >= 0 ? '+' : '') + f(r.net, 2)} τ</td><td>${esc(formatBreakEvenDays(r.be))}</td></tr>`).join('');
+    return `<div data-panel="${amount}"${amount === 100 ? '' : ' hidden'}><div class="tablewrap"><table><tbody data-watch-sort><tr><th>Subnet</th><th>Pool τ</th><th>Est. APY</th><th>Est. 30-day net TAO</th><th>Break-even</th></tr>${body}</tbody></table></div></div>`;
   }).join('');
   const hero = `<section class="hero"><h1>Leaderboard</h1><p>Subnets ordered by estimated net TAO after 30 days at a flat alpha price, including entry and exit slippage and the swap fee. Choose a stake size. Each row uses that subnet's stake-weighted average validator take. The order is a sort of estimates, not a recommendation.</p></section>
 <section class="card"><div class="toggles" role="group" aria-label="Stake size">${buttons}</div>${panels}
@@ -163,6 +165,28 @@ document.querySelectorAll('.toggles button').forEach(function(btn){
     fs.writeFileSync(path.join(ogDir, `${s.netuid}.svg`), renderOgSvg(shareCard(d, {netuid: s.netuid, amt: X, take: takeOf(s)})));
   }
   fs.writeFileSync(path.join(R, 'public', 'og', 'calc.svg'), renderOgSvg(shareCard(d, {netuid: 64, amt: X})));
+}
+
+if (flags.compare) {
+  const hero = `<section class="hero"><h1>Compare two subnets</h1><p>Same stake, same holding period, side by side. Estimates at a flat alpha price, using each subnet's stake-weighted validator take.</p></section>
+<section class="card grid" aria-label="Compare inputs">
+ <label>Subnet A<select id="ca"></select></label>
+ <label>Subnet B<select id="cb"></select></label>
+ <label>Stake (TAO)<input id="cstake" type="number" value="100" min="0.01" step="any" inputmode="decimal"></label>
+ <label>Holding period (days)<input id="cdays" type="number" value="30" min="1" max="3650"></label>
+</section>
+<p class="small actions"><button type="button" id="cswap" class="ghost">Swap A and B</button> <button type="button" id="ccopy" class="ghost">Copy link to this comparison</button></p>
+<section class="card" id="cout" aria-live="polite"></section>
+<p class="muted small">Green marks the better value on that row. Not a recommendation. See <a href="/methodology/">Methodology</a>.</p>
+<script type="module" src="/src/compare.js"></script>`;
+  write('compare/index.html', withoutCalculator(page({
+    url: '/compare/',
+    title: 'Compare subnets | AlphaCheck',
+    desc: 'Compare two Bittensor subnets side by side: APY, entry slippage, break-even days and TAO back for the same stake.',
+    ogTitle: 'Compare subnets on AlphaCheck',
+    hero,
+    robots: 'noindex',
+  })));
 }
 
 fs.mkdirSync(path.join(R, 'api'), {recursive: true});
