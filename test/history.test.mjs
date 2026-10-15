@@ -31,16 +31,19 @@ test('daily history is idempotent within a day and leaves other days untouched',
   assert.equal(s1.asOf, snap.asOf);
   assert.equal(day.subnets.find(s => s.netuid === 0).estApy, apyRoot(snap.subnets));
 
+  // Fresh root with fixed dates so this part doesn't depend on the live snapshot's date.
+  const root2 = fs.mkdtempSync(path.join(os.tmpdir(), 'alphacheck-hist-'));
   const older = {...snap, asOf: '2026-10-13T01:00:00.000Z', block: 1};
-  writeDailyHistory(older, {root});
-  const kept = fs.readFileSync(path.join(root, 'data/history/2026-10-13.json'), 'utf8');
+  writeDailyHistory(older, {root: root2});
+  const kept = fs.readFileSync(path.join(root2, 'data/history/2026-10-13.json'), 'utf8');
+  writeDailyHistory({...snap, asOf: '2026-10-14T01:00:00.000Z', block: 2}, {root: root2});
   const later = {...snap, asOf: '2026-10-14T23:00:00.000Z', block: 99};
-  writeDailyHistory(later, {root});
-  assert.equal(fs.readFileSync(path.join(root, 'data/history/2026-10-13.json'), 'utf8'), kept);
-  const index2 = JSON.parse(fs.readFileSync(path.join(root, 'data/history/index.json'), 'utf8'));
+  writeDailyHistory(later, {root: root2});
+  assert.equal(fs.readFileSync(path.join(root2, 'data/history/2026-10-13.json'), 'utf8'), kept);
+  const index2 = JSON.parse(fs.readFileSync(path.join(root2, 'data/history/index.json'), 'utf8'));
   assert.deepEqual(index2.days.map(d => d.date), ['2026-10-13', '2026-10-14']);
   assert.equal(index2.days.length, 2);
-  const updated = JSON.parse(fs.readFileSync(path.join(root, 'data/history/2026-10-14.json'), 'utf8'));
+  const updated = JSON.parse(fs.readFileSync(path.join(root2, 'data/history/2026-10-14.json'), 'utf8'));
   assert.equal(updated.block, 99);
   assert.equal(updated.subnets[1].block, 99);
   assert.equal(updated.subnets[1].asOf, later.asOf);
