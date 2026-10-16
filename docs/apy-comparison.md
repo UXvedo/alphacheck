@@ -1,6 +1,6 @@
 # APY comparison
 
-Snapshot block 9286224 at 2026-10-15T04:08:36.964Z.
+Snapshot block 9293454 at 2026-10-16T04:14:46.133Z.
 
 New APY is the audited emission estimate: alpha emitted per block × 0.41 × (1 − root proportion) × (1 − stake-weighted validator take) × blocks per year ÷ staked alpha.
 
@@ -8,18 +8,18 @@ Reference is the realized nominator APY from the last epoch: the sum of `AlphaDi
 
 | Subnet | New APY | Reference | Delta |
 | --- | --- | --- | --- |
-| 64 Chutes | 30.7% | 30.6% | +0.1 pp |
-| 51 lium.io | 29.2% | 29.1% | +0.0 pp |
-| 4 Targon | 28.7% | 28.5% | +0.1 pp |
-| 8 Vanta | 37.7% | 37.8% | -0.2 pp |
-| 3 Teutonic | 38.6% | 38.6% | -0.1 pp |
-| 120 Affine | 38.1% | 38.0% | +0.1 pp |
-| 44 Score | 24.9% | 25.2% | -0.3 pp |
-| 9 iota | 32.2% | 32.1% | +0.1 pp |
-| 56 Gradients | 43.6% | 43.6% | +0.0 pp |
-| 68 NOVA | 30.8% | 30.7% | +0.1 pp |
-| 35 Subnet 35 | 194.3% | 193.6% | +0.7 pp |
-| 16 kenju | 89.3% | 89.5% | -0.1 pp |
-| 103 Deprecated | 147.0% | 147.0% | +0.0 pp |
-| 36 Epago | 171.7% | 170.8% | +1.0 pp |
-| 70 Subnet 70 | 170.2% | 169.8% | +0.4 pp |
+| 64 Chutes | 30.6% | 30.5% | +0.1 pp |
+| 51 lium.io | 29.1% | 29.1% | +0.0 pp |
+| 4 Targon | 28.6% | 28.4% | +0.1 pp |
+| 8 Vanta | 37.8% | 38.0% | -0.2 pp |
+| 3 Teutonic | 39.2% | 39.3% | -0.1 pp |
+| 120 Affine | 38.3% | 38.2% | +0.1 pp |
+| 44 Score | 25.0% | 25.3% | -0.3 pp |
+| 9 iota | 32.1% | 32.1% | +0.0 pp |
+| 56 Gradients | 43.5% | 43.5% | +0.1 pp |
+| 68 NOVA | 30.7% | 30.7% | +0.1 pp |
+| 35 Subnet 35 | 173.9% | 173.4% | +0.5 pp |
+| 16 kenju run next week | 85.5% | 85.6% | -0.1 pp |
+| 103 Consted | 123.9% | 123.8% | +0.1 pp |
+| 36 Epago | 182.3% | 181.7% | +0.6 pp |
+| 70 Pending | 153.1% | 152.9% | +0.3 pp |
