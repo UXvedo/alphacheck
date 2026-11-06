@@ -1,6 +1,6 @@
 # APY comparison
 
-Snapshot block 9437638 at 2026-11-05T05:09:26.977Z.
+Snapshot block 9444825 at 2026-11-06T05:06:54.473Z.
 
 New APY is the audited emission estimate: alpha emitted per block × 0.41 × (1 − root proportion) × (1 − stake-weighted validator take) × blocks per year ÷ staked alpha.
 
@@ -8,18 +8,18 @@ Reference is the realized nominator APY from the last epoch: the sum of `AlphaDi
 
 | Subnet | New APY | Reference | Delta |
 | --- | --- | --- | --- |
-| 64 Chutes | 30.0% | 30.0% | +0.0 pp |
-| 51 lium.io | 27.9% | 27.8% | +0.0 pp |
-| 4 Targon | 28.2% | 28.0% | +0.1 pp |
-| 8 Vanta | 35.0% | 44.1% | -9.1 pp |
-| 3 Teutonic | 40.6% | 40.6% | -0.1 pp |
+| 64 Chutes | 29.8% | 29.8% | +0.0 pp |
+| 51 lium.io | 27.5% | 27.5% | +0.0 pp |
+| 4 Targon | 28.0% | 27.9% | +0.1 pp |
+| 8 Vanta | 34.5% | 43.5% | -9.0 pp |
+| 3 Teutonic | 40.7% | 40.8% | -0.1 pp |
 | 120 Affine | 36.9% | 36.8% | +0.1 pp |
-| 44 Score | 25.1% | 27.5% | -2.4 pp |
-| 9 iota | 31.6% | 31.5% | +0.1 pp |
-| 56 Gradients | 42.3% | 41.8% | +0.5 pp |
-| 68 NOVA | 31.2% | 31.1% | +0.1 pp |
-| 35 Jacob Robert Steeves | 208.8% | 44.9% | +163.9 pp |
-| 16 Subnet 16 | 665.5% | 660.7% | +4.8 pp |
-| 103 Terza Inference | 174.5% | 172.7% | +1.7 pp |
-| 36 Weir | 194.0% | 189.6% | +4.4 pp |
-| 70 Fugal | 209.8% | 207.4% | +2.4 pp |
+| 44 Score | 25.0% | 27.4% | -2.4 pp |
+| 9 iota | 31.7% | 31.6% | +0.1 pp |
+| 56 Gradients | 42.1% | 42.0% | +0.2 pp |
+| 68 NOVA | 31.1% | 31.0% | +0.1 pp |
+| 35 Jacob Robert Steeves | 204.3% | 45.3% | +158.9 pp |
+| 16 Subnet 16 | 538.3% | 535.0% | +3.4 pp |
+| 103 Terza Inference | 171.5% | 170.3% | +1.1 pp |
+| 36 Weir | 176.7% | 172.1% | +4.6 pp |
+| 70 Fugal | 204.3% | 202.2% | +2.1 pp |
